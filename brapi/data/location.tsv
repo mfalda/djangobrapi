@@ -1,0 +1,18 @@
+locationDbId	locationType	name	abbreviation	countryCode	countryName	latitude	longitude	altitude	instituteName	instituteAdress
+1	Storage location	Experimental station San Ramon (CIP)	CIPSRM-1	PER	Peru	-11.1275	-75.356389	828	INRA - GDEC	route foo, Clermont Ferrand, France
+2	Breeding location	San Ramon	CIPSRM-2	PER	Peru	-11.16116	-75.34171	964	INRA - GDEC	route foo, Clermont Ferrand, France
+3	Storage location	Experimental station CIP headquarters	CIPHQ	PER	Peru	-12.076289	-76.948417	244	INRA - GDEC	route foo, Clermont Ferrand, France
+4	Farmer field location	Gurue	GURUE	MOZ	Mozambique	-15.4669	36.9777	701	INRA - GDEC	route foo, Clermont Ferrand, France
+5	Breeding location	Umbeluzi	UMBEL	MOZ	Mozambique	-26.0283	32.39	7	INRA - GDEC	route foo, Clermont Ferrand, France
+6	Breeding location	Marankiari	MARANK	PER	Peru	-10.96096	-75.22065	717	INRA - GDEC	route foo, Clermont Ferrand, France
+7	Breeding location	Shirani	SHIRANI	PER	Peru	-10.931809	-74.855467	484	INRA - GDEC	route foo, Clermont Ferrand, France
+8	Farmer field location	Betania Alta	BETALT	PER	Peru	-11.05304	-73.75254	252	INRA - GDEC	route foo, Clermont Ferrand, France
+9	Farmer field location	Betania Baja	BETBAJ	PER	Peru	-11.05304	-73.75254	252	INRA - GDEC	route foo, Clermont Ferrand, France
+10	Breeding location	Nuevaluz Oviri	OVIRI	PER	Peru	-11.25847	-73.82075	276	INRA - GDEC	route foo, Clermont Ferrand, France
+11	Breeding location	Puerto Ocopa	PTOCOPA	PER	Peru	-11.14639	-74.30748	323	INRA - GDEC	route foo, Clermont Ferrand, France
+12	Breeding location	San Pedro	SNPEDRO	PER	Peru	-11.30817	-74.69242	758	INRA - GDEC	route foo, Clermont Ferrand, France
+13	Farmer field location	Fumesua	FUMESUA	GHA	Ghana	6.71	-1572	288	INRA - GDEC	route foo, Clermont Ferrand, France
+14	Farmer field location	Komenda	KOMENDA	GHA	Ghana	5123	-1462	26	INRA - GDEC	route foo, Clermont Ferrand, France
+15	Farmer field location	Tono dam	TONO	GHA	Ghana	10.87	-1.1466	183	INRA - GDEC	route foo, Clermont Ferrand, France
+16	Storage location	National Crops Resources Research Institute	NaCRRI	UGA	Uganda	0.529144	32.61246	1173	INRA - GDEC	route foo, Clermont Ferrand, France
+17	Storage location	National Semi-Arid Resources Research Institute	NaSARRI	UGA	Uganda	1528	33616	1067	INRA - GDEC	route foo, Clermont Ferrand, France
