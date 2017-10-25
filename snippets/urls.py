@@ -3,7 +3,11 @@ from snippets import views
 from snippets.views import SnippetViewSet, UserViewSet
 from rest_framework import renderers
 from rest_framework.routers import DefaultRouter
+from rest_framework.schemas import get_schema_view
 
+
+# since we're using viewsets and routers, we can simply use the automatic schema generation.
+schema_view = get_schema_view(title='Pastebin API')
 
 # bind our ViewSet classes into a set of concrete views (the http methods to the required action for each view)
 snippet_list = SnippetViewSet.as_view({
@@ -42,5 +46,6 @@ urlpatterns = [
 
 # Login and logout views for the browsable API
 urlpatterns += [
+    url(r'^schema/$', schema_view),
     url(r'^api-auth/', include('rest_framework.urls')),
 ]
