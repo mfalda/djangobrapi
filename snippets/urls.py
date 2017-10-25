@@ -1,18 +1,44 @@
 from django.conf.urls import url, include
-from rest_framework.urlpatterns import format_suffix_patterns
 from snippets import views
+from snippets.views import SnippetViewSet, UserViewSet
+from rest_framework import renderers
+from rest_framework.routers import DefaultRouter
 
 
-# allow for suffixes in URLs to select the response format
-# API endpoints. If we're going to have a hyperlinked API, we need to make sure we name our URL patterns
-urlpatterns = format_suffix_patterns([
-    url(r'^$', views.api_root),
-    url(r'^snippets/$', views.SnippetList.as_view(), name='snippet-list'),
-    url(r'^snippets/(?P<pk>[0-9]+)/$', views.SnippetDetail.as_view(), name='snippet-detail'),
-    url(r'^snippets/(?P<pk>[0-9]+)/highlight/$', views.SnippetHighlight.as_view(), name='snippet-highlight'),
-    url(r'^users/$', views.UserList.as_view(), name='user-list'),
-    url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view(), name='user-detail'),
-])
+# bind our ViewSet classes into a set of concrete views (the http methods to the required action for each view)
+snippet_list = SnippetViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
+snippet_detail = SnippetViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+snippet_highlight = SnippetViewSet.as_view({
+    'get': 'highlight'
+}, renderer_classes=[renderers.StaticHTMLRenderer])
+user_list = UserViewSet.as_view({
+    'get': 'list'
+})
+user_detail = UserViewSet.as_view({
+    'get': 'retrieve'
+})
+
+# Because we're using ViewSet classes rather than View classes,
+# the conventions for wiring up resources into views and urls can be handled automatically
+# using a Router class.
+# Create a router and register our viewsets with it (the URL prefix and the ViewSet)
+router = DefaultRouter()
+router.register(r'snippets', views.SnippetViewSet)
+router.register(r'users', views.UserViewSet)
+
+# The API URLs are now determined automatically by the router
+# Additionally, we include the login URLs for the browsable API
+urlpatterns = [
+    url(r'^', include(router.urls)),
+]
 
 # Login and logout views for the browsable API
 urlpatterns += [
