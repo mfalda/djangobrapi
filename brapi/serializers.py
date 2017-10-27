@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from django.db import models
 from django.contrib.auth.models import User
-from brapi.models import Call
+from brapi.models import Call, Location, Crop
+from brapi.apps import BrAPIListPagination
 
 
 class StringListField(serializers.ListField):
@@ -14,22 +15,22 @@ class StringListField(serializers.ListField):
  # using hyperlinks and URLs instead of RDBMs IDs and foreign keys
 class CallsSerializer(serializers.HyperlinkedModelSerializer):
 
-    email = models.CharField(max_length=100, blank=True, default='')
-    datatypes_list = StringListField()
-    methods_list = StringListField()
+    datatypes = StringListField()
+    methods = StringListField()
 
 
     class Meta:
+
         model = Call
-        fields = ('call', 'datatypes_list', 'methods_list')
+        fields = ('call', 'datatypes', 'methods')
 
     # end class Meta
 
 
     def to_representation(self, instance: Call):
         
-        instance.datatypes_list = [str(s) for s in instance.datatypes.split('; ')]
-        instance.methods_list = [str(s) for s in instance.methods.split('; ')]
+        instance.datatypes = [str(s) for s in instance.datatypes.split('; ')]
+        instance.methods = [str(s) for s in instance.methods.split('; ')]
 
         return super(CallsSerializer, self).to_representation(instance)
 
@@ -40,12 +41,12 @@ class CallsSerializer(serializers.HyperlinkedModelSerializer):
 
         ret = super(CallsSerializer, self).to_internal_value(data)
 
-        if ret['datatypes_list']:
-            ret['datatypes'] = '; '.join(str(s) for s in ret['datatypes_list'])
+        if ret['datatypes']:
+            ret['datatypes'] = '; '.join(str(s) for s in ret['datatypes'])
         # end if
 
-        if ret['methods_list']:
-            ret['methods'] = '; '.join(str(s) for s in ret['methods_list'])
+        if ret['methods']:
+            ret['methods'] = '; '.join(str(s) for s in ret['methods'])
         # end if
 
         return ret
@@ -55,3 +56,33 @@ class CallsSerializer(serializers.HyperlinkedModelSerializer):
 
 # end class CallsSerializer
 
+
+class CropSerializer(serializers.HyperlinkedModelSerializer):
+    
+    # when the URL name is different from the model name
+    #url = serializers.HyperlinkedIdentityField(view_name="crops-detail")
+    pagination_class = BrAPIListPagination
+
+    class Meta:
+
+        model = Crop
+        fields = ['data']
+
+    # end class Meta
+
+# end class CropSerializer
+
+
+class LocationSerializer(serializers.HyperlinkedModelSerializer):
+
+    # when the URL name is different from the model name
+    url = serializers.HyperlinkedIdentityField(view_name="locations-detail")
+    
+    class Meta:
+
+        model = Location
+        fields = '__all__'
+
+    # end class Meta
+
+# end class LocationSerializer
