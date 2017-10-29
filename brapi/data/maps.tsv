@@ -1,0 +1,4 @@
+mapDbId	name	species	type	unit	publishedDate	markerCount	comments
+1	SSR map 1	Ipomoea batatas	Genetic	cM	2016-01-06	10
+2	SSR map 2	Ipomoea trifida	Genetic	cM	2016-11-15	10	none
+3	GBS genomic map	Ipomoea batatas	Physical	bp	2016-12-01	20	whatever

@@ -21,5 +21,6 @@ from rest_framework import routers
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     #url(r'^admin/', admin.site.urls),
+    url(r'^', include('snippets.urls')),
     url(r'^', include('brapi.urls')),
 ]

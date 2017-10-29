@@ -29,6 +29,24 @@ if os.getenv('DJANGO_ENV') == 'prod':
 else:
     DEBUG = True
     ALLOWED_HOSTS = []
+
+    LOGGING = {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'loggers': {
+            'django': {
+                'handlers': ['console'],
+                'level': 'DEBUG',
+                'propagate': True,
+            },
+        }
+    }
 # end if
 
 # Application definition
@@ -41,11 +59,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'corsheaders',
     'snippets',
     'brapi'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -131,3 +151,13 @@ REST_FRAMEWORK = {
     'URL_FORMAT_OVERRIDE': 'datatype',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning'
 }
+
+CORS_ORIGIN_WHITELIST = (
+    'localhost:8000',
+    '127.0.0.1:8000'
+)
+
+CSRF_TRUSTED_ORIGINS = (
+    'localhost:8000',
+    '127.0.0.1:8000'
+)

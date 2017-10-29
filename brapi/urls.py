@@ -1,9 +1,11 @@
 from django.conf.urls import url, include
 from brapi import views
-from brapi.views import CallsViewSet, LocationViewSet, CropViewSet
 from rest_framework import renderers
 from rest_framework.routers import DefaultRouter
 from rest_framework.schemas import get_schema_view
+
+from brapi.views import (CallsViewSet, LocationViewSet, CropViewSet, 
+    MapViewSet, MapLinkageView, MapLinkageViewPositions, MarkerViewSet, TraitViewSet)
 
 
 # since we're using viewsets and routers, we can simply use the automatic schema generation.
@@ -24,12 +26,18 @@ locations = LocationViewSet.as_view({
 router = DefaultRouter()
 router.register(r'brapi/v1/calls', views.CallsViewSet, 'calls')
 router.register(r'brapi/v1/locations', views.LocationViewSet, 'locations')
-router.register(r'brapi/v1/crops', views.CropViewSet, 'crops')
+router.register(r'brapi/v1/programs', views.ProgramViewSet, 'programs')
+router.register(r'brapi/v1/maps', views.MapViewSet, 'maps')
+router.register(r'brapi/v1/markers', views.MarkerViewSet, 'markers')
+router.register(r'brapi/v1/traits', views.TraitViewSet, 'traits')
 
 # The API URLs are now determined automatically by the router
 # Additionally, we include the login URLs for the browsable API
 urlpatterns = [
-    url(r'^', include(router.urls)),    
+    url(r'^', include(router.urls)),
+    # cannot use ViewSets because the detail view is not standard
+    url(r'brapi/v1/maps/(?P<mapDbId>.+)/positions/$', views.MapLinkageView.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>.+)/positions/(?P<linkageGroupId>[0-9]+)/$', views.MapLinkageViewPositions.as_view()),
 ]
 
 # Login and logout views for the browsable API
