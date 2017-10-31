@@ -1,0 +1,3 @@
+observationDbId	observationVariableDbId	observationVariableName	observationTimeStamp	season	collector	value
+153453453	CO_321:0000045	Plant_height	2015-06-16T00:53:26-0800	2015	Mr. Technician	45
+23453454345	CO_321:0000996	GW100_g	2015-06-16T00:53:26-0800	2015	Mr. Technician	3

@@ -1,0 +1,8 @@
+germplasmDbId	attributeDbId	attributeName	attributeCode	value	dateDetermined
+1	1	Morphological	FLSHORG	Present	2016-01-01
+1	2	Agronomic	RHT	Absent	2016-01-01
+1	3	Biotic stress	WEV	Present	2016-01-01
+2	2	Agronomic	RHT	Absent	2016-01-01
+3	3	Biotic stress	WEV	Heterozygous	2016-01-01
+4	1	Morphological	FLSHORG	Absent	2016-11-01
+5	2	Agronomic	RHT	Present	2016-12-01

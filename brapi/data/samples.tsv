@@ -1,18 +1,2 @@
-"studyDbId": "StudyId-123",
-    "locationDbId": "LocationId-123",
-    "plotId": "PlotId-123",
-    "plantId": "PlantID-123",
-    "sampleId": "Unique-Plant-SampleID",
-    "takenBy": "Mr. Technician",
-    "sampleTimestamp": "2016-07-27T14:43:22+0100",
-    "sampleType": "TypeOfSample",
-    "tissueType": "TypeOfTissue",
-    "notes": "Cut from infected leaf",
-    "studyName": "Yield Trial A",
-    "season": "Summer",
-    "locationName": "Kenya",
-    "entryNumber": 11,
-    "plotNumber": 1,
-    "germplasmDbId": 15,
-    "plantingTimestamp": "2016-01-01T23:22:21+0100",
-    "harvestTimestamp": "2016-06-30T23:33:23+0100"
+studyDbId	locationDbId	plotId	plantId	sampleId	takenBy	sampleTimestamp	sampleType	tissueType	notes	studyName	season	locationName	entryNumber	plotNumber	germplasmDbId	plantingTimestamp	harvestTimestamp
+StudyId-123	LocationId-123	PlotId-123	PlantID-123	Unique-Plant-SampleID	Mr. Technician	2016-07-27T14:43:22+0100	TypeOfSample	TypeOfTissue	Cut from infected leaf	Yield Trial A	Summer	Kenya	11	1	15	2016-01-01T23:22:21+0100	2016-06-30T23:33:23+0100

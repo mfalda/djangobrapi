@@ -1,0 +1,2 @@
+attributeCategoryDbId	code	uri	name	description	datatype	values
+1	RHT	http://www.cropontology.org/rdf/CO_321:0000020	Rht-B1b	Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1"	Categorical	Present; Absent; Heterozygous

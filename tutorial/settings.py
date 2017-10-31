@@ -147,9 +147,14 @@ STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
     'PAGE_SIZE': 100,
+    'PAGINATE_BY_PARAM': 'pageSize',
     'DEFAULT_PAGINATION_CLASS': 'brapi.apps.BrAPIResultsSetPagination',
     'URL_FORMAT_OVERRIDE': 'datatype',
-    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning'
+    'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
+    # allow only requests with JSON content
+    'DEFAULT_PARSER_CLASSES': (
+        'rest_framework.parsers.JSONParser',
+    )
 }
 
 CORS_ORIGIN_WHITELIST = (
