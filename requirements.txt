@@ -14,5 +14,6 @@ requests==2.18.4
 uritemplate==3.0.0
 urllib3==1.22
 uWSGI==2.0.15
-django-cors-headers=2.1.0
-
+django-cors-headers==2.1.0
+python-social-auth==0.2.21
+social-auth-app-django==2.0.0

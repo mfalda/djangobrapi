@@ -9,7 +9,10 @@ from brapi.views import (CallsViewSet, LocationViewSet, CropsViewSet, DatatypesV
     GAListViewSet, GAAttrAvailViewSet, GermplasmAttrView, GermplasmView, GPPedigreeView,
     GPMarkerPView, GermplasmSearchView, TrialViewSet, SampleView, PhenotypeSearchView,
     OntologiesViewSet, StudySeasonsViewSet, StudyTypesViewSet, StudyObsLevelsViewSet,
-    StudyPlotView)
+    StudyPlotView, AlleleMatrixViewSet, AlleleMSearchView, MarkerProfilesDataView, 
+    MarkerProfilesDataView, ObsVariablesListView, ObsVariablesView, VSearchView,
+    StudyObsUnitsView, SSearchView, StudyObsUnitsDetailsView, StudyDetailsView,
+    StudyGermplasmDetailsView, StudyObsUnitsTableView, StudyObsVarsView)
 
 
 # since we're using viewsets and routers, we can simply use the automatic schema generation.
@@ -41,10 +44,10 @@ router.register(r'brapi/v1/attributes', views.GAAttrAvailViewSet, 'GA_attr_avail
 router.register(r'brapi/v1/trials', views.TrialViewSet, 'trials')
 router.register(r'brapi/v1/variables/datatypes', views.DatatypesViewSet, 'datatypes')
 router.register(r'brapi/v1/ontologies', views.OntologiesViewSet, 'ontologies')
-router.register(r'brapi/v1/seasons', views.StudySeasonsViewSet, 'ontologies')
-router.register(r'brapi/v1/observationLevels', views.StudyObsLevelsViewSet, 'ontologies')
-router.register(r'brapi/v1/studyTypes', views.StudyTypesViewSet, 'ontologies')
-
+router.register(r'brapi/v1/seasons', views.StudySeasonsViewSet, 'study_seasons')
+router.register(r'brapi/v1/observationLevels', views.StudyObsLevelsViewSet, 'study_obs_levels')
+router.register(r'brapi/v1/studyTypes', views.StudyTypesViewSet, 'study_types')
+router.register(r'brapi/v1/allelematrices', views.AlleleMatrixViewSet, 'allele_matrix')
 
 # The API URLs are now determined automatically by the router
 # Additionally, we include the login URLs for the browsable API
@@ -69,10 +72,32 @@ urlpatterns = [
     url(r'brapi/v1/phenotypes-search$', views.PhenotypeSearchView.as_view()),
 
     url(r'brapi/v1/studies/(?P<studyDbId>[0-9]+)/layout$', views.StudyPlotView.as_view()),
+
+    # cannot use a ViewSet because POST is not used for creating a resource
+    url(r'brapi/v1/allelematrix-search', views.AlleleMSearchView.as_view()),
+
+    # cannot use ViewSets because one URL has the structure of a detail view, but it is not a detail view
+    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[0-9]+)$', views.MarkerProfilesDataView.as_view()),
+    url(r'brapi/v1/markerprofiles$', views.MarkerProfilesView.as_view()),
+
+    # cannot use ViewSets because the detail view is not standard
+    url(r'brapi/v1/variables/(?P<observationVariableDbId>.+)/$', views.ObsVariablesView.as_view()),
+    url(r'brapi/v1/variables$', views.ObsVariablesListView.as_view()),
+    url(r'brapi/v1/variables-search$', views.VSearchView.as_view()),
+
+    url(r'brapi/v1/studies/studies-search$', views.SSearchView.as_view()),    
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations$', views.StudyObsUnitsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits$', views.StudyObsUnitsDetailsView.as_view()),    
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm$', views.StudyGermplasmDetailsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/table$', views.StudyObsUnitsTableView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables$', views.StudyObsVarsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)$', views.StudyDetailsView.as_view())
 ]
 
 # Login and logout views for the browsable API
 urlpatterns += [
     url(r'^schema/$', schema_view),
     url(r'^api-auth/', include('rest_framework.urls')),
+    url(r'^brapi/v1/token/(?P<backend>[^/]+)/', views.exchange_token),
+    url('', include('social_django.urls', namespace='social'))
 ]

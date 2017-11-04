@@ -5,7 +5,21 @@ from django.contrib.auth.models import User
 from brapi.models import (Call, Location, Crop, Program, Map, MapLinkage, Marker, Trait, 
     GAList, GAAttrAvail, GermplasmAttr, Germplasm, GPPedigree, GPDonor, GPMarkerP, MarkerProfile,
     Study, Trial, Sample, Observation, ObservationUnitXref, Treatment, Phenotype, Datatype, 
-    Ontology, StudySeason, StudyType, StudyObsLevel, StudyPlot)
+    Ontology, StudySeason, StudyType, StudyObsLevel, StudyPlot, AlleleMatrix, AlleleMSearch,
+    MarkerProfilesData, ObsVValue, ObsMethod, ObsScale, ObsTrait, ObsVariable,
+    StudyObsUnit, Study)
+
+
+class SocialSerializer(serializers.Serializer):
+    """
+    Serializer which accepts an OAuth2 access token.
+    """
+    access_token = serializers.CharField(
+        allow_blank=False,
+        trim_whitespace=True,
+    )
+
+# end class SocialSerializer
 
 
 class StringListField(serializers.ListField):
@@ -352,8 +366,6 @@ class GPDonorSerializer(serializers.ModelSerializer):
 
 class MarkerProfileSerializer(serializers.ModelSerializer):
 
-    germplasmDbId = GermplasmSerializer(many=True, read_only=True)
-
     class Meta:
 
         model = MarkerProfile
@@ -374,6 +386,7 @@ class GPMarkerPSerializer(serializers.ModelSerializer):
         fields = ('germplasmDbId', 'markerProfilesDbIds')
 
     # end class Meta
+
 
     def to_representation(self, instance: Call):
     
@@ -401,6 +414,9 @@ class GPMarkerPSerializer(serializers.ModelSerializer):
 
 class StudySerializer(serializers.ModelSerializer):
 
+    StudySerializer = StringListField()
+    
+    
     class Meta:
 
         model = Study
@@ -408,6 +424,28 @@ class StudySerializer(serializers.ModelSerializer):
 
     # end class Meta
 
+
+    def to_representation(self, instance: Call):
+    
+        instance.contactDbId = [str(s) for s in instance.contactDbId.split('; ')]
+
+        return super(StudySerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(StudySerializer, self).to_internal_value(data)
+
+        if ret['contactDbId']:
+            ret['contactDbId'] = '; '.join(str(s) for s in ret['contactDbId'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+    
 # end class StudySerializer
 
 
@@ -555,3 +593,192 @@ class StudyPlotSerializer(serializers.ModelSerializer):
     # end class Meta
 
 # end class StudyPlotSerializer
+
+
+class AlleleMatrixSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+
+        model = AlleleMatrix
+        exclude = ['id']
+
+    # end class Meta
+
+# end class AlleleMatrixSerializer
+
+
+class AlleleMSearchSerializer(serializers.ModelSerializer):
+    
+    data = StringListField()
+
+    class Meta:
+
+        model = AlleleMSearch
+        exclude = ['id']
+
+    # end class Meta
+
+    def to_representation(self, instance: Call):
+        
+        instance.data = [str(s) for s in instance.data.split('; ')]
+
+        return super(AlleleMSearchSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(AlleleMSearchSerializer, self).to_internal_value(data)
+
+        if ret['data']:
+            ret['data'] = '; '.join(str(s) for s in ret['data'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+
+# end class AlleleMSearchSerializer
+
+
+class MarkerProfilesDataSerializer(serializers.ModelSerializer):
+    
+    data = StringListField()
+
+    class Meta:
+
+        model = MarkerProfilesData
+        exclude = ['id']
+
+    # end class Meta
+
+    def to_representation(self, instance: Call):
+    
+        instance.data = [str(s) for s in instance.data.split('; ')]
+
+        return super(MarkerProfilesDataSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(MarkerProfilesDataSerializer, self).to_internal_value(data)
+
+        if ret['data']:
+            ret['data'] = '; '.join(str(s) for s in ret['data'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+    
+# end class MarkerProfilesDataSerializer
+
+
+class ObsVValueSerializer(serializers.ModelSerializer):
+        
+    categories = StringListField()
+
+
+    class Meta:
+
+        model = ObsVValue
+        exclude = ['id']
+
+    # end class Meta
+
+
+    def to_representation(self, instance: Call):
+    
+        instance.categories = [str(s) for s in instance.categories.split('; ')]
+
+        return super(ObsVValueSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(ObsVValueSerializer, self).to_internal_value(categories)
+
+        if ret['categories']:
+            ret['categories'] = '; '.join(str(s) for s in ret['categories'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+    
+# end class ObsVValueSerializer
+
+
+class ObsMethodSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+
+        model = ObsMethod
+        exclude = ['id']
+
+    # end class Meta
+
+# end class ObsMethodSerializer
+
+
+class ObsScaleSerializer(serializers.ModelSerializer):
+    
+    validValues = ObsVValueSerializer(read_only=True)
+
+    class Meta:
+
+        model = ObsScale
+        exclude = ['id']
+
+    # end class Meta
+
+# end class ObsScaleSerializer
+
+
+class ObsTraitSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = ObsTrait
+        exclude = ['id']
+
+    # end class Meta
+
+ # end class ObsTraitSerializer
+
+
+class ObsVariableSerializer(serializers.ModelSerializer):
+    
+    method = ObsMethodSerializer(read_only=True)
+    trait = ObsTraitSerializer(read_only=True)
+    scale = ObsScaleSerializer(read_only=True)
+
+    class Meta:
+
+        model = ObsVariable
+        exclude = ['id']
+
+    # end class Meta
+ 
+# end class ObsVariableSerializer
+
+
+class StudyObsUnitSerializer(serializers.ModelSerializer):
+    
+    method = ObsMethodSerializer(read_only=True)
+    trait = ObsTraitSerializer(read_only=True)
+    scale = ObsScaleSerializer(read_only=True)
+
+    class Meta:
+
+        model = StudyObsUnit
+        exclude = ['id']
+
+    # end class Meta
+ 
+# end class StudyObsUnitSerializer

@@ -10,22 +10,109 @@ from brapi.apps import BrAPIResultsSetPagination, BrAPIListPagination
 from rest_framework.views import APIView
 from django.db.models import Q
 import logging
+from rest_framework.authtoken.models import Token
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
+from requests.exceptions import HTTPError
+from social_django.utils import psa
 
-from brapi.models import (Call, Trait, Crop, Program, Map, MapLinkage, Marker, Trait, 
+from brapi.models import (Call, Trait, Crop, Program, Location, Map, MapLinkage, Marker, Trait, 
     GAList, GAAttrAvail, GermplasmAttr, Germplasm, GPPedigree, GPDonor, GPMarkerP, Trial,
     Sample, Phenotype, Datatype, Ontology, StudySeason, StudyType, StudyObsLevel,
-    StudyPlot)
+    StudyPlot, AlleleMatrix, AlleleMSearch, MarkerProfile, MarkerProfilesData,
+    ObsVValue, ObsScale, ObsMethod, ObsTrait, ObsVariable, StudyObsUnit, Study)
 
-from brapi.serializers import (CallsSerializer, LocationSerializer, CropSerializer,
+from brapi.serializers import (SocialSerializer, CallsSerializer, LocationSerializer, CropSerializer,
     ProgramSerializer, MapSerializer, MapLinkageSerializer, MarkerSerializer, TraitSerializer,
     GAListSerializer, GAAttrAvailSerializer, GermplasmAttrSerializer, GermplasmSerializer, 
     GPPedigreeSerializer, GPDonorSerializer, GPMarkerPSerializer, TrialSerializer, SampleSerializer,
     PhenotypeSerializer, DatatypeSerializer, OntologySerializer, StudySeasonSerializer, StudyTypeSerializer,
-    StudyObsLevelSerializer, StudyPlotSerializer)
+    StudyObsLevelSerializer, StudyPlotSerializer, AlleleMatrixSerializer, AlleleMSearchSerializer,
+    MarkerProfileSerializer, MarkerProfilesDataSerializer, ObsVValueSerializer, ObsScaleSerializer,
+    ObsTraitSerializer, ObsMethodSerializer, ObsVariableSerializer, StudyObsUnitSerializer, StudySerializer)
 
 
 # the DefaultRouter class we're using in urls.py  also automatically creates the API root view
 
+
+@api_view(http_method_names=['POST'])
+@permission_classes([AllowAny])
+@psa()
+def exchange_token(request, backend):
+    """
+    Exchange an OAuth2 access token for one for this site.
+    This simply defers the entire OAuth2 process to the front end.
+    The front end becomes responsible for handling the entirety of the
+    OAuth2 process; we just step in at the end and use the access token
+    to populate some user identity.
+    The URL at which this view lives must include a backend field, like:
+        url(API_ROOT + r'social/(?P<backend>[^/]+)/$', exchange_token),
+    Using that example, you could call this endpoint using i.e.
+        POST API_ROOT + 'social/facebook/'
+        POST API_ROOT + 'social/google-oauth2/'
+    Note that those endpoint examples are verbatim according to the
+    PSA backends which we configured in settings.py. If you wish to enable
+    other social authentication backends, they'll get their own endpoints
+    automatically according to PSA.
+    ## Request format
+    Requests must include the following field
+    - `access_token`: The OAuth2 access token provided by the provider
+    """
+    serializer = SocialSerializer(data=request.data)
+    if serializer.is_valid(raise_exception=True):
+        # set up non-field errors key
+        # http://www.django-rest-framework.org/api-guide/exceptions/#exception-handling-in-rest-framework-views
+        try:
+            nfe = settings.NON_FIELD_ERRORS_KEY
+        except AttributeError:
+            nfe = 'non_field_errors'
+        # end try
+
+        try:
+            # this line, plus the psa decorator above, are all that's necessary to
+            # get and populate a user object for any properly enabled/configured backend
+            # which python-social-auth can handle.
+            user = request.backend.do_auth(serializer.validated_data['access_token'])
+        except HTTPError as e:
+            # An HTTPError bubbled up from the request to the social auth provider.
+            # This happens, at least in Google's case, every time you send a malformed
+            # or incorrect access key.
+            return Response(
+                {'errors': {
+                    'token': 'Invalid token',
+                    'detail': str(e),
+                }},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        # end try
+
+        if user:
+            if user.is_active:
+                token, _ = Token.objects.get_or_create(user=user)
+                return Response({'token': token.key})
+            else:
+                # user is not active; at some point they deleted their account,
+                # or were banned by a superuser. They can't just log in with their
+                # normal credentials anymore, so they can't log in with social
+                # credentials either.
+                return Response(
+                    {'errors': {nfe: 'This user account is inactive'}},
+                    status=status.HTTP_400_BAD_REQUEST,
+                )
+            # end if
+        else:
+            # Unfortunately, PSA swallows any information the backend provider
+            # generated as to why specifically the authentication failed;
+            # this makes it tough to debug except by examining the server logs.
+            return Response(
+                {'errors': {nfe: "Authentication Failed"}},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        # end if
+    # end if
+
+# end def exchange_token
+ 
 
 def _search_get_qparams(self, queryset, params):
 
@@ -57,9 +144,9 @@ def _search_post_params_in(self, queryset, params):
 # end def _search_post_params_in
 
 
-def _paginate(queryset, request, serializer):
+def _paginate(queryset, request, serializer, paginator_class=BrAPIResultsSetPagination):
     
-    paginator = BrAPIResultsSetPagination()
+    paginator = paginator_class()
 
     page = paginator.paginate_queryset(queryset, request)
     if page is not None:
@@ -463,12 +550,12 @@ class SampleView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 
-        logger = logging.getLogger(__name__)
-        logger.warn("Sample id '%s'" % self.kwargs['sampleId'])
-
         queryset = Sample.objects.all()
 
         sampleId = self.kwargs.get('sampleId', None)
+        logger = logging.getLogger(__name__)
+        logger.warn("Sample id '%s'" % sampleId)
+        
         if sampleId is not None:
             queryset = queryset.filter(sampleId=sampleId)
         # end if        
@@ -503,7 +590,7 @@ class PhenotypeSearchView(APIView):
         params = self.request.data
 
         logger = logging.getLogger(__name__)
-        logger.warn("Parameters: %s" % params)
+        logger.warn("Search parameters: %s" % params)
 
         queryset = _search_post_params_in(self, queryset, [('germplasmDbIds', 'germplasmDbIds'), 
             ('observationVariableDbIds', 'observationVariableDbIds'), ('studyDbIds', 'studyDbIds'), 
@@ -594,3 +681,337 @@ class StudyPlotView(APIView):
     # end def get
 
 # end class StudyPlotView
+
+
+class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
+    
+    serializer_class = AlleleMatrixSerializer
+
+    def get_queryset(self):
+
+        queryset = AlleleMatrix.objects.all()
+
+        return _search_get_qparams(self, queryset, [('studyDbId', 'studyDbId')])
+
+    # end def get_queryset
+
+# end class AlleleMatrixViewSet
+
+
+class AlleleMSearchView(APIView):
+    
+    serializer_class = AlleleMSearchSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = AlleleMSearch.objects.all()
+
+        # TODO: it is not clear to which data the query parameters apply!
+        # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
+        queryset = _search_get_qparams(self, queryset, [('markerprofileDbId', 'markerprofileDbId'), ('markerDbId', 'markerDbId')])
+
+        return _paginate(queryset, request, 'AlleleMSearchSerializer', BrAPIListPagination)
+
+    # end def get
+
+       
+    def post(self, request, format=None, *args, **kwargs):
+            
+        queryset = AlleleMSearch.objects.all()
+
+        # TODO: it is not clear to which data the query parameters apply!
+        # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
+        queryset = _search_post_params_in(self, queryset, [('markerprofileDbId', 'markerprofileDbId'), ('markerDbId', 'markerDbId')])
+
+        return _paginate(queryset, request, 'AlleleMSearchSerializer', BrAPIListPagination)
+
+    # end def post
+
+         
+# end class AlleleMSearchView
+
+
+class MarkerProfilesDataView(APIView):
+    
+    serializer_class = MarkerProfilesDataSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+    
+        logger = logging.getLogger(__name__)
+        logger.warn("Markerprofiles data")
+
+        queryset = MarkerProfilesData.objects.all()
+
+        markerprofileDbId = self.kwargs.get('markerprofileDbId', None)
+        if markerprofileDbId is not None:
+            queryset = queryset.filter(markerprofileDbId=markerprofileDbId)
+        # end if
+
+        # TODO: it is not clear to which data the query parameters apply!
+        # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
+        queryset = queryset #_search_get_qparams(self, queryset, [('year', 'year')])
+
+        return _paginate(queryset, request, 'MarkerProfilesDataSerializer')
+
+    # end def get
+
+# end class MarkerProfilesDataView
+
+
+class MarkerProfilesView(APIView):
+
+    serializer_class = MarkerProfileSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+    
+        queryset = MarkerProfile.objects.all()
+
+        queryset = _search_get_qparams(self, queryset, [('germplasm', 'germplasmDbId'),
+            ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
+            ('method', 'analysisMethod')])
+
+        return _paginate(queryset, request, 'MarkerProfileSerializer')
+
+    # end def get
+
+
+    def post(self, request, format=None, *args, **kwargs):
+        
+        queryset = MarkerProfile.objects.all()
+
+        queryset = _search_post_params_in(self, queryset, [('germplasm', 'germplasmDbId'),
+            ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
+            ('method', 'analysisMethod')])
+
+        return _paginate(queryset, request, 'MarkerProfileSerializer')
+
+    # end def post
+
+# end class MarkerProfilesView
+
+
+class ObsVariablesView(APIView):
+    
+    serializer_class = ObsVariableSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = ObsVariable.objects.all()
+
+        observationVariableDbId = self.kwargs.get('observationVariableDbId', None)
+        if observationVariableDbId is not None:
+            queryset = queryset.filter(observationVariableDbId=observationVariableDbId)
+        # end if
+
+        return _paginate(queryset, request, 'ObsVariableSerializer')
+
+    # end def get_queryset
+
+# end class ObsVariablesView
+
+
+class ObsVariablesListView(APIView):
+    
+    serializer_class = ObsVariableSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = ObsVariable.objects.all()
+
+        # this search is not standard since it is on a related table
+        param_value = self.request.query_params.get('traitClass', None)
+        if param_value is not None:
+            queryset = queryset.filter(trait__classe=param_value)
+        # end if
+
+        return _paginate(queryset, request, 'ObsVariableSerializer')
+
+    # end def get
+
+# end class ObsVariablesListView
+
+
+class VSearchView(APIView):
+
+    serializer_class = ObsVariableSerializer
+
+    def post(self, request, format=None, *args, **kwargs):
+        
+        queryset = ObsVariable.objects.all()
+
+        # TODO: add ('datatypes'), ('traitClasses')
+        queryset = _search_post_params_in(self, queryset, [('observationVariableDbId', 'observationVariableDbIds'),
+            ('ontologyXref', 'ontologyXrefs'),
+            ('ontologyDbId', 'ontologyDbIds'),
+            ('method', 'methodDbIds'),
+            ('scale', 'scaleDbIds'),
+            ('name', 'names')])
+
+        return _paginate(queryset, request, 'ObsVariableSerializer')
+
+    # end def post
+
+# end class VSearchView
+    
+    
+class StudyObsUnitsView(APIView):
+
+    serializer_class = StudyObsUnitSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = StudyObsUnit.objects.all()
+
+        queryset = _search_post_params_in(self, queryset, [('observationVariableDbIds', 'observationVariableDbIds')])
+    
+        return _paginate(queryset, request, 'StudyObsVariableSerializer')
+
+    # end def get
+    
+# end class StudyObsUnitsView
+    
+
+class SSearchView(APIView):
+
+    serializer_class = StudyObsUnitSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = Study.objects.all()
+
+        queryset = _search_get_qparams(self, queryset, [('studyType', 'studyType'),
+            ('seasonDbId', 'seasonDbId'),
+            ('locationDbId', 'locationDbId'),
+            ('programDbId', 'programDbId'),
+            ('germplasmDbId', 'germplasmDbIds'),
+            ('observationVariableDbId', 'observationVariableDbIds'),
+            ('active', 'active')])
+    
+        return _paginate(queryset, request, 'StudySerializer')
+
+    # end def get
+
+
+    def post(self, request, format=None, *args, **kwargs):
+        
+        queryset = Study.objects.all()
+
+        queryset = _search_post_params_in(self, queryset, [('studyType', 'studyType'),
+            ('seasonDbId', 'seasonDbId'),
+            ('locationDbId', 'locationDbId'),
+            ('programDbId', 'programDbId'),
+            ('germplasmDbId', 'germplasmDbIds'),
+            ('observationVariableDbId', 'observationVariableDbIds'),
+            ('active', 'active')])
+    
+        return _paginate(queryset, request, 'StudySerializer')
+
+    # end def post
+    
+# end class SSearchView
+    
+
+class StudyObsUnitsDetailsView(APIView):
+
+    serializer_class = StudyObsUnitSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = StudyObsUnit.objects.all()
+
+        return _paginate(queryset, request, 'StudyObsUnitSerializer')
+
+    # end def get
+    
+# end class StudyObsUnitsDetailsView
+
+
+class StudyDetailsView(APIView):
+    
+    serializer_class = StudySerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = Study.objects.all()
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            queryset = queryset.filter(studyDbId=studyDbId)
+        # end if
+        
+        return _paginate(queryset, request, 'StudySerializer')
+
+    # end def get
+    
+# end class StudyDetailsView
+
+
+class StudyGermplasmDetailsView(APIView):
+
+    serializer_class = GermplasmSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = Germplasm.objects.all()
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            queryset = queryset.filter(study__studyDbId=studyDbId)
+        # end if
+        
+        return _paginate(queryset, request, 'GermplasmSerializer')
+
+    # end def get
+    
+# end class StudyGermplasmDetailsView
+
+
+class StudyObsUnitsTableView(APIView):
+    
+    serializer_class = StudyObsUnitSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = StudyObsUnit.objects.all()
+
+        return _paginate(queryset, request, 'StudyObsUnitSerializer')
+
+    # end def get
+    
+# end class StudyObsUnitsTableView
+
+
+class StudyObsVarsView(APIView):
+    
+    serializer_class = ObsVariableSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = ObsVariable.objects.all()
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            queryset = (queryset.select_related('observations')
+                .select_related('observations_units')
+                .select_related('studies')
+                .filter(studyDbId=studyDbId))
+        # end if
+        
+        return _paginate(queryset, request, 'ObsVariableSerializer')
+
+    # end def get
+    
+# end class StudyObsVarsView
+    

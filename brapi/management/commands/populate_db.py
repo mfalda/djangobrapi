@@ -4,7 +4,8 @@ from django.core.management.base import BaseCommand, CommandError
 from brapi.models import (Call, Location, Program, Crop, Map, MapLinkage, Marker, Trait,
     GAList, GAAttrAvail, GermplasmAttr, Germplasm, GPPedigree, GPDonor, GPMarkerP, MarkerProfile,
     Study, Trial, Sample, Observation, ObservationUnitXref, Treatment, Phenotype, Datatype,
-    Ontology, StudySeason, StudyType, StudyObsLevel, StudyPlot)
+    Ontology, StudySeason, StudyType, StudyObsLevel, StudyPlot, AlleleMatrix, AlleleMSearch,
+    MarkerProfilesData, ObsVValue, ObsMethod, ObsScale, ObsTrait, ObsVariable, StudyObsUnit, Study)
 
 
 class Command(BaseCommand):
@@ -28,6 +29,7 @@ class Command(BaseCommand):
                         fields[f] = fields[f].split('; ')
                     # end for
                     row = eval('%s(None, *fields)' % classname)
+                    print('INSERT: %s(None, %s)' % (classname, fields))
                     row.save()
                 # end if
             # end for
@@ -64,7 +66,7 @@ class Command(BaseCommand):
         # self._populate_table(tsv + '/markerprofiles.tsv', 'MarkerProfile')
         # self._populate_table(tsv + '/germplasm_markerprofiles.tsv', 'GPMarkerP')
 
-        # self._populate_table(tsv + '/studies.tsv', 'Study')
+        self._populate_table(tsv + '/studies.tsv', 'Study', [14]) 
         # self._populate_table(tsv + '/trials.tsv', 'Trial')
 
         # self._populate_table(tsv + '/samples.tsv', 'Sample')
@@ -84,7 +86,7 @@ class Command(BaseCommand):
         # self.stdout.write(self.style.SUCCESS('Successfully populated table "ObservationUnitXref"'))
 
         # self._populate_table(tsv + '/treatments.tsv', 'Treatment')
-        # self._populate_table(tsv + '/phenotypes.tsv', 'Phenotype')
+        #self._populate_table(tsv + '/phenotypes.tsv', 'Phenotype')
 
         # self._populate_table(tsv + '/variables_datatypes.tsv', 'Datatype')
         # self._populate_table(tsv + '/variables_ontologies.tsv', 'Ontology')
@@ -93,6 +95,18 @@ class Command(BaseCommand):
         # self._populate_table(tsv + '/study_types.tsv', 'StudyType')
         # self._populate_table(tsv + '/study_obs_levels.tsv', 'StudyObsLevel')
         # self._populate_table(tsv + '/study_plot_layouts.tsv', 'StudyPlot')
+
+        # self._populate_table(tsv + '/allele_matrices.tsv', 'AlleleMatrix')
+        # self._populate_table(tsv + '/allele_matrix.tsv', 'AlleleMSearch', [0])
+        # self._populate_table(tsv + '/markerprofiles_data.tsv', 'MarkerProfilesData', [5])
+
+        # self._populate_table(tsv + '/obs_vvalues.tsv', 'ObsVValue', [1])
+        # self._populate_table(tsv + '/obs_scales.tsv', 'ObsScale')
+        # self._populate_table(tsv + '/obs_traits.tsv', 'ObsTrait')
+        # self._populate_table(tsv + '/obs_methods.tsv', 'ObsMethod')
+        # self._populate_table(tsv + '/obs_variables.tsv', 'ObsVariable')
+        
+        self._populate_table(tsv + '/study_obs_units.tsv', 'StudyObsUnit')
 
     # end def handle
 
