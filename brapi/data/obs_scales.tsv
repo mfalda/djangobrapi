@@ -1,0 +1,4 @@
+scaleDbId	name	datatype	decimalPlaces	xref	validValues
+CO_334:0100526	ug/g	Numeric	0		1
+CO_334:0100527	kg	Numeric	2		2
+CO_334:0100528	ug/g	Numeric	0		1

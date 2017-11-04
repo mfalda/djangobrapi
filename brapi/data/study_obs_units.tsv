@@ -1,0 +1,2 @@
+studyDbId	obserationDbId	observationUnitDbId	observationUnitName	observationLevel 	observationVariableDbId 	observationVariableName 	observationTimestamp 	uploadedBy 	operator 	germplasmDbId 	germplasmName	value 
+1	3383838	11	ZIPA_68_Ibadan_2014	plot	393939	Yield	2015-11-05T15:12:56+0100	dbUserId	Jane Doe	8383	143	5

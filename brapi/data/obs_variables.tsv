@@ -1,0 +1,6 @@
+observationVariableDbId	name	ontologyDbId	ontologyName	synonyms	contextOfUse	growthStage	status	xref	institution	scientist	date	language	crop	defaultValue	trait	method	scale
+CO_334:0100632	CT_M_C	CO_334	Cassava								2000-01-01				CO_334:0100630		
+CO_334:0100622	caro_spectro	CO_334	Cassava	Carotenoid content by spectro	Trial evaluation; Nursery evaluation	mature	recommended	TL_455:0003001			2016-05-13	EN	cassava	2	CO_334:0100620	CO_334:0010320	CO_334:0100526
+CO_334:0100622	caro_spectro	CO_334	Cassava	Carotenoid content by spectro	Trial evaluation; Nursery evaluation	mature	recommended	TL_455:0003001			2016-05-13	EN	cassava	2	CO_334:0100620	CO_334:0010320	CO_334:0100526
+CO_334:0100789	Yield	CO_334	Cassava	Marketable Yield; Yield I	Trial evaluation	mature	recommended	TL_455:0003007	INST1	M. Who	2016-08-15	EN	cassava		CO_334:0100621		CO_334:0100527
+CO_334:0100987	Fe	CO_334	Cassava	Iron content		mature	recommended	TL_455:0003008	INST2	K. Mart	2016-01-12	EN	cassava	3	CO_334:0100622		CO_334:0100528

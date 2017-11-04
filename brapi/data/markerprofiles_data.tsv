@@ -1,0 +1,2 @@
+germplasmDbId	uniqueDisplayName	extractDbId	markerprofileDbId	analysisMethod	data
+993	MyNameHere	38383	37484	GBS-Pst1	{ ‘marker1’: ‘A’ }; { ‘marker2’: ‘A/B’ }
