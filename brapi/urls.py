@@ -68,7 +68,7 @@ router.register(r'brapi/v1/allelematrices', AlleleMatrixViewSet, 'allele_matrix'
 urlpatterns = [
     url(r'^', include(router.urls)),
     # cannot use ViewSets because the detail view is not standard
-    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions$', MapLinkageView.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions$', MapLinkageView.as_view(), name='map_positions'),
     url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)$', MapLinkageViewPositions.as_view()),
 
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/attributes$', GermplasmAttrView.as_view()),

@@ -19,7 +19,7 @@ class Germplasm(models.Model):
     instituteName = models.CharField(max_length=100, blank=True, default='')
     biologicalStatusOfAccessionCode = models.IntegerField()
     countryOfOriginCode = models.CharField(max_length=100, blank=True, default='')
-    typeOfGermplasmStorageCode = models.IntegerField()
+    typeOfGermplasmStorageCode = models.CharField(max_length=100, blank=True, default='')
     genus = models.CharField(max_length=100, blank=True, default='')
     species = models.CharField(max_length=100, blank=True, default='')
     speciesAuthority = models.CharField(max_length=100, blank=True, default='')
@@ -34,7 +34,7 @@ class Germplasm(models.Model):
     def save(self, *args, **kwargs):
 
         self.synonyms = '; '.join(self.synonyms)
-        self.typeOfGermplasmStorageCode = '; '.join(self.typeOfGermplasmStorageCode)
+        self.taxonIds = '; '.join(self.taxonIds)
         self.donors = '; '.join(self.donors)
         super(Germplasm, self).save(*args, **kwargs)
 
@@ -84,7 +84,7 @@ class GermplasmSerializer(serializers.ModelSerializer):
 
     synonyms = StringListField()
     donors = StringListField()
-    typeOfGermplasmStorageCode = StringListField()
+    #typeOfGermplasmStorageCode = StringListField()
 
     class Meta:
 
@@ -98,7 +98,7 @@ class GermplasmSerializer(serializers.ModelSerializer):
 
         instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
         instance.donors = [str(s) for s in instance.donors.split('; ')]
-        instance.typeOfGermplasmStorageCode = [str(s) for s in instance.typeOfGermplasmStorageCode.split('; ')]
+        instance.taxonIds = [str(s) for s in instance.taxonIds.split('; ')]
 
         return super(GermplasmSerializer, self).to_representation(instance)
 
@@ -117,10 +117,10 @@ class GermplasmSerializer(serializers.ModelSerializer):
             ret['donors'] = '; '.join(str(s) for s in ret['donors'])
         # end if
 
-        if ret['typeOfGermplasmStorageCode']:
-            ret['typeOfGermplasmStorageCode'] = '; '.join(str(s) for s in ret['typeOfGermplasmStorageCode'])
+        if ret['taxonIds']:
+            ret['taxonIds'] = '; '.join(str(s) for s in ret['taxonIds'])
         # end if
-        #         
+        
         return ret
 
     # end def to_internal_value    

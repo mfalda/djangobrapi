@@ -12,6 +12,13 @@ from brapi.aux_fun import _search_get_qparams
 
 class MapViewSet(viewsets.ReadOnlyModelViewSet):
 
+    class Meta:
+        
+        ordering = ['-id']
+        
+    # end class Meta
+    
+    
     def get_queryset(self):
 
         self.serializer_class = MapSerializer

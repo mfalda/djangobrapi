@@ -17,8 +17,8 @@ class Ontology(models.Model):
     ontologyName = models.CharField(max_length=100, blank=True, default='')
     authors = models.CharField(max_length=100, blank=True, default='')
     version = models.CharField(max_length=100, blank=True, default='')
-    copyright = models.CharField(max_length=100, blank=True, default='')
-    licence = models.CharField(max_length=100, blank=True, default='')
+    copyright = models.CharField(max_length=100, null=True, default='')
+    licence = models.CharField(max_length=100, null=True, default='')
 
 # end class Ontology
 
@@ -56,7 +56,7 @@ class ObsScale(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     datatype = models.CharField(max_length=100, blank=True, default='')
     decimalPlaces = models.CharField(max_length=100, blank=True, default='')
-    xref = models.CharField(max_length=100, blank=True, default='')
+    xref = models.CharField(max_length=100, null=True, default='')
     validValues = models.ForeignKey(ObsVValue, db_column='validValues', related_name='validValues', on_delete=models.CASCADE, default='', to_field='id')
 
 # end class ObsScale
@@ -72,7 +72,7 @@ class ObsTrait(models.Model):
     mainAbbreviation = models.CharField(max_length=100, blank=True, default='')
     alternativeAbbreviations = models.CharField(max_length=100, blank=True, default='')
     entity = models.CharField(max_length=100, blank=True, default='')
-    attribute = models.CharField(max_length=100, blank=True, default='')
+    attribute = models.CharField(max_length=100, null=True, default='')
     status = models.CharField(max_length=100, blank=True, default='')
     xref = models.CharField(max_length=100, blank=True, default='')
     uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
@@ -90,17 +90,17 @@ class ObsVariable(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     ontologyDbId = models.CharField(max_length=100, blank=True, default='')
     ontologyName = models.CharField(max_length=100, blank=True, default='')
-    synonyms = models.CharField(max_length=100, blank=True, default='')
-    contextOfUse = models.CharField(max_length=100, blank=True, default='')
-    growthStage = models.CharField(max_length=100, blank=True, default='')
-    status = models.CharField(max_length=100, blank=True, default='')
-    xref = models.CharField(max_length=100, blank=True, default='')
-    institution = models.CharField(max_length=100, blank=True, default='')
-    scientist = models.CharField(max_length=100, blank=True, default='')
+    synonyms = models.CharField(max_length=100, null=True, default='')
+    contextOfUse = models.CharField(max_length=100, null=True, default='')
+    growthStage = models.CharField(max_length=100, null=True, default='')
+    status = models.CharField(max_length=100, null=True, default='')
+    xref = models.CharField(max_length=100, null=True, default='')
+    institution = models.CharField(max_length=100, null=True, default='')
+    scientist = models.CharField(max_length=100, null=True, default='')
     date = models.DateField()
-    language = models.CharField(max_length=100, blank=True, default='')
-    crop = models.CharField(max_length=100, blank=True, default='')
-    defaultValue = models.CharField(max_length=100, blank=True, default='')
+    language = models.CharField(max_length=100, null=True, default='')
+    crop = models.CharField(max_length=100, null=True, default='')
+    defaultValue = models.CharField(max_length=100, null=True, default='')
     trait = models.ForeignKey(ObsTrait, db_column='trait', related_name='trait', on_delete=models.CASCADE, default='', to_field='traitDbId')
     method = models.ForeignKey(ObsMethod, db_column='method', related_name='method', on_delete=models.CASCADE, default='', to_field='methodDbId')
     scale = models.ForeignKey(ObsScale, db_column='scale', related_name='scale', on_delete=models.CASCADE, default='', to_field='scaleDbId')
@@ -234,3 +234,12 @@ class ObsVariableSerializer(serializers.ModelSerializer):
     # end class Meta
  
 # end class ObsVariableSerializer
+
+
+class ObservationUnitXref(models.Model):
+
+    ouXrefId = models.IntegerField()
+    source = models.CharField(max_length=100, blank=True, default='')
+    id = models.CharField(db_column='id_field', primary_key=True, max_length=100, default='')
+
+# end class ObservationUnitXref

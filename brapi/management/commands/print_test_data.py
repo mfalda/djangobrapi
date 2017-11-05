@@ -1,11 +1,21 @@
 
 from django.core.management.base import BaseCommand, CommandError
 
-from brapi.models import (Call, Location, Program, Crop, Map, MapLinkage, Marker, Trait,
-    GAList, GAAttrAvail, GermplasmAttr, Germplasm, GPPedigree, GPDonor, GPMarkerP, MarkerProfile,
-    Study, Trial, Sample, Observation, ObservationUnitXref, Treatment, Phenotype, Datatype,
-    Ontology, StudySeason, StudyType, StudyObsLevel, StudyPlot, AlleleMatrix, AlleleMSearch,
-    MarkerProfilesData)
+from brapi.models.call import Call
+from brapi.models.location import Location
+from brapi.models.program import Program
+from brapi.models.crop import Crop
+from brapi.models.map import Map, MapLinkage
+from brapi.models.marker import Marker
+from brapi.models.trait import Trait
+from brapi.models.germplasm_attributes import GAList, GAAttrAvail, GermplasmAttr
+from brapi.models.germplasm import Germplasm, GPPedigree, GPDonor, GPMarkerP
+from brapi.models.study import Study, Trial
+from brapi.models.sample import Sample
+from brapi.models.observation import Observation
+from brapi.models.phenotype import Phenotype
+from brapi.models.markerprofile import (AlleleMatrix, AlleleMSearch, MarkerProfile,
+                                        MarkerProfilesData)
 
 
 class Command(BaseCommand):

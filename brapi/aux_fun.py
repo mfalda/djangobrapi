@@ -38,7 +38,7 @@ def _search_post_params_in(self, queryset, params):
 
 def _paginate(queryset, request, serializer, paginator_class=BrAPIResultsSetPagination):
     
-    paginator = paginator_class(request)
+    paginator = paginator_class()
 
     page = paginator.paginate_queryset(queryset, request)
     if page is not None:

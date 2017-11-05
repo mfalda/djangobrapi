@@ -29,6 +29,15 @@ class Treatment(models.Model):
 # end class Treatment
 
 
+class DataLink(models.Model):
+
+    type = models.CharField(max_length=100, blank=True, default='')
+    name = models.CharField(max_length=100, blank=True, default='')
+    url = models.CharField(max_length=100, blank=True, default='')
+
+# end class DataLink
+    
+    
 class StudySeason(models.Model):
     
     seasonDbId = models.IntegerField(primary_key=True, db_column='id')
@@ -87,8 +96,8 @@ class Study(models.Model):
     endDate = models.DateField(null=True)
     active = models.BooleanField()
     contactDbId = models.CharField(max_length=100, blank=True, default='')
-    #dataLinks = models.ForeignKey(DataLink, db_column='dataLinks', related_name='studies1', on_delete=models.CASCADE, default='', to_field='trialDbId')
-    #lastUpdate = models.CharField(max_length=100, blank=True, default='')
+    dataLinks = models.ForeignKey(DataLink, db_column='dataLinks', related_name='dataLinks', on_delete=models.CASCADE, default='', to_field='id')
+    lastUpdate = models.CharField(max_length=100, blank=True, default='')
 
     def save(self, *args, **kwargs):
 
