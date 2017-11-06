@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k^zf_)bym^a-c+0oi1#(o!h^a@u_-+u(i^oqkw9dm__obv3zqp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.getenv('DJANGO_ENV') == 'prod':
+if True:#os.getenv('DJANGO_ENV') == 'prod':
     DEBUG = False
-    ALLOWED_HOSTS = ['fuzzyge.cribi.unipd.it']
+    ALLOWED_HOSTS = ['127.0.0.1', 'fuzzyge.cribi.unipd.it']
     # ...
 else:
     DEBUG = True
@@ -250,4 +250,11 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.social_auth.associate_user',
     'social_core.pipeline.social_auth.load_extra_data',
     'social_core.pipeline.user.user_details',
+)
+
+STATIC_ROOT = 'static'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
 )
