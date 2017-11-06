@@ -1,40 +1,23 @@
-from rest_framework.test import APIRequestFactory
-from rest_framework import status
 from rest_framework.test import APITestCase
 
-from brapi.views.calls import CallsViewSet
-from brapi.models.call import Call
+from brapi.aux_fun import test_get
 
 
 class CallsTest(APITestCase):
 
-    def setUp(self):
-
-        Call.objects.create(call='token', datatypes=['json', 'text'], methods=['POST', 'DELETE'])
-        Call.objects.create(call='calls', datatypes=['json'], methods=['GET'])
-
-    # end def setUP
-
+    fixtures = ['calls.json']
+    
 
     def test_get_calls(self):
 
-        view = CallsViewSet.as_view({'get': 'list'})
-
-        factory = APIRequestFactory()
-        request = factory.get('/brapi/v1/calls/')
-
-        response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        response.render() # Cannot access `response.content` without this.
-        self.assertJSONEqual(response.content.decode('utf-8'), """
+        expected = """
 {
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 2,
-            "pageSize": 100
+            "pageTotal": 25,
+            "totalCount": 50,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -63,7 +46,9 @@ class CallsTest(APITestCase):
             }
         ]
     }
-}""")
+}"""
+                
+        test_get(self, '/brapi/v1/calls?pageSize=2', expected)
 
     # end def test_get_calls
 

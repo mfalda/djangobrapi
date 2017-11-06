@@ -6,7 +6,7 @@ from brapi.models.germplasm import (Germplasm, GPPedigree, GPMarkerP,
                                     GermplasmSerializer, GPPedigreeSerializer, 
                                     GPMarkerPSerializer)
 
-from brapi.aux_fun import _search_get_qparams, _search_post_params_in, _paginate
+from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 
 class GermplasmView(APIView):
@@ -50,7 +50,7 @@ class GPPedigreeView(APIView):
             raise Exception('Deal with "notation" parameter')
         # end if
 
-        return _paginate(queryset, request, 'GPPedigreeSerializer')
+        return paginate(queryset, request, GPPedigreeSerializer)
 
     # end def get
 
@@ -70,7 +70,7 @@ class GPMarkerPView(APIView):
             queryset = queryset.filter(germplasmDbId=germplasmDbId)
         # end if        
 
-        return _paginate(queryset, request, 'GPMarkerPSerializer')
+        return paginate(queryset, request, GPMarkerPSerializer)
 
     # end def get
 
@@ -88,7 +88,7 @@ class GermplasmSearchView(APIView):
         logger = logging.getLogger(__name__)
         logger.warn("Searching with parameters %s" % self.request.query_params)
 
-        queryset = _search_get_qparams(self, queryset, [('germplasmName', 'germplasmName'), 
+        queryset = search_get_qparams(self, queryset, [('germplasmName', 'germplasmName'), 
             ('germplasmDdId', 'germplasmDdId'), ('germplasmPUI', 'germplasmPUI')])
 
         serializer = GermplasmSerializer(queryset, many=True)
@@ -119,7 +119,7 @@ class GermplasmSearchView(APIView):
         logger = logging.getLogger(__name__)
         logger.warn("Parameters: %s" % params)
 
-        queryset = _search_post_params_in(self, queryset, [('germplasmNames', 'germplasmNames'), 
+        queryset = search_post_params_in(self, queryset, [('germplasmNames', 'germplasmNames'), 
                 ('germplasmDdIds', 'germplasmDdIds'), ('germplasmPUIs', 'germplasmPUIs'), 
                 ('germplasmSpecies', 'germplasmSpecies'), ('germplasmGenus', 'germplasmGenus'),
                 ('accessionNumbers', 'accessionNumbers')])

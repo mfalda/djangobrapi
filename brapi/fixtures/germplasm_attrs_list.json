@@ -1,0 +1,1 @@
+[{"model": "brapi.galist", "pk": 1, "fields": {"attributeCategoryDbId": 1, "name": "Morphological"}}, {"model": "brapi.galist", "pk": 2, "fields": {"attributeCategoryDbId": 2, "name": "Agronomic"}}, {"model": "brapi.galist", "pk": 3, "fields": {"attributeCategoryDbId": 3, "name": "Biotic stress"}}]

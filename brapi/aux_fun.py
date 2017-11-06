@@ -1,4 +1,8 @@
 from rest_framework.response import Response
+#from django.contrib.auth.models import User
+#from rest_framework.authtoken.models import Token
+from rest_framework.test import APIClient
+from rest_framework import status
 
 from brapi.apps import BrAPIResultsSetPagination
 
@@ -6,7 +10,7 @@ from brapi.apps import BrAPIResultsSetPagination
 # the DefaultRouter class we're using in urls.py  also automatically creates the API root view
 
 
-def _search_get_qparams(self, queryset, params):
+def search_get_qparams(self, queryset, params):
 
     #  [('name', 'name'), ('type', 'type'), ('matchMethod', 'matchMethod'), ('include', 'synonyms')]
     for (param_name, search) in params:
@@ -18,35 +22,69 @@ def _search_get_qparams(self, queryset, params):
 
     return queryset
 
-# end def _search_get_qparams
+# end def search_get_qparams
 
 
-def _search_post_params_in(self, queryset, params):
+def search_post_params_in(self, queryset, params, in_=True):
     
     #  [('name', 'name'), ('type', 'type'), ('matchMethod', 'matchMethod'), ('include', 'synonyms')]
     for (search, param_name) in params:
         param_value = self.request.data.get(param_name, None)
         if param_value is not None:
-            queryset = queryset.filter(**{search + '__in': param_value})
+            if in_:
+                search += '__in'
+            # end if
+            queryset = queryset.filter(**{search: param_value})
         # end if
     # end for
 
     return queryset
 
-# end def _search_post_params_in
+# end def search_post_params_in
 
 
-def _paginate(queryset, request, serializer, paginator_class=BrAPIResultsSetPagination):
+def paginate(queryset, request, Serializer, paginator_class=BrAPIResultsSetPagination):
     
     paginator = paginator_class()
 
     page = paginator.paginate_queryset(queryset, request)
     if page is not None:
-        serializer = eval('%s(page, many=True)' % serializer)
-        return paginator.get_paginated_response(serializer.data, request.data.get('pageSize', 100))
+        serializer = Serializer(page, many=True)
+        return paginator.get_paginated_response(serializer.data)
     else:
-        serializer = eval('%s(queryset, many=True)' % serializer)
+        serializer = Serializer(queryset, many=True)
         return Response(serializer.data)        
     # end if
 
-# end def _paginate
+# end def paginate
+
+
+def test_get(self, url, expected):
+    
+    #token = Token.objects.get(user__username='marco')
+    client = APIClient(enforce_csrf_checks=True)
+    #client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+
+    response = client.get(url)
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    response.render() # Cannot access `response.content` without this.
+    self.assertJSONEqual(response.content.decode('utf-8'), expected)
+                             
+# end def test_get
+    
+    
+def test_post(self, url, params, expected):
+    
+    #token = Token.objects.get(user__username='marco')
+    client = APIClient(enforce_csrf_checks=True)
+    #client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
+
+    response = client.post(url, params)
+    self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    response.render() # Cannot access `response.content` without this.
+    self.assertJSONEqual(response.content.decode('utf-8'), expected)
+
+# end def test_post
+    

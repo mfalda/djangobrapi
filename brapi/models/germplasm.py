@@ -84,7 +84,7 @@ class GermplasmSerializer(serializers.ModelSerializer):
 
     synonyms = StringListField()
     donors = StringListField()
-    #typeOfGermplasmStorageCode = StringListField()
+    taxonIds = StringListField()
 
     class Meta:
 

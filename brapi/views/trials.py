@@ -3,7 +3,7 @@ from rest_framework import viewsets
 # there is a circular dependency between trials and studies (when aggregationg models and serializers)
 from brapi.models.study import Trial, TrialSerializer
 
-from brapi.aux_fun import _search_get_qparams
+from brapi.aux_fun import search_get_qparams
 
 
 class TrialViewSet(viewsets.ReadOnlyModelViewSet):
@@ -13,7 +13,7 @@ class TrialViewSet(viewsets.ReadOnlyModelViewSet):
     def get_queryset(self):
     
         queryset = Trial.objects.all()
-        queryset = _search_get_qparams(self, queryset, [('programDbId', 'programDbId'), ('locationDbId', 'locationDbId'),
+        queryset = search_get_qparams(self, queryset, [('programDbId', 'programDbId'), ('locationDbId', 'locationDbId'),
                                     ('active', 'active')])
             
         sortBy = self.request.query_params.get('sortBy', None)

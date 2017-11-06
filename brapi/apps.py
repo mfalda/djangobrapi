@@ -37,7 +37,7 @@ def _paginate_queryset(self, queryset, request, view=None):
 
     return list(self.page)
   
-# end def paginate_queryset
+# end def _paginate_queryset
 
     
 class BrAPIResultsSetPagination(PageNumberPagination):

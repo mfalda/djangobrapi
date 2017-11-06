@@ -1,42 +1,23 @@
-from rest_framework.test import APIRequestFactory
-from rest_framework import status
 from rest_framework.test import APITestCase
 
-from brapi.views.crops import CropsViewSet
-from brapi.models.crop import Crop
+from brapi.aux_fun import test_get
 
 
 class CropTest(APITestCase):
 
-    def setUp(self):
-
-        Crop.objects.create(data='cassava')
-        Crop.objects.create(data='potato')
-        Crop.objects.create(data='sweetpotato')
-        Crop.objects.create(data='yam')
-
-    # end def setUP
-
+    fixtures = ['crops.json']
+    
 
     def test_get_crops(self):
 
-        view = CropsViewSet.as_view({'get': 'list'})
-
-        factory = APIRequestFactory()
-        request = factory.get('/brapi/v1/crops/')
-
-        response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        response.render() # Cannot access `response.content.decode('utf-8')` without this.
-        self.assertJSONEqual(response.content.decode('utf-8'), """
+        expected = """
 {
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "pageTotal": 2,
             "totalCount": 4,
-            "pageSize": 100
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -44,12 +25,12 @@ class CropTest(APITestCase):
     "result": {
         "data": [
             "cassava",
-            "potato",
-            "sweetpotato",
-            "yam"
+            "potato"
         ]
     }
-}""")
+}"""
+    
+        test_get(self, '/brapi/v1/crops?pageSize=2', expected)
 
     # end def test_get_crops
 

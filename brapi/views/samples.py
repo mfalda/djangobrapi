@@ -2,8 +2,7 @@ from rest_framework.views import APIView
 import logging
 
 from brapi.models.sample import Sample, SampleSerializer
-
-from brapi.aux_fun import _paginate
+from brapi.aux_fun import paginate
 
 
 class SampleView(APIView):
@@ -22,7 +21,7 @@ class SampleView(APIView):
             queryset = queryset.filter(sampleId=sampleId)
         # end if        
 
-        return _paginate(queryset, request, 'SampleSerializer')
+        return paginate(queryset, request, SampleSerializer)
 
     # end def get
 

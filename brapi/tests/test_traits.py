@@ -1,41 +1,23 @@
-from rest_framework.test import APIRequestFactory
-from rest_framework import status
 from rest_framework.test import APITestCase
 
-from brapi.views.traits import TraitViewSet
-from brapi.models.trait import Trait
+from brapi.aux_fun import test_get
 
 
 class TraitTest(APITestCase):
     
-    def setUp(self):
-
-        # populate the mockup database        
-        Trait.objects.create(traitDbId='1', traitId='CO_334:0100620', name='Carotenoid content', description='Cassava storage root pulp carotenoid content', observationVariables=['CO_334:0100621', 'CO_334:0100623', 'CO_334:0100623'])
-        Trait.objects.create(traitDbId='2', traitId='CO_334:0100621', name='Plant height', description='Plant height', observationVariables=['CO_334:0200001'])
-
-    # end def setUP
-
+    fixtures = ['traits.json']
+    
 
     def test_get_traits(self):
 
-        view = TraitViewSet.as_view({'get': 'list'})
-
-        factory = APIRequestFactory()
-        request = factory.get('/brapi/b1/Traits/')
-
-        response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        response.render() # Cannot access `response.content` without this.
-        self.assertJSONEqual(response.content.decode('utf-8'), """
+        expected = """
 {
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 2,
-            "pageSize": 100
+            "pageTotal": 3,
+            "totalCount": 5,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -66,8 +48,31 @@ class TraitTest(APITestCase):
             }
         ]
     }
-}""")
+}"""
+            
+        test_get(self, '/brapi/v1/traits/?pageSize=2', expected)
 
     # end def test_get_traits
 
+
+    def test_get_trait_details(self):
+
+        expected = """
+{
+    "traitDbId": 1,
+    "traitId": "CO_334:0100620",
+    "name": "Carotenoid content",
+    "description": "Cassava storage root pulp carotenoid content",
+    "observationVariables": [
+        "CO_334:0100621",
+        "CO_334:0100623",
+        "CO_334:0100623"
+    ],
+    "defaultValue": null
+}"""
+            
+        test_get(self, '/brapi/v1/traits/1/', expected)
+
+    # end def test_get_trait_details
+    
 # end class TraitTest

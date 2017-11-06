@@ -4,7 +4,7 @@ from django.db.models import Q
 
 from brapi.models.marker import Marker, MarkerSerializer
 
-from brapi.aux_fun import _search_get_qparams
+from brapi.aux_fun import search_get_qparams
 
 
 class MarkerViewSet(viewsets.ReadOnlyModelViewSet):
@@ -54,7 +54,7 @@ class MarkerViewSet(viewsets.ReadOnlyModelViewSet):
             # end if
         # end if
 
-        return _search_get_qparams(self, queryset, [('type', 'type')])
+        return search_get_qparams(self, queryset, [('type', 'type')])
 
     # end def get_queryset
 

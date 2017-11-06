@@ -1,45 +1,23 @@
-from rest_framework.test import APIRequestFactory
-from rest_framework import status
 from rest_framework.test import APITestCase
 
-from brapi.views.markers import MarkerViewSet
-from brapi.models.marker import Marker
+from brapi.aux_fun import test_get
 
 
 class MarkerTest(APITestCase):
     
-    def setUp(self):
-
-        # populate the mockup database
-        Marker.objects.create(markerDbId='1', defaultDisplayName='a_01_10001', 
-                              type='SNP', synonyms=['i_01_10001', 'popA_10001'], 
-                              refAlt=['A', 'T'], analysisMethods=['illumina'])
-        Marker.objects.create(markerDbId='2', defaultDisplayName='A_01_10002', 
-                              type='SNP', synonyms=['i_01_10001', 'popA_10002'], 
-                              refAlt=['G', 'C'], analysisMethods=['illumina'])
-
-    # end def setUP
+    fixtures = ['markers.json']
 
 
     def test_get_markers(self):
 
-        view = MarkerViewSet.as_view({'get': 'list'})
-
-        factory = APIRequestFactory()
-        request = factory.get('/brapi/v1/markers/')
-
-        response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        response.render() # Cannot access `response.content.decode('utf-8')` without this.
-        self.assertJSONEqual(response.content.decode('utf-8'), """
+        expected = """
 {
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 2,
-            "pageSize": 100
+            "pageTotal": 3,
+            "totalCount": 5,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -80,8 +58,35 @@ class MarkerTest(APITestCase):
             }
         ]
     }
-}""")
+}"""
+            
+        test_get(self, '/brapi/v1/markers/?pageSize=2', expected)            
 
     # end def test_get_markers
 
+
+    def test_get_marker_details(self):
+
+        expected = """
+{
+    "markerDbId": 1,
+    "defaultDisplayName": "a_01_10001",
+    "type": "SNP",
+    "synonyms": [
+        "i_01_10001",
+        "popA_10001"
+    ],
+    "refAlt": [
+        "A",
+        "T"
+    ],
+    "analysisMethods": [
+        "illumina"
+    ]
+}"""
+            
+        test_get(self, '/brapi/v1/markers/1/', expected)            
+
+    # end def test_get_marker_details
+    
 # end class MarkerTest

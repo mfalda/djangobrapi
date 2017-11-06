@@ -31,7 +31,7 @@ class Command(BaseCommand):
     # end def add_arguments
 
 
-    def _populate_table(self, filename, classname, composite_fields=[]):
+    def _populate_table(self, filename, Classname, composite_fields=[]):
 
         with open(filename) as fp:
             for (i, line) in enumerate(fp):
@@ -45,14 +45,14 @@ class Command(BaseCommand):
                     for f in composite_fields:
                         fields[f] = fields[f].split('; ')
                     # end for
-                    row = eval('%s(None, *fields)' % classname)
-                    print('INSERT: %s(None, %s)' % (classname, fields))
+                    row = Classname(None, *fields)
+                    print('INSERT: %s(None, %s)' % (Classname.__name__, fields))
                     row.save()
                 # end if
             # end for
         # end with
 
-        self.stdout.write(self.style.SUCCESS('Successfully populated table "%s"' % classname))
+        self.stdout.write(self.style.SUCCESS('Successfully populated table "%s"' % Classname.__name__))
 
     # end def _populate_table
 

@@ -1,60 +1,23 @@
-from rest_framework.test import APIRequestFactory
-from rest_framework import status
 from rest_framework.test import APITestCase
 
-from brapi.views.locations import LocationViewSet
-from brapi.models.location import Location
+from brapi.aux_fun import test_get
 
 
 class LocationTest(APITestCase):
  
-    def setUp(self):
-
-        Location.objects.create(locationDbId='1',
-                     locationType='Storage location',
-                     name='Experimental station San Ramon (CIP)',
-                     abbreviation='CIPSRM-1',
-                     countryCode='PER',
-                     countryName='Peru',
-                     latitude='-11.1275',
-                     longitude='-75.356389',
-                     altitude='828',
-                     instituteName='INRA - GDEC',
-                     instituteAdress='route foo, Clermont Ferrand, France')
-        Location.objects.create(locationDbId='2',
-                     locationType='Breeding location',
-                     name='San Ramon',
-                     abbreviation='CIPSRM-2',
-                     countryCode='PER',
-                     countryName='Peru',
-                     latitude='-11.16116',
-                     longitude='-75.34171',
-                     altitude='964',
-                     instituteName='INRA - GDEC',
-                     instituteAdress='route foo, Clermont Ferrand, France')
-
-    # end def setUP
+    fixtures = ['locations.json']
 
 
     def test_get_locations(self):
 
-        view = LocationViewSet.as_view({'get': 'list'})
-
-        factory = APIRequestFactory()
-        request = factory.get('/brapi/v1/locations/')
-
-        response = view(request)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-
-        response.render()
-        self.assertJSONEqual(response.content.decode('utf-8'), """
+        expected = """
 {
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 2,
-            "pageSize": 100
+            "pageTotal": 9,
+            "totalCount": 17,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -89,8 +52,30 @@ class LocationTest(APITestCase):
             }
         ]
     }
-}""")
-
+}"""
+        test_get(self, '/brapi/v1/locations/?pageSize=2', expected)
+        
     # end def test_get_locations
+
+
+    def test_get_location_details(self):
+
+        expected = """
+{
+    "locationDbId": "1",
+    "locationType": "Storage location",
+    "name": "Experimental station San Ramon (CIP)",
+    "abbreviation": "CIPSRM-1",
+    "countryCode": "PER",
+    "countryName": "Peru",
+    "latitude": -11.1275,
+    "longitude": -75.356389,
+    "altitude": "828",
+    "instituteName": "INRA - GDEC",
+    "instituteAdress": "route foo, Clermont Ferrand, France"
+}"""
+        test_get(self, '/brapi/v1/locations/1/', expected)
+        
+    # end def test_get_location_details
 
 # end class LocationTest

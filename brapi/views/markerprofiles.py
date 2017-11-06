@@ -7,7 +7,7 @@ from brapi.models.markerprofile import (AlleleMatrix, AlleleMSearch,
                                         AlleleMatrixSerializer, AlleleMSearchSerializer,
                                         MarkerProfileSerializer, MarkerProfilesDataSerializer)
 
-from brapi.aux_fun import _search_get_qparams, _search_post_params_in, _paginate
+from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 from brapi.apps import BrAPIListPagination
 
@@ -20,7 +20,7 @@ class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
 
         queryset = AlleleMatrix.objects.all()
 
-        return _search_get_qparams(self, queryset, [('studyDbId', 'studyDbId')])
+        return search_get_qparams(self, queryset, [('studyDbId', 'studyDbId')])
 
     # end def get_queryset
 
@@ -38,9 +38,9 @@ class AlleleMSearchView(APIView):
 
         # TODO: it is not clear to which data the query parameters apply!
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
-        queryset = _search_get_qparams(self, queryset, [('markerprofileDbId', 'markerprofileDbId'), ('markerDbId', 'markerDbId')])
+        queryset = search_get_qparams(self, queryset, [('markerprofileDbId', 'markerprofileDbId'), ('markerDbId', 'markerDbId')])
 
-        return _paginate(queryset, request, 'AlleleMSearchSerializer', BrAPIListPagination)
+        return paginate(queryset, request, AlleleMSearchSerializer, BrAPIListPagination)
 
     # end def get
 
@@ -51,9 +51,9 @@ class AlleleMSearchView(APIView):
 
         # TODO: it is not clear to which data the query parameters apply!
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
-        queryset = _search_post_params_in(self, queryset, [('markerprofileDbId', 'markerprofileDbId'), ('markerDbId', 'markerDbId')])
+        queryset = search_post_params_in(self, queryset, [('markerprofileDbId', 'markerprofileDbId'), ('markerDbId', 'markerDbId')])
 
-        return _paginate(queryset, request, 'AlleleMSearchSerializer', BrAPIListPagination)
+        return paginate(queryset, request, AlleleMSearchSerializer, BrAPIListPagination)
 
     # end def post
 
@@ -82,7 +82,7 @@ class MarkerProfilesDataView(APIView):
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
         queryset = queryset #_search_get_qparams(self, queryset, [('year', 'year')])
 
-        return _paginate(queryset, request, 'MarkerProfilesDataSerializer')
+        return paginate(queryset, request, MarkerProfilesDataSerializer)
 
     # end def get
 
@@ -98,11 +98,11 @@ class MarkerProfilesView(APIView):
     
         queryset = MarkerProfile.objects.all()
 
-        queryset = _search_get_qparams(self, queryset, [('germplasm', 'germplasmDbId'),
+        queryset = search_get_qparams(self, queryset, [('germplasm', 'germplasmDbId'),
             ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
             ('method', 'analysisMethod')])
 
-        return _paginate(queryset, request, 'MarkerProfileSerializer')
+        return paginate(queryset, request, MarkerProfileSerializer)
 
     # end def get
 
@@ -111,11 +111,11 @@ class MarkerProfilesView(APIView):
         
         queryset = MarkerProfile.objects.all()
 
-        queryset = _search_post_params_in(self, queryset, [('germplasm', 'germplasmDbId'),
+        queryset = search_post_params_in(self, queryset, [('germplasm', 'germplasmDbId'),
             ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
             ('method', 'analysisMethod')])
 
-        return _paginate(queryset, request, 'MarkerProfileSerializer')
+        return paginate(queryset, request, MarkerProfileSerializer)
 
     # end def post
 

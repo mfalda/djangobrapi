@@ -7,7 +7,7 @@ import logging
 
 from brapi.models.map import Map, MapLinkage, MapSerializer, MapLinkageSerializer
 
-from brapi.aux_fun import _search_get_qparams
+from brapi.aux_fun import search_get_qparams
 
 
 class MapViewSet(viewsets.ReadOnlyModelViewSet):
@@ -24,7 +24,7 @@ class MapViewSet(viewsets.ReadOnlyModelViewSet):
         self.serializer_class = MapSerializer
         queryset = Map.objects.all()
 
-        return _search_get_qparams(self, queryset, [('type', 'type'), ('species', 'species')])
+        return search_get_qparams(self, queryset, [('type', 'type'), ('species', 'species')])
 
     # end def get_queryset
 
@@ -45,7 +45,7 @@ class MapLinkageView(generics.ListCreateAPIView):
         linkageGroupId = self.request.query_params.get('linkageGroupId', None)
         logger.warn("Linkages: (%s, %s)" % (mapDbId, linkageGroupId))
 
-        return _search_get_qparams(self, queryset, [('mapDbId', 'mapDbId'), ('linkageGroupId', 'linkageGroupId')])
+        return search_get_qparams(self, queryset, [('mapDbId', 'mapDbId'), ('linkageGroupId', 'linkageGroupId')])
 
     # end def get_queryset
 

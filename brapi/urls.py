@@ -6,7 +6,7 @@ from brapi.views.authentication import exchange_token
 from brapi.views.calls import CallsViewSet
 from brapi.views.locations import LocationViewSet
 from brapi.views.crops import CropsViewSet
-from brapi.views.programs import ProgramViewSet
+from brapi.views.programs import ProgramViewSet, ProgramSearchView
 from brapi.views.maps import MapViewSet, MapLinkageView, MapLinkageViewPositions
 from brapi.views.markers import MarkerViewSet
 from brapi.views.traits import TraitViewSet
@@ -85,6 +85,8 @@ urlpatterns = [
 
     url(r'brapi/v1/phenotypes-search$', PhenotypeSearchView.as_view()),
 
+    url(r'brapi/v1/programs-search$', ProgramSearchView.as_view()), 
+    
     url(r'brapi/v1/studies/(?P<studyDbId>[0-9]+)/layout$', StudyPlotView.as_view()),
 
     # cannot use a ViewSet because POST is not used for creating a resource
