@@ -29,6 +29,13 @@ class Phenotype(models.Model):
     observationUnitXref = models.IntegerField(null=True)
     observations = models.ForeignKey(Observation, db_column='observations', related_name='observations', on_delete=models.CASCADE, default='', to_field='observationDbId')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Phenotype
     
     

@@ -25,6 +25,13 @@ class Sample(models.Model):
     plantingTimestamp = models.DateTimeField()
     harvestTimestamp = models.DateTimeField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Sample
 
 

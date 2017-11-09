@@ -62,17 +62,33 @@ class LocationTest(APITestCase):
 
         expected = """
 {
-    "locationDbId": "1",
-    "locationType": "Storage location",
-    "name": "Experimental station San Ramon (CIP)",
-    "abbreviation": "CIPSRM-1",
-    "countryCode": "PER",
-    "countryName": "Peru",
-    "latitude": -11.1275,
-    "longitude": -75.356389,
-    "altitude": "828",
-    "instituteName": "INRA - GDEC",
-    "instituteAdress": "route foo, Clermont Ferrand, France"
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "locationDbId": "1",
+                "locationType": "Storage location",
+                "name": "Experimental station San Ramon (CIP)",
+                "abbreviation": "CIPSRM-1",
+                "countryCode": "PER",
+                "countryName": "Peru",
+                "latitude": -11.1275,
+                "longitude": -75.356389,
+                "altitude": "828",
+                "instituteName": "INRA - GDEC",
+                "instituteAdress": "route foo, Clermont Ferrand, France"
+            }
+        ]
+    }
 }"""
         test_get(self, '/brapi/v1/locations/1/', expected)
         

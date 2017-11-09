@@ -13,6 +13,13 @@ class Map(models.Model):
     markerCount = models.IntegerField()
     comments = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Map
 
 
@@ -24,6 +31,13 @@ class MapLinkage(models.Model):
     location = models.IntegerField()
     linkageGroupId = models.IntegerField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class MapLinkage
 
 

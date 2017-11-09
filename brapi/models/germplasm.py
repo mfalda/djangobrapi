@@ -1,6 +1,7 @@
 from django.db import models
 from rest_framework import serializers
 
+from brapi.models.taxon import Taxon, TaxonSerializer
 from brapi.serializers import StringListField
 
 
@@ -29,7 +30,7 @@ class Germplasm(models.Model):
     donors = models.CharField(max_length=100, blank=True, default='')
     acquisitionDate = models.DateField()
     # TODO: represent as a list of objects
-    taxonIds = models.CharField(max_length=100, blank=True, default='')
+    taxonIds = models.ForeignKey(Taxon, db_column='taxonIds', related_name='taxonIds', on_delete=models.CASCADE, default='', to_field='id')
 
     def save(self, *args, **kwargs):
 
@@ -40,6 +41,13 @@ class Germplasm(models.Model):
 
     # end def save
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Germplasm
 
 
@@ -53,6 +61,13 @@ class GPPedigree(models.Model):
     # TODO: is this a foreign key?
     parent2Id = models.IntegerField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class GPPedigree
 
 
@@ -63,33 +78,32 @@ class GPDonor(models.Model):
     donorInstituteCode = models.CharField(max_length=100, blank=True, default='')
     germplasmPUI = models.CharField(max_length=100, blank=True, default='')
 
-# end class GPDonor
 
-
-class GPMarkerP(models.Model):
-
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerProfilesDbIds = models.IntegerField()
-
-    def save(self, *args, **kwargs):
-
-        self.markerProfilesDbIds = '; '.join(self.markerProfilesDbIds)
-
-    # end def save
-
-# end class GPMarkerP
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
     
+# end class GPDonor
+  
     
 class GermplasmSerializer(serializers.ModelSerializer):
 
     synonyms = StringListField()
     donors = StringListField()
-    taxonIds = StringListField()
-
+    taxonIds = TaxonSerializer(read_only=True)
+    
     class Meta:
 
         model = Germplasm
-        exclude = ['id']
+        fields = ['germplasmDbId', 'defaultDisplayName', 'accessionNumber', 
+                  'germplasmName', 'germplasmPUI', 'pedigree', 'germplasmSeedSource', 
+                  'synonyms', 'commonCropName', 'instituteCode', 'instituteName',
+                  'biologicalStatusOfAccessionCode', 'countryOfOriginCode', 
+                  'typeOfGermplasmStorageCode', 'genus', 'species', 'speciesAuthority',
+                  'subtaxa', 'subtaxaAuthority', 'donors', 'acquisitionDate', 
+                  'taxonIds']
 
     # end class Meta
 
@@ -98,7 +112,6 @@ class GermplasmSerializer(serializers.ModelSerializer):
 
         instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
         instance.donors = [str(s) for s in instance.donors.split('; ')]
-        instance.taxonIds = [str(s) for s in instance.taxonIds.split('; ')]
 
         return super(GermplasmSerializer, self).to_representation(instance)
 
@@ -116,11 +129,7 @@ class GermplasmSerializer(serializers.ModelSerializer):
         if ret['donors']:
             ret['donors'] = '; '.join(str(s) for s in ret['donors'])
         # end if
-
-        if ret['taxonIds']:
-            ret['taxonIds'] = '; '.join(str(s) for s in ret['taxonIds'])
-        # end if
-        
+       
         return ret
 
     # end def to_internal_value    
@@ -152,39 +161,3 @@ class GPDonorSerializer(serializers.ModelSerializer):
     # end class Meta
 
 # end class GPDonorSerializer
-
-
-class GPMarkerPSerializer(serializers.ModelSerializer):
-    
-    markerProfilesDbIds = StringListField()
-
-    class Meta:
-
-        model = GPMarkerP
-        fields = ('germplasmDbId', 'markerProfilesDbIds')
-
-    # end class Meta
-
-
-    def to_representation(self, instance: GPMarkerP):
-    
-        instance.markerProfilesDbIds = [str(s) for s in instance.markerProfilesDbIds.split('; ')]
-
-        return super(GPMarkerPSerializer, self).to_representation(instance)
-
-    # end def to_representation
-
-
-    def to_internal_value(self, data):
-
-        ret = super(GPMarkerPSerializer, self).to_internal_value(data)
-
-        if ret['markerProfilesDbIds']:
-            ret['markerProfilesDbIds'] = '; '.join(str(s) for s in ret['markerProfilesDbIds'])
-        # end if
-
-        return ret
-
-    # end def to_internal_value
-
-# end class GPMarkerPSerializer

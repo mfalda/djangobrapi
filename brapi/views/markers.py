@@ -1,18 +1,19 @@
-from rest_framework import viewsets
+from rest_framework.views import APIView
+from brapi.aux_fun import paginate
 import logging
 from django.db.models import Q
 
 from brapi.models.marker import Marker, MarkerSerializer
-
 from brapi.aux_fun import search_get_qparams
 
-
-class MarkerViewSet(viewsets.ReadOnlyModelViewSet):
+  
+class MarkerView(APIView):
 
     serializer_class = MarkerSerializer
 
-    def get_queryset(self):
 
+    def get(self, request, format=None, *args, **kwargs):
+    
         queryset = Marker.objects.all()
 
         # name, matchMethod, include
@@ -54,9 +55,30 @@ class MarkerViewSet(viewsets.ReadOnlyModelViewSet):
             # end if
         # end if
 
-        return search_get_qparams(self, queryset, [('type', 'type')])
-
-    # end def get_queryset
-
-# end class MarkerViewSet
+        queryset = search_get_qparams(self, queryset, [('type', 'type')])
     
+        return paginate(queryset, request, MarkerSerializer)
+
+    # end def get
+
+# end class MarkerView
+    
+
+class MarkerDetailsView(APIView):
+
+    serializer_class = MarkerSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+    
+        queryset = Marker.objects.all()
+        
+        markerDbId = self.kwargs.get('markerDbId', None)
+        if markerDbId is not None:
+            queryset = queryset.filter(markerDbId=markerDbId)
+        # end if
+
+        return paginate(queryset, request, MarkerSerializer)
+
+    # end def get
+
+# end class MarkerDetailsView

@@ -1,3 +1,2 @@
 #!/bin/bash
-
-sudo docker run -e DATABASE_URL=none -t brapi
+sudo docker run --net host -e DATABASE_URL=none -P brapi

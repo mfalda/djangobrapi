@@ -59,19 +59,35 @@ class TraitTest(APITestCase):
 
         expected = """
 {
-    "traitDbId": 1,
-    "traitId": "CO_334:0100620",
-    "name": "Carotenoid content",
-    "description": "Cassava storage root pulp carotenoid content",
-    "observationVariables": [
-        "CO_334:0100621",
-        "CO_334:0100623",
-        "CO_334:0100623"
-    ],
-    "defaultValue": null
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "traitDbId": 1,
+                "traitId": "CO_334:0100620",
+                "name": "Carotenoid content",
+                "description": "Cassava storage root pulp carotenoid content",
+                "observationVariables": [
+                    "CO_334:0100621",
+                    "CO_334:0100623",
+                    "CO_334:0100623"
+                ],
+                "defaultValue": null
+            }
+        ]
+    }
 }"""
             
-        test_get(self, '/brapi/v1/traits/1/', expected)
+        test_get(self, '/brapi/v1/traits/1', expected)
 
     # end def test_get_trait_details
     

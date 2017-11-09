@@ -22,9 +22,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k^zf_)bym^a-c+0oi1#(o!h^a@u_-+u(i^oqkw9dm__obv3zqp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if True:#os.getenv('DJANGO_ENV') == 'prod':
+if os.getenv('DJANGO_ENV') == 'prod':
     DEBUG = False
-    ALLOWED_HOSTS = ['127.0.0.1', 'fuzzyge.cribi.unipd.it']
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'fuzzyge.cribi.unipd.it']
     # ...
 else:
     DEBUG = True
@@ -35,7 +35,7 @@ else:
         'disable_existing_loggers': False,
         'handlers': {
             'console': {
-                'level': 'INFO',
+                'level': 'DEBUG',
                 'class': 'logging.StreamHandler',
             },
         },
@@ -158,7 +158,7 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'PAGE_SIZE': 100,
     'PAGINATE_BY_PARAM': 'pageSize',
-    'DEFAULT_PAGINATION_CLASS': 'brapi.apps.BrAPIResultsSetPagination',
+    'DEFAULT_PAGINATION_CLASS': 'brapi.paginators.BrAPIResultsSetPagination',
     'URL_FORMAT_OVERRIDE': 'datatype',
     'DEFAULT_VERSIONING_CLASS': 'rest_framework.versioning.URLPathVersioning',
     # allow only requests with JSON content
@@ -169,10 +169,9 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.permissions.IsAuthenticated',
-    ),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'EXCEPTION_HANDLER': 'brapi.exception_handlers.brapi_exception_handler'
 }
 
 CORS_ORIGIN_WHITELIST = (
@@ -252,9 +251,5 @@ SOCIAL_AUTH_PIPELINE = (
     'social_core.pipeline.user.user_details',
 )
 
-STATIC_ROOT = 'static'
 STATIC_URL = '/static/'
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+STATIC_ROOT = os.path.join(BASE_DIR, "../static")

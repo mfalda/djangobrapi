@@ -5,30 +5,31 @@ from brapi.models.study import (StudyType, StudySeason, StudyObsUnit, StudyObsLe
                                 Study, StudyPlot, StudySerializer, StudyObsUnitSerializer,
                                 StudyTypeSerializer, StudySeasonSerializer, 
                                 StudyObsLevelSerializer, StudyPlotSerializer)
+#                                StudyObsVariableSerializer)
 from brapi.models.germplasm import Germplasm, GermplasmSerializer
 from brapi.models.observation import ObsVariable, ObsVariableSerializer
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
-from brapi.apps import BrAPIListPagination
+from brapi.paginators import BrAPIListPagination
 
 
-class StudyObsUnitsView(APIView):
-
-    serializer_class = StudyObsUnitSerializer
-
-
-    def get(self, request, format=None, *args, **kwargs):
-        
-        queryset = StudyObsUnit.objects.all()
-
-        queryset = search_post_params_in(self, queryset, [('observationVariableDbIds', 'observationVariableDbIds')])
-    
-        return paginate(queryset, request, 'StudyObsVariableSerializer')
-
-    # end def get
-    
-# end class StudyObsUnitsView
+#class StudyObsUnitsView(APIView):
+#
+#    serializer_class = StudyObsUnitSerializer
+#
+#
+#    def get(self, request, format=None, *args, **kwargs):
+#        
+#        queryset = StudyObsUnit.objects.all()
+#
+#        queryset = search_post_params_in(self, queryset, [('observationVariableDbIds', 'observationVariableDbIds')])
+#    
+#        return paginate(queryset, request, StudyObsVariableSerializer)
+#
+#    # end def get
+#    
+## end class StudyObsUnitsView
     
 
 class SSearchView(APIView):
@@ -48,7 +49,7 @@ class SSearchView(APIView):
             ('observationVariableDbId', 'observationVariableDbIds'),
             ('active', 'active')])
     
-        return paginate(queryset, request, 'StudySerializer')
+        return paginate(queryset, request, StudySerializer)
 
     # end def get
 
@@ -65,7 +66,7 @@ class SSearchView(APIView):
             ('observationVariableDbId', 'observationVariableDbIds'),
             ('active', 'active')])
     
-        return paginate(queryset, request, 'StudySerializer')
+        return paginate(queryset, request, StudySerializer)
 
     # end def post
     
@@ -81,7 +82,7 @@ class StudyObsUnitsDetailsView(APIView):
         
         queryset = StudyObsUnit.objects.all()
 
-        return paginate(queryset, request, 'StudyObsUnitSerializer')
+        return paginate(queryset, request, StudyObsUnitSerializer)
 
     # end def get
     
@@ -134,7 +135,7 @@ class StudyDetailsView(APIView):
             queryset = queryset.filter(studyDbId=studyDbId)
         # end if
         
-        return paginate(queryset, request, 'StudySerializer')
+        return paginate(queryset, request, StudySerializer)
 
     # end def get
     
@@ -155,7 +156,7 @@ class StudyGermplasmDetailsView(APIView):
             queryset = queryset.filter(study__studyDbId=studyDbId)
         # end if
         
-        return paginate(queryset, request, 'GermplasmSerializer')
+        return paginate(queryset, request, GermplasmSerializer)
 
     # end def get
     
@@ -171,7 +172,7 @@ class StudyObsUnitsTableView(APIView):
         
         queryset = StudyObsUnit.objects.all()
 
-        return paginate(queryset, request, 'StudyObsUnitSerializer')
+        return paginate(queryset, request, StudyObsUnitSerializer)
 
     # end def get
     
@@ -185,24 +186,21 @@ class StudyObsVarsView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
         
-        queryset = ObsVariable.objects.all()
+        queryset = StudyObsUnit.objects.all()
 
         studyDbId = self.kwargs.get('studyDbId', None)
         if studyDbId is not None:
-            queryset = (queryset.select_related('observations')
-                .select_related('observations_units')
-                .select_related('studies')
-                .filter(studyDbId=studyDbId))
+            queryset = queryset.filter(studyDbId=studyDbId)
         # end if
         
-        return paginate(queryset, request, 'ObsVariableSerializer')
+        return paginate(queryset, request, StudyObsUnitSerializer)
 
     # end def get
     
 # end class StudyObsVarsView
     
     
-   # cannot use ViewSets nor generic views because the detail view is not standard
+# cannot use ViewSets nor generic views because the detail view is not standard
 class StudyPlotView(APIView):
     
     queryset = StudyPlot.objects.all()
@@ -217,7 +215,7 @@ class StudyPlotView(APIView):
             queryset = queryset.filter(studyDbId=studyDbId)
         # end if
 
-        return paginate(queryset, request, 'StudyPlotSerializer')
+        return paginate(queryset, request, StudyPlotSerializer)
 
     # end def get
 

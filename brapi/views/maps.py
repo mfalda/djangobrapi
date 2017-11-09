@@ -1,5 +1,4 @@
 from rest_framework import generics
-from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from django.db.models import Q
@@ -7,7 +6,7 @@ import logging
 
 from brapi.models.map import Map, MapLinkage, MapSerializer, MapLinkageSerializer
 
-from brapi.aux_fun import search_get_qparams
+from brapi.aux_fun import search_get_qparams, paginate
 
 
 class MapViewSet(viewsets.ReadOnlyModelViewSet):
@@ -45,8 +44,10 @@ class MapLinkageView(generics.ListCreateAPIView):
         linkageGroupId = self.request.query_params.get('linkageGroupId', None)
         logger.warn("Linkages: (%s, %s)" % (mapDbId, linkageGroupId))
 
-        return search_get_qparams(self, queryset, [('mapDbId', 'mapDbId'), ('linkageGroupId', 'linkageGroupId')])
+        queryset = search_get_qparams(self, queryset, [('mapDbId', 'mapDbId'), ('linkageGroupId', 'linkageGroupId')])
 
+        return paginate(queryset, request, MapLinkageSerializer)
+    
     # end def get_queryset
 
 # end class MapLinkageView
@@ -78,10 +79,8 @@ class MapLinkageViewPositions(APIView):
             queryset = queryset.filter(location__lte=max_pos)
         # end if
 
-        serializer = MapLinkageSerializer(queryset, many=True)
-
-        return Response(serializer.data)           
-
+        return paginate(queryset, request, MapLinkageSerializer)
+      
     # end def get
 
 # end class MapLinkageViewPositions

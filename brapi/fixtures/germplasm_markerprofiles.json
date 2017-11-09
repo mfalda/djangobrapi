@@ -1,0 +1,1 @@
+[{"model": "brapi.gpmarkerp", "pk": 1, "fields": {"germplasmDbId": 3, "markerProfilesDbIds": 1}}, {"model": "brapi.gpmarkerp", "pk": 2, "fields": {"germplasmDbId": 3, "markerProfilesDbIds": 2}}, {"model": "brapi.gpmarkerp", "pk": 3, "fields": {"germplasmDbId": 3, "markerProfilesDbIds": 3}}]

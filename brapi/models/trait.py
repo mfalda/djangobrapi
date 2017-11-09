@@ -20,6 +20,13 @@ class Trait(models.Model):
 
     # end def save
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Trait
 
 

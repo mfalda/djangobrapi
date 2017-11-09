@@ -9,6 +9,13 @@ class GAList(models.Model):
     attributeCategoryDbId = models.IntegerField()
     name = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class GAList
 
 
@@ -29,6 +36,13 @@ class GAAttrAvail(models.Model):
 
     # end def save
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class GAAttrAvail
 
 
@@ -42,6 +56,13 @@ class GermplasmAttr(models.Model):
     value = models.CharField(max_length=100, blank=True, default='')
     dateDetermined = models.DateField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class GermplasmAttr
 
 

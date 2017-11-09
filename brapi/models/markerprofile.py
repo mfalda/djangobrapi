@@ -13,6 +13,13 @@ class AlleleMatrix(models.Model):
     lastUpdated = models.DateField()
     studyDbId = models.IntegerField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class AlleleMatrix
 
 
@@ -25,6 +32,13 @@ class AlleleMSearch(models.Model):
         self.data = '; '.join(self.data)
 
     # end def save
+    
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
     
 # end class AlleleMSearch
 
@@ -40,9 +54,31 @@ class MarkerProfile(models.Model):
     analysisMethod = models.CharField(max_length=100, blank=True, default='')
     resultCount = models.IntegerField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class MarkerProfile
   
+
+class GPMarkerP(models.Model):
+
+    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    markerProfilesDbIds = models.ForeignKey(MarkerProfile, db_column='markerProfilesDbIds', related_name='markerProfilesDbIds', on_delete=models.CASCADE, default='', to_field='markerProfilesDbId')
+
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
     
+# end class GPMarkerP
+    
+
 class MarkerProfilesData(models.Model):
     
     germplasmDbId = models.IntegerField()
@@ -58,6 +94,13 @@ class MarkerProfilesData(models.Model):
 
     # end def save
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class MarkerProfilesData
 
 
@@ -153,4 +196,18 @@ class MarkerProfilesDataSerializer(serializers.ModelSerializer):
     # end def to_internal_value
     
 # end class MarkerProfilesDataSerializer
+    
+
+class GPMarkerPSerializer(serializers.ModelSerializer):
+    
+    markerProfilesDbIds = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
+    
+    class Meta:
+
+        model = GPMarkerP
+        fields = ['germplasmDbId', 'markerProfilesDbIds']
+
+    # end class Meta
+
+# end class GPMarkerPSerializer
     

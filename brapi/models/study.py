@@ -17,6 +17,13 @@ class Trial(models.Model):
     endDate = models.DateField()
     active = models.BooleanField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Trial
     
     
@@ -26,6 +33,13 @@ class Treatment(models.Model):
     factor = models.CharField(max_length=100, blank=True, default='')
     modality = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Treatment
 
 
@@ -35,6 +49,13 @@ class DataLink(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     url = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class DataLink
     
     
@@ -44,6 +65,13 @@ class StudySeason(models.Model):
     season = models.CharField(max_length=100, blank=True, default='')
     year = models.IntegerField()
 
+
+    class Meta:
+        
+        ordering = ('seasonDbId',)
+        
+    # end class Meta
+    
 # end class StudySeason
 
 
@@ -52,6 +80,13 @@ class StudyType(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class StudyType
 
 
@@ -59,6 +94,13 @@ class StudyObsLevel(models.Model):
     
     data = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class StudyObsLevel
 
 
@@ -76,6 +118,13 @@ class StudyPlot(models.Model):
     Y = models.IntegerField()
     entryType = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class StudyPlot
 
     
@@ -105,6 +154,13 @@ class Study(models.Model):
 
     # end def save
     
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Study
 
 
@@ -123,6 +179,13 @@ class StudyObsUnit(models.Model):
     germplasmDbId = models.IntegerField(null=True)
     germplasmName = models.IntegerField(null=True)
     value = models.IntegerField(null=True)
+    
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
     
 # end class StudyObsUnit
     

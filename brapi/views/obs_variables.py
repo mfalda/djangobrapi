@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.views import APIView
+import logging
 
 from brapi.models.observation import (ObsVariable, Datatype, Ontology,
                                       ObsVariableSerializer, DatatypeSerializer,
@@ -7,7 +8,7 @@ from brapi.models.observation import (ObsVariable, Datatype, Ontology,
 
 from brapi.aux_fun import paginate, search_post_params_in
 
-from brapi.apps import BrAPIListPagination
+from brapi.paginators import BrAPIListPagination
 
 
 class DatatypesViewSet(viewsets.ReadOnlyModelViewSet):
@@ -41,7 +42,7 @@ class ObsVariablesView(APIView):
             queryset = queryset.filter(observationVariableDbId=observationVariableDbId)
         # end if
 
-        return paginate(queryset, request, 'ObsVariableSerializer')
+        return paginate(queryset, request, ObsVariableSerializer)
 
     # end def get_queryset
 
@@ -63,7 +64,7 @@ class ObsVariablesListView(APIView):
             queryset = queryset.filter(trait__classe=param_value)
         # end if
 
-        return paginate(queryset, request, 'ObsVariableSerializer')
+        return paginate(queryset, request, ObsVariableSerializer)
 
     # end def get
 
@@ -75,6 +76,11 @@ class VSearchView(APIView):
     serializer_class = ObsVariableSerializer
 
     def post(self, request, format=None, *args, **kwargs):
+
+        params = self.request.data
+        
+        logger = logging.getLogger(__name__)
+        logger.warn("Search parameters: %s" % params)
         
         queryset = ObsVariable.objects.all()
 
@@ -86,7 +92,7 @@ class VSearchView(APIView):
             ('scale', 'scaleDbIds'),
             ('name', 'names')])
 
-        return paginate(queryset, request, 'ObsVariableSerializer')
+        return paginate(queryset, request, ObsVariableSerializer)
 
     # end def post
 

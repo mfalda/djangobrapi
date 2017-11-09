@@ -1,16 +1,17 @@
-from rest_framework import viewsets
+from rest_framework.views import APIView
 
 # there is a circular dependency between trials and studies (when aggregationg models and serializers)
 from brapi.models.study import Trial, TrialSerializer
 
-from brapi.aux_fun import search_get_qparams
+from brapi.aux_fun import search_get_qparams, paginate
 
 
-class TrialViewSet(viewsets.ReadOnlyModelViewSet):
+class TrialView(APIView):
 
     serializer_class = TrialSerializer
 
-    def get_queryset(self):
+
+    def get(self, request, format=None, *args, **kwargs):
     
         queryset = Trial.objects.all()
         queryset = search_get_qparams(self, queryset, [('programDbId', 'programDbId'), ('locationDbId', 'locationDbId'),
@@ -25,9 +26,30 @@ class TrialViewSet(viewsets.ReadOnlyModelViewSet):
             elif sortOrder is not None and sortOrder == 'Descending':
                 queryset = queryset.order_by('-' + sortBy)
             # end if
+        # end if
 
-        return queryset
+        return paginate(queryset, request, TrialSerializer)
 
-    # end def get_queryset
+    # end def get
 
-# end class TrialViewSet
+# end class TrialView
+    
+
+class TrialDetailsView(APIView):
+
+    serializer_class = TrialSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+    
+        queryset = Trial.objects.all()
+        
+        trialDbId = self.kwargs.get('trialDbId', None)
+        if trialDbId is not None:
+            queryset = queryset.filter(trialDbId=trialDbId)
+        # end if
+
+        return paginate(queryset, request, TrialSerializer)
+
+    # end def get
+
+# end class TrialDetailsView

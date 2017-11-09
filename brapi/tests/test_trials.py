@@ -56,16 +56,32 @@ class TrialTest(APITestCase):
 
         expected = """
 {
-    "trialDbId": 1,
-    "trialName": "Peru Yield Trial",
-    "programDbId": 1,
-    "name": "CIPHQ",
-    "startDate": "2013-01-01",
-    "endDate": "2013-07-05",
-    "active": false,
-    "studies": []
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "trialDbId": 1,
+                "trialName": "Peru Yield Trial",
+                "programDbId": 1,
+                "name": "CIPHQ",
+                "startDate": "2013-01-01",
+                "endDate": "2013-07-05",
+                "active": false,
+                "studies": []
+            }
+        ]
+    }
 }"""
-        test_get(self, '/brapi/v1/trials/1/', expected)
+        test_get(self, '/brapi/v1/trials/1', expected)
 
     # end def test_get_trial_details
 

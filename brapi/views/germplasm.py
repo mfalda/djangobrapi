@@ -1,11 +1,8 @@
-from rest_framework.response import Response
 from rest_framework.views import APIView
 import logging
 
-from brapi.models.germplasm import (Germplasm, GPPedigree, GPMarkerP,
-                                    GermplasmSerializer, GPPedigreeSerializer, 
-                                    GPMarkerPSerializer)
-
+from brapi.models.germplasm import (Germplasm, GPPedigree,
+                                    GermplasmSerializer, GPPedigreeSerializer)
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 
@@ -20,11 +17,9 @@ class GermplasmView(APIView):
         germplasmDbId = self.kwargs.get('germplasmDbId', None)
         if germplasmDbId is not None:
             queryset = queryset.filter(germplasmDbId=germplasmDbId)
-        # end if        
+        # end if
 
-        serializer = GermplasmSerializer(queryset, many=True)
-
-        return Response(serializer.data)           
+        return paginate(queryset, request, GermplasmSerializer)
 
     # end def get
 
@@ -57,26 +52,6 @@ class GPPedigreeView(APIView):
 # end class GPPedigreeView
 
 
-class GPMarkerPView(APIView):
-
-    serializer_class = GPMarkerPSerializer
-
-    def get(self, request, format=None, *args, **kwargs):
-
-        queryset = GPMarkerP.objects.all()
-
-        germplasmDbId = self.kwargs.get('id', None)
-        if germplasmDbId is not None:
-            queryset = queryset.filter(germplasmDbId=germplasmDbId)
-        # end if        
-
-        return paginate(queryset, request, GPMarkerPSerializer)
-
-    # end def get
-
-# end class GPMarkerPView
-
-
 class GermplasmSearchView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
@@ -89,11 +64,9 @@ class GermplasmSearchView(APIView):
         logger.warn("Searching with parameters %s" % self.request.query_params)
 
         queryset = search_get_qparams(self, queryset, [('germplasmName', 'germplasmName'), 
-            ('germplasmDdId', 'germplasmDdId'), ('germplasmPUI', 'germplasmPUI')])
+            ('germplasmDbId', 'germplasmDbId'), ('germplasmPUI', 'germplasmPUI')])
 
-        serializer = GermplasmSerializer(queryset, many=True)
-
-        return Response(serializer.data)           
+        return paginate(queryset, request, GermplasmSerializer)
 
     # end def get
 
@@ -119,14 +92,12 @@ class GermplasmSearchView(APIView):
         logger = logging.getLogger(__name__)
         logger.warn("Parameters: %s" % params)
 
-        queryset = search_post_params_in(self, queryset, [('germplasmNames', 'germplasmNames'), 
-                ('germplasmDdIds', 'germplasmDdIds'), ('germplasmPUIs', 'germplasmPUIs'), 
+        queryset = search_post_params_in(self, queryset, [('germplasmNames', 'germplasmName'), 
+                ('germplasmDbId', 'germplasmDbId'), ('germplasmPUIs', 'germplasmPUI'), 
                 ('germplasmSpecies', 'germplasmSpecies'), ('germplasmGenus', 'germplasmGenus'),
-                ('accessionNumbers', 'accessionNumbers')])
+                ('accessionNumbers', 'accessionNumber')])
 
-        serializer = GermplasmSerializer(queryset, many=True)
-
-        return Response(serializer.data)           
+        return paginate(queryset, request, GermplasmSerializer)         
 
     # end def post
 

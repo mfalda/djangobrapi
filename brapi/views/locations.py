@@ -1,24 +1,42 @@
-from rest_framework import viewsets
+from rest_framework.views import APIView
 
 from brapi.models.location import Location, LocationSerializer
+from brapi.aux_fun import search_get_qparams, paginate
 
-from brapi.aux_fun import search_get_qparams
 
-
-# cannot use ViewSets because the previous detail view is not standard
-class LocationViewSet(viewsets.ReadOnlyModelViewSet):
+class LocationView(APIView):
 
     serializer_class = LocationSerializer
 
-    def get_queryset(self):
-        """
-        Optionally restricts the returned records
-        """
 
+    def get(self, request, format=None, *args, **kwargs):
+    
         queryset = Location.objects.all()
+        
+        queryset = search_get_qparams(self, queryset, [('locationType', 'locationType')])
 
-        return search_get_qparams(self, queryset, [('locationType', 'locationType')])
+        return paginate(queryset, request, LocationSerializer)
 
-    # end def get_queryset
+    # end def get
 
-# end class LocationViewSet
+# end class LocationView
+    
+
+class LocationDetailsView(APIView):
+
+    serializer_class = LocationSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+    
+        queryset = Location.objects.all()
+        
+        locationDbId = self.kwargs.get('locationDbId', None)
+        if locationDbId is not None:
+            queryset = queryset.filter(locationDbId=locationDbId)
+        # end if
+
+        return paginate(queryset, request, LocationSerializer)
+
+    # end def get
+
+# end class LocationDetailsView

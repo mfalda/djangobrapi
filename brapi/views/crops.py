@@ -2,7 +2,7 @@ from rest_framework import viewsets
 
 
 from brapi.models.crop import Crop, CropSerializer
-from brapi.apps import BrAPIListPagination
+from brapi.paginators import BrAPIListPagination
 
 
 class CropsViewSet(viewsets.ReadOnlyModelViewSet):

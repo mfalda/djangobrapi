@@ -8,6 +8,13 @@ class Datatype(models.Model):
     
     data = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Datatype
 
 
@@ -20,6 +27,13 @@ class Ontology(models.Model):
     copyright = models.CharField(max_length=100, null=True, default='')
     licence = models.CharField(max_length=100, null=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Ontology
 
 
@@ -35,6 +49,13 @@ class ObsVValue(models.Model):
 
     # end def save
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class ObsVValue
 
 
@@ -47,6 +68,13 @@ class ObsMethod(models.Model):
     formula = models.CharField(max_length=100, blank=True, default='')
     reference = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class ObsMethod
 
 
@@ -59,6 +87,13 @@ class ObsScale(models.Model):
     xref = models.CharField(max_length=100, null=True, default='')
     validValues = models.ForeignKey(ObsVValue, db_column='validValues', related_name='validValues', on_delete=models.CASCADE, default='', to_field='id')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class ObsScale
 
 
@@ -81,6 +116,13 @@ class ObsTrait(models.Model):
     analysisMethod = models.CharField(max_length=100, blank=True, default='')
     data = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class ObsTrait
 
 
@@ -105,6 +147,13 @@ class ObsVariable(models.Model):
     method = models.ForeignKey(ObsMethod, db_column='method', related_name='method', on_delete=models.CASCADE, default='', to_field='methodDbId')
     scale = models.ForeignKey(ObsScale, db_column='scale', related_name='scale', on_delete=models.CASCADE, default='', to_field='scaleDbId')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class ObsVariable
 
 
@@ -118,6 +167,13 @@ class Observation(models.Model):
     collector = models.CharField(max_length=100, blank=True, default='')
     value = models.IntegerField()
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Observation
     
     

@@ -10,6 +10,13 @@ class Program(models.Model):
     objective = models.CharField(max_length=100, blank=True, default='')
     leadPerson = models.CharField(max_length=100, blank=True, default='')
 
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
 # end class Program
     
 

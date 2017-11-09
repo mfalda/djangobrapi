@@ -13,9 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.contrib import admin
+#from django.contrib import admin
 from django.conf.urls import url, include
-from rest_framework import routers
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
@@ -23,4 +25,5 @@ urlpatterns = [
     #url(r'^admin/', admin.site.urls),
     url(r'^', include('snippets.urls')),
     url(r'^', include('brapi.urls')),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

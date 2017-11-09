@@ -5,10 +5,11 @@ from brapi.aux_fun import test_get, test_post
 
 class MarkerProfilesTest(APITestCase):
     
-    fixtures = ['allele_matrices.json', 'germplasm.json', 'marker_profiles.json']
+    fixtures = ['taxa.json', 'germplasm.json', 'allele_matrices.json', 
+                'allele_matrix_search.json', 'marker_profiles.json']
     
     
-    def test_get_alleleMatrixSearch(self):
+    def test_get_allele_matrices(self):
 
         expected = """
 {
@@ -43,9 +44,53 @@ class MarkerProfilesTest(APITestCase):
 }"""
         test_get(self, '/brapi/v1/allelematrices/', expected)
         
-    # end def test_get_alleleMatrixSearch
+    # end def test_get_allele_matrices
 
 
+    def test_get_allele_matrix_search(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 4,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            [
+                "1",
+                "1",
+                "A/B"
+            ],
+            [
+                "1",
+                "2",
+                "B"
+            ],
+            [
+                "2",
+                "1",
+                "A"
+            ],
+            [
+                "2",
+                "2",
+                "A/B"
+            ]
+        ]
+    }
+}"""
+        test_get(self, '/brapi/v1/allelematrix-search', expected)
+        
+    # end def test_get_allele_matrix_search
+    
+    
     def test_get_markerprofiles(self):
 
         expected = """
@@ -90,7 +135,7 @@ class MarkerProfilesTest(APITestCase):
     # end def test_get_markerprofiles
 
 
-    def test_post_search(self):
+    def test_get_markerprofiles_data(self):
 
         expected = """
 {
@@ -98,7 +143,7 @@ class MarkerProfilesTest(APITestCase):
         "pagination": {
             "currentPage": 1,
             "pageTotal": 1,
-            "totalCount": 2,
+            "totalCount": 1,
             "pageSize": 100
         },
         "status": [],
@@ -115,25 +160,49 @@ class MarkerProfilesTest(APITestCase):
                 "analysisMethod": "GBS",
                 "resultCount": 1,
                 "germplasmDbId": 3
-            },
+            }
+        ]
+    }
+}"""
+        test_get(self, '/brapi/v1/markerprofiles/3/', expected)
+        
+    # end def test_get_markerprofiles_data 
+    
+    
+    def test_post_search(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
             {
-                "markerProfilesDbId": 4,
-                "uniqueDisplayName": "germplasm4",
-                "sampleDbId": 44,
-                "extractDbId": 2,
-                "studyDbId": 2,
-                "analysisMethod": "GoldenGate",
+                "markerProfilesDbId": 3,
+                "uniqueDisplayName": "germplasm3",
+                "sampleDbId": 33,
+                "extractDbId": 1,
+                "studyDbId": 1,
+                "analysisMethod": "GBS",
                 "resultCount": 1,
-                "germplasmDbId": 4
+                "germplasmDbId": 3
             }
         ]
     }
 }"""
         params = {
-            "germplasm": 3
+            "germplasm": [3]
         }
         
-        test_post(self, '/brapi/v1/programs-search', params, expected)
+        test_post(self, '/brapi/v1/markerprofiles', params, expected)
 
     # end def test_post_search
     

@@ -3,13 +3,12 @@ from rest_framework.views import APIView
 import logging
 
 from brapi.models.markerprofile import (AlleleMatrix, AlleleMSearch, 
-                                        MarkerProfile, MarkerProfilesData,
+                                        MarkerProfile, GPMarkerP,
                                         AlleleMatrixSerializer, AlleleMSearchSerializer,
-                                        MarkerProfileSerializer, MarkerProfilesDataSerializer)
-
+                                        MarkerProfileSerializer, GPMarkerPSerializer)
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
-from brapi.apps import BrAPIListPagination
+from brapi.paginators import BrAPIListPagination
 
 
 class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
@@ -63,26 +62,26 @@ class AlleleMSearchView(APIView):
 
 class MarkerProfilesDataView(APIView):
     
-    serializer_class = MarkerProfilesDataSerializer
+    serializer_class = MarkerProfileSerializer
 
 
     def get(self, request, format=None, *args, **kwargs):
     
-        logger = logging.getLogger(__name__)
-        logger.warn("Markerprofiles data")
-
-        queryset = MarkerProfilesData.objects.all()
+        queryset = MarkerProfile.objects.all()
 
         markerprofileDbId = self.kwargs.get('markerprofileDbId', None)
+        
+        logger = logging.getLogger(__name__)
+        logger.warn("Markerprofiles data: %s" % markerprofileDbId)
+
         if markerprofileDbId is not None:
-            queryset = queryset.filter(markerprofileDbId=markerprofileDbId)
+            queryset = queryset.filter(markerProfilesDbId=markerprofileDbId)
         # end if
 
         # TODO: it is not clear to which data the query parameters apply!
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
-        queryset = queryset #_search_get_qparams(self, queryset, [('year', 'year')])
 
-        return paginate(queryset, request, MarkerProfilesDataSerializer)
+        return paginate(queryset, request, MarkerProfileSerializer)
 
     # end def get
 
@@ -95,12 +94,15 @@ class MarkerProfilesView(APIView):
 
 
     def get(self, request, format=None, *args, **kwargs):
-    
+
+        logger = logging.getLogger(__name__)
+        logger.warn("Searching with parameters %s" % self.request.query_params)
+
         queryset = MarkerProfile.objects.all()
 
-        queryset = search_get_qparams(self, queryset, [('germplasm', 'germplasmDbId'),
-            ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
-            ('method', 'analysisMethod')])
+        queryset = search_get_qparams(self, queryset, [('germplasmDbId', 'germplasm'),
+            ('studyDbId', 'studyDbId'), ('sampleDbId', 'sample'), ('extractDbId', 'extract'),
+            ('analysisMethod', 'method')])
 
         return paginate(queryset, request, MarkerProfileSerializer)
 
@@ -109,14 +111,39 @@ class MarkerProfilesView(APIView):
 
     def post(self, request, format=None, *args, **kwargs):
         
+        params = self.request.data
+
+        logger = logging.getLogger(__name__)
+        logger.warn("Searching with parameters: %s" % params)
+        
         queryset = MarkerProfile.objects.all()
 
-        queryset = search_post_params_in(self, queryset, [('germplasm', 'germplasmDbId'),
-            ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
-            ('method', 'analysisMethod')])
-
+        queryset = search_post_params_in(self, queryset, [('germplasmDbId', 'germplasm'),
+            ('studyDbId', 'studyDbId'), ('sampleDbId', 'sample'), ('extractDbId', 'extract'),
+            ('analysisMethod', 'method')])
+    
         return paginate(queryset, request, MarkerProfileSerializer)
 
     # end def post
 
 # end class MarkerProfilesView
+
+
+class GPMarkerPView(APIView):
+
+    serializer_class = GPMarkerPSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = GPMarkerP.objects.all()
+
+        germplasmDbId = self.kwargs.get('id', None)
+        if germplasmDbId is not None:
+            queryset = queryset.filter(germplasmDbId=germplasmDbId)
+        # end if        
+
+        return paginate(queryset, request, GPMarkerPSerializer)
+
+    # end def get
+
+# end class GPMarkerPView

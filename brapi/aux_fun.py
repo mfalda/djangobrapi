@@ -1,10 +1,11 @@
 from rest_framework.response import Response
+import json
 #from django.contrib.auth.models import User
 #from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient
 from rest_framework import status
 
-from brapi.apps import BrAPIResultsSetPagination
+from brapi.paginators import BrAPIResultsSetPagination
 
 
 # the DefaultRouter class we're using in urls.py  also automatically creates the API root view
@@ -80,7 +81,7 @@ def test_post(self, url, params, expected):
     client = APIClient(enforce_csrf_checks=True)
     #client.credentials(HTTP_AUTHORIZATION='Token ' + token.key)
 
-    response = client.post(url, params)
+    response = client.post(url, json.dumps(params), content_type='application/json')
     self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     response.render() # Cannot access `response.content` without this.

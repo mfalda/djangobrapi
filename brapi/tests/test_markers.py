@@ -69,20 +69,36 @@ class MarkerTest(APITestCase):
 
         expected = """
 {
-    "markerDbId": 1,
-    "defaultDisplayName": "a_01_10001",
-    "type": "SNP",
-    "synonyms": [
-        "i_01_10001",
-        "popA_10001"
-    ],
-    "refAlt": [
-        "A",
-        "T"
-    ],
-    "analysisMethods": [
-        "illumina"
-    ]
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP",
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ]
+            }
+        ]
+    }
 }"""
             
         test_get(self, '/brapi/v1/markers/1/', expected)            
