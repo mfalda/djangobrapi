@@ -1,14 +1,20 @@
-from rest_framework import viewsets
-
+#from oauth2_provider.views.generic import ProtectedResourceView
+from rest_framework.views import APIView
 from brapi.models.call import Call, CallsSerializer
 
+from brapi.aux_fun import paginate
 
-class CallsViewSet(viewsets.ReadOnlyModelViewSet):
-    """
-    This viewset automatically provides `list` and `detail` actions.
-    """
 
-    queryset = Call.objects.all()
+class CallsView(APIView):#ProtectedResourceView):
+
     serializer_class = CallsSerializer
 
-# end class CallsViewSet
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = Call.objects.all()
+
+        return paginate(queryset, request, CallsSerializer)
+
+    # end def get
+
+# end class CallsView

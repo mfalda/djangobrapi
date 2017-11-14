@@ -35,7 +35,7 @@ WORKDIR /code/
 ADD . /code/
 
 # uWSGI will listen on this port
-EXPOSE 8000
+EXPOSE 8001
 
 # Add any custom, static environment variables needed by Django or your settings file here:
 #ENV DJANGO_SETTINGS_MODULE=tutorial.settings.deploy
@@ -51,4 +51,4 @@ ENV UWSGI_VIRTUALENV=/venv UWSGI_WSGI_FILE=tutorial/wsgi.py UWSGI_HTTP=:8000 UWS
 RUN DATABASE_URL=none /venv/bin/python manage.py collectstatic --noinput
 
 # Start uWSGI
-CMD ["/venv/bin/uwsgi", "--http-auto-chunked", "--http-keepalive", "--pythonpath", "/code/tutorial"]
+CMD ["/venv/bin/uwsgi", "brapi_uwsgi.ini", "--http-auto-chunked", "--http-keepalive", "--pythonpath", "/code/tutorial"]

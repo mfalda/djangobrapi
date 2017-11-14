@@ -2,10 +2,12 @@ from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.schemas import get_schema_view
 from django.conf.urls import handler400, handler403, handler404, handler500
+import oauth2_provider.views as oauth2_views
+from django.conf import settings
 
 from brapi.views.authentication import exchange_token
 from brapi.views import errors
-from brapi.views.calls import CallsViewSet
+from brapi.views.calls import CallsView
 from brapi.views.locations import LocationView, LocationDetailsView
 from brapi.views.crops import CropsViewSet
 from brapi.views.programs import ProgramViewSet, ProgramSearchView
@@ -39,11 +41,6 @@ handler404 = errors.error404
 # since we're using viewsets and routers, we can simply use the automatic schema generation.
 schema_view = get_schema_view(title='BrAPI')
 
-# bind our ViewSet classes into a set of concrete views (the http methods to the required action for each view)
-calls = CallsViewSet.as_view({
-    'get': 'list',
-})
-
 # Because we're using ViewSet classes rather than View classes,
 # the conventions for wiring up resources into views and urls can be handled automatically
 # using a Router class.
@@ -51,7 +48,6 @@ calls = CallsViewSet.as_view({
 router = DefaultRouter()
 
 router.register(r'brapi/v1/crops', CropsViewSet, 'crops')
-router.register(r'brapi/v1/calls', CallsViewSet, 'calls')
 router.register(r'brapi/v1/programs', ProgramViewSet, 'programs')
 router.register(r'brapi/v1/maps', MapViewSet, 'maps')
 router.register(r'brapi/v1/attributes/categories', GAListViewSet, 'GA_list')
@@ -67,7 +63,8 @@ router.register(r'brapi/v1/allelematrices', AlleleMatrixViewSet, 'allele_matrix'
 # Additionally, we include the login URLs for the browsable API
 urlpatterns = [
     url(r'^', include(router.urls)),
-    # cannot use ViewSets because the detail view is not standard
+    url(r'brapi/v1/calls', CallsView.as_view()),
+
     url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
     url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)/?$', MapLinkageViewPositions.as_view()),
 
@@ -119,10 +116,32 @@ urlpatterns = [
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/?$', StudyDetailsView.as_view())
 ]
 
-# Login and logout views for the browsable API
-urlpatterns += [
-    url(r'^schema/$', schema_view),
-    url(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^brapi/v1/token/(?P<backend>[^/]+)/', exchange_token),
-    url('', include('social_django.urls', namespace='social'))
+# OAuth2 provider endpoints
+oauth2_endpoint_views = [
+    url(r'brapi/v1/authorize/$', oauth2_views.AuthorizationView.as_view(), name="authorize"),
+    url(r'brapi/v1/token/$', oauth2_views.TokenView.as_view(), name="token"),
+    url(r'brapi/v1/revoke-token/$', oauth2_views.RevokeTokenView.as_view(), name="revoke-token"),
+]
+
+if settings.DEBUG:
+    # OAuth2 Application Management endpoints
+    oauth2_endpoint_views += [
+        url(r'brapi/v1/applications/$', oauth2_views.ApplicationList.as_view(), name="list"),
+        url(r'brapi/v1/applications/register/$', oauth2_views.ApplicationRegistration.as_view(), name="register"),
+        url(r'brapi/v1/applications/(?P<pk>\d+)/$', oauth2_views.ApplicationDetail.as_view(), name="detail"),
+        url(r'brapi/v1/applications/(?P<pk>\d+)/delete/$', oauth2_views.ApplicationDelete.as_view(), name="delete"),
+        url(r'brapi/v1/applications/(?P<pk>\d+)/update/$', oauth2_views.ApplicationUpdate.as_view(), name="update"),
+    ]
+
+    # OAuth2 Token Management endpoints
+    oauth2_endpoint_views += [
+        url(r'brapi/v1/authorized-tokens/$', oauth2_views.AuthorizedTokensListView.as_view(), name="authorized-token-list"),
+        url(r'brapi/v1/authorized-tokens/(?P<pk>\d+)/delete/$', oauth2_views.AuthorizedTokenDeleteView.as_view(),
+            name="authorized-token-delete"),
+    ]
+
+urlpatterns = [
+    # OAuth 2 endpoints:
+    url(r'', include(oauth2_endpoint_views, namespace="oauth2_provider")),
+    url(r'', include(urlpatterns)),    
 ]
