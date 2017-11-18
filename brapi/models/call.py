@@ -1,7 +1,7 @@
 from django.db import models
 from rest_framework import serializers
 
-from brapi.serializers import StringListField
+from brapi.aux_types import StringListField
 
 
 class Call(models.Model):

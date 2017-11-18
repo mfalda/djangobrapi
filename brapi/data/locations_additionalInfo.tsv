@@ -1,0 +1,17 @@
+locationDbId	additionalInfo
+1	local:San Ramon; crops:potato,sweetpotato; cont:South America; creg:LAC; adm3:San Ramon; adm2:Chanchamayo; adm1:Junin; annualTotalPrecipitation:360; annualMeanTemperature:23 
+3	annualTotalPrecipitation:6.4; annualMeanTemperature:19.2 
+4	local:Gurue; crops:potato,sweetpotato; cont:Africa; creg:SSA; adm3:Gurue; adm2:Gurue; adm1:Zambezia 
+5	local:Umbeluzi; crops:potato,sweetpotato; cont:Africa; creg:SSA; adm3:Umbeluzi; adm2:Boane; adm1:Maputo 
+6	altern:MARANK; local:San Miguel Centro Marankiari; crops:sweetpotato; cont:South America; creg:LAC; adm3:Peren�; adm2:Chanchamayo; adm1:Junin 
+7	altern:SHIRANI; local:Shirani; crops:sweetpotato; cont:South America; creg:LAC; adm3:Pichanaki; adm2:Chanchamayo; adm1:Junin 
+8	altern:BETALT; local:Betania; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin 
+9	altern:BETBAJ; local:Betania; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin 
+10	altern:OVIRI; local:Nuevaluz Oviri; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin 
+11	altern:PTOCOPA; local:Puerto Ocopa; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin 
+12	altern:SNPEDRO; local:San Pedro; crops:sweetpotato; cont:South America; creg:LAC; adm3:Coviriali; adm2:Satipo; adm1:Junin 
+13	local:Fumesua; crops:sweetpotato; cont:Africa; creg:SSA; adm2:Ejisu-Juaben; adm1:Ashanti 
+14	local:Komenda; crops:sweetpotato; cont:Africa; creg:SSA; adm1:Central 
+15	local:Tono dam; crops:sweetpotato; cont:Africa; creg:SSA; adm2:Kassena-Nankana; adm1:Upper East 
+16	local:NaCRRI; crops:sweetpotato; cont:Africa; creg:SSA 
+17	local:NaSARRI; crops:sweetpotato; cont:Africa; creg:SSA; adm1:Serere 

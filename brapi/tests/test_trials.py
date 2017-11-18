@@ -25,6 +25,12 @@ class TrialTest(APITestCase):
     "result": {
         "data": [
             {
+                "additionalInfo": {
+                    "values": {
+                        "donorName": "Donor1",
+                        "specialProject": "Project1"
+                    }
+                },
                 "trialDbId": 1,
                 "trialName": "Peru Yield Trial",
                 "programDbId": 1,
@@ -35,6 +41,7 @@ class TrialTest(APITestCase):
                 "studies": []
             },
             {
+                "additionalInfo": null,
                 "trialDbId": 2,
                 "trialName": "Peru Genotype Trial",
                 "programDbId": 1,

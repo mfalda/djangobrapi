@@ -48,7 +48,7 @@ class SampleTest(APITestCase):
     }
 }"""
         
-        test_get(self, '/brapi/b1/samples/Unique-Plant-SampleID', expected)
+        test_get(self, '/brapi/v1/samples/Unique-Plant-SampleID', expected)
         
     # end def test_get_samples
 

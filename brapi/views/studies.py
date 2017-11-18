@@ -72,6 +72,23 @@ class SSearchView(APIView):
     
 # end class SSearchView
     
+    
+class StudyObsUnitsView(APIView):
+
+    serializer_class = StudyObsUnitSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+        
+        queryset = StudyObsUnit.objects.all()
+        queryset = search_get_qparams(self, queryset, 
+                   [('observationVariableDbIds', 'observationVariableDbIds')])
+        
+        return paginate(queryset, request, StudyObsUnitSerializer)
+
+    # end def get
+    
+# end class StudyObsUnitsView
+    
 
 class StudyObsUnitsDetailsView(APIView):
 
@@ -81,7 +98,7 @@ class StudyObsUnitsDetailsView(APIView):
     def get(self, request, format=None, *args, **kwargs):
         
         queryset = StudyObsUnit.objects.all()
-
+        
         return paginate(queryset, request, StudyObsUnitSerializer)
 
     # end def get

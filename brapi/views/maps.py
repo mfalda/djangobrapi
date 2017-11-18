@@ -4,37 +4,45 @@ from rest_framework.views import APIView
 from django.db.models import Q
 import logging
 
-from brapi.models.map import Map, MapLinkage, MapSerializer, MapLinkageSerializer
+from brapi.models.map import (Map, MapLinkage, MapSerializer, 
+                              MapDetailSerializer, MapLinkageSerializer)
 
 from brapi.aux_fun import search_get_qparams, paginate
 
 
-class MapViewSet(viewsets.ReadOnlyModelViewSet):
+class MapView(APIView):
 
-    class Meta:
-        
-        ordering = ['-id']
-        
-    # end class Meta
-    
-    
-    def get_queryset(self):
+    def get(self, request, format=None, *args, **kwargs):
 
-        self.serializer_class = MapSerializer
         queryset = Map.objects.all()
+        queryset = search_get_qparams(self, queryset, [('type', 'type'), ('species', 'species')])
 
-        return search_get_qparams(self, queryset, [('type', 'type'), ('species', 'species')])
+        return paginate(queryset, request, MapSerializer)
+    
+    # end def get
+    
+# end class MapView
+    
+    
+class MapDetailView(APIView):
 
-    # end def get_queryset
+    def get(self, request, format=None, *args, **kwargs):
+        
+        mapDbId = self.kwargs['mapDbId']
+        
+        queryset = Map.objects.all()
+        queryset = queryset.filter(mapDbId=mapDbId)
 
-# end class MapViewSet
-
-
+        return paginate(queryset, request, MapDetailSerializer)
+    
+    # end def get
+    
+# end class MapDetailView
+    
+    
 class MapLinkageView(generics.ListCreateAPIView):
 
-    serializer_class = MapLinkageSerializer
-
-    def get_queryset(self):
+     def get(self, request, format=None, *args, **kwargs):
 
         logger = logging.getLogger(__name__)
 
@@ -48,8 +56,8 @@ class MapLinkageView(generics.ListCreateAPIView):
 
         return paginate(queryset, request, MapLinkageSerializer)
     
-    # end def get_queryset
-
+    # end def get
+    
 # end class MapLinkageView
 
 

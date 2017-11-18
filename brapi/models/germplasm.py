@@ -2,7 +2,7 @@ from django.db import models
 from rest_framework import serializers
 
 from brapi.models.taxon import Taxon, TaxonSerializer
-from brapi.serializers import StringListField
+from brapi.aux_types import StringListField, IntListField
 
 
 class Germplasm(models.Model):
@@ -20,14 +20,12 @@ class Germplasm(models.Model):
     instituteName = models.CharField(max_length=100, blank=True, default='')
     biologicalStatusOfAccessionCode = models.IntegerField()
     countryOfOriginCode = models.CharField(max_length=100, blank=True, default='')
-    typeOfGermplasmStorageCode = models.CharField(max_length=100, blank=True, default='')
+    typeOfGermplasmStorageCode = models.IntegerField()
     genus = models.CharField(max_length=100, blank=True, default='')
     species = models.CharField(max_length=100, blank=True, default='')
     speciesAuthority = models.CharField(max_length=100, blank=True, default='')
     subtaxa = models.CharField(max_length=100, blank=True, default='')
     subtaxaAuthority = models.CharField(max_length=100, blank=True, default='')
-    # TODO: this should be a FK, but it is a circular constraint!
-    donors = models.CharField(max_length=100, blank=True, default='')
     acquisitionDate = models.DateField()
     # TODO: represent as a list of objects
     taxonIds = models.ForeignKey(Taxon, db_column='taxonIds', related_name='taxonIds', on_delete=models.CASCADE, default='', to_field='id')
@@ -35,8 +33,8 @@ class Germplasm(models.Model):
     def save(self, *args, **kwargs):
 
         self.synonyms = '; '.join(self.synonyms)
+        self.typeOfGermplasmStorageCode = '; '.join([int(t) for t in self.typeOfGermplasmStorageCode])
         self.taxonIds = '; '.join(self.taxonIds)
-        self.donors = '; '.join(self.donors)
         super(Germplasm, self).save(*args, **kwargs)
 
     # end def save
@@ -51,6 +49,23 @@ class Germplasm(models.Model):
 # end class Germplasm
 
 
+class GPDonor(models.Model):
+
+    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='donors', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    donorAccessionNumber = models.CharField(max_length=100, blank=True, default='')
+    donorInstituteCode = models.CharField(max_length=100, blank=True, default='')
+    germplasmPUI = models.CharField(max_length=100, blank=True, default='')
+
+
+    class Meta:
+        
+        ordering = ('id',)
+        
+    # end class Meta
+    
+# end class GPDonor
+    
+    
 class GPPedigree(models.Model):
 
     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='gppedigrees-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
@@ -70,29 +85,26 @@ class GPPedigree(models.Model):
     
 # end class GPPedigree
 
-
-class GPDonor(models.Model):
-
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='gpdonors-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    donorAccessionNumber = models.CharField(max_length=100, blank=True, default='')
-    donorInstituteCode = models.CharField(max_length=100, blank=True, default='')
-    germplasmPUI = models.CharField(max_length=100, blank=True, default='')
-
+    
+class GPDonorSerializer(serializers.ModelSerializer):
 
     class Meta:
-        
-        ordering = ('id',)
-        
+
+        model = GPDonor
+        exclude = ['id']
+
     # end class Meta
+
+# end class GPDonorSerializer
     
-# end class GPDonor
-  
-    
+
 class GermplasmSerializer(serializers.ModelSerializer):
 
     synonyms = StringListField()
-    donors = StringListField()
+    typeOfGermplasmStorageCode = IntListField()
+    donors = GPDonorSerializer(many=True, read_only=True)
     taxonIds = TaxonSerializer(read_only=True)
+    
     
     class Meta:
 
@@ -111,7 +123,7 @@ class GermplasmSerializer(serializers.ModelSerializer):
     def to_representation(self, instance: Germplasm):
 
         instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
-        instance.donors = [str(s) for s in instance.donors.split('; ')]
+        instance.typeOfGermplasmStorageCode = [int(s) for s in instance.typeOfGermplasmStorageCode.split('; ')]
 
         return super(GermplasmSerializer, self).to_representation(instance)
 
@@ -121,13 +133,12 @@ class GermplasmSerializer(serializers.ModelSerializer):
     def to_internal_value(self, data):
 
         ret = super(GermplasmSerializer, self).to_internal_value(data)
-
+        if ret['typeOfGermplasmStorageCode']:
+            ret['typeOfGermplasmStorageCode'] = '; '.join(str(s) for s in ret['typeOfGermplasmStorageCode'])
+        # end if
+        
         if ret['synonyms']:
             ret['synonyms'] = '; '.join(str(s) for s in ret['synonyms'])
-        # end if
-
-        if ret['donors']:
-            ret['donors'] = '; '.join(str(s) for s in ret['donors'])
         # end if
        
         return ret
@@ -147,17 +158,3 @@ class GPPedigreeSerializer(serializers.ModelSerializer):
     # end class Meta
 
 # end class GPPedigreeSerializer
-
-
-class GPDonorSerializer(serializers.ModelSerializer):
-
-    germplasmDbId = GermplasmSerializer(many=True, read_only=True)
-
-    class Meta:
-
-        model = GPDonor
-        exclude = ['id']
-
-    # end class Meta
-
-# end class GPDonorSerializer

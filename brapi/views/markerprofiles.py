@@ -61,10 +61,7 @@ class AlleleMSearchView(APIView):
 
 
 class MarkerProfilesDataView(APIView):
-    
-    serializer_class = MarkerProfileSerializer
-
-
+ 
     def get(self, request, format=None, *args, **kwargs):
     
         queryset = MarkerProfile.objects.all()
@@ -75,7 +72,7 @@ class MarkerProfilesDataView(APIView):
         logger.warn("Markerprofiles data: %s" % markerprofileDbId)
 
         if markerprofileDbId is not None:
-            queryset = queryset.filter(markerProfilesDbId=markerprofileDbId)
+            queryset = queryset.filter(markerProfilesDbId_details=markerprofileDbId)
         # end if
 
         # TODO: it is not clear to which data the query parameters apply!
@@ -131,18 +128,16 @@ class MarkerProfilesView(APIView):
 
 class GPMarkerPView(APIView):
 
-    serializer_class = GPMarkerPSerializer
-
     def get(self, request, format=None, *args, **kwargs):
 
-        queryset = GPMarkerP.objects.all()
+        queryset = MarkerProfile.objects.all()
 
         germplasmDbId = self.kwargs.get('id', None)
         if germplasmDbId is not None:
             queryset = queryset.filter(germplasmDbId=germplasmDbId)
         # end if        
 
-        return paginate(queryset, request, GPMarkerPSerializer)
+        return paginate(queryset, request, MarkerProfileSerializer)
 
     # end def get
 

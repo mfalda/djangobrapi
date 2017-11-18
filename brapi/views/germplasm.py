@@ -56,8 +56,6 @@ class GermplasmSearchView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 
-        logger = logging.getLogger(__name__)
-
         queryset = Germplasm.objects.all()
 
         logger = logging.getLogger(__name__)

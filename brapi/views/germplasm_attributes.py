@@ -1,12 +1,12 @@
-from rest_framework.response import Response
 from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
-from brapi.models.germplasm import GermplasmSerializer
 from brapi.models.germplasm_attributes import (GAList, GermplasmAttr, GAAttrAvail, 
                                                GAListSerializer, GermplasmAttrSerializer,
                                                GAAttrAvailSerializer)
+
+from brapi.aux_fun import paginate
 
 
 class GAListViewSet(viewsets.ReadOnlyModelViewSet):
@@ -27,8 +27,6 @@ class GAAttrAvailViewSet(viewsets.ReadOnlyModelViewSet):
 
 class GermplasmAttrView(APIView):
 
-    serializer_class = GermplasmSerializer    
-
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = GermplasmAttr.objects.all()
@@ -47,10 +45,8 @@ class GermplasmAttrView(APIView):
             queryset = queryset.filter(attributeDbId__in=attributeDbIds)
         # end if
 
-        serializer = GermplasmAttrSerializer(queryset, many=True)
-
-        return Response(serializer.data)           
-
+        return paginate(queryset, request, GermplasmAttrSerializer)
+         
     # end def get
 
 # end class GermplasmAttrView

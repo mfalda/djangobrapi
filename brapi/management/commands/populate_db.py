@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand, CommandError
 
 from brapi.models.call import Call
-from brapi.models.location import Location
+from brapi.models.location import Location, LocationAdditionalInfo
 from brapi.models.program import Program
 from brapi.models.crop import Crop
 from brapi.models.map import Map, MapLinkage
@@ -9,9 +9,10 @@ from brapi.models.marker import Marker
 from brapi.models.trait import Trait
 from brapi.models.germplasm_attributes import GAList, GAAttrAvail, GermplasmAttr
 from brapi.models.taxon import Taxon
-from brapi.models.germplasm import Germplasm, GPPedigree, GPDonor, GPMarkerP
+from brapi.models.germplasm import Germplasm, GPPedigree, GPDonor
 from brapi.models.study import (Study, Trial, DataLink, StudyObsUnit, Treatment,
-                                StudySeason, StudyType, StudyObsLevel, StudyPlot)
+                                StudySeason, StudyType, StudyObsLevel, StudyPlot,
+                                StudyPlotAdditionalInfo, TrialAdditionalInfo)
 from brapi.models.sample import Sample
 from brapi.models.observation import (Observation, ObservationUnitXref, Ontology, 
                                       Datatype, ObsVValue, ObsScale, ObsTrait, 
@@ -44,7 +45,9 @@ class Command(BaseCommand):
                         # end if
                     # end for
                     for f in composite_fields:
-                        fields[f] = fields[f].split('; ')
+                        if fields[f] and 'NULL' not in fields[f]:
+                            fields[f] = fields[f].split('; ')
+                        # end if
                     # end for
                     row = Classname(None, *fields)
                     print('INSERT: %s(None, %s)' % (Classname.__name__, fields))
@@ -70,6 +73,7 @@ class Command(BaseCommand):
 #        self._populate_table(tsv + '/maps.tsv', Map)
 #
 #        self._populate_table(tsv + '/locations.tsv', Location)
+#        self._populate_table(tsv + '/locations_additionalInfo.tsv', LocationAdditionalInfo)
 #
 #        self._populate_table(tsv + '/markers.tsv', Marker, [3, 4, 5])
 #        self._populate_table(tsv + '/traits.tsv', Trait, [4])
@@ -87,8 +91,9 @@ class Command(BaseCommand):
 #        self._populate_table(tsv + '/germplasm_markerprofiles.tsv', GPMarkerP)
 #
 #        self._populate_table(tsv + '/datalinks.tsv', DataLink) 
-#        self._populate_table(tsv + '/studies.tsv', Study, [14]) 
+#        self._populate_table(tsv + '/studies.tsv', Study, [5, 13]) 
 #        self._populate_table(tsv + '/trials.tsv', Trial)
+#        self._populate_table(tsv + '/trials_additionalInfo.tsv', TrialAdditionalInfo)        
 #
 #        self._populate_table(tsv + '/samples.tsv', Sample)
 #
@@ -116,12 +121,13 @@ class Command(BaseCommand):
 #        self._populate_table(tsv + '/study_types.tsv', StudyType)
 #        self._populate_table(tsv + '/study_obs_levels.tsv', StudyObsLevel)
 #        self._populate_table(tsv + '/study_plot_layouts.tsv', StudyPlot)
-#
+        self._populate_table(tsv + '/studies_layout_additionalInfo.tsv', StudyPlotAdditionalInfo)
+#        
 #        self._populate_table(tsv + '/allele_matrices.tsv', AlleleMatrix)
 #        self._populate_table(tsv + '/allele_matrix.tsv', AlleleMSearch, [0])
 #        self._populate_table(tsv + '/markerprofiles_data.tsv', MarkerProfilesData, [5])
 #
-        self._populate_table(tsv + '/obs_vvalues.tsv', ObsVValue, [1])
+#        self._populate_table(tsv + '/obs_vvalues.tsv', ObsVValue, [1])
 #        self._populate_table(tsv + '/obs_scales.tsv', ObsScale)
 #        self._populate_table(tsv + '/obs_traits.tsv', ObsTrait)
 #        self._populate_table(tsv + '/obs_methods.tsv', ObsMethod)

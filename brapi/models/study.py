@@ -4,7 +4,9 @@ from rest_framework import serializers
 from brapi.models.observation import (ObsMethodSerializer, ObsTraitSerializer,
                                       ObsScaleSerializer)
 
-from brapi.aux_types import StringListField
+from brapi.aux_types import StringListField, StringDictField
+from brapi.serializers import ExtendedSerializer
+
 
 
 class Trial(models.Model):
@@ -25,6 +27,23 @@ class Trial(models.Model):
     # end class Meta
     
 # end class Trial
+    
+    
+class TrialAdditionalInfo(models.Model):
+
+    trialdbid = models.OneToOneField(Trial, models.DO_NOTHING, 
+                                     related_name='additionalInfo', 
+                                     db_column='trialDbId', 
+                                     blank=True, null=True)
+    values = models.CharField(max_length=100, blank=True, default='')
+
+    class Meta:
+
+        ordering = ('id',)
+
+	# end class Meta
+    
+# end class TrialAdditionalInfo
     
     
 class Treatment(models.Model):
@@ -127,7 +146,24 @@ class StudyPlot(models.Model):
     
 # end class StudyPlot
 
+
+class StudyPlotAdditionalInfo(models.Model):
+
+    studyDbId = models.OneToOneField(StudyPlot, models.DO_NOTHING, 
+                                     related_name='additionalInfo', 
+                                     db_column='studyDbId', 
+                                     blank=True, null=True)
+    values = models.CharField(max_length=100, blank=True, default='')
+
+    class Meta:
+
+        ordering = ('id',)
+
+	# end class Meta
     
+# end class StudyPlotAdditionalInfo
+
+
 class Study(models.Model):
     
     studyDbId = models.IntegerField()
@@ -150,7 +186,13 @@ class Study(models.Model):
 
     def save(self, *args, **kwargs):
 
-        self.contactDbId = '; '.join(self.contactDbId)
+        if self.seasons:
+            self.seasons = '; '.join(self.seasons)
+        # end if
+        
+        if self.contactDbId:
+            self.contactDbId = '; '.join(self.contactDbId)
+        # end if
 
     # end def save
     
@@ -226,12 +268,57 @@ class StudyObsLevelSerializer(serializers.ModelSerializer):
 # end class StudyObsLevelSerializer
 
 
-class StudyPlotSerializer(serializers.ModelSerializer):
+class StudyPlotAdditionalInfoSerializer(serializers.ModelSerializer):
+
+    values = StringDictField()
+    
+    
+    class Meta:
+
+        model = StudyPlotAdditionalInfo
+        exclude = ['id', 'studyDbId']
+
+    # end class Meta
+    
+
+    def to_representation(self, instance: StudyPlotAdditionalInfo):
+        
+        if instance.values != '':
+            instance.values = {l.split(':')[0]: l.split(':')[1] for l in instance.values.split('; ')}
+        else:
+            instance.values = {}            
+        # end if
+        
+        return super(StudyPlotAdditionalInfoSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, values):
+
+        ret = super(StudyPlotAdditionalInfoSerializer, self).to_internal_value(values)
+
+        if ret['values']:
+            ret['values'] = '; '.join(['%s:%s' % (k, v) for (k, v) in ret['values']])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+    
+# end class StudyPlotAdditionalInfoSerializer
+    
+    
+class StudyPlotSerializer(ExtendedSerializer):
+
+    additionalInfo = StudyPlotAdditionalInfoSerializer(many=False, read_only=True)
     
     class Meta:
 
         model = StudyPlot
-        exclude = ['id']
+        fields = '__all__'
+        excluded = ['id']
+        extra_fields = ['additionalInfo']
 
     # end class Meta
 
@@ -256,21 +343,27 @@ class StudyObsUnitSerializer(serializers.ModelSerializer):
 
 class StudySerializer(serializers.ModelSerializer):
 
-    studies = StringListField()
-    
+    #seasons = StringListField()
+    #contactDbId = StringListField()
     
     class Meta:
 
         model = Study
-        fields = ['studyDbId', 'studyName', 'locationName']
-
+        fields = ['studyDbId', 'studyName', 'locationName', 'locationDbId']
+        
     # end class Meta
 
 
     def to_representation(self, instance: Study):
     
-        instance.contactDbId = [str(s) for s in instance.contactDbId.split('; ')]
-
+        if instance.seasons:
+            instance.seasons = [str(s) for s in instance.seasons.split('; ')]
+        # end if
+        
+        if instance.contactDbId:
+            instance.contactDbId = [str(s) for s in instance.contactDbId.split('; ')]
+        # end if
+            
         return super(StudySerializer, self).to_representation(instance)
 
     # end def to_representation
@@ -280,6 +373,10 @@ class StudySerializer(serializers.ModelSerializer):
 
         ret = super(StudySerializer, self).to_internal_value(data)
 
+        if ret['seasons']:
+            ret['seasons'] = '; '.join(str(s) for s in ret['seasons'])
+        # end if
+        
         if ret['contactDbId']:
             ret['contactDbId'] = '; '.join(str(s) for s in ret['contactDbId'])
         # end if
@@ -291,15 +388,58 @@ class StudySerializer(serializers.ModelSerializer):
 # end class StudySerializer
 
 
-class TrialSerializer(serializers.ModelSerializer):
+class TrialAdditionalInfoSerializer(serializers.ModelSerializer):
+
+    values = StringDictField()
+    
+    class Meta:
+
+        model = TrialAdditionalInfo
+        exclude = ['id', 'trialdbid']
+
+    # end class Meta
+    
+
+    def to_representation(self, instance: TrialAdditionalInfo):
+        
+        if instance.values != '':
+            instance.values = {l.split(':')[0]: l.split(':')[1] for l in instance.values.split('; ')}
+        else:
+            instance.values = {}
+        # end if
+
+        return super(TrialAdditionalInfoSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, values):
+
+        ret = super(TrialAdditionalInfoSerializer, self).to_internal_value(values)
+
+        if ret['values']:
+            ret['values'] = '; '.join(['%s:%s' % (k, v) for (k, v) in ret['values']])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+    
+# end class TrialAdditionalInfoSerialize
+    
+    
+class TrialSerializer(ExtendedSerializer):
 
     studies = StudySerializer(many=True, read_only=True)
+    additionalInfo = TrialAdditionalInfoSerializer(many=False, read_only=True)
 
     class Meta:
 
         model = Trial
-        fields = ['trialDbId', 'trialName', 'programDbId', 'name', 'startDate', 'endDate', 'active', 'studies']
-
+        fields = '__all__'
+        excluded = ['id']
+        extra_fields = ['studies', 'additionalInfo']
+        
     # end class Meta
 
 # end class TrialSerializer

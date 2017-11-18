@@ -30,7 +30,7 @@ class CropTest(APITestCase):
     }
 }"""
     
-        test_get(self, '/brapi/v1/crops?pageSize=2', expected)
+        test_get(self, '/brapi/v1/crops/?pageSize=2', expected)
 
     # end def test_get_crops
 

@@ -21,8 +21,8 @@ class Map(models.Model):
     # end class Meta
     
 # end class Map
-
-
+  
+    
 class MapLinkage(models.Model):
 
     mapDbId = models.ForeignKey(Map, db_column='mapDbId', related_name='linkageGroups', on_delete=models.CASCADE, default='', to_field='mapDbId')
@@ -46,7 +46,7 @@ class MapLinkageSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = MapLinkage
-        exclude = ['id']
+        exclude = ['id', 'mapDbId']
 
     # end class Meta
 
@@ -55,7 +55,31 @@ class MapLinkageSerializer(serializers.ModelSerializer):
 
 class MapSerializer(serializers.ModelSerializer):
 
+    linkageGroupCount = serializers.SerializerMethodField()
+    
+    
+    class Meta:
+
+        model = Map
+        fields = ['mapDbId', 'name', 'species', 'type', 'unit', 'publishedDate', 
+                    'markerCount', 'comments', 'linkageGroupCount']
+
+    # end class Meta
+
+
+    def get_linkageGroupCount(self, obj):
+        
+        return obj.linkageGroups.count()
+    
+    # end def get_linkageGroupCount
+    
+# end class MapSerializer
+
+
+class MapDetailSerializer(serializers.ModelSerializer):
+
     linkageGroups = MapLinkageSerializer(many=True, read_only=True)
+    
 
     class Meta:
 
@@ -65,4 +89,5 @@ class MapSerializer(serializers.ModelSerializer):
 
     # end class Meta
 
-# end class MapSerializer
+# end class MapDetailSerializer
+    

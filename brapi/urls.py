@@ -11,7 +11,7 @@ from brapi.views.calls import CallsView
 from brapi.views.locations import LocationView, LocationDetailsView
 from brapi.views.crops import CropsViewSet
 from brapi.views.programs import ProgramViewSet, ProgramSearchView
-from brapi.views.maps import MapViewSet, MapLinkageView, MapLinkageViewPositions
+from brapi.views.maps import MapView, MapDetailView, MapLinkageView, MapLinkageViewPositions
 from brapi.views.markers import MarkerView, MarkerDetailsView
 from brapi.views.traits import TraitView, TraitDetailsView
 from brapi.views.germplasm_attributes import (GAListViewSet, GAAttrAvailViewSet, 
@@ -27,7 +27,7 @@ from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMSearchView,
 from brapi.views.obs_variables import (DatatypesViewSet, OntologiesViewSet,
                                        ObsVariablesListView, ObsVariablesView, 
                                        VSearchView)
-from brapi.views.studies import (StudyPlotView, SSearchView, 
+from brapi.views.studies import (StudyPlotView, SSearchView, StudyObsUnitsView, 
                                  StudyObsUnitsDetailsView, StudyDetailsView,
                                  StudyGermplasmDetailsView, StudyObsUnitsTableView, 
                                  StudyObsVarsView, StudySeasonsViewSet, 
@@ -49,7 +49,6 @@ router = DefaultRouter()
 
 router.register(r'brapi/v1/crops', CropsViewSet, 'crops')
 router.register(r'brapi/v1/programs', ProgramViewSet, 'programs')
-router.register(r'brapi/v1/maps', MapViewSet, 'maps')
 router.register(r'brapi/v1/attributes/categories', GAListViewSet, 'GA_list')
 router.register(r'brapi/v1/attributes', GAAttrAvailViewSet, 'GA_attr_avail')
 router.register(r'brapi/v1/variables/datatypes', DatatypesViewSet, 'datatypes')
@@ -65,6 +64,8 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'brapi/v1/calls', CallsView.as_view()),
 
+    url(r'brapi/v1/maps/?$', MapView.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/?$', MapDetailView.as_view()),
     url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
     url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)/?$', MapLinkageViewPositions.as_view()),
 
@@ -108,7 +109,7 @@ urlpatterns = [
     url(r'brapi/v1/traits/?', TraitView.as_view()),
     
     url(r'brapi/v1/studies/studies-search/?$', SSearchView.as_view()),    
-    #url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations$', StudyObsUnitsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations$', StudyObsUnitsView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObsUnitsDetailsView.as_view()),    
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/table/?$', StudyObsUnitsTableView.as_view()),

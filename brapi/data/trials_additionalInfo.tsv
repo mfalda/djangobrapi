@@ -1,0 +1,9 @@
+trialDbId	values
+1	donorName:Donor1; specialProject:Project1
+3	donorName:Donor2; collaborator:NationalPartner1; fundingUSD:300000
+4	donorName:Donor1; specialProject:Project2
+5	
+6	
+7	specialProject:Project2; fundingUSD:1000000
+8	donorName:Donor1; collaborator:NationalPartner1
+9	specialProject:Project1; fundingUSD:500000

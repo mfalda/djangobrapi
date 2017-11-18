@@ -2,7 +2,8 @@ from django.db import models
 from rest_framework import serializers
 
 from brapi.models.germplasm import Germplasm
-from brapi.serializers import StringListField
+from brapi.aux_types import StringListField
+from brapi.serializers import ExtendedSerializer
 
 
 class AlleleMatrix(models.Model):
@@ -42,11 +43,11 @@ class AlleleMSearch(models.Model):
     
 # end class AlleleMSearch
 
-
+    
 class MarkerProfile(models.Model):
 
     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerProfilesDbId = models.IntegerField()
+    markerprofileDbId = models.IntegerField()
     uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
     sampleDbId = models.IntegerField()
     extractDbId = models.IntegerField()
@@ -62,14 +63,13 @@ class MarkerProfile(models.Model):
     # end class Meta
     
 # end class MarkerProfile
-  
+    
 
 class GPMarkerP(models.Model):
 
     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerProfilesDbIds = models.ForeignKey(MarkerProfile, db_column='markerProfilesDbIds', related_name='markerProfilesDbIds', on_delete=models.CASCADE, default='', to_field='markerProfilesDbId')
-
-
+    markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='id', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='id')
+    
     class Meta:
         
         ordering = ('id',)
@@ -78,7 +78,7 @@ class GPMarkerP(models.Model):
     
 # end class GPMarkerP
     
-
+    
 class MarkerProfilesData(models.Model):
     
     germplasmDbId = models.IntegerField()
@@ -151,12 +151,26 @@ class AlleleMSearchSerializer(serializers.ModelSerializer):
 # end class AlleleMSearchSerializer
     
     
-class MarkerProfileSerializer(serializers.ModelSerializer):
+class GPMarkerPSerializer(serializers.ModelSerializer):
+    
+    class Meta:
 
+        model = GPMarkerP
+        fields = ['germplasmDbId', 'markerProfilesDbIds']
+
+    # end class Meta
+
+# end class GPMarkerPSerializer
+    
+    
+class MarkerProfileSerializer(ExtendedSerializer):
+
+    markerProfilesDbId = GPMarkerPSerializer(many=True, read_only=True)
+    
     class Meta:
 
         model = MarkerProfile
-        exclude = ['id']
+        fields = ['germplasmDbId', 'markerProfilesDbId']
 
     # end class Meta
 
@@ -196,18 +210,4 @@ class MarkerProfilesDataSerializer(serializers.ModelSerializer):
     # end def to_internal_value
     
 # end class MarkerProfilesDataSerializer
-    
-
-class GPMarkerPSerializer(serializers.ModelSerializer):
-    
-    markerProfilesDbIds = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    
-    class Meta:
-
-        model = GPMarkerP
-        fields = ['germplasmDbId', 'markerProfilesDbIds']
-
-    # end class Meta
-
-# end class GPMarkerPSerializer
     

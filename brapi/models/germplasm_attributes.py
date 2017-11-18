@@ -1,7 +1,7 @@
 from django.db import models
 from rest_framework import serializers
 
-from brapi.serializers import StringListField
+from brapi.aux_types import StringListField
 
 
 class GAList(models.Model):
@@ -49,8 +49,8 @@ class GAAttrAvail(models.Model):
 class GermplasmAttr(models.Model):
 
     # TODO: this should be a foreign key
-    germplasmDbId = models.CharField(max_length=100, blank=True, default='')
-    attributeDbId = models.CharField(max_length=100, blank=True, default='')
+    germplasmDbId = models.IntegerField()
+    attributeDbId = models.IntegerField()
     attributeName = models.CharField(max_length=100, blank=True, default='')
     attributeCode = models.CharField(max_length=100, blank=True, default='')
     value = models.CharField(max_length=100, blank=True, default='')

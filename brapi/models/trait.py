@@ -1,7 +1,7 @@
 from django.db import models
 from rest_framework import serializers
 
-from brapi.serializers import StringListField
+from brapi.aux_types import StringListField
 
 
 class Trait(models.Model):
@@ -11,7 +11,7 @@ class Trait(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=100, blank=True, default='')
     observationVariables = models.CharField(max_length=100, blank=True, default='')
-    defaultValue = models.IntegerField(null=True)
+    _defaultValue = models.IntegerField(null=True)
 
     def save(self, *args, **kwargs):
 
@@ -26,6 +26,15 @@ class Trait(models.Model):
         ordering = ('id',)
         
     # end class Meta
+    
+    
+    def get_defaultValue(self):
+        
+        return self._defaultValue if self._defaultValue is not None else 'NA'
+    
+    # end def get_defaultValue
+    
+    defaultValue = property(get_defaultValue)
     
 # end class Trait
 
