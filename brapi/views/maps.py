@@ -1,5 +1,4 @@
 from rest_framework import generics
-from rest_framework import viewsets
 from rest_framework.views import APIView
 from django.db.models import Q
 import logging
@@ -42,7 +41,10 @@ class MapDetailView(APIView):
     
 class MapLinkageView(generics.ListCreateAPIView):
 
-     def get(self, request, format=None, *args, **kwargs):
+    serializer_class = MapLinkageSerializer
+    
+    
+    def get(self, request, format=None, *args, **kwargs):
 
         logger = logging.getLogger(__name__)
 
@@ -64,6 +66,9 @@ class MapLinkageView(generics.ListCreateAPIView):
 # cannot use ViewSets nor generic views because the detail view is not standard
 class MapLinkageViewPositions(APIView):
 
+    serializer_class = MapSerializer
+    
+    
     def get(self, request, format=None, *args, **kwargs):
 
         logger = logging.getLogger(__name__)

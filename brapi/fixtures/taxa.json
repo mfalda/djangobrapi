@@ -1,1 +1,10 @@
-[{"model": "brapi.taxon", "pk": 1, "fields": {"ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_4641", "ciradTaxon": "23-E"}}]
+[
+  {
+    "model": "brapi.taxon",
+    "pk": 1,
+    "fields": {
+      "ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_4641",
+      "ciradTaxon": "23-E"
+    }
+  }
+]

@@ -1,1 +1,44 @@
-[{"model": "brapi.datatype", "pk": 1, "fields": {"data": "Numeric"}}, {"model": "brapi.datatype", "pk": 2, "fields": {"data": "Categorical"}}, {"model": "brapi.datatype", "pk": 3, "fields": {"data": "Date"}}, {"model": "brapi.datatype", "pk": 4, "fields": {"data": "Text"}}, {"model": "brapi.datatype", "pk": 5, "fields": {"data": "Picture"}}, {"model": "brapi.datatype", "pk": 6, "fields": {"data": "Boolean"}}]
+[
+  {
+    "model": "brapi.datatype",
+    "pk": 1,
+    "fields": {
+      "data": "Numeric"
+    }
+  },
+  {
+    "model": "brapi.datatype",
+    "pk": 2,
+    "fields": {
+      "data": "Categorical"
+    }
+  },
+  {
+    "model": "brapi.datatype",
+    "pk": 3,
+    "fields": {
+      "data": "Date"
+    }
+  },
+  {
+    "model": "brapi.datatype",
+    "pk": 4,
+    "fields": {
+      "data": "Text"
+    }
+  },
+  {
+    "model": "brapi.datatype",
+    "pk": 5,
+    "fields": {
+      "data": "Picture"
+    }
+  },
+  {
+    "model": "brapi.datatype",
+    "pk": 6,
+    "fields": {
+      "data": "Boolean"
+    }
+  }
+]

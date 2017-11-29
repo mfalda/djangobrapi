@@ -214,7 +214,7 @@ class ObsVValueSerializer(serializers.ModelSerializer):
     # end class Meta
 
 
-    def to_representation(self, instance: ObsVValue):
+    def to_representation(self, instance):
     
         instance.categories = [str(s) for s in instance.categories.split('; ')]
 
@@ -296,6 +296,6 @@ class ObservationUnitXref(models.Model):
 
     ouXrefId = models.IntegerField()
     source = models.CharField(max_length=100, blank=True, default='')
-    id = models.CharField(db_column='id_field', primary_key=True, max_length=100, default='')
+    ouId = models.CharField(db_column='id_field', max_length=100, default='')
 
 # end class ObservationUnitXref

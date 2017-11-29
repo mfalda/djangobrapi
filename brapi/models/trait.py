@@ -11,7 +11,6 @@ class Trait(models.Model):
     name = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=100, blank=True, default='')
     observationVariables = models.CharField(max_length=100, blank=True, default='')
-    _defaultValue = models.IntegerField(null=True)
 
     def save(self, *args, **kwargs):
 

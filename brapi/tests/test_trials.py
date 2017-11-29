@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get
 
 class TrialTest(APITestCase):
     
-    fixtures = ['studies.json', 'trials.json']
+    fixtures = ['studies.json', 'trials.json', 'trials_addInfo.json']
     
     
     def test_get_trials(self):

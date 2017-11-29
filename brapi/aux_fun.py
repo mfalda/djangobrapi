@@ -69,6 +69,8 @@ def test_get(self, url, expected):
     response = client.get(url)
     self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+    self.maxDiff = None
+    
     response.render() # Cannot access `response.content` without this.
     self.assertJSONEqual(response.content.decode('utf-8'), expected)
                              
@@ -83,6 +85,8 @@ def test_post(self, url, params, expected):
 
     response = client.post(url, json.dumps(params), content_type='application/json')
     self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    self.maxDiff = None
 
     response.render() # Cannot access `response.content` without this.
     self.assertJSONEqual(response.content.decode('utf-8'), expected)

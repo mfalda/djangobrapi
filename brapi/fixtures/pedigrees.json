@@ -1,1 +1,13 @@
-[{"model": "brapi.gppedigree", "pk": 1, "fields": {"germplasmDbId": 1, "defaultDisplayName": "Pahang", "pedigree": "Cree / Bonanza", "parent1Id": 166, "parent2Id": 143}}]
+[
+  {
+    "model": "brapi.gppedigree",
+    "pk": 1,
+    "fields": {
+      "germplasmDbId": 1,
+      "defaultDisplayName": "Pahang",
+      "pedigree": "Cree / Bonanza",
+      "parent1Id": 166,
+      "parent2Id": 143
+    }
+  }
+]

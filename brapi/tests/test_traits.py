@@ -33,8 +33,7 @@ class TraitTest(APITestCase):
                     "CO_334:0100621",
                     "CO_334:0100623",
                     "CO_334:0100623"
-                ],
-                "defaultValue": null
+                ]
             },
             {
                 "traitDbId": 2,
@@ -43,8 +42,7 @@ class TraitTest(APITestCase):
                 "description": "Plant height",
                 "observationVariables": [
                     "CO_334:0200001"
-                ],
-                "defaultValue": null
+                ]
             }
         ]
     }
@@ -80,8 +78,7 @@ class TraitTest(APITestCase):
                     "CO_334:0100621",
                     "CO_334:0100623",
                     "CO_334:0100623"
-                ],
-                "defaultValue": null
+                ]
             }
         ]
     }

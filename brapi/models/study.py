@@ -182,7 +182,7 @@ class Study(models.Model):
     active = models.BooleanField()
     contactDbId = models.CharField(max_length=100, blank=True, default='')
     dataLinks = models.ForeignKey(DataLink, db_column='dataLinks', related_name='dataLinks', on_delete=models.CASCADE, default='', to_field='id')
-    lastUpdate = models.CharField(max_length=100, blank=True, default='')
+    lastUpdate = models.CharField(max_length=100, null=True, default='')
 
     def save(self, *args, **kwargs):
 

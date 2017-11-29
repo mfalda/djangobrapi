@@ -1,7 +1,7 @@
 #!/bin/bash
 
 rm -f tmp.db db.sqlite3
-rm -r snippets/migrations
-python manage.py makemigrations snippets
-python manage.py migrate
+rm -r $1/migrations
+python manage.py makemigrations $1
+python manage.py migrate $1
 python manage.py createsuperuser

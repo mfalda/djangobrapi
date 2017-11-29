@@ -68,7 +68,7 @@ class MarkerProfile(models.Model):
 class GPMarkerP(models.Model):
 
     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='id', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='id')
+    markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='markerProfilesDbIds', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='markerprofileDbId')
     
     class Meta:
         
@@ -127,7 +127,7 @@ class AlleleMSearchSerializer(serializers.ModelSerializer):
 
     # end class Meta
 
-    def to_representation(self, instance: AlleleMSearch):
+    def to_representation(self, instance):
         
         instance.data = [str(s) for s in instance.data.split('; ')]
 
@@ -188,7 +188,7 @@ class MarkerProfilesDataSerializer(serializers.ModelSerializer):
 
     # end class Meta
 
-    def to_representation(self, instance: MarkerProfilesData):
+    def to_representation(self, instance):
     
         instance.data = [str(s) for s in instance.data.split('; ')]
 

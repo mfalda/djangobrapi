@@ -1,1 +1,14 @@
-[{"model": "brapi.obsmethod", "pk": 1, "fields": {"methodDbId": "CO_334:0010320", "name": "Visual Rating:total carotenoid by chart_method", "classe": "Estimation", "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart", "formula": "", "reference": ""}}]
+[
+  {
+    "model": "brapi.obsmethod",
+    "pk": 1,
+    "fields": {
+      "methodDbId": "CO_334:0010320",
+      "name": "Visual Rating:total carotenoid by chart_method",
+      "classe": "Estimation",
+      "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+      "formula": "",
+      "reference": ""
+    }
+  }
+]

@@ -1,1 +1,68 @@
-[{"model": "brapi.program", "pk": 1, "fields": {"programDbId": 1, "name": "CIPHQ", "abbreviation": "CIPHQ", "objective": "Global Population Improvement", "leadPerson": "G. Leader"}}, {"model": "brapi.program", "pk": 2, "fields": {"programDbId": 2, "name": "Ghana", "abbreviation": "GHA", "objective": "OFSP", "leadPerson": "M. Breeder"}}, {"model": "brapi.program", "pk": 3, "fields": {"programDbId": 3, "name": "Uganda", "abbreviation": "UGA", "objective": "OFSP", "leadPerson": "W. Select"}}, {"model": "brapi.program", "pk": 4, "fields": {"programDbId": 4, "name": "Mozambique", "abbreviation": "MOZ", "objective": "OFSP", "leadPerson": "G. Gain"}}, {"model": "brapi.program", "pk": 5, "fields": {"programDbId": 5, "name": "NCSU", "abbreviation": "NCSU", "objective": "Processing", "leadPerson": "C. Improvement"}}, {"model": "brapi.program", "pk": 6, "fields": {"programDbId": 6, "name": "Demo", "abbreviation": "DEMO", "objective": "Demo", "leadPerson": "A. Test"}}]
+[
+  {
+    "model": "brapi.program",
+    "pk": 1,
+    "fields": {
+      "programDbId": 1,
+      "name": "CIPHQ",
+      "abbreviation": "CIPHQ",
+      "objective": "Global Population Improvement",
+      "leadPerson": "G. Leader"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": 2,
+    "fields": {
+      "programDbId": 2,
+      "name": "Ghana",
+      "abbreviation": "GHA",
+      "objective": "OFSP",
+      "leadPerson": "M. Breeder"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": 3,
+    "fields": {
+      "programDbId": 3,
+      "name": "Uganda",
+      "abbreviation": "UGA",
+      "objective": "OFSP",
+      "leadPerson": "W. Select"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": 4,
+    "fields": {
+      "programDbId": 4,
+      "name": "Mozambique",
+      "abbreviation": "MOZ",
+      "objective": "OFSP",
+      "leadPerson": "G. Gain"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": 5,
+    "fields": {
+      "programDbId": 5,
+      "name": "NCSU",
+      "abbreviation": "NCSU",
+      "objective": "Processing",
+      "leadPerson": "C. Improvement"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": 6,
+    "fields": {
+      "programDbId": 6,
+      "name": "Demo",
+      "abbreviation": "DEMO",
+      "objective": "Demo",
+      "leadPerson": "A. Test"
+    }
+  }
+]

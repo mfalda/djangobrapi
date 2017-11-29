@@ -1,1 +1,28 @@
-[{"model": "brapi.observation", "pk": 1, "fields": {"observationDbId": 153453453, "observationVariableDbId": "CO_334:0100622", "observationVariableName": "Plant_height", "observationTimeStamp": "2015-06-16T08:53:26Z", "season": "2015", "collector": "Mr. Technician", "value": 45}}, {"model": "brapi.observation", "pk": 2, "fields": {"observationDbId": 23453454345, "observationVariableDbId": "CO_334:0100632", "observationVariableName": "GW100_g", "observationTimeStamp": "2015-06-16T08:53:26Z", "season": "2015", "collector": "Mr. Technician", "value": 3}}]
+[
+  {
+    "model": "brapi.observation",
+    "pk": 1,
+    "fields": {
+      "observationDbId": 153453453,
+      "observationVariableDbId": "CO_334:0100622",
+      "observationVariableName": "Plant_height",
+      "observationTimeStamp": "2015-06-16T08:53:26Z",
+      "season": "2015",
+      "collector": "Mr. Technician",
+      "value": 45
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": 2,
+    "fields": {
+      "observationDbId": 23453454345,
+      "observationVariableDbId": "CO_334:0100632",
+      "observationVariableName": "GW100_g",
+      "observationTimeStamp": "2015-06-16T08:53:26Z",
+      "season": "2015",
+      "collector": "Mr. Technician",
+      "value": 3
+    }
+  }
+]

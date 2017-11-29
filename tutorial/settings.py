@@ -194,3 +194,6 @@ AUTHENTICATION_BACKENDS = (
     'oauth2_provider.backends.OAuth2Backend',
     'django.contrib.auth.backends.ModelBackend', #  if using django.contrib.auth
 )
+
+TEST_RUNNER = 'rainbowtests.test.runner.RainbowDiscoverRunner'
+RAINBOWTESTS_SHOW_MESSAGES = False

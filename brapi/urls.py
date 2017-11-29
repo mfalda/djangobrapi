@@ -5,7 +5,6 @@ from django.conf.urls import handler400, handler403, handler404, handler500
 import oauth2_provider.views as oauth2_views
 from django.conf import settings
 
-from brapi.views.authentication import exchange_token
 from brapi.views import errors
 from brapi.views.calls import CallsView
 from brapi.views.locations import LocationView, LocationDetailsView

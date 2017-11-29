@@ -10,15 +10,14 @@ class Map(models.Model):
     type = models.CharField(max_length=100, blank=True, default='')
     unit = models.CharField(max_length=100, blank=True, default='')
     publishedDate = models.DateField()
-    markerCount = models.IntegerField()
     comments = models.CharField(max_length=100, blank=True, default='')
 
-
-    class Meta:
-        
-        ordering = ('id',)
-        
-    # end class Meta
+    # do not sort by 'id', otherwise 'id' will be added to the grouping in the detail view
+#    class Meta:
+#        
+#        ordering = ('id',)
+#        
+#    # end class Meta
     
 # end class Map
   
@@ -61,8 +60,7 @@ class MapSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Map
-        fields = ['mapDbId', 'name', 'species', 'type', 'unit', 'publishedDate', 
-                    'markerCount', 'comments', 'linkageGroupCount']
+        exclude = ['id']
 
     # end class Meta
 
@@ -78,16 +76,28 @@ class MapSerializer(serializers.ModelSerializer):
 
 class MapDetailSerializer(serializers.ModelSerializer):
 
-    linkageGroups = MapLinkageSerializer(many=True, read_only=True)
+    linkageGroups = serializers.SerializerMethodField()
     
-
+    
     class Meta:
 
         model = Map
-        fields = ['mapDbId', 'name', 'species', 'type', 'unit', 'publishedDate', 
-                    'markerCount', 'comments', 'linkageGroups']
+        fields = ['mapDbId', 'name', 'type', 'unit', 'linkageGroups']
 
     # end class Meta
+
+
+    def get_linkageGroups(self, obj):
+        
+        return (Map.objects
+                .annotate(linkageGroupId=models.F('linkageGroups__linkageGroupId'))
+                .values('linkageGroupId')
+                .annotate(markerCount=models.Count('linkageGroups__markerDbId'))
+                .annotate(maxPosition=models.Max('linkageGroups__location'))
+                .values('linkageGroupId', 'markerCount', 'maxPosition'))
+        
+    
+    # end def get_linkageGroups
 
 # end class MapDetailSerializer
     

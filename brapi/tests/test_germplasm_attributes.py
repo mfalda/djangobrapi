@@ -12,29 +12,44 @@ class GermplasmAttrsTest(APITestCase):
     def test_get_germplasm_attrs(self):
 
         expected = """
-[
-    {
-        "attributeDbId": "1",
-        "attributeName": "Morphological",
-        "attributeCode": "FLSHORG",
-        "value": "Present",
-        "dateDetermined": "2016-01-01"
+
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 3,
+            "pageSize": 100
+        },
+        "status": [],
+        "datafiles": []
     },
-    {
-        "attributeDbId": "2",
-        "attributeName": "Agronomic",
-        "attributeCode": "RHT",
-        "value": "Absent",
-        "dateDetermined": "2016-01-01"
-    },
-    {
-        "attributeDbId": "3",
-        "attributeName": "Biotic stress",
-        "attributeCode": "WEV",
-        "value": "Present",
-        "dateDetermined": "2016-01-01"
+    "result": {
+        "data": [
+            {
+                "attributeDbId": 1,
+                "attributeName": "Morphological",
+                "attributeCode": "FLSHORG",
+                "value": "Present",
+                "dateDetermined": "2016-01-01"
+            },
+            {
+                "attributeDbId": 2,
+                "attributeName": "Agronomic",
+                "attributeCode": "RHT",
+                "value": "Absent",
+                "dateDetermined": "2016-01-01"
+            },
+            {
+                "attributeDbId": 3,
+                "attributeName": "Biotic stress",
+                "attributeCode": "WEV",
+                "value": "Present",
+                "dateDetermined": "2016-01-01"
+            }
+        ]
     }
-]"""
+}"""
         test_get(self, '/brapi/v1/germplasm/1/attributes', expected)
 
     # end def test_get_germplasm_attrs
