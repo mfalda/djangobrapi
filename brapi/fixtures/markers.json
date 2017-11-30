@@ -1,1 +1,62 @@
 [
+  {
+    "model": "brapi.marker",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "a_01_10001",
+      "type": "SNP",
+      "synonyms": "i_01_10001; popA_10001",
+      "refAlt": "A; T",
+      "analysisMethods": "illumina"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "A_01_10002",
+      "type": "SNP",
+      "synonyms": "i_01_10001; popA_10002",
+      "refAlt": "G; C",
+      "analysisMethods": "illumina"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "b_02_10003",
+      "type": "Dart",
+      "synonyms": "i_02_10001; popA_10003",
+      "refAlt": "C; G",
+      "analysisMethods": "kasp"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "B_02_10004",
+      "type": "Dart",
+      "synonyms": "i_02_10001; popA_10004",
+      "refAlt": "T; A",
+      "analysisMethods": "kasp"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "C_11_10005",
+      "type": "SNP",
+      "synonyms": "i_11_10001; popA_10005",
+      "refAlt": "T; A",
+      "analysisMethods": "illumina; kasp"
+    }
+  }
+]

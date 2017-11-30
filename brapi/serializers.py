@@ -104,7 +104,7 @@ class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
 # end class GermplasmAttributeValueSerializer
 
 
-class GermplasmAttributeSerializer(serializers.ModelSerializer):
+class GermplasmAttributeSerializer(ExtendedSerializer):
 
     attributes = GermplasmAttributeValueSerializer(many=True, read_only=True)
 
@@ -119,7 +119,7 @@ class GermplasmAttributeSerializer(serializers.ModelSerializer):
 # end class GermplasmAttributeSerializer
 
 
-class GermplasmAttributeCategorySerializer(serializers.ModelSerializer):
+class GermplasmAttributeCategorySerializer(ExtendedSerializer):
 
     attributes = GermplasmAttributeSerializer(many=False, read_only=True)
 
@@ -129,7 +129,7 @@ class GermplasmAttributeCategorySerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['attributes']
 
-        # end class Meta
+    # end class Meta
 
 # end class GermplasmAttributeCategorySerializer
 
@@ -160,12 +160,49 @@ class MapSerializer(serializers.ModelSerializer):
 
 class MarkerSerializer(serializers.ModelSerializer):
 
+    synonyms = StringListField()
+    refAlt = StringListField()
+    analysisMethods = StringListField()
+
+
     class Meta:
 
         model = Marker
         exclude = ['cropdbid']
 
     # end class Meta
+
+
+    def to_representation(self, instance: Marker):
+
+        instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
+        instance.refAlt = [str(s) for s in instance.refAlt.split('; ')]
+        instance.analysisMethods = [str(s) for s in instance.analysisMethods.split('; ')]
+
+        return super(MarkerSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(MarkerSerializer, self).to_internal_value(data)
+
+        if ret['synonyms']:
+            ret['synonyms'] = '; '.join(str(s) for s in ret['synonyms'])
+        # end if
+
+        if ret['refAlt']:
+            ret['refAlt'] = '; '.join(str(s) for s in ret['refAlt'])
+        # end if
+
+        if ret['analysisMethods']:
+            ret['analysisMethods'] = '; '.join(str(s) for s in ret['analysisMethods'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
 
 # end class MarkerSerializer
 
@@ -194,7 +231,7 @@ class ObservationSerializer(serializers.ModelSerializer):
 # end class ObservationSerializer
 
 
-class ObservationUnitXrefSerializer(serializers.ModelSerializer):
+class ObservationUnitXrefSerializer(ExtendedSerializer):
 
     observationUnits = ObservationSerializer(many=True, read_only=True)
 
@@ -209,7 +246,7 @@ class ObservationUnitXrefSerializer(serializers.ModelSerializer):
 # end class ObservationUnitXrefSerializer
 
 
-class ObservationVariableSerializer(serializers.ModelSerializer):
+class ObservationVariableSerializer(ExtendedSerializer):
 
     observations = ObservationSerializer(many=True, read_only=True)
 
@@ -224,7 +261,7 @@ class ObservationVariableSerializer(serializers.ModelSerializer):
 # end class ObservationVariableSerializer
 
 
-class MethodSerializer(serializers.ModelSerializer):
+class MethodSerializer(ExtendedSerializer):
 
     observationVariables = ObservationVariableSerializer(many=True, read_only=True)
 
@@ -239,7 +276,7 @@ class MethodSerializer(serializers.ModelSerializer):
 # end class MethodSerializer
 
 
-class OntologySerializer(serializers.ModelSerializer):
+class OntologySerializer(ExtendedSerializer):
 
     observationVariables = ObservationVariableSerializer(many=True, read_only=True)
 
@@ -278,7 +315,7 @@ class SampleSerializer(serializers.ModelSerializer):
 # end class SampleSerializer
 
 
-class ScaleSerializer(serializers.ModelSerializer):
+class ScaleSerializer(ExtendedSerializer):
 
     observationVariables = ObservationVariableSerializer(many=True, read_only=True)
 
@@ -341,7 +378,7 @@ class StudySeasonSerializer(serializers.ModelSerializer):
 # end class StudySeasonSerializer
 
 
-class SeasonSerializer(serializers.ModelSerializer):
+class SeasonSerializer(ExtendedSerializer):
 
     observations = ObservationSerializer(many=True, read_only=True)
     seasons = StudySeasonSerializer(many=True, read_only=True)
@@ -369,7 +406,7 @@ class TaxonXrefGermplasmSerializer(serializers.ModelSerializer):
 # end class TaxonXrefGermplasmSerializer
 
 
-class TaxonXrefSerializer(serializers.ModelSerializer):
+class TaxonXrefSerializer(ExtendedSerializer):
 
     taxonXrefGermplasm = TaxonXrefGermplasmSerializer(many=True, read_only=True)
 
@@ -384,15 +421,13 @@ class TaxonXrefSerializer(serializers.ModelSerializer):
 # end class TaxonXrefSerializer
 
 
-class TraitSerializer(serializers.ModelSerializer):
-
-    observationVariables = ObservationVariableSerializer(many=True, read_only=True)
+class TraitSerializer(ExtendedSerializer):
 
     class Meta:
 
         model = Trait
         exclude = ['cropdbid']
-        extra_fields = ['observationVariables']
+        extra_fields = ['traitdbid', 'observationvariables']
 
     # end class Meta
 
@@ -411,7 +446,7 @@ class TreatmentSerializer(serializers.ModelSerializer):
 # end class TreatmentSerializer
 
 
-class ObservationUnitSerializer(serializers.ModelSerializer):
+class ObservationUnitSerializer(ExtendedSerializer):
 
     observations = ObservationSerializer(many=True, read_only=True)
     treatments = TreatmentSerializer(many=True, read_only=True)
@@ -422,12 +457,12 @@ class ObservationUnitSerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['observations', 'treatments']
 
-        # end class Meta
+    # end class Meta
 
 # end class ObservationUnitSerializer
 
 
-class StudySerializer(serializers.ModelSerializer):
+class StudySerializer(ExtendedSerializer):
 
     observationUnits = ObservationUnitSerializer(many=True, read_only=True)
     contacts = StudyContactSerializer(many=True, read_only=True)
@@ -441,12 +476,12 @@ class StudySerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['observationUnits', 'contacts', 'dataLinks', 'seasons', 'additionalInfo']
 
-        # end class Meta
+    # end class Meta
 
 # end class StudySerializer
 
 
-class StudyTypeSerializer(serializers.ModelSerializer):
+class StudyTypeSerializer(ExtendedSerializer):
 
     studies = StudySerializer(many=True, read_only=True)
 
@@ -456,12 +491,12 @@ class StudyTypeSerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['studies']
 
-        # end class Meta
+    # end class Meta
 
 # end class StudyTypeSerializer
 
 
-class LocationSerializer(serializers.ModelSerializer):
+class LocationSerializer(ExtendedSerializer):
 
     studies = StudySerializer(many=True, read_only=True)
     additionalInfo = LocationAdditionalInfoSerializer(many=False, read_only=True)
@@ -472,12 +507,12 @@ class LocationSerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['studies', 'additionalInfo']
 
-        # end class Meta
+    # end class Meta
 
 # end class LocationSerializer
 
 
-class GermplasmSerializer(serializers.ModelSerializer):
+class GermplasmSerializer(ExtendedSerializer):
 
     donors = DonorSerializer(many=True, read_only=True)
     attributes = GermplasmAttributeValueSerializer(many=True, read_only=True)
@@ -494,7 +529,7 @@ class GermplasmSerializer(serializers.ModelSerializer):
         extra_fields = ['donors', 'attributes', 'observationUnits', 'pedigrees',
                         'parent1id', 'parent2id', 'taxonXrefGermplasm']
 
-        # end class Meta
+    # end class Meta
 
 # end class GermplasmSerializer
 
@@ -523,7 +558,7 @@ class TrialContactSerializer(serializers.ModelSerializer):
 # end class TrialContactSerializer
 
 
-class TrialSerializer(serializers.ModelSerializer):
+class TrialSerializer(ExtendedSerializer):
 
     studies = StudySerializer(many=True, read_only=True)
     contacts = TrialContactSerializer(many=True, read_only=True)
@@ -535,12 +570,12 @@ class TrialSerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['studies', 'contacts', 'additionalInfo']
 
-        # end class Meta
+    # end class Meta
 
 # end class TrialSerializer
 
 
-class ProgramSerializer(serializers.ModelSerializer):
+class ProgramSerializer(ExtendedSerializer):
 
     trials = TrialSerializer(many=True, read_only=True)
 
@@ -550,12 +585,12 @@ class ProgramSerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
         extra_fields = ['trials']
 
-        # end class Meta
+    # end class Meta
 
 # end class ProgramSerializer
 
 
-class ContactSerializer(serializers.ModelSerializer):
+class ContactSerializer(ExtendedSerializer):
 
     studyContacts = StudyContactSerializer(many=True, read_only=True)
     trialContacts = TrialContactSerializer(many=True, read_only=True)

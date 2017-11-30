@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get
 
 class MarkerTest(APITestCase):
     
-    fixtures = ['markers.json']
+    fixtures = ['crops.json', 'markers.json']
 
 
     def test_get_markers(self):

@@ -1,5 +1,5 @@
 from django.db import models
-
+from tutorial import settings
 
 class Call(models.Model):
 
@@ -9,6 +9,16 @@ class Call(models.Model):
     datatypes = models.TextField(blank=True, null=True)
     methods = models.TextField(blank=True, null=True)
 
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = "call"
+        ordering = ('calldbid',)
+
+    # end class Meta
+
+
     def save(self, *args, **kwargs):
 
         self.datatypes = '; '.join(self.datatypes)
@@ -16,15 +26,6 @@ class Call(models.Model):
         super(Call, self).save(*args, **kwargs)
 
     # end def save
-
-
-    class Meta:
-
-        managed = False
-        db_table = "call"
-        ordering = ('calldbid',)
-
-        # end class Meta
 
 # end class Call
 
@@ -41,7 +42,7 @@ class Contact(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'contact'
 
     # end class Meta
@@ -57,7 +58,7 @@ class Crop(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'crop'
 
     # end class Meta
@@ -75,7 +76,7 @@ class Donor(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'donor'
 
     # end class Meta
@@ -108,7 +109,7 @@ class Germplasm(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'germplasm'
 
     # end class Meta
@@ -130,7 +131,7 @@ class GermplasmAttribute(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'germplasm_attribute'
 
     # end class Meta
@@ -146,7 +147,7 @@ class GermplasmAttributeCategory(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'germplasm_attribute_category'
 
     # end class Meta
@@ -164,7 +165,7 @@ class GermplasmAttributeValue(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'germplasm_attribute_value'
 
     # end class Meta
@@ -181,15 +182,15 @@ class Location(models.Model):
     abbreviation = models.TextField(blank=True, null=True)
     countrycode = models.TextField(blank=True, null=True)
     countryname = models.TextField(blank=True, null=True)
-    latitude = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    longitude = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
-    altitude = models.DecimalField(max_digits=65535, decimal_places=65535, blank=True, null=True)
+    latitude = models.FloatField(blank=True, null=True)
+    longitude = models.FloatField(blank=True, null=True)
+    altitude = models.FloatField(blank=True, null=True)
     institutename = models.TextField(blank=True, null=True)
     instituteaddress = models.TextField(blank=True, null=True)
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'location'
 
     # end class Meta
@@ -206,7 +207,7 @@ class LocationAdditionalInfo(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'location_additional_info'
 
     # end class Meta
@@ -221,7 +222,7 @@ class Map(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'map'
 
     # end class Meta
@@ -232,19 +233,31 @@ class Map(models.Model):
 class Marker(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    markerdbid = models.TextField()
-    defaultdisplayname = models.TextField(blank=True, null=True)
+    markerDbId = models.IntegerField(db_column='markerdbid', primary_key=True)
+    defaultDisplayName = models.TextField(db_column='defaultdisplayname', blank=True, null=True)
     type = models.TextField(blank=True, null=True)
     synonyms = models.TextField(blank=True, null=True)
-    refalt = models.TextField(blank=True, null=True)
-    analysismethods = models.TextField(blank=True, null=True)
+    refAlt = models.TextField(db_column='refalt', blank=True, null=True)
+    analysisMethods = models.TextField(db_column='analysismethods', blank=True, null=True)
+
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'marker'
+        ordering = ('markerDbId',)
 
     # end class Meta
+
+
+    def save(self, *args, **kwargs):
+
+        self.synonyms = '; '.join(self.synonyms)
+        self.refalt = '; '.join(self.refalt)
+        self.analysismethods = '; '.join(self.analysismethods)
+        super(Marker, self).save(*args, **kwargs)
+
+    # end def save
 
 # end class Marker
 
@@ -256,7 +269,7 @@ class Markerprofile(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'markerprofile'
 
     # end class Meta
@@ -271,7 +284,7 @@ class Method(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'method'
 
     # end class Meta
@@ -292,7 +305,7 @@ class Observation(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'observation'
 
     # end class Meta
@@ -320,7 +333,7 @@ class ObservationUnit(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'observation_unit'
 
     # end class Meta
@@ -338,7 +351,7 @@ class ObservationUnitXref(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'observation_unit_xref'
 
     # end class Meta
@@ -352,13 +365,13 @@ class ObservationVariable(models.Model):
     ontologydbid = models.ForeignKey('Ontology', models.DO_NOTHING, db_column='ontologydbid')
     observationvariabledbid = models.TextField(primary_key=True)
     observationvariablename = models.TextField(blank=True, null=True)
-    traitdbid = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', blank=True, null=True)
+    traitdbid = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationvariables', blank=True, null=True)
     methoddbid = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
     scaledbid = models.ForeignKey('Scale', models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'observation_variable'
 
     # end class Meta
@@ -373,7 +386,7 @@ class Ontology(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'ontology'
 
     # end class Meta
@@ -391,7 +404,7 @@ class Pedigree(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'pedigree'
 
     # end class Meta
@@ -410,7 +423,7 @@ class Program(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'program'
 
     # end class Meta
@@ -425,7 +438,7 @@ class Sample(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'sample'
 
     # end class Meta
@@ -440,7 +453,7 @@ class Scale(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'scale'
 
     # end class Meta
@@ -457,7 +470,7 @@ class Season(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'season'
 
     # end class Meta
@@ -483,7 +496,7 @@ class Study(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'study'
 
     # end class Meta
@@ -500,7 +513,7 @@ class StudyAdditionalInfo(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'study_additional_info'
 
     # end class Meta
@@ -516,7 +529,7 @@ class StudyContact(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'study_contact'
 
     # end class Meta
@@ -534,7 +547,7 @@ class StudyDataLink(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'study_data_link'
 
     # end class Meta
@@ -550,7 +563,7 @@ class StudySeason(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'study_season'
 
     # end class Meta
@@ -566,7 +579,7 @@ class StudyType(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'study_type'
 
     # end class Meta
@@ -583,7 +596,7 @@ class TaxonXref(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'taxon_xref'
 
     # end class Meta
@@ -599,7 +612,7 @@ class TaxonXrefGermplasm(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'taxon_xref_germplasm'
 
     # end class Meta
@@ -614,7 +627,7 @@ class Trait(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'trait'
 
     # end class Meta
@@ -631,7 +644,7 @@ class Treatment(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'treatment'
 
     # end class Meta
@@ -653,7 +666,7 @@ class Trial(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'trial'
 
     # end class Meta
@@ -670,7 +683,7 @@ class TrialAdditionalInfo(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'trial_additional_info'
 
     # end class Meta
@@ -686,7 +699,7 @@ class TrialContact(models.Model):
 
     class Meta:
 
-        managed = False
+        managed = settings.IS_TESTING
         db_table = 'trial_contact'
 
     # end class Meta

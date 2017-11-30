@@ -27,7 +27,7 @@ class MarkerView(APIView):
         synonyms = include is not None and include == 'synonyms'
 
         logger = logging.getLogger(__name__)
-        logger.warn("FILTERING: %s, method=%s, synonyms=%s" % (name, match_method, synonyms))
+        logger.warning("FILTERING: %s, method=%s, synonyms=%s" % (name, match_method, synonyms))
 
         if name is not None:
             if match_method is not None:
@@ -47,7 +47,7 @@ class MarkerView(APIView):
                         queryset = queryset.filter(defaultDisplayName__icontains=name)
                     # end if
                 # end if
-            else: # exact
+            else:  # exact
                 if synonyms:
                     queryset = queryset.filter(Q(defaultDisplayName=name)|Q(synonyms=name))
                 else:
