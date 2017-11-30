@@ -423,11 +423,13 @@ class TaxonXrefSerializer(ExtendedSerializer):
 
 class TraitSerializer(ExtendedSerializer):
 
+    #observationVariables = ObservationVariableSerializer(many=True, read_only=True)
+
     class Meta:
 
         model = Trait
         exclude = ['cropdbid']
-        extra_fields = ['traitdbid', 'observationvariables']
+        extra_fields = ['traitDbId', 'observationVariables']
 
     # end class Meta
 
@@ -499,7 +501,6 @@ class StudyTypeSerializer(ExtendedSerializer):
 class LocationSerializer(ExtendedSerializer):
 
     studies = StudySerializer(many=True, read_only=True)
-    additionalInfo = LocationAdditionalInfoSerializer(many=False, read_only=True)
 
     class Meta:
 

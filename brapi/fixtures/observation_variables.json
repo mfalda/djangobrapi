@@ -6,7 +6,7 @@
       "cropdbid": "1",
       "ontologydbid": "MO_123",
       "observationvariablename": "Plant height",
-      "traitdbid": null,
+      "traitdbid": "CO_334:0100620",
       "methoddbid": null,
       "scaledbid": null
     }
@@ -18,7 +18,7 @@
       "cropdbid": "1",
       "ontologydbid": "MO_123",
       "observationvariablename": "Root weight",
-      "traitdbid": null,
+      "traitdbid": "CO_334:0100620",
       "methoddbid": null,
       "scaledbid": null
     }
@@ -30,7 +30,7 @@
       "cropdbid": "1",
       "ontologydbid": "MO_123",
       "observationvariablename": "Root color",
-      "traitdbid": null,
+      "traitdbid": "CO_334:0100621",
       "methoddbid": null,
       "scaledbid": null
     }
@@ -42,7 +42,7 @@
       "cropdbid": "1",
       "ontologydbid": "MO_123",
       "observationvariablename": "Virus susceptibility",
-      "traitdbid": null,
+      "traitdbid": "CO_334:0100621",
       "methoddbid": null,
       "scaledbid": null
     }
@@ -54,7 +54,7 @@
       "cropdbid": "1",
       "ontologydbid": "MO_123",
       "observationvariablename": "Carotenoid",
-      "traitdbid": null,
+      "traitdbid": "CO_334:0100622",
       "methoddbid": null,
       "scaledbid": null
     }

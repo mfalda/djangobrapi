@@ -201,9 +201,10 @@ class Location(models.Model):
 class LocationAdditionalInfo(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', blank=True, null=True)
+    locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', related_name='additionalInfo', to_field='locationdbid', blank=True, null=True)
     key = models.TextField()
     value = models.TextField()
+    locationaddinfodbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -365,7 +366,7 @@ class ObservationVariable(models.Model):
     ontologydbid = models.ForeignKey('Ontology', models.DO_NOTHING, db_column='ontologydbid')
     observationvariabledbid = models.TextField(primary_key=True)
     observationvariablename = models.TextField(blank=True, null=True)
-    traitdbid = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationvariables', blank=True, null=True)
+    traitdbid = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
     methoddbid = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
     scaledbid = models.ForeignKey('Scale', models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
 
@@ -623,7 +624,7 @@ class TaxonXrefGermplasm(models.Model):
 class Trait(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    traitdbid = models.TextField(primary_key=True)
+    traitDbId = models.TextField(primary_key=True, db_column='traitdbid')
 
     class Meta:
 

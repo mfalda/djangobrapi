@@ -1,1 +1,2792 @@
 [
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "altern",
+      "value": "MARANK"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "altern",
+      "value": "SHIRANI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "altern",
+      "value": "BETALT"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "altern",
+      "value": "BETBAJ"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "altern",
+      "value": "OVIRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "altern",
+      "value": "PTOCOPA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "altern",
+      "value": "SNPEDRO"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "local",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "local",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "local",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "local",
+      "value": "San Miguel Centro Marankiari"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "local",
+      "value": "Shirani"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 13,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 14,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 15,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "local",
+      "value": "Nuevaluz Oviri"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 16,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "local",
+      "value": "Puerto Ocopa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 17,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "local",
+      "value": "San Pedro"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 18,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "local",
+      "value": "Fumesua"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 19,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "local",
+      "value": "Komenda"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 20,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "local",
+      "value": "Tono dam"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 21,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "local",
+      "value": "NaCRRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 22,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "local",
+      "value": "NaSARRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 23,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 24,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 25,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 26,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 27,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 28,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 29,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 30,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 31,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 32,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 33,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 34,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 35,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 36,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 37,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 38,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 39,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "creg",
+      "value": "NA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 40,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 41,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 42,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 43,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 44,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 45,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 46,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 47,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 48,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 49,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 50,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 51,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 52,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 53,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 54,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm3",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 55,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm3",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 56,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm3",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 57,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm3",
+      "value": "Peren\u00e9"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 58,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm3",
+      "value": "Pichanaki"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 59,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 60,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 61,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 62,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 63,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm3",
+      "value": "Coviriali"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 64,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 65,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm2",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 66,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm2",
+      "value": "Boane"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 67,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 68,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 69,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 70,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 71,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 72,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 73,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 74,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm2",
+      "value": "Ejisu-Juaben"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 75,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm2",
+      "value": "Kassena-Nankana"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 76,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 77,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm1",
+      "value": "Zambezia"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 78,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm1",
+      "value": "Maputo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 79,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 80,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 81,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 82,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 83,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 84,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 85,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 86,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm1",
+      "value": "Ashanti"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 87,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "adm1",
+      "value": "Central"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 88,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm1",
+      "value": "Upper East"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 89,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "adm1",
+      "value": "Serere"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 90,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualTotalPrecipitation",
+      "value": "360"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 91,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualTotalPrecipitation",
+      "value": "6.4"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 92,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualMeanTemperature",
+      "value": "23"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 93,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualMeanTemperature",
+      "value": "19.2"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 94,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "altern",
+      "value": "MARANK"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 95,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "altern",
+      "value": "SHIRANI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 96,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "altern",
+      "value": "BETALT"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 97,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "altern",
+      "value": "BETBAJ"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 98,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "altern",
+      "value": "OVIRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 99,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "altern",
+      "value": "PTOCOPA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 100,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "altern",
+      "value": "SNPEDRO"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 101,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "local",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 102,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "local",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 103,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "local",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 104,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "local",
+      "value": "San Miguel Centro Marankiari"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 105,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "local",
+      "value": "Shirani"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 106,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 107,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 108,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "local",
+      "value": "Nuevaluz Oviri"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 109,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "local",
+      "value": "Puerto Ocopa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 110,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "local",
+      "value": "San Pedro"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 111,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "local",
+      "value": "Fumesua"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 112,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "local",
+      "value": "Komenda"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 113,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "local",
+      "value": "Tono dam"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 114,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "local",
+      "value": "NaCRRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 115,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "local",
+      "value": "NaSARRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 116,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 117,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 118,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 119,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 120,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 121,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 122,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 123,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 124,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 125,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 126,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 127,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 128,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 129,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 130,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 131,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 132,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "creg",
+      "value": "NA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 133,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 134,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 135,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 136,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 137,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 138,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 139,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 140,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 141,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 142,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 143,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 144,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 145,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 146,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 147,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm3",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 148,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm3",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 149,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm3",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 150,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm3",
+      "value": "Peren\u00e9"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 151,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm3",
+      "value": "Pichanaki"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 152,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 153,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 154,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 155,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 156,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm3",
+      "value": "Coviriali"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 157,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 158,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm2",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 159,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm2",
+      "value": "Boane"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 160,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 161,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 162,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 163,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 164,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 165,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 166,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 167,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm2",
+      "value": "Ejisu-Juaben"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 168,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm2",
+      "value": "Kassena-Nankana"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 169,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 170,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm1",
+      "value": "Zambezia"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 171,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm1",
+      "value": "Maputo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 172,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 173,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 174,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 175,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 176,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 177,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 178,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 179,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm1",
+      "value": "Ashanti"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 180,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "adm1",
+      "value": "Central"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 181,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm1",
+      "value": "Upper East"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 182,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "adm1",
+      "value": "Serere"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 183,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualTotalPrecipitation",
+      "value": "360"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 184,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualTotalPrecipitation",
+      "value": "6.4"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 185,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualMeanTemperature",
+      "value": "23"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 186,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualMeanTemperature",
+      "value": "19.2"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 187,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "altern",
+      "value": "MARANK"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 188,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "altern",
+      "value": "SHIRANI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 189,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "altern",
+      "value": "BETALT"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 190,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "altern",
+      "value": "BETBAJ"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 191,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "altern",
+      "value": "OVIRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 192,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "altern",
+      "value": "PTOCOPA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 193,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "altern",
+      "value": "SNPEDRO"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 194,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "local",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 195,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "local",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 196,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "local",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 197,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "local",
+      "value": "San Miguel Centro Marankiari"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 198,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "local",
+      "value": "Shirani"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 199,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 200,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 201,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "local",
+      "value": "Nuevaluz Oviri"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 202,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "local",
+      "value": "Puerto Ocopa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 203,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "local",
+      "value": "San Pedro"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 204,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "local",
+      "value": "Fumesua"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 205,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "local",
+      "value": "Komenda"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 206,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "local",
+      "value": "Tono dam"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 207,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "local",
+      "value": "NaCRRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 208,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "local",
+      "value": "NaSARRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 209,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 210,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 211,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 212,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 213,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 214,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 215,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 216,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 217,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 218,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 219,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 220,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 221,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 222,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 223,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 224,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 225,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "creg",
+      "value": "NA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 226,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 227,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 228,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 229,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 230,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 231,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 232,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 233,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 234,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 235,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 236,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 237,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 238,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 239,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 240,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm3",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 241,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm3",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 242,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm3",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 243,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm3",
+      "value": "Peren\u00e9"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 244,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm3",
+      "value": "Pichanaki"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 245,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 246,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 247,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 248,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 249,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm3",
+      "value": "Coviriali"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 250,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 251,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm2",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 252,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm2",
+      "value": "Boane"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 253,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 254,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 255,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 256,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 257,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 258,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 259,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 260,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm2",
+      "value": "Ejisu-Juaben"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 261,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm2",
+      "value": "Kassena-Nankana"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 262,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 263,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm1",
+      "value": "Zambezia"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 264,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm1",
+      "value": "Maputo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 265,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 266,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 267,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 268,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 269,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 270,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 271,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 272,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm1",
+      "value": "Ashanti"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 273,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "adm1",
+      "value": "Central"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 274,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm1",
+      "value": "Upper East"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 275,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "adm1",
+      "value": "Serere"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 276,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualTotalPrecipitation",
+      "value": "360"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 277,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualTotalPrecipitation",
+      "value": "6.4"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 278,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualMeanTemperature",
+      "value": "23"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 279,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualMeanTemperature",
+      "value": "19.2"
+    }
+  }
+]

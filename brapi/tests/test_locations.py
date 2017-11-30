@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get
 
 class LocationTest(APITestCase):
  
-    fixtures = ['locations.json', 'locations_addInfo.json']
+    fixtures = ['crops.json', 'locations.json', 'location_addInfo.json']
 
 
     def test_get_locations(self):

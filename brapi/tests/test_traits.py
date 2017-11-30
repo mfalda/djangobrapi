@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get
 
 class TraitTest(APITestCase):
     
-    fixtures = ['traits.json']
+    fixtures = ['crops.json', 'traits.json']
     
 
     def test_get_traits(self):
