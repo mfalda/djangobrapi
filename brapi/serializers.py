@@ -561,9 +561,9 @@ class TrialContactSerializer(serializers.ModelSerializer):
 
 class TrialSerializer(ExtendedSerializer):
 
-    studies = StudySerializer(many=True, read_only=True)
-    contacts = TrialContactSerializer(many=True, read_only=True)
-    additionalInfo = TrialAdditionalInfoSerializer(many=True, read_only=True)
+    #studies = StudySerializer(many=True, read_only=True)
+    #contacts = TrialContactSerializer(many=True, read_only=True)
+    #additionalInfo = TrialAdditionalInfoSerializer(many=True, read_only=True)
 
     class Meta:
 

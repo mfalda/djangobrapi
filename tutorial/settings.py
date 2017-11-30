@@ -111,7 +111,7 @@ DATABASES = {
     }
 }
 
-if os.getenv('DJANGO_ENV') == 'prod': # or True:
+if os.getenv('DJANGO_ENV') == 'prod' or True:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',

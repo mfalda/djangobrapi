@@ -482,7 +482,7 @@ class Season(models.Model):
 class Study(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    trialdbid = models.ForeignKey('Trial', models.DO_NOTHING, db_column='trialdbid')
+    trialdbid = models.ForeignKey('Trial', models.DO_NOTHING, db_column='trialdbid', related_name='studies')
     locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', blank=True, null=True)
     studytype = models.ForeignKey('StudyType', models.DO_NOTHING, db_column='studytype', blank=True, null=True)
     studydbid = models.TextField(primary_key=True)
@@ -527,6 +527,7 @@ class StudyContact(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid')
     contactdbid = models.ForeignKey(Contact, models.DO_NOTHING, db_column='contactdbid')
+    studycontactdbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -678,7 +679,7 @@ class Trial(models.Model):
 class TrialAdditionalInfo(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', blank=True, null=True)
+    trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='additionalInfo', blank=True, null=True)
     key = models.TextField()
     value = models.TextField()
 
@@ -695,8 +696,9 @@ class TrialAdditionalInfo(models.Model):
 class TrialContact(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', blank=True, null=True)
+    trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='contacts', blank=True, null=True)
     contactdbid = models.ForeignKey(Contact, models.DO_NOTHING, db_column='contactdbid', blank=True, null=True)
+    trialcontactdbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
