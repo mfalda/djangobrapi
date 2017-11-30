@@ -1,6 +1,7 @@
 from rest_framework import serializers
 
 from brapi.models import *
+from brapi.aux_types import StringListField
 
 
 class ExtendedSerializer(serializers.ModelSerializer):
@@ -9,8 +10,8 @@ class ExtendedSerializer(serializers.ModelSerializer):
         
         expanded_fields = super(ExtendedSerializer, self).get_field_names(declared_fields, info)
 
-        if getattr(self.Meta, 'excluded', None):
-            expanded_fields = set(expanded_fields) - set(self.Meta.excluded)
+        if getattr(self.Meta, 'exclude', None):
+            expanded_fields = set(expanded_fields) - set(self.Meta.exclude)
         # end if
         
         if getattr(self.Meta, 'extra_fields', None):
@@ -24,16 +25,47 @@ class ExtendedSerializer(serializers.ModelSerializer):
 # end class ExtendedSerializer
 
 
-class ContactSerializer(serializers.ModelSerializer):
+class CallSerializer(serializers.ModelSerializer):
+
+    datatypes = StringListField()
+    methods = StringListField()
+
 
     class Meta:
 
-        model = Contact
-        excluded = ['cropdbid']
+        model = Call
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
-# end class ContactSerializer
+
+    def to_representation(self, instance: Call):
+
+        instance.datatypes = [str(s) for s in instance.datatypes.split('; ')]
+        instance.methods = [str(s) for s in instance.methods.split('; ')]
+
+        return super(CallSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(CallSerializer, self).to_internal_value(data)
+
+        if ret['datatypes']:
+            ret['datatypes'] = '; '.join(str(s) for s in ret['datatypes'])
+        # end if
+
+        if ret['methods']:
+            ret['methods'] = '; '.join(str(s) for s in ret['methods'])
+        # end if
+
+        return ret
+
+        # end def to_internal_value
+
+# end class CallsSerializer
 
 
 class CropSerializer(serializers.ModelSerializer):
@@ -41,9 +73,9 @@ class CropSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Crop
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class CropSerializer
 
@@ -53,47 +85,11 @@ class DonorSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Donor
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class DonorSerializer
-
-
-class GermplasmSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Germplasm
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class GermplasmSerializer
-
-
-class GermplasmAttributeSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = GermplasmAttribute
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
     # end class Meta
 
-# end class GermplasmAttributeSerializer
-
-
-class GermplasmAttributeCategorySerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = GermplasmAttributeCategory
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class GermplasmAttributeCategorySerializer
+# end class DonorSerializer
 
 
 class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
@@ -101,11 +97,41 @@ class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = GermplasmAttributeValue
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
+
+    # end class Meta
+
+# end class GermplasmAttributeValueSerializer
+
+
+class GermplasmAttributeSerializer(serializers.ModelSerializer):
+
+    attributes = GermplasmAttributeValueSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = GermplasmAttribute
+        exclude = ['cropdbid']
+        extra_fields = ['attributes']
 
         # end class Meta
 
-# end class GermplasmAttributeValueSerializer
+# end class GermplasmAttributeSerializer
+
+
+class GermplasmAttributeCategorySerializer(serializers.ModelSerializer):
+
+    attributes = GermplasmAttributeSerializer(many=False, read_only=True)
+
+    class Meta:
+
+        model = GermplasmAttributeCategory
+        exclude = ['cropdbid']
+        extra_fields = ['attributes']
+
+        # end class Meta
+
+# end class GermplasmAttributeCategorySerializer
 
 
 class LocationAdditionalInfoSerializer(serializers.ModelSerializer):
@@ -113,26 +139,11 @@ class LocationAdditionalInfoSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = LocationAdditionalInfo
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
     # end class Meta
 
 # end class LocationAdditionalInfoSerializer
-
-
-class LocationSerializer(serializers.ModelSerializer):
-
-    additionalInfo = LocationAdditionalInfoSerializer(many=False, read_only=True)
-
-    class Meta:
-
-        model = Location
-        excluded = ['cropdbid']
-        extra_fields = ['additionalInfo']
-
-    # end class Meta
-
-# end class LocationSerializer
 
 
 class MapSerializer(serializers.ModelSerializer):
@@ -140,9 +151,9 @@ class MapSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Map
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class MapSerializer
 
@@ -152,9 +163,9 @@ class MarkerSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Marker
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class MarkerSerializer
 
@@ -164,22 +175,11 @@ class MarkerprofileSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Markerprofile
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
+
 # end class MarkerprofileSerializer
-
-
-class MethodSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Method
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class MethodSerializer
 
 
 class ObservationSerializer(serializers.ModelSerializer):
@@ -187,57 +187,69 @@ class ObservationSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Observation
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class ObservationSerializer
 
 
-class ObservationUnitSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = ObservationUnit
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class ObservationUnitSerializer
-
-
 class ObservationUnitXrefSerializer(serializers.ModelSerializer):
+
+    observationUnits = ObservationSerializer(many=True, read_only=True)
 
     class Meta:
 
         model = ObservationUnitXref
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
+        extra_fields = ['observations', 'observationUnits']
 
-        # end class Meta
+    # end class Meta
 
 # end class ObservationUnitXrefSerializer
 
 
 class ObservationVariableSerializer(serializers.ModelSerializer):
 
+    observations = ObservationSerializer(many=True, read_only=True)
+
     class Meta:
 
         model = ObservationVariable
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
+        extra_fields = ['observations']
 
-        # end class Meta
+    # end class Meta
 
 # end class ObservationVariableSerializer
 
 
+class MethodSerializer(serializers.ModelSerializer):
+
+    observationVariables = ObservationVariableSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = Method
+        exclude = ['cropdbid']
+        extra_fields = ['observationVariables']
+
+        # end class Meta
+
+# end class MethodSerializer
+
+
 class OntologySerializer(serializers.ModelSerializer):
+
+    observationVariables = ObservationVariableSerializer(many=True, read_only=True)
 
     class Meta:
 
         model = Ontology
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
+        extra_fields = ['observationVariables']
 
-        # end class Meta
+    # end class Meta
 
 # end class OntologySerializer
 
@@ -247,23 +259,11 @@ class PedigreeSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Pedigree
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class PedigreeSerializer
-
-
-class ProgramSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Program
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class ProgramSerializer
 
 
 class SampleSerializer(serializers.ModelSerializer):
@@ -271,47 +271,26 @@ class SampleSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Sample
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class SampleSerializer
 
 
 class ScaleSerializer(serializers.ModelSerializer):
 
+    observationVariables = ObservationVariableSerializer(many=True, read_only=True)
+
     class Meta:
 
         model = Scale
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
+        extra_fields = ['observationVariables']
 
-        # end class Meta
+    # end class Meta
 
 # end class ScaleSerializer
-
-
-class SeasonSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Season
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class SeasonSerializer
-
-
-class StudySerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Study
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class StudySerializer
 
 
 class StudyAdditionalInfoSerializer(serializers.ModelSerializer):
@@ -319,9 +298,9 @@ class StudyAdditionalInfoSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = StudyAdditionalInfo
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class StudyAdditionalInfoSerializer
 
@@ -331,9 +310,9 @@ class StudyContactSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = StudyContact
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class StudyContactSerializer
 
@@ -343,9 +322,9 @@ class StudyDataLinkSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = StudyDataLink
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class StudyDataLinkSerializer
 
@@ -355,35 +334,27 @@ class StudySeasonSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = StudySeason
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class StudySeasonSerializer
 
 
-class StudyTypeSerializer(serializers.ModelSerializer):
+class SeasonSerializer(serializers.ModelSerializer):
+
+    observations = ObservationSerializer(many=True, read_only=True)
+    seasons = StudySeasonSerializer(many=True, read_only=True)
 
     class Meta:
 
-        model = StudyType
-        excluded = ['cropdbid']
+        model = Season
+        exclude = ['cropdbid']
+        extra_fields = ['observations', 'seasons']
 
         # end class Meta
 
-# end class StudyTypeSerializer
-
-
-class TaxonXrefSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = TaxonXref
-        excluded = ['cropdbid']
-
-        # end class Meta
-
-# end class TaxonXrefSerializer
+# end class SeasonSerializer
 
 
 class TaxonXrefGermplasmSerializer(serializers.ModelSerializer):
@@ -391,21 +362,39 @@ class TaxonXrefGermplasmSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = TaxonXrefGermplasm
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class TaxonXrefGermplasmSerializer
 
 
+class TaxonXrefSerializer(serializers.ModelSerializer):
+
+    taxonXrefGermplasm = TaxonXrefGermplasmSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = TaxonXref
+        exclude = ['cropdbid']
+        extra_fields = ['taxonXrefGermplasm']
+
+        # end class Meta
+
+# end class TaxonXrefSerializer
+
+
 class TraitSerializer(serializers.ModelSerializer):
+
+    observationVariables = ObservationVariableSerializer(many=True, read_only=True)
 
     class Meta:
 
         model = Trait
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
+        extra_fields = ['observationVariables']
 
-        # end class Meta
+    # end class Meta
 
 # end class TraitSerializer
 
@@ -415,23 +404,99 @@ class TreatmentSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Treatment
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class TreatmentSerializer
 
 
-class TrialSerializer(serializers.ModelSerializer):
+class ObservationUnitSerializer(serializers.ModelSerializer):
+
+    observations = ObservationSerializer(many=True, read_only=True)
+    treatments = TreatmentSerializer(many=True, read_only=True)
 
     class Meta:
 
-        model = Trial
-        excluded = ['cropdbid']
+        model = ObservationUnit
+        exclude = ['cropdbid']
+        extra_fields = ['observations', 'treatments']
 
         # end class Meta
 
-# end class TrialSerializer
+# end class ObservationUnitSerializer
+
+
+class StudySerializer(serializers.ModelSerializer):
+
+    observationUnits = ObservationUnitSerializer(many=True, read_only=True)
+    contacts = StudyContactSerializer(many=True, read_only=True)
+    dataLinks = StudyDataLinkSerializer(many=True, read_only=True)
+    seasons = StudySeasonSerializer(many=True, read_only=True)
+    additionalInfo = StudyAdditionalInfoSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = Study
+        exclude = ['cropdbid']
+        extra_fields = ['observationUnits', 'contacts', 'dataLinks', 'seasons', 'additionalInfo']
+
+        # end class Meta
+
+# end class StudySerializer
+
+
+class StudyTypeSerializer(serializers.ModelSerializer):
+
+    studies = StudySerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = StudyType
+        exclude = ['cropdbid']
+        extra_fields = ['studies']
+
+        # end class Meta
+
+# end class StudyTypeSerializer
+
+
+class LocationSerializer(serializers.ModelSerializer):
+
+    studies = StudySerializer(many=True, read_only=True)
+    additionalInfo = LocationAdditionalInfoSerializer(many=False, read_only=True)
+
+    class Meta:
+
+        model = Location
+        exclude = ['cropdbid']
+        extra_fields = ['studies', 'additionalInfo']
+
+        # end class Meta
+
+# end class LocationSerializer
+
+
+class GermplasmSerializer(serializers.ModelSerializer):
+
+    donors = DonorSerializer(many=True, read_only=True)
+    attributes = GermplasmAttributeValueSerializer(many=True, read_only=True)
+    observationUnits = ObservationUnitSerializer(many=True, read_only=True)
+    pedigrees = PedigreeSerializer(many=True, read_only=True)
+    parent1id = PedigreeSerializer(many=True, read_only=True)
+    parent2id = PedigreeSerializer(many=True, read_only=True)
+    taxonXrefGermplasm = TaxonXrefGermplasmSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = Germplasm
+        exclude = ['cropdbid']
+        extra_fields = ['donors', 'attributes', 'observationUnits', 'pedigrees',
+                        'parent1id', 'parent2id', 'taxonXrefGermplasm']
+
+        # end class Meta
+
+# end class GermplasmSerializer
 
 
 class TrialAdditionalInfoSerializer(serializers.ModelSerializer):
@@ -439,9 +504,9 @@ class TrialAdditionalInfoSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = TrialAdditionalInfo
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
-        # end class Meta
+    # end class Meta
 
 # end class TrialAdditionalInfoSerializer
 
@@ -451,8 +516,56 @@ class TrialContactSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = TrialContact
-        excluded = ['cropdbid']
+        exclude = ['cropdbid']
 
     # end class Meta
 
 # end class TrialContactSerializer
+
+
+class TrialSerializer(serializers.ModelSerializer):
+
+    studies = StudySerializer(many=True, read_only=True)
+    contacts = TrialContactSerializer(many=True, read_only=True)
+    additionalInfo = TrialAdditionalInfoSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = Trial
+        exclude = ['cropdbid']
+        extra_fields = ['studies', 'contacts', 'additionalInfo']
+
+        # end class Meta
+
+# end class TrialSerializer
+
+
+class ProgramSerializer(serializers.ModelSerializer):
+
+    trials = TrialSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = Program
+        exclude = ['cropdbid']
+        extra_fields = ['trials']
+
+        # end class Meta
+
+# end class ProgramSerializer
+
+
+class ContactSerializer(serializers.ModelSerializer):
+
+    studyContacts = StudyContactSerializer(many=True, read_only=True)
+    trialContacts = TrialContactSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = Contact
+        exclude = ['cropdbid']
+        extra_fields = ['studyContacts', 'trialContacts']
+
+    # end class Meta
+
+# end class ContactSerializer

@@ -1,28 +1,288 @@
 [
   {
     "model": "brapi.observation",
-    "pk": 1,
+    "pk": "1",
     "fields": {
-      "observationDbId": 153453453,
-      "observationVariableDbId": "CO_334:0100622",
-      "observationVariableName": "Plant_height",
-      "observationTimeStamp": "2015-06-16T08:53:26Z",
-      "season": "2015",
-      "collector": "Mr. Technician",
-      "value": 45
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2013-06-14T22:03:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "1.2"
     }
   },
   {
     "model": "brapi.observation",
-    "pk": 2,
+    "pk": "10",
     "fields": {
-      "observationDbId": 23453454345,
-      "observationVariableDbId": "CO_334:0100632",
-      "observationVariableName": "GW100_g",
-      "observationTimeStamp": "2015-06-16T08:53:26Z",
-      "season": "2015",
-      "collector": "Mr. Technician",
-      "value": 3
+      "cropdbid": "1",
+      "observationunitdbid": "6",
+      "observationvariabledbid": "MO_123:100006",
+      "observationtimestamp": "2013-06-14T22:12:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "4.5"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "7",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2013-06-14T22:13:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "1.4"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "12",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "8",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2013-06-14T22:14:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "red"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "9",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2011-06-14T22:03:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "10"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "9",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2011-06-14T22:04:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "20"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "9",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2011-06-14T22:05:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "red"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "16",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "10",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2011-06-14T22:06:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "100"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "10",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2011-06-14T22:07:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "18",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "10",
+      "observationvariabledbid": "MO_123:100005",
+      "observationtimestamp": "2011-06-14T22:08:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "2"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "19",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2011-06-14T22:09:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "11"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "observationvariabledbid": "MO_123:100006",
+      "observationtimestamp": "2013-06-14T22:04:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "4.5"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "20",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2011-06-14T22:10:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "12"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "21",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2011-06-14T22:11:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "black"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "22",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100005",
+      "observationtimestamp": "2011-06-14T22:12:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2013-06-14T22:05:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "1.1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "observationvariabledbid": "MO_123:100006",
+      "observationtimestamp": "2013-06-14T22:06:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "5.1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2013-06-14T22:07:51Z",
+      "seasondbid": "4",
+      "collector": "A. Technician",
+      "value": "2.1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2013-06-14T22:08:51Z",
+      "seasondbid": "4",
+      "collector": "A. Technician",
+      "value": "dark blue"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2013-06-14T22:09:51Z",
+      "seasondbid": "5",
+      "collector": "A. Technician",
+      "value": "1.8"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2013-06-14T22:10:51Z",
+      "seasondbid": "5",
+      "collector": "A. Technician",
+      "value": "blue"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "5",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2013-06-14T22:11:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "2.1"
     }
   }
 ]

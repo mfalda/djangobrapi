@@ -1,68 +1,68 @@
 [
   {
     "model": "brapi.program",
-    "pk": 1,
+    "pk": "1",
     "fields": {
-      "programDbId": 1,
-      "name": "CIPHQ",
-      "abbreviation": "CIPHQ",
+      "cropdbid": "1",
+      "name": "P1",
+      "abbreviation": "G. Leader",
       "objective": "Global Population Improvement",
-      "leadPerson": "G. Leader"
+      "leadperson": "Program 1"
     }
   },
   {
     "model": "brapi.program",
-    "pk": 2,
+    "pk": "2",
     "fields": {
-      "programDbId": 2,
-      "name": "Ghana",
-      "abbreviation": "GHA",
-      "objective": "OFSP",
-      "leadPerson": "M. Breeder"
+      "cropdbid": "1",
+      "name": "P2",
+      "abbreviation": "M. Breeder",
+      "objective": "XYZ",
+      "leadperson": "Program 2"
     }
   },
   {
     "model": "brapi.program",
-    "pk": 3,
+    "pk": "3",
     "fields": {
-      "programDbId": 3,
-      "name": "Uganda",
-      "abbreviation": "UGA",
-      "objective": "OFSP",
-      "leadPerson": "W. Select"
+      "cropdbid": "1",
+      "name": "P3",
+      "abbreviation": "W. Select",
+      "objective": "XYZ",
+      "leadperson": "Program 3"
     }
   },
   {
     "model": "brapi.program",
-    "pk": 4,
+    "pk": "4",
     "fields": {
-      "programDbId": 4,
-      "name": "Mozambique",
-      "abbreviation": "MOZ",
-      "objective": "OFSP",
-      "leadPerson": "G. Gain"
+      "cropdbid": "1",
+      "name": "P4",
+      "abbreviation": "G. Gain",
+      "objective": "ABC",
+      "leadperson": "Program 4"
     }
   },
   {
     "model": "brapi.program",
-    "pk": 5,
+    "pk": "5",
     "fields": {
-      "programDbId": 5,
-      "name": "NCSU",
-      "abbreviation": "NCSU",
+      "cropdbid": "1",
+      "name": "P5",
+      "abbreviation": "C. Improvement",
       "objective": "Processing",
-      "leadPerson": "C. Improvement"
+      "leadperson": "Program 5"
     }
   },
   {
     "model": "brapi.program",
-    "pk": 6,
+    "pk": "6",
     "fields": {
-      "programDbId": 6,
-      "name": "Demo",
-      "abbreviation": "DEMO",
+      "cropdbid": "1",
+      "name": "P6",
+      "abbreviation": "A. Test",
       "objective": "Demo",
-      "leadPerson": "A. Test"
+      "leadperson": "Program 6"
     }
   }
 ]

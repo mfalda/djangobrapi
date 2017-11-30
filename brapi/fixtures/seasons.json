@@ -1,0 +1,47 @@
+[
+  {
+    "model": "brapi.season",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2013",
+      "season": "2013"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2011",
+      "season": "2011"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2014",
+      "season": "2014"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2013",
+      "season": "winter 2013"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2013",
+      "season": "fall 2013"
+    }
+  }
+]

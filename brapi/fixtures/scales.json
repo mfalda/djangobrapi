@@ -1,0 +1,23 @@
+[
+  {
+    "model": "brapi.scale",
+    "pk": "CO_334:0100526",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.scale",
+    "pk": "CO_334:0100527",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.scale",
+    "pk": "CO_334:0100528",
+    "fields": {
+      "cropdbid": "1"
+    }
+  }
+]

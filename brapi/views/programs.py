@@ -2,8 +2,8 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
-from brapi.models.program import Program, ProgramSerializer
-
+from brapi.models import Program
+from brapi.serializers import ProgramSerializer
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 

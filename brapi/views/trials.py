@@ -1,8 +1,7 @@
 from rest_framework.views import APIView
 
-# there is a circular dependency between trials and studies (when aggregationg models and serializers)
-from brapi.models.study import Trial, TrialSerializer
-
+from brapi.models import Trial
+from brapi.serializers import TrialSerializer
 from brapi.aux_fun import search_get_qparams, paginate
 
 

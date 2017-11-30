@@ -3,7 +3,8 @@ from rest_framework.views import APIView
 from django.db.models import Q
 import logging
 
-from brapi.models.phenotype import Phenotype, PhenotypeSerializer
+from brapi.models import Phenotype
+from brapi.serializers import PhenotypeSerializer
 from brapi.aux_fun import search_post_params_in, paginate
 
 

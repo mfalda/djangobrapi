@@ -1,0 +1,20 @@
+[
+  {
+    "model": "brapi.taxonxref",
+    "pk": "2340",
+    "fields": {
+      "cropdbid": "1",
+      "source": "ncbiTaxon",
+      "rank": "species"
+    }
+  },
+  {
+    "model": "brapi.taxonxref",
+    "pk": "E312",
+    "fields": {
+      "cropdbid": "1",
+      "source": "ciradTaxon",
+      "rank": "species"
+    }
+  }
+]

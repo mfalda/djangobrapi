@@ -1,6 +1,34 @@
 from django.db import models
 
 
+class Call(models.Model):
+
+    cropdbid = models.ForeignKey('Crop', models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    calldbid = models.TextField(primary_key=True)
+    call = models.TextField(blank=True, null=True)
+    datatypes = models.TextField(blank=True, null=True)
+    methods = models.TextField(blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+
+        self.datatypes = '; '.join(self.datatypes)
+        self.methods = '; '.join(self.methods)
+        super(Call, self).save(*args, **kwargs)
+
+    # end def save
+
+
+    class Meta:
+
+        managed = False
+        db_table = "call"
+        ordering = ('calldbid',)
+
+        # end class Meta
+
+# end class Call
+
+
 class Contact(models.Model):
 
     cropdbid = models.ForeignKey('Crop', models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -16,7 +44,7 @@ class Contact(models.Model):
         managed = False
         db_table = 'contact'
 
-	# end class Meta
+    # end class Meta
 
 # end class Contact
 
@@ -32,7 +60,7 @@ class Crop(models.Model):
         managed = False
         db_table = 'crop'
 
-	# end class Meta
+    # end class Meta
 
 # end class Crop
 
@@ -50,7 +78,7 @@ class Donor(models.Model):
         managed = False
         db_table = 'donor'
 
-	# end class Meta
+    # end class Meta
 
 # end class Donor
 
@@ -83,7 +111,7 @@ class Germplasm(models.Model):
         managed = False
         db_table = 'germplasm'
 
-	# end class Meta
+    # end class Meta
 
 # end class Germplasm
 
@@ -105,7 +133,7 @@ class GermplasmAttribute(models.Model):
         managed = False
         db_table = 'germplasm_attribute'
 
-	# end class Meta
+    # end class Meta
 
 # end class GermplasmAttribute
 
@@ -121,7 +149,7 @@ class GermplasmAttributeCategory(models.Model):
         managed = False
         db_table = 'germplasm_attribute_category'
 
-	# end class Meta
+    # end class Meta
 
 # end class GermplasmAttributeCategory
 
@@ -139,7 +167,7 @@ class GermplasmAttributeValue(models.Model):
         managed = False
         db_table = 'germplasm_attribute_value'
 
-	# end class Meta
+    # end class Meta
 
 # end class GermplasmAttributeValue
 
@@ -164,7 +192,7 @@ class Location(models.Model):
         managed = False
         db_table = 'location'
 
-	# end class Meta
+    # end class Meta
 
 # end class Location
 
@@ -181,7 +209,7 @@ class LocationAdditionalInfo(models.Model):
         managed = False
         db_table = 'location_additional_info'
 
-	# end class Meta
+    # end class Meta
 
 # end class LocationAdditionalInfo
 
@@ -196,7 +224,7 @@ class Map(models.Model):
         managed = False
         db_table = 'map'
 
-	# end class Meta
+    # end class Meta
 
 # end class Map
 
@@ -216,7 +244,7 @@ class Marker(models.Model):
         managed = False
         db_table = 'marker'
 
-	# end class Meta
+    # end class Meta
 
 # end class Marker
 
@@ -231,7 +259,7 @@ class Markerprofile(models.Model):
         managed = False
         db_table = 'markerprofile'
 
-	# end class Meta
+    # end class Meta
 
 # end class Markerprofile
 
@@ -246,7 +274,7 @@ class Method(models.Model):
         managed = False
         db_table = 'method'
 
-	# end class Meta
+    # end class Meta
 
 # end class Method
 
@@ -267,7 +295,7 @@ class Observation(models.Model):
         managed = False
         db_table = 'observation'
 
-	# end class Meta
+    # end class Meta
 
 # end class Observation
 
@@ -295,7 +323,7 @@ class ObservationUnit(models.Model):
         managed = False
         db_table = 'observation_unit'
 
-	# end class Meta
+    # end class Meta
 
 # end class ObservationUnit
 
@@ -305,14 +333,15 @@ class ObservationUnitXref(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
     source = models.TextField()
-    id = models.TextField()
+    identifier = models.TextField()
+    observationunitxrefdbid = models.TextField(primary_key=True)
 
     class Meta:
 
         managed = False
         db_table = 'observation_unit_xref'
 
-	# end class Meta
+    # end class Meta
 
 # end class ObservationUnitXref
 
@@ -332,7 +361,7 @@ class ObservationVariable(models.Model):
         managed = False
         db_table = 'observation_variable'
 
-	# end class Meta
+    # end class Meta
 
 # end class ObservationVariable
 
@@ -347,7 +376,7 @@ class Ontology(models.Model):
         managed = False
         db_table = 'ontology'
 
-	# end class Meta
+    # end class Meta
 
 # end class Ontology
 
@@ -355,17 +384,17 @@ class Ontology(models.Model):
 class Pedigree(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
+    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='germplasm')
     pedigree = models.TextField()
-    parent1id = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent1id')
-    parent2id = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent2id')
+    parent1id = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent1id', related_name='parents1')
+    parent2id = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent2id', related_name='parents2')
 
     class Meta:
 
         managed = False
         db_table = 'pedigree'
 
-	# end class Meta
+    # end class Meta
 
 # end class Pedigree
 
@@ -384,7 +413,7 @@ class Program(models.Model):
         managed = False
         db_table = 'program'
 
-	# end class Meta
+    # end class Meta
 
 # end class Program
 
@@ -399,7 +428,7 @@ class Sample(models.Model):
         managed = False
         db_table = 'sample'
 
-	# end class Meta
+    # end class Meta
 
 # end class Sample
 
@@ -414,7 +443,7 @@ class Scale(models.Model):
         managed = False
         db_table = 'scale'
 
-	# end class Meta
+    # end class Meta
 
 # end class Scale
 
@@ -431,7 +460,7 @@ class Season(models.Model):
         managed = False
         db_table = 'season'
 
-	# end class Meta
+    # end class Meta
 
 # end class Season
 
@@ -457,7 +486,7 @@ class Study(models.Model):
         managed = False
         db_table = 'study'
 
-	# end class Meta
+    # end class Meta
 
 # end class Study
 
@@ -474,7 +503,7 @@ class StudyAdditionalInfo(models.Model):
         managed = False
         db_table = 'study_additional_info'
 
-	# end class Meta
+    # end class Meta
 
 # end class StudyAdditionalInfo
 
@@ -490,7 +519,7 @@ class StudyContact(models.Model):
         managed = False
         db_table = 'study_contact'
 
-	# end class Meta
+    # end class Meta
 
 # end class StudyContact
 
@@ -508,7 +537,7 @@ class StudyDataLink(models.Model):
         managed = False
         db_table = 'study_data_link'
 
-	# end class Meta
+    # end class Meta
 
 # end class StudyDataLink
 
@@ -524,7 +553,7 @@ class StudySeason(models.Model):
         managed = False
         db_table = 'study_season'
 
-	# end class Meta
+    # end class Meta
 
 # end class StudySeason
 
@@ -540,7 +569,7 @@ class StudyType(models.Model):
         managed = False
         db_table = 'study_type'
 
-	# end class Meta
+    # end class Meta
 
 # end class StudyType
 
@@ -557,7 +586,7 @@ class TaxonXref(models.Model):
         managed = False
         db_table = 'taxon_xref'
 
-	# end class Meta
+    # end class Meta
 
 # end class TaxonXref
 
@@ -573,7 +602,7 @@ class TaxonXrefGermplasm(models.Model):
         managed = False
         db_table = 'taxon_xref_germplasm'
 
-	# end class Meta
+    # end class Meta
 
 # end class TaxonXrefGermplasm
 
@@ -588,7 +617,7 @@ class Trait(models.Model):
         managed = False
         db_table = 'trait'
 
-	# end class Meta
+    # end class Meta
 
 # end class Trait
 
@@ -605,7 +634,7 @@ class Treatment(models.Model):
         managed = False
         db_table = 'treatment'
 
-	# end class Meta
+    # end class Meta
 
 # end class Treatment
 
@@ -627,7 +656,7 @@ class Trial(models.Model):
         managed = False
         db_table = 'trial'
 
-	# end class Meta
+    # end class Meta
 
 # end class Trial
 
@@ -644,7 +673,7 @@ class TrialAdditionalInfo(models.Model):
         managed = False
         db_table = 'trial_additional_info'
 
-	# end class Meta
+    # end class Meta
 
 # end class TrialAdditionalInfo
 
@@ -660,6 +689,6 @@ class TrialContact(models.Model):
         managed = False
         db_table = 'trial_contact'
 
-	# end class Meta
+    # end class Meta
 
 # end class TrialContact

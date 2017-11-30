@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 
-from brapi.models.location import Location, LocationSerializer
+from brapi.models import Location
+from brapi.serializers import LocationSerializer
 from brapi.aux_fun import search_get_qparams, paginate
 
 

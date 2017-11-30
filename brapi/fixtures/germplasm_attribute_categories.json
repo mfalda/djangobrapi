@@ -1,0 +1,34 @@
+[
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Morphological"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Agronomic"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Biotic stress"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Abiotic stress"
+    }
+  }
+]

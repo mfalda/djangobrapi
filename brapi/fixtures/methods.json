@@ -1,0 +1,9 @@
+[
+  {
+    "model": "brapi.method",
+    "pk": "CO_334:0010320",
+    "fields": {
+      "cropdbid": "1"
+    }
+  }
+]

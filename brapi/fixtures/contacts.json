@@ -1,0 +1,50 @@
+[
+  {
+    "model": "brapi.contact",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "name": "A. Breeder",
+      "email": "a.breeder@brapi.org",
+      "type": "Breeder",
+      "orcid": "0000-0002-0607-8728",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "name": "B. Breeder",
+      "email": "b.breeder@brapi.org",
+      "type": "Breeder",
+      "orcid": "0000-0002-0607-8729",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "name": "A. Technician",
+      "email": "a.technician@brapi.org",
+      "type": "Technician",
+      "orcid": "0000-0002-0607-8731",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "name": "B. Technician",
+      "email": "b.technician@brapi.org",
+      "type": "Technician",
+      "orcid": "0000-0002-0607-8732",
+      "institutename": "Plant Science Institute"
+    }
+  }
+]

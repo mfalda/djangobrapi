@@ -3,7 +3,8 @@ from brapi.aux_fun import paginate
 import logging
 from django.db.models import Q
 
-from brapi.models.marker import Marker, MarkerSerializer
+from brapi.models import Marker
+from brapi.serializers import MarkerSerializer
 from brapi.aux_fun import search_get_qparams
 
   

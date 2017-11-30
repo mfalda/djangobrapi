@@ -1,0 +1,122 @@
+[
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865230"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH03"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "kernelDB",
+      "identifier": "239865"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865815"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH13"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "kernelDB",
+      "identifier": "239167"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865682"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH51"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "kernelDB",
+      "identifier": "239146"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865891"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH89"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "kernelDB",
+      "identifier": "239612"
+    }
+  }
+]

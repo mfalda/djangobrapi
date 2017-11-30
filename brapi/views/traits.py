@@ -1,6 +1,7 @@
 from rest_framework.views import APIView
 
-from brapi.models.trait import Trait, TraitSerializer
+from brapi.models import Trait
+from brapi.serializers import TraitSerializer
 from brapi.aux_fun import paginate
 
 

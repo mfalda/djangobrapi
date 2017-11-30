@@ -1,86 +1,142 @@
 [
   {
-    "model": "brapi.germplasmattr",
-    "pk": 1,
+    "model": "brapi.germplasmattribute",
+    "pk": "1",
     "fields": {
-      "germplasmDbId": "1",
-      "attributeDbId": "1",
-      "attributeName": "Morphological",
-      "attributeCode": "FLSHORG",
-      "value": "Present",
-      "dateDetermined": "2016-01-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "2",
+      "code": "RHT",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000001",
+      "name": "Rht-B1b",
+      "description": "Allele of marker 11_4769",
+      "datatype": "Categorical",
+      "values": "['Present', 'Absent', 'Heterozygous']"
     }
   },
   {
-    "model": "brapi.germplasmattr",
-    "pk": 2,
+    "model": "brapi.germplasmattribute",
+    "pk": "10",
     "fields": {
-      "germplasmDbId": "1",
-      "attributeDbId": "2",
-      "attributeName": "Agronomic",
-      "attributeCode": "RHT",
-      "value": "Absent",
-      "dateDetermined": "2016-01-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "4",
+      "code": "RAL6",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000010",
+      "name": "R allele 6",
+      "description": "Resistance allele",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4']"
     }
   },
   {
-    "model": "brapi.germplasmattr",
-    "pk": 3,
+    "model": "brapi.germplasmattribute",
+    "pk": "2",
     "fields": {
-      "germplasmDbId": "1",
-      "attributeDbId": "3",
-      "attributeName": "Biotic stress",
-      "attributeCode": "WEV",
-      "value": "Present",
-      "dateDetermined": "2016-01-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "WEV",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000002",
+      "name": "Weevil Resistance",
+      "description": "Resistance allele",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
     }
   },
   {
-    "model": "brapi.germplasmattr",
-    "pk": 4,
+    "model": "brapi.germplasmattribute",
+    "pk": "3",
     "fields": {
-      "germplasmDbId": "2",
-      "attributeDbId": "2",
-      "attributeName": "Agronomic",
-      "attributeCode": "RHT",
-      "value": "Absent",
-      "dateDetermined": "2016-01-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "1",
+      "code": "FLSHORG",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000003",
+      "name": "Flesh Color Orange allele",
+      "description": "Allelele for orange flesh",
+      "datatype": "Categorical",
+      "values": "['1', '3', '5', '7', '9']"
     }
   },
   {
-    "model": "brapi.germplasmattr",
-    "pk": 5,
+    "model": "brapi.germplasmattribute",
+    "pk": "4",
     "fields": {
-      "germplasmDbId": "3",
-      "attributeDbId": "3",
-      "attributeName": "Biotic stress",
-      "attributeCode": "WEV",
-      "value": "Heterozygous",
-      "dateDetermined": "2016-01-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "1",
+      "code": "FLWCOL",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000004",
+      "name": "Flower color white allele",
+      "description": "Allele for white flower color",
+      "datatype": "Categorical",
+      "values": "['Present', 'Absent', 'Heterozygous']"
     }
   },
   {
-    "model": "brapi.germplasmattr",
-    "pk": 6,
+    "model": "brapi.germplasmattribute",
+    "pk": "5",
     "fields": {
-      "germplasmDbId": "4",
-      "attributeDbId": "1",
-      "attributeName": "Morphological",
-      "attributeCode": "FLSHORG",
-      "value": "Absent",
-      "dateDetermined": "2016-11-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "RAL1",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000005",
+      "name": "R allele 1",
+      "description": "Resistance allele 1",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
     }
   },
   {
-    "model": "brapi.germplasmattr",
-    "pk": 7,
+    "model": "brapi.germplasmattribute",
+    "pk": "6",
     "fields": {
-      "germplasmDbId": "5",
-      "attributeDbId": "2",
-      "attributeName": "Agronomic",
-      "attributeCode": "RHT",
-      "value": "Present",
-      "dateDetermined": "2016-12-01"
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "RAL2",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000006",
+      "name": "R allele 2",
+      "description": "Resistance allele 2",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "RAL3",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000007",
+      "name": "R allele 3",
+      "description": "Resistance allele 3",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "4",
+      "code": "RAL4",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000008",
+      "name": "R allele 4",
+      "description": "Resistance allele 4",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "4",
+      "code": "RAL5",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000009",
+      "name": "R allele 5",
+      "description": "Resistance allele 5",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
     }
   }
 ]

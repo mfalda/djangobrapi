@@ -1,0 +1,62 @@
+[
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100002",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Plant height",
+      "traitdbid": null,
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100003",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Root weight",
+      "traitdbid": null,
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100004",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Root color",
+      "traitdbid": null,
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100005",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Virus susceptibility",
+      "traitdbid": null,
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100006",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Carotenoid",
+      "traitdbid": null,
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  }
+]

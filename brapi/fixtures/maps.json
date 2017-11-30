@@ -1,41 +1,23 @@
 [
   {
     "model": "brapi.map",
-    "pk": 1,
+    "pk": "1",
     "fields": {
-      "mapDbId": 1,
-      "name": "SSR map 1",
-      "species": "Ipomoea batatas",
-      "type": "Genetic",
-      "unit": "cM",
-      "publishedDate": "2016-01-06",
-      "comments": ""
+      "cropdbid": "1"
     }
   },
   {
     "model": "brapi.map",
-    "pk": 2,
+    "pk": "2",
     "fields": {
-      "mapDbId": 2,
-      "name": "SSR map 2",
-      "species": "Ipomoea trifida",
-      "type": "Genetic",
-      "unit": "cM",
-      "publishedDate": "2016-11-15",
-      "comments": "none"
+      "cropdbid": "1"
     }
   },
   {
     "model": "brapi.map",
-    "pk": 3,
+    "pk": "3",
     "fields": {
-      "mapDbId": 3,
-      "name": "GBS genomic map",
-      "species": "Ipomoea batatas",
-      "type": "Physical",
-      "unit": "bp",
-      "publishedDate": "2016-12-01",
-      "comments": "whatever"
+      "cropdbid": "1"
     }
   }
 ]

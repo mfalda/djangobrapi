@@ -1,8 +1,9 @@
 [
   {
     "model": "brapi.call",
-    "pk": 1,
+    "pk": "1",
     "fields": {
+      "cropdbid": "1",
       "call": "token",
       "datatypes": "json; text",
       "methods": "POST; DELETE"
@@ -10,98 +11,29 @@
   },
   {
     "model": "brapi.call",
-    "pk": 2,
+    "pk": "10",
     "fields": {
-      "call": "calls",
+      "cropdbid": "1",
+      "call": "germplasm//markerprofiles",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 3,
+    "pk": "11",
     "fields": {
-      "call": "crops",
+      "cropdbid": "1",
+      "call": "germplasm//pedigree",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 4,
+    "pk": "12",
     "fields": {
-      "call": "maps",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 5,
-    "fields": {
-      "call": "maps/id/positions",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 6,
-    "fields": {
-      "call": "maps/id/positions/id",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 7,
-    "fields": {
-      "call": "maps/id",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 8,
-    "fields": {
-      "call": "germplasm/id",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 9,
-    "fields": {
-      "call": "studies/id/germplasm",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 10,
-    "fields": {
-      "call": "germplasm/id/markerprofiles",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 11,
-    "fields": {
-      "call": "germplasm/id/pedigree",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": 12,
-    "fields": {
+      "cropdbid": "1",
       "call": "germplasm-search",
       "datatypes": "json",
       "methods": "GET"
@@ -109,8 +41,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 13,
+    "pk": "13",
     "fields": {
+      "cropdbid": "1",
       "call": "germplasm-search",
       "datatypes": "json",
       "methods": "POST"
@@ -118,8 +51,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 14,
+    "pk": "14",
     "fields": {
+      "cropdbid": "1",
       "call": "attributes",
       "datatypes": "json",
       "methods": "GET"
@@ -127,8 +61,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 15,
+    "pk": "15",
     "fields": {
+      "cropdbid": "1",
       "call": "attributes/categories",
       "datatypes": "json",
       "methods": "GET"
@@ -136,17 +71,19 @@
   },
   {
     "model": "brapi.call",
-    "pk": 16,
+    "pk": "16",
     "fields": {
-      "call": "germplasm/id/attributes/",
+      "cropdbid": "1",
+      "call": "germplasm//attributes/",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 17,
+    "pk": "17",
     "fields": {
+      "cropdbid": "1",
       "call": "locations",
       "datatypes": "json",
       "methods": "GET"
@@ -154,8 +91,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 18,
+    "pk": "18",
     "fields": {
+      "cropdbid": "1",
       "call": "allelematrix-search",
       "datatypes": "json; csv; tsv",
       "methods": "GET"
@@ -163,8 +101,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 19,
+    "pk": "19",
     "fields": {
+      "cropdbid": "1",
       "call": "allelematrix-search",
       "datatypes": "json; csv; tsv",
       "methods": "POST"
@@ -172,17 +111,29 @@
   },
   {
     "model": "brapi.call",
-    "pk": 20,
+    "pk": "2",
     "fields": {
-      "call": "markerprofiles/id",
+      "cropdbid": "1",
+      "call": "calls",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 21,
+    "pk": "20",
     "fields": {
+      "cropdbid": "1",
+      "call": "markerprofiles/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "21",
+    "fields": {
+      "cropdbid": "1",
       "call": "markerprofiles-search",
       "datatypes": "json",
       "methods": "POST"
@@ -190,8 +141,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 22,
+    "pk": "22",
     "fields": {
+      "cropdbid": "1",
       "call": "markerprofiles",
       "datatypes": "json",
       "methods": "GET"
@@ -199,17 +151,19 @@
   },
   {
     "model": "brapi.call",
-    "pk": 23,
+    "pk": "23",
     "fields": {
-      "call": "markers/id",
+      "cropdbid": "1",
+      "call": "markers/",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 24,
+    "pk": "24",
     "fields": {
+      "cropdbid": "1",
       "call": "markers",
       "datatypes": "json",
       "methods": "GET"
@@ -217,8 +171,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 25,
+    "pk": "25",
     "fields": {
+      "cropdbid": "1",
       "call": "variables",
       "datatypes": "json",
       "methods": "GET"
@@ -226,8 +181,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 26,
+    "pk": "26",
     "fields": {
+      "cropdbid": "1",
       "call": "variables/datatypes",
       "datatypes": "json",
       "methods": "GET"
@@ -235,17 +191,19 @@
   },
   {
     "model": "brapi.call",
-    "pk": 27,
+    "pk": "27",
     "fields": {
-      "call": "variables/id",
+      "cropdbid": "1",
+      "call": "variables/",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 28,
+    "pk": "28",
     "fields": {
+      "cropdbid": "1",
       "call": "ontologies",
       "datatypes": "json",
       "methods": "GET"
@@ -253,8 +211,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 29,
+    "pk": "29",
     "fields": {
+      "cropdbid": "1",
       "call": "variables-search",
       "datatypes": "json",
       "methods": "POST"
@@ -262,8 +221,19 @@
   },
   {
     "model": "brapi.call",
-    "pk": 30,
+    "pk": "3",
     "fields": {
+      "cropdbid": "1",
+      "call": "crops",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "30",
+    "fields": {
+      "cropdbid": "1",
       "call": "phenotypes-search",
       "datatypes": "json",
       "methods": "GET; POST"
@@ -271,8 +241,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 31,
+    "pk": "31",
     "fields": {
+      "cropdbid": "1",
       "call": "programs",
       "datatypes": "json",
       "methods": "GET"
@@ -280,8 +251,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 32,
+    "pk": "32",
     "fields": {
+      "cropdbid": "1",
       "call": "programs-search",
       "datatypes": "json",
       "methods": "POST"
@@ -289,8 +261,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 33,
+    "pk": "33",
     "fields": {
+      "cropdbid": "1",
       "call": "samples",
       "datatypes": "json",
       "methods": "PUT"
@@ -298,26 +271,29 @@
   },
   {
     "model": "brapi.call",
-    "pk": 34,
+    "pk": "34",
     "fields": {
-      "call": "samples/id",
+      "cropdbid": "1",
+      "call": "samples/",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 35,
+    "pk": "35",
     "fields": {
-      "call": "studies/id",
+      "cropdbid": "1",
+      "call": "studies/",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 36,
+    "pk": "36",
     "fields": {
+      "cropdbid": "1",
       "call": "observationLevels",
       "datatypes": "json",
       "methods": "GET"
@@ -325,35 +301,49 @@
   },
   {
     "model": "brapi.call",
-    "pk": 37,
+    "pk": "37",
     "fields": {
-      "call": "studies/id/observations",
+      "cropdbid": "1",
+      "call": "studies//observations",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 38,
+    "pk": "38",
     "fields": {
-      "call": "studies/id/observationunits",
+      "cropdbid": "1",
+      "call": "studies//observationunits",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 39,
+    "pk": "39",
     "fields": {
-      "call": "studies/id/observationVariables",
+      "cropdbid": "1",
+      "call": "studies//observationVariables",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 40,
+    "pk": "4",
     "fields": {
+      "cropdbid": "1",
+      "call": "maps",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "40",
+    "fields": {
+      "cropdbid": "1",
       "call": "studies-search",
       "datatypes": "json",
       "methods": "GET"
@@ -361,8 +351,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 41,
+    "pk": "41",
     "fields": {
+      "cropdbid": "1",
       "call": "studies-search",
       "datatypes": "json",
       "methods": "POST"
@@ -370,8 +361,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 42,
+    "pk": "42",
     "fields": {
+      "cropdbid": "1",
       "call": "seasons",
       "datatypes": "json",
       "methods": "GET"
@@ -379,8 +371,9 @@
   },
   {
     "model": "brapi.call",
-    "pk": 43,
+    "pk": "43",
     "fields": {
+      "cropdbid": "1",
       "call": "studyTypes",
       "datatypes": "json",
       "methods": "GET"
@@ -388,35 +381,39 @@
   },
   {
     "model": "brapi.call",
-    "pk": 44,
+    "pk": "44",
     "fields": {
-      "call": "studies/id/table",
+      "cropdbid": "1",
+      "call": "studies//table",
       "datatypes": "json; csv; tsv",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 45,
+    "pk": "45",
     "fields": {
-      "call": "studies/id/layout",
+      "cropdbid": "1",
+      "call": "studies//layout",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 46,
+    "pk": "46",
     "fields": {
-      "call": "studies/id/table",
+      "cropdbid": "1",
+      "call": "studies//table",
       "datatypes": "json",
       "methods": "POST"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 47,
+    "pk": "47",
     "fields": {
+      "cropdbid": "1",
       "call": "traits",
       "datatypes": "json",
       "methods": "GET"
@@ -424,17 +421,19 @@
   },
   {
     "model": "brapi.call",
-    "pk": 48,
+    "pk": "48",
     "fields": {
-      "call": "traits/id",
+      "cropdbid": "1",
+      "call": "traits/",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": 49,
+    "pk": "49",
     "fields": {
+      "cropdbid": "1",
       "call": "trials",
       "datatypes": "json",
       "methods": "GET"
@@ -442,9 +441,60 @@
   },
   {
     "model": "brapi.call",
-    "pk": 50,
+    "pk": "5",
     "fields": {
-      "call": "trials/id",
+      "cropdbid": "1",
+      "call": "maps//positions",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "50",
+    "fields": {
+      "cropdbid": "1",
+      "call": "trials/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps//positions/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//germplasm",
       "datatypes": "json",
       "methods": "GET"
     }

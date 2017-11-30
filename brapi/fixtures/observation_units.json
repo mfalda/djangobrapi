@@ -1,0 +1,222 @@
+[
+  {
+    "model": "brapi.observationunit",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "1",
+      "name": "Plot 1",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:1",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "1",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "4",
+      "name": "Plant 5",
+      "observationlevel": "plant",
+      "observationlevels": "block:101;plot:5;plant:5",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "5",
+      "blocknumber": "101",
+      "plantnumber": "5",
+      "x": "1",
+      "y": "1",
+      "replicate": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "2",
+      "name": "Plot 6",
+      "observationlevel": "plot",
+      "observationlevels": "block:101;plot:6",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "6",
+      "blocknumber": "101",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "1",
+      "name": "Plant 1",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:1;plant:1",
+      "entrynumber": "2",
+      "entrytype": "test",
+      "plotnumber": "1",
+      "blocknumber": "1",
+      "plantnumber": "1",
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "2",
+      "name": "Plot 2",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:2",
+      "entrynumber": "3",
+      "entrytype": "test",
+      "plotnumber": "2",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "2",
+      "name": "Plant 2",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:2;plant:2",
+      "entrynumber": "4",
+      "entrytype": "test",
+      "plotnumber": "2",
+      "blocknumber": "1",
+      "plantnumber": "2",
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "1",
+      "name": "Plot 3",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:3\u00a0",
+      "entrynumber": "5",
+      "entrytype": "test",
+      "plotnumber": "3",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "1",
+      "name": "Plant 3",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:3;plant:3",
+      "entrynumber": "6",
+      "entrytype": "test",
+      "plotnumber": "3",
+      "blocknumber": "1",
+      "plantnumber": "3",
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "3",
+      "name": "Plot 4",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:4",
+      "entrynumber": "7",
+      "entrytype": "test",
+      "plotnumber": "4",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "3",
+      "name": "Plant 4",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:4;plant:4",
+      "entrynumber": "8",
+      "entrytype": "test",
+      "plotnumber": "4",
+      "blocknumber": "1",
+      "plantnumber": "4",
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "4",
+      "name": "Plot 5",
+      "observationlevel": "plot",
+      "observationlevels": "block:101;plot:5",
+      "entrynumber": "1",
+      "entrytype": "check",
+      "plotnumber": "5",
+      "blocknumber": "101",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "1"
+    }
+  }
+]

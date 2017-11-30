@@ -1,30 +1,9 @@
 [
   {
     "model": "brapi.crop",
-    "pk": 1,
+    "pk": "1",
     "fields": {
-      "data": "cassava"
-    }
-  },
-  {
-    "model": "brapi.crop",
-    "pk": 2,
-    "fields": {
-      "data": "potato"
-    }
-  },
-  {
-    "model": "brapi.crop",
-    "pk": 3,
-    "fields": {
-      "data": "sweetpotato"
-    }
-  },
-  {
-    "model": "brapi.crop",
-    "pk": 4,
-    "fields": {
-      "data": "yam"
+      "commonname": "crop1"
     }
   }
 ]

@@ -1,30 +1,16 @@
 [
   {
     "model": "brapi.markerprofile",
-    "pk": 1,
+    "pk": "3",
     "fields": {
-      "germplasmDbId": 3,
-      "markerProfilesDbId": 3,
-      "uniqueDisplayName": "germplasm3",
-      "sampleDbId": 33,
-      "extractDbId": 1,
-      "studyDbId": 1,
-      "analysisMethod": "GBS",
-      "resultCount": 1
+      "cropdbid": "1"
     }
   },
   {
     "model": "brapi.markerprofile",
-    "pk": 2,
+    "pk": "4",
     "fields": {
-      "germplasmDbId": 4,
-      "markerProfilesDbId": 4,
-      "uniqueDisplayName": "germplasm4",
-      "sampleDbId": 44,
-      "extractDbId": 2,
-      "studyDbId": 2,
-      "analysisMethod": "GoldenGate",
-      "resultCount": 1
+      "cropdbid": "1"
     }
   }
 ]

@@ -1,62 +1,9 @@
 [
   {
     "model": "brapi.ontology",
-    "pk": 1,
+    "pk": "MO_123",
     "fields": {
-      "ontologyDbId": "CO_334",
-      "ontologyName": "Wheat ontology",
-      "authors": "J. Snow, H. Peterson",
-      "version": "v1.2",
-      "copyright": "2016, INRA",
-      "licence": "CC BY-SA 4.0"
-    }
-  },
-  {
-    "model": "brapi.ontology",
-    "pk": 2,
-    "fields": {
-      "ontologyDbId": "CO_334",
-      "ontologyName": "Wheat ontology",
-      "authors": "J. Snow, H. Peterson",
-      "version": "v1.2",
-      "copyright": "2016, INRA",
-      "licence": "CC BY-SA 4.0"
-    }
-  },
-  {
-    "model": "brapi.ontology",
-    "pk": 3,
-    "fields": {
-      "ontologyDbId": "CO_334",
-      "ontologyName": "Wheat ontology",
-      "authors": "J. Snow, H. Peterson",
-      "version": "v1.2",
-      "copyright": "2016, INRA",
-      "licence": "CC BY-SA 4.0"
-    }
-  },
-  {
-    "model": "brapi.ontology",
-    "pk": 4,
-    "fields": {
-      "ontologyDbId": "CO_334",
-      "ontologyName": "Wheat ontology",
-      "authors": "J. Snow, H. Peterson",
-      "version": "v1.2",
-      "copyright": "2016, INRA",
-      "licence": "CC BY-SA 4.0"
-    }
-  },
-  {
-    "model": "brapi.ontology",
-    "pk": 5,
-    "fields": {
-      "ontologyDbId": "CO_335",
-      "ontologyName": "Rice ontology",
-      "authors": "J. Doe",
-      "version": "v2",
-      "copyright": null,
-      "licence": null
+      "cropdbid": "1"
     }
   }
 ]

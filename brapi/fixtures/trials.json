@@ -1,119 +1,128 @@
 [
   {
     "model": "brapi.trial",
-    "pk": 1,
+    "pk": "101",
     "fields": {
-      "trialDbId": 1,
-      "trialName": "Peru Yield Trial",
-      "programDbId": 1,
-      "name": "CIPHQ",
-      "startDate": "2013-01-01",
-      "endDate": "2013-07-05",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "1",
+      "name": "Peru Yield Trial 1",
+      "startdate": "1/1/2013",
+      "enddate": "7/5/2013",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/312953986E3"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 2,
+    "pk": "102",
     "fields": {
-      "trialDbId": 2,
-      "trialName": "Peru Genotype Trial",
-      "programDbId": 1,
-      "name": "CIPHQ",
-      "startDate": "2014-06-01",
-      "endDate": "2015-01-15",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "1",
+      "name": "Peru Yield Trial 2",
+      "startdate": "6/1/2014",
+      "enddate": "1/15/2015",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/1234992349"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 3,
+    "pk": "103",
     "fields": {
-      "trialDbId": 3,
-      "trialName": "Ghana Yield Trial",
-      "programDbId": 2,
-      "name": "Ghana",
-      "startDate": "2011-05-01",
-      "endDate": "2011-12-15",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "2",
+      "name": "Ghana Genotype Trial 1",
+      "startdate": "5/1/2011",
+      "enddate": "12/15/2011",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/134591245"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 4,
+    "pk": "104",
     "fields": {
-      "trialDbId": 4,
-      "trialName": "Uganda Yield Trial",
-      "programDbId": 3,
-      "name": "Uganda",
-      "startDate": "2012-07-01",
-      "endDate": "2013-02-01",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "3",
+      "name": "Ghana Yield Trial 1",
+      "startdate": "7/1/2012",
+      "enddate": "2/1/2013",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/1235919"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 5,
+    "pk": "105",
     "fields": {
-      "trialDbId": 5,
-      "trialName": "Uganda Nursery Trial",
-      "programDbId": 3,
-      "name": "Uganda",
-      "startDate": "2013-08-15",
-      "endDate": "2014-02-28",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "3",
+      "name": "Ghana Yield Trial 2",
+      "startdate": "8/15/2013",
+      "enddate": "2/28/2014",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/13425915"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 6,
+    "pk": "106",
     "fields": {
-      "trialDbId": 6,
-      "trialName": "Uganda Genotype Trial",
-      "programDbId": 3,
-      "name": "Uganda",
-      "startDate": "2014-09-22",
-      "endDate": "2015-03-21",
-      "active": true
+      "cropdbid": "1",
+      "programdbid": "3",
+      "name": "Ghana Yield Trial 3",
+      "startdate": "9/22/2014",
+      "enddate": "3/21/2015",
+      "active": true,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/125512251"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 7,
+    "pk": "107",
     "fields": {
-      "trialDbId": 7,
-      "trialName": "Mozambique Yield Trial",
-      "programDbId": 4,
-      "name": "Mozambique",
-      "startDate": "2011-05-12",
-      "endDate": "2011-11-30",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "4",
+      "name": "Mozambique Yield Trial",
+      "startdate": "5/12/2011",
+      "enddate": "11/30/2011",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/34576437"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 8,
+    "pk": "108",
     "fields": {
-      "trialDbId": 8,
-      "trialName": "Mozambique Genotype Trial",
-      "programDbId": 4,
-      "name": "Mozambique",
-      "startDate": "2012-02-17",
-      "endDate": "2012-08-21",
-      "active": false
+      "cropdbid": "1",
+      "programdbid": "4",
+      "name": "Mozambique Genotype Trial",
+      "startdate": "2/17/2012",
+      "enddate": "8/21/2012",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/34734756"
     }
   },
   {
     "model": "brapi.trial",
-    "pk": 9,
+    "pk": "109",
     "fields": {
-      "trialDbId": 9,
-      "trialName": "Demo Yield Trial",
-      "programDbId": 6,
-      "name": "Demo",
-      "startDate": "2016-03-24",
-      "endDate": "2016-10-21",
-      "active": true
+      "cropdbid": "1",
+      "programdbid": "6",
+      "name": "Demo Yield Trial",
+      "startdate": "3/24/2016",
+      "enddate": "10/21/2016",
+      "active": true,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/35673236"
     }
   }
 ]
