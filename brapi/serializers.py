@@ -202,16 +202,112 @@ class MarkerSerializer(serializers.ModelSerializer):
 # end class MarkerSerializer
 
 
-class MarkerprofileSerializer(serializers.ModelSerializer):
+class AlleleMatrixSerializer(serializers.ModelSerializer):
 
     class Meta:
 
-        model = Markerprofile
-        exclude = ['cropdbid']
+        model = AlleleMatrix
+        exclude = ['id']
+
+        # end class Meta
+
+# end class AlleleMatrixSerializer
+
+
+class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
+
+    data = StringListField()
+
+    class Meta:
+
+        model = AlleleMatrixSearch
+        exclude = ['id']
 
     # end class Meta
 
-# end class MarkerprofileSerializer
+    def to_representation(self, instance):
+
+        instance.data = [str(s) for s in instance.data.split('; ')]
+
+        return super(AlleleMatrixSearchSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(AlleleMatrixSearchSerializer, self).to_internal_value(data)
+
+        if ret['data']:
+            ret['data'] = '; '.join(str(s) for s in ret['data'])
+        # end if
+
+        return ret
+
+        # end def to_internal_value
+
+# end class AlleleMatrixSearchSerializer
+
+
+class GermplasmMarkerProfileSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = GermplasmMarkerProfile
+        fields = ['germplasmDbId', 'markerProfilesDbIds']
+
+        # end class Meta
+
+# end class GermplasmMarkerProfileSerializer
+
+
+class MarkerProfileSerializer(ExtendedSerializer):
+
+    markerProfilesDbId = GermplasmMarkerProfileSerializer(many=True, read_only=True)
+
+    class Meta:
+
+        model = MarkerProfile
+        fields = ['germplasmDbId', 'markerProfilesDbId']
+
+        # end class Meta
+
+# end class MarkerProfileSerializer
+
+
+class MarkerProfilesDataSerializer(serializers.ModelSerializer):
+
+    data = StringListField()
+
+    class Meta:
+
+        model = MarkerProfilesData
+        exclude = ['id']
+
+    # end class Meta
+
+    def to_representation(self, instance):
+
+        instance.data = [str(s) for s in instance.data.split('; ')]
+
+        return super(MarkerProfilesDataSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(MarkerProfilesDataSerializer, self).to_internal_value(data)
+
+        if ret['data']:
+            ret['data'] = '; '.join(str(s) for s in ret['data'])
+        # end if
+
+        return ret
+
+        # end def to_internal_value
+
+# end class MarkerProfilesDataSerializer
 
 
 class ObservationSerializer(serializers.ModelSerializer):
@@ -303,9 +399,9 @@ class SampleSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Sample
-        exclude = ['cropdbid']
+        exclude = ['cropDbId']
 
-    # end class Meta
+        # end class Meta
 
 # end class SampleSerializer
 
@@ -327,12 +423,7 @@ class ScaleSerializer(ExtendedSerializer):
 
 class StudyAdditionalInfoSerializer(serializers.ModelSerializer):
 
-    class Meta:
-
-        model = StudyAdditionalInfo
-        exclude = ['cropdbid']
-
-    # end class Meta
+    pass
 
 # end class StudyAdditionalInfoSerializer
 
@@ -465,7 +556,7 @@ class StudySerializer(ExtendedSerializer):
     contacts = StudyContactSerializer(many=True, read_only=True)
     dataLinks = StudyDataLinkSerializer(many=True, read_only=True)
     seasons = StudySeasonSerializer(many=True, read_only=True)
-    additionalInfo = StudyAdditionalInfoSerializer(many=True, read_only=True)
+    additionalInfo = serializers.SerializerMethodField()
 
     class Meta:
 
@@ -474,6 +565,16 @@ class StudySerializer(ExtendedSerializer):
         extra_fields = ['observationUnits', 'contacts', 'dataLinks', 'seasons', 'additionalInfo']
 
     # end class Meta
+
+
+    def get_additionalInfo(self, obj):
+
+        return {
+            info.key: info.value
+            for info in StudyAdditionalInfo.objects.all()
+        }
+
+        # end def get_addInfo
 
 # end class StudySerializer
 
@@ -564,19 +665,53 @@ class TrialContactSerializer(serializers.ModelSerializer):
 # end class TrialContactSerializer
 
 
+class TrialStudySerializer(ExtendedSerializer):
+
+    class Meta:
+
+        model = Study
+        fields = ['studydbid', 'locationdbid', 'name']
+
+    # end class Meta
+
+# end class TrialStudySerializer
+
+
 class TrialSerializer(ExtendedSerializer):
 
-    studies = StudySerializer(many=True, read_only=True)
+    studies = TrialStudySerializer(many=True, read_only=True)
     contacts = TrialContactSerializer(many=True, read_only=True)
-    additionalInfo = TrialAdditionalInfoSerializer(many=True, read_only=True)
+    datasetAuthorship = serializers.SerializerMethodField()
+    additionalInfo = serializers.SerializerMethodField()
+
 
     class Meta:
 
         model = Trial
-        exclude = ['cropdbid']
-        extra_fields = ['studies', 'contacts', 'additionalInfo']
+        exclude = ['cropdbid', 'datasetauthorshiplicence', 'datasetauthorshipdatasetpui']
+        extra_fields = ['studies', 'contacts', 'additionalInfo', 'datasetAuthorship']
 
     # end class Meta
+
+
+    def get_datasetAuthorship(self, obj):
+
+        return {
+            'license': obj.datasetauthorshiplicence,
+            'datasetPUI': obj.datasetauthorshipdatasetpui
+        }
+
+    # end def get_addInfo
+
+
+    def get_additionalInfo(self, obj):
+
+        return {
+            info.key: info.value
+            for info in TrialAdditionalInfo.objects.all()
+        }
+
+    # end def get_addInfo
 
 # end class TrialSerializer
 

@@ -18,11 +18,11 @@ from brapi.views.traits import TraitView, TraitDetailsView
 #from brapi.views.germplasm import (GermplasmView, GPPedigreeView,
 #                                   GermplasmSearchView)
 from brapi.views.trials import TrialView, TrialDetailsView
-#from brapi.views.samples import SampleView
+from brapi.views.samples import SampleView
 #from brapi.views.phenotypes import PhenotypeSearchView
-#from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMSearchView,
-#                                        MarkerProfilesView, MarkerProfilesDataView,
-#                                        GPMarkerPView)
+from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
+                                        MarkerProfilesView, MarkerProfilesDataView,
+                                        GermplasmMarkerProfile)
 #from brapi.views.obs_variables import (DatatypesViewSet, OntologiesViewSet,
 #                                       ObsVariablesListView, ObsVariablesView,
 #                                       VSearchView)
@@ -80,7 +80,7 @@ urlpatterns = [
 #    url(r'brapi/v1/germplasm-search/?$', GermplasmSearchView.as_view()),
 
     # written as a view to block 'brapi/v1/samples'
-#    url(r'brapi/v1/samples/(?P<sampleId>.+)/?$', SampleView.as_view()),
+    url(r'brapi/v1/samples/(?P<sampleId>.+)/?$', SampleView.as_view()),
 
 #    url(r'brapi/v1/phenotypes-search/?$', PhenotypeSearchView.as_view()),
 

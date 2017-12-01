@@ -263,19 +263,102 @@ class Marker(models.Model):
 # end class Marker
 
 
-class Markerprofile(models.Model):
+class AlleleMatrix(models.Model):
 
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    markerprofiledbid = models.TextField(primary_key=True)
+    name = models.CharField(max_length=100, blank=True, default='')
+    matrixDbId = models.IntegerField()
+    description = models.CharField(max_length=100, blank=True, default='')
+    lastUpdated = models.DateField()
+    studyDbId = models.IntegerField()
+
 
     class Meta:
 
-        managed = settings.IS_TESTING
-        db_table = 'markerprofile'
+        ordering = ('id',)
 
-    # end class Meta
+        # end class Meta
 
-# end class Markerprofile
+# end class AlleleMatrix
+
+
+class AlleleMatrixSearch(models.Model):
+
+    data = models.CharField(max_length=100, blank=True, default='')
+
+    def save(self, *args, **kwargs):
+
+        self.data = '; '.join(self.data)
+
+    # end def save
+
+
+    class Meta:
+
+        ordering = ('id',)
+
+        # end class Meta
+
+# end class AlleleMatrixSearch
+
+
+class MarkerProfile(models.Model):
+
+    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    markerprofileDbId = models.IntegerField()
+    uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
+    sampleDbId = models.IntegerField()
+    extractDbId = models.IntegerField()
+    studyDbId = models.IntegerField()
+    analysisMethod = models.CharField(max_length=100, blank=True, default='')
+    resultCount = models.IntegerField()
+
+
+    class Meta:
+
+        ordering = ('id',)
+
+        # end class Meta
+
+# end class MarkerProfile
+
+
+class GermplasmMarkerProfile(models.Model):
+
+    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='markerProfilesDbIds', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='markerprofileDbId')
+
+    class Meta:
+
+        ordering = ('id',)
+
+        # end class Meta
+
+# end class GermplasmMarkerProfile
+
+
+class MarkerProfilesData(models.Model):
+
+    germplasmDbId = models.IntegerField()
+    uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
+    extractDbId = models.IntegerField()
+    markerprofileDbId = models.IntegerField()
+    analysisMethod = models.CharField(max_length=100, blank=True, default='')
+    data = models.CharField(max_length=100, blank=True, default='')
+
+    def save(self, *args, **kwargs):
+
+        self.data = '; '.join(self.data)
+
+    # end def save
+
+
+    class Meta:
+
+        ordering = ('id',)
+
+        # end class Meta
+
+# end class MarkerProfilesData
 
 
 class Method(models.Model):
@@ -432,21 +515,6 @@ class Program(models.Model):
 # end class Program
 
 
-class Sample(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    sampledbid = models.TextField(primary_key=True)
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'sample'
-
-    # end class Meta
-
-# end class Sample
-
-
 class Scale(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -484,7 +552,7 @@ class Study(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     trialdbid = models.ForeignKey('Trial', models.DO_NOTHING, db_column='trialdbid', related_name='studies')
     locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', blank=True, null=True)
-    studytype = models.ForeignKey('StudyType', models.DO_NOTHING, db_column='studytype', blank=True, null=True)
+    studytype = models.ForeignKey('StudyType', models.DO_NOTHING, db_column='studytype', related_name='studies', blank=True, null=True)
     studydbid = models.TextField(primary_key=True)
     name = models.TextField()
     description = models.TextField(blank=True, null=True)
@@ -503,6 +571,38 @@ class Study(models.Model):
     # end class Meta
 
 # end class Study
+
+
+class Sample(models.Model):
+
+    cropDbId = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    sampleDbId = models.TextField(db_column='sampledbid', primary_key=True)
+    studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', blank=True, null=True)
+    locationDbId = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', blank=True, null=True)
+    plotId = models.CharField(db_column='plotid', max_length=100, blank=True, default='')
+    plantId = models.CharField(db_column='plantid', max_length=100, blank=True, default='')
+    sampleId = models.CharField(db_column='sampleid', max_length=100, blank=True, default='')
+    observationUnitDbId = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid', blank=True, null=True)
+    takenBy = models.CharField(db_column='takenby', max_length=100, blank=True, default='')
+    sampleTimestamp = models.DateTimeField(db_column='sampletimestamp', max_length=100, blank=True, default='')
+    sampleType = models.CharField(db_column='sampletype', max_length=100, blank=True, default='')
+    tissueType = models.CharField(db_column='tissuetype', max_length=100, blank=True, default='')
+    notes = models.CharField(max_length=100, blank=True, default='')
+    seasonDbId = models.ForeignKey(Season, models.DO_NOTHING, db_column='seasondbid', blank=True, null=True)
+    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', blank=True, null=True)
+    plantingTimestamp = models.DateTimeField(db_column='plantingtimestamp')
+    harvestTimestamp = models.DateTimeField(db_column='harvesttimestamp')
+
+
+    class Meta:
+
+        ordering = ('sampleDbId',)
+        managed = settings.IS_TESTING
+        db_table = 'sample'
+
+        # end class Meta
+
+# end class Sample
 
 
 class StudyAdditionalInfo(models.Model):
@@ -668,6 +768,7 @@ class Trial(models.Model):
     datasetauthorshiplicence = models.TextField(blank=True, null=True)
     datasetauthorshipdatasetpui = models.TextField(blank=True, null=True)
 
+
     class Meta:
 
         managed = settings.IS_TESTING
@@ -700,7 +801,7 @@ class TrialContact(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='contacts', blank=True, null=True)
-    contactdbid = models.ForeignKey(Contact, models.DO_NOTHING, db_column='contactdbid', blank=True, null=True)
+    contactdbid = models.ForeignKey(Contact, models.DO_NOTHING, db_column='contactdbid', related_name='contacts', blank=True, null=True)
     trialcontactdbid = models.IntegerField(primary_key=True)
 
     class Meta:

@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "model": "brapi.sample",
+    "pk": "1",
+    "fields": {
+      "cropDbId": "1",
+      "studyDbId": "1001",
+      "locationDbId": "1",
+      "plotId": "PlotId-123",
+      "plantId": "PlantID-123",
+      "sampleId": "Unique-Plant-SampleID",
+      "observationUnitDbId": "1",
+      "takenBy": "Mr. Technician",
+      "sampleTimestamp": "2016-07-27T13:43:22",
+      "sampleType": "TypeOfSample",
+      "tissueType": "TypeOfTissue",
+      "notes": "Cut from infected leaf",
+      "seasonDbId": "1",
+      "germplasmDbId": "1",
+      "plantingTimestamp": "2016-01-01T22:22:21",
+      "harvestTimestamp": "2016-06-30T22:33:23"
+    }
+  }
+]
