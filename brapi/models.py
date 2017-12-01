@@ -626,6 +626,8 @@ class Trait(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     traitDbId = models.TextField(primary_key=True, db_column='traitdbid')
+    name = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
 
     class Meta:
 
@@ -682,6 +684,7 @@ class TrialAdditionalInfo(models.Model):
     trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='additionalInfo', blank=True, null=True)
     key = models.TextField()
     value = models.TextField()
+    trialadditionalinfodbid = models.IntegerField(primary_key=True)
 
     class Meta:
 

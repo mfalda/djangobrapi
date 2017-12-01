@@ -1,1 +1,1 @@
-[{"model": "brapi.studycontact", "pk": 1, "fields": {"cropdbid": "1", "studydbid": "1001", "contactdbid": "1"}}, {"model": "brapi.studycontact", "pk": 2, "fields": {"cropdbid": "1", "studydbid": "1001", "contactdbid": "2"}}, {"model": "brapi.studycontact", "pk": 3, "fields": {"cropdbid": "1", "studydbid": "1002", "contactdbid": "2"}}, {"model": "brapi.studycontact", "pk": 4, "fields": {"cropdbid": "1", "studydbid": "1003", "contactdbid": "3"}}, {"model": "brapi.studycontact", "pk": 5, "fields": {"cropdbid": "1", "studydbid": "1003", "contactdbid": "4"}}]
+[]

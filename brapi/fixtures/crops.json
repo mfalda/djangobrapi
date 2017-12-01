@@ -3,7 +3,14 @@
     "model": "brapi.crop",
     "pk": "1",
     "fields": {
-      "commonname": "crop1"
+      "commonname": "grape"
+    }
+  },
+  {
+    "model": "brapi.crop",
+    "pk": "2",
+    "fields": {
+      "commonname": "apple"
     }
   }
 ]

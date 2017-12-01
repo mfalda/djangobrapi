@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get
 
 class CallsTest(APITestCase):
 
-    fixtures = ['calls.json']
+    fixtures = ['crops.json', 'calls.json']
     
 
     def test_get_calls(self):
@@ -36,7 +36,7 @@ class CallsTest(APITestCase):
                     ]
                 },
                 {
-                    "call": "calls",
+                    "call": "germplasm//markerprofiles",
                     "datatypes": [
                         "json"
                     ],

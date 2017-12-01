@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get, test_post
 
 class ProgramTest(APITestCase):
     
-    fixtures = ['programs.json']
+    fixtures = ['crops.json', 'programs.json']
 
 
     def test_get_programs(self):
@@ -25,18 +25,18 @@ class ProgramTest(APITestCase):
     "result": {
         "data": [
             {
-                "programDbId": 1,
-                "name": "CIPHQ",
-                "abbreviation": "CIPHQ",
-                "objective": "Global Population Improvement",
-                "leadPerson": "G. Leader"
+                "name": "Wheat Resistance Program",
+                "abbreviation": "DRP1",
+                "leadPerson": "Dr. Henry Beachell",
+                "objective": "Disease resistance",
+                "programDbId": "1"
             },
             {
-                "programDbId": 2,
-                "name": "Ghana",
-                "abbreviation": "GHA",
-                "objective": "OFSP",
-                "leadPerson": "M. Breeder"
+                "name": "Wheat Improvement Program",
+                "abbreviation": "DRP2",
+                "leadPerson": "Dr. Norman Borlaug",
+                "objective": "Yield improvement",
+                "programDbId": "2"
             }
         ]
     }

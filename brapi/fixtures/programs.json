@@ -4,10 +4,10 @@
     "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "name": "P1",
-      "abbreviation": "G. Leader",
-      "objective": "Global Population Improvement",
-      "leadperson": "Program 1"
+      "name": "Wheat Resistance Program",
+      "abbreviation": "DRP1",
+      "objective": "Disease resistance",
+      "leadperson": "Dr. Henry Beachell"
     }
   },
   {
@@ -15,10 +15,10 @@
     "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "name": "P2",
-      "abbreviation": "M. Breeder",
-      "objective": "XYZ",
-      "leadperson": "Program 2"
+      "name": "Wheat Improvement Program",
+      "abbreviation": "DRP2",
+      "objective": "Yield improvement",
+      "leadperson": "Dr. Norman Borlaug"
     }
   },
   {

@@ -15,8 +15,8 @@ class CropTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
-            "totalCount": 4,
+            "pageTotal": 1,
+            "totalCount": 2,
             "pageSize": 2
         },
         "status": [],
@@ -24,8 +24,8 @@ class CropTest(APITestCase):
     },
     "result": {
         "data": [
-            "cassava",
-            "potato"
+            "grape",
+            "apple"
         ]
     }
 }"""

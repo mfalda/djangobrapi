@@ -34,7 +34,7 @@ class CallSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Call
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'calldbid']
 
     # end class Meta
 
@@ -136,12 +136,7 @@ class GermplasmAttributeCategorySerializer(ExtendedSerializer):
 
 class LocationAdditionalInfoSerializer(serializers.ModelSerializer):
 
-    class Meta:
-
-        model = LocationAdditionalInfo
-        exclude = ['cropdbid']
-
-    # end class Meta
+    pass
 
 # end class LocationAdditionalInfoSerializer
 
@@ -501,6 +496,7 @@ class StudyTypeSerializer(ExtendedSerializer):
 class LocationSerializer(ExtendedSerializer):
 
     studies = StudySerializer(many=True, read_only=True)
+    additionalInfo = serializers.SerializerMethodField()
 
     class Meta:
 
@@ -509,6 +505,15 @@ class LocationSerializer(ExtendedSerializer):
         extra_fields = ['studies', 'additionalInfo']
 
     # end class Meta
+
+    def get_additionalInfo(self, obj):
+
+        return {
+            info.key: info.value
+            for info in LocationAdditionalInfo.objects.all()
+        }
+
+    # end def get_addInfo
 
 # end class LocationSerializer
 
@@ -561,9 +566,9 @@ class TrialContactSerializer(serializers.ModelSerializer):
 
 class TrialSerializer(ExtendedSerializer):
 
-    #studies = StudySerializer(many=True, read_only=True)
-    #contacts = TrialContactSerializer(many=True, read_only=True)
-    #additionalInfo = TrialAdditionalInfoSerializer(many=True, read_only=True)
+    studies = StudySerializer(many=True, read_only=True)
+    contacts = TrialContactSerializer(many=True, read_only=True)
+    additionalInfo = TrialAdditionalInfoSerializer(many=True, read_only=True)
 
     class Meta:
 
