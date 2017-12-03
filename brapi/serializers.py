@@ -207,7 +207,7 @@ class AlleleMatrixSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = AlleleMatrix
-        exclude = ['id']
+        exclude = ['cropdbid']
 
         # end class Meta
 
@@ -218,12 +218,14 @@ class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
 
     data = StringListField()
 
+
     class Meta:
 
         model = AlleleMatrixSearch
-        exclude = ['id']
+        exclude = ['cropdbid']
 
     # end class Meta
+
 
     def to_representation(self, instance):
 
@@ -244,31 +246,31 @@ class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
 
         return ret
 
-        # end def to_internal_value
+    # end def to_internal_value
 
 # end class AlleleMatrixSearchSerializer
 
 
-class GermplasmMarkerProfileSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = GermplasmMarkerProfile
-        fields = ['germplasmDbId', 'markerProfilesDbIds']
-
-        # end class Meta
-
-# end class GermplasmMarkerProfileSerializer
+# class GermplasmMarkerProfileSerializer(serializers.ModelSerializer):
+#
+#     class Meta:
+#
+#         model = GermplasmMarkerProfile
+#         fields = ['germplasmDbId', 'markerProfilesDbIds']
+#
+#         # end class Meta
+#
+# # end class GermplasmMarkerProfileSerializer
 
 
 class MarkerProfileSerializer(ExtendedSerializer):
 
-    markerProfilesDbId = GermplasmMarkerProfileSerializer(many=True, read_only=True)
+    #markerProfilesDbId = GermplasmMarkerProfileSerializer(many=True, read_only=True)
 
     class Meta:
 
         model = MarkerProfile
-        fields = ['germplasmDbId', 'markerProfilesDbId']
+        exclude = ['cropdbid', 'sampleDbId', 'resultCount', 'studyDbId']
 
         # end class Meta
 
@@ -282,7 +284,7 @@ class MarkerProfilesDataSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = MarkerProfilesData
-        exclude = ['id']
+        exclude = ['cropdbid']
 
     # end class Meta
 
@@ -745,3 +747,15 @@ class ContactSerializer(ExtendedSerializer):
     # end class Meta
 
 # end class ContactSerializer
+
+
+class PhenotypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = Phenotype
+        exclude = ['cropdbid']
+
+    # end class Meta
+
+# end class PhenotypeSerializer

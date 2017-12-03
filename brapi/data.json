@@ -1,0 +1,8138 @@
+[
+  {
+    "model": "brapi.call",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "call": "token",
+      "datatypes": "json; text",
+      "methods": "POST; DELETE"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm//markerprofiles",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm//pedigree",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "12",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm-search",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm-search",
+      "datatypes": "json",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "call": "attributes",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "call": "attributes/categories",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "16",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm//attributes/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "call": "locations",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "18",
+    "fields": {
+      "cropdbid": "1",
+      "call": "allelematrix-search",
+      "datatypes": "json; csv; tsv",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "19",
+    "fields": {
+      "cropdbid": "1",
+      "call": "allelematrix-search",
+      "datatypes": "json; csv; tsv",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "call": "calls",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "20",
+    "fields": {
+      "cropdbid": "1",
+      "call": "markerprofiles/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "21",
+    "fields": {
+      "cropdbid": "1",
+      "call": "markerprofiles-search",
+      "datatypes": "json",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "22",
+    "fields": {
+      "cropdbid": "1",
+      "call": "markerprofiles",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "23",
+    "fields": {
+      "cropdbid": "1",
+      "call": "markers/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "24",
+    "fields": {
+      "cropdbid": "1",
+      "call": "markers",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "25",
+    "fields": {
+      "cropdbid": "1",
+      "call": "variables",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "26",
+    "fields": {
+      "cropdbid": "1",
+      "call": "variables/datatypes",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "27",
+    "fields": {
+      "cropdbid": "1",
+      "call": "variables/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "28",
+    "fields": {
+      "cropdbid": "1",
+      "call": "ontologies",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "29",
+    "fields": {
+      "cropdbid": "1",
+      "call": "variables-search",
+      "datatypes": "json",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "call": "crops",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "30",
+    "fields": {
+      "cropdbid": "1",
+      "call": "phenotypes-search",
+      "datatypes": "json",
+      "methods": "GET; POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "31",
+    "fields": {
+      "cropdbid": "1",
+      "call": "programs",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "32",
+    "fields": {
+      "cropdbid": "1",
+      "call": "programs-search",
+      "datatypes": "json",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "33",
+    "fields": {
+      "cropdbid": "1",
+      "call": "samples",
+      "datatypes": "json",
+      "methods": "PUT"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "34",
+    "fields": {
+      "cropdbid": "1",
+      "call": "samples/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "35",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "36",
+    "fields": {
+      "cropdbid": "1",
+      "call": "observationLevels",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "37",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//observations",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "38",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//observationunits",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "39",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//observationVariables",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "40",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies-search",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "41",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies-search",
+      "datatypes": "json",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "42",
+    "fields": {
+      "cropdbid": "1",
+      "call": "seasons",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "43",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studyTypes",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "44",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//table",
+      "datatypes": "json; csv; tsv",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "45",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//layout",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "46",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//table",
+      "datatypes": "json",
+      "methods": "POST"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "47",
+    "fields": {
+      "cropdbid": "1",
+      "call": "traits",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "48",
+    "fields": {
+      "cropdbid": "1",
+      "call": "traits/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "49",
+    "fields": {
+      "cropdbid": "1",
+      "call": "trials",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps//positions",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "50",
+    "fields": {
+      "cropdbid": "1",
+      "call": "trials/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps//positions/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies//germplasm",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "name": "A. Breeder",
+      "email": "a.breeder@brapi.org",
+      "type": "Breeder",
+      "orcid": "0000-0002-0607-8728",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "name": "B. Breeder",
+      "email": "b.breeder@brapi.org",
+      "type": "Breeder",
+      "orcid": "0000-0002-0607-8729",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "name": "A. Technician",
+      "email": "a.technician@brapi.org",
+      "type": "Technician",
+      "orcid": "0000-0002-0607-8731",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.contact",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "name": "B. Technician",
+      "email": "b.technician@brapi.org",
+      "type": "Technician",
+      "orcid": "0000-0002-0607-8732",
+      "institutename": "Plant Science Institute"
+    }
+  },
+  {
+    "model": "brapi.crop",
+    "pk": "1",
+    "fields": {
+      "commonname": "grape"
+    }
+  },
+  {
+    "model": "brapi.crop",
+    "pk": "2",
+    "fields": {
+      "commonname": "apple"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "donoraccessionnumber": "A001230",
+      "donorinstitutecode": "INRA",
+      "donorgermplasmpui": "https://doi.org/10.1109/5.771073"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "donoraccessionnumber": "A001310",
+      "donorinstitutecode": "INRA",
+      "donorgermplasmpui": "https://doi.org/10.1109/5.231123"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "donoraccessionnumber": "A001230",
+      "donorinstitutecode": "INRA",
+      "donorgermplasmpui": "https://doi.org/10.1109/5.771073"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "donoraccessionnumber": "A001310",
+      "donorinstitutecode": "INRA",
+      "donorgermplasmpui": "https://doi.org/10.1109/5.231123"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "donoraccessionnumber": "A001230",
+      "donorinstitutecode": "INRA",
+      "donorgermplasmpui": "https://doi.org/10.1109/5.771073"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "donoraccessionnumber": "A001310",
+      "donorinstitutecode": "INRA",
+      "donorgermplasmpui": "https://doi.org/10.1109/5.231123"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000001",
+      "germplasmname": "Name001",
+      "defaultdisplayname": "G000001",
+      "accessionnumber": "A000001",
+      "pedigree": "landrace",
+      "seedsource": "open pollination",
+      "synonyms": "landrace 1",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "300",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "13",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "19840101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000002",
+      "germplasmname": "Name002",
+      "defaultdisplayname": "G000002",
+      "accessionnumber": "A000002",
+      "pedigree": "landrace",
+      "seedsource": "open pollination",
+      "synonyms": "landrace 2",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "300",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "20",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "19840101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000003",
+      "germplasmname": "Name003",
+      "defaultdisplayname": "G000003",
+      "accessionnumber": "A000003",
+      "pedigree": "A000001 / A000002",
+      "seedsource": "A000001/A000002",
+      "synonyms": "variety 1",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "500",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "12",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000004",
+      "germplasmname": "Name004",
+      "defaultdisplayname": "G000004",
+      "accessionnumber": "A000004",
+      "pedigree": null,
+      "seedsource": null,
+      "synonyms": "variety 4",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "500",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "12",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000005",
+      "germplasmname": "Name005",
+      "defaultdisplayname": "G000005",
+      "accessionnumber": "A000005",
+      "pedigree": null,
+      "seedsource": null,
+      "synonyms": "variety 5",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "500",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "12",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000006",
+      "germplasmname": "Name006",
+      "defaultdisplayname": "G000006",
+      "accessionnumber": "A000006",
+      "pedigree": null,
+      "seedsource": null,
+      "synonyms": "variety 6",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "500",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "12",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000007",
+      "germplasmname": "Name007",
+      "defaultdisplayname": "G000007",
+      "accessionnumber": "A000007",
+      "pedigree": null,
+      "seedsource": null,
+      "synonyms": "variety 7",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "500",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "12",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000008",
+      "germplasmname": "Name008",
+      "defaultdisplayname": "G000008",
+      "accessionnumber": "A000008",
+      "pedigree": null,
+      "seedsource": null,
+      "synonyms": "variety 8",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "500",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "12",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasm",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmpui": "http://pui.per/accession/A000009",
+      "germplasmname": "Local_variety",
+      "defaultdisplayname": "Local_variety",
+      "accessionnumber": "A000009",
+      "pedigree": "landrace",
+      "seedsource": "open pollination",
+      "synonyms": "landrace",
+      "institutecode": "PER001",
+      "institutename": "INST1",
+      "biologicalstatusofaccessioncode": "300",
+      "countryoforigincode": "COUNTRY1",
+      "typeofgermplasmstoragecode": "13",
+      "genus": "Fructus",
+      "species": "novus",
+      "speciesauthority": "L",
+      "subtaxa": "subtaxa",
+      "subtaxaauthority": "N",
+      "acquisitiondate": "20010101"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "2",
+      "code": "RHT",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000001",
+      "name": "Rht-B1b",
+      "description": "Allele of marker 11_4769",
+      "datatype": "Categorical",
+      "values": "['Present', 'Absent', 'Heterozygous']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "4",
+      "code": "RAL6",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000010",
+      "name": "R allele 6",
+      "description": "Resistance allele",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "WEV",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000002",
+      "name": "Weevil Resistance",
+      "description": "Resistance allele",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "1",
+      "code": "FLSHORG",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000003",
+      "name": "Flesh Color Orange allele",
+      "description": "Allelele for orange flesh",
+      "datatype": "Categorical",
+      "values": "['1', '3', '5', '7', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "1",
+      "code": "FLWCOL",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000004",
+      "name": "Flower color white allele",
+      "description": "Allele for white flower color",
+      "datatype": "Categorical",
+      "values": "['Present', 'Absent', 'Heterozygous']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "RAL1",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000005",
+      "name": "R allele 1",
+      "description": "Resistance allele 1",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "RAL2",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000006",
+      "name": "R allele 2",
+      "description": "Resistance allele 2",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "3",
+      "code": "RAL3",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000007",
+      "name": "R allele 3",
+      "description": "Resistance allele 3",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "4",
+      "code": "RAL4",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000008",
+      "name": "R allele 4",
+      "description": "Resistance allele 4",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattribute",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategorydbid": "4",
+      "code": "RAL5",
+      "uri": "http://www.brapi.org/ontology/MO_123:1000009",
+      "name": "R allele 5",
+      "description": "Resistance allele 5",
+      "datatype": "Categorical",
+      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Morphological"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Agronomic"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Biotic stress"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributecategory",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "attributecategoryname": "Abiotic stress"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "1",
+      "determineddate": "20160101",
+      "value": "Present"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "10",
+      "determineddate": "20161201",
+      "value": "1"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "1",
+      "determineddate": "20170215",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "12",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "2",
+      "determineddate": "20170215",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "3",
+      "determineddate": "20170215",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "4",
+      "determineddate": "20170215",
+      "value": "4"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "5",
+      "determineddate": "20170215",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "16",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "6",
+      "determineddate": "20170215",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "7",
+      "determineddate": "20170215",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "18",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "8",
+      "determineddate": "20170215",
+      "value": "2"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "19",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "9",
+      "determineddate": "20170215",
+      "value": "1"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "2",
+      "determineddate": "20160101",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "20",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "2",
+      "attributedbid": "10",
+      "determineddate": "20170215",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "21",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "1",
+      "determineddate": "20170215",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "22",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "2",
+      "determineddate": "20170215",
+      "value": "Present"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "23",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "3",
+      "determineddate": "20170215",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "24",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "4",
+      "determineddate": "20170215",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "25",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "5",
+      "determineddate": "20170215",
+      "value": "1"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "26",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "6",
+      "determineddate": "20170215",
+      "value": "2"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "27",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "7",
+      "determineddate": "20170215",
+      "value": "6"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "28",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "8",
+      "determineddate": "20170215",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "29",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "9",
+      "determineddate": "20170215",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "3",
+      "determineddate": "20160101",
+      "value": "1"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "30",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "3",
+      "attributedbid": "10",
+      "determineddate": "20170215",
+      "value": "4"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "31",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "1",
+      "determineddate": "20170215",
+      "value": "Present"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "32",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "2",
+      "determineddate": "20170215",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "33",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "3",
+      "determineddate": "20170215",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "34",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "4",
+      "determineddate": "20170215",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "35",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "5",
+      "determineddate": "20170215",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "36",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "6",
+      "determineddate": "20170215",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "37",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "7",
+      "determineddate": "20170215",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "38",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "8",
+      "determineddate": "20170215",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "39",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "9",
+      "determineddate": "20170215",
+      "value": "6"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "4",
+      "determineddate": "20160101",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "40",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "4",
+      "attributedbid": "10",
+      "determineddate": "20170215",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "41",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "1",
+      "determineddate": "20151111",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "42",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "2",
+      "determineddate": "20151111",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "43",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "3",
+      "determineddate": "20151111",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "44",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "4",
+      "determineddate": "20151111",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "45",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "5",
+      "determineddate": "20151111",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "46",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "6",
+      "determineddate": "20151111",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "47",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "7",
+      "determineddate": "20151111",
+      "value": "4"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "48",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "8",
+      "determineddate": "20151111",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "49",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "9",
+      "determineddate": "20151111",
+      "value": "6"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "5",
+      "determineddate": "20160101",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "50",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "5",
+      "attributedbid": "10",
+      "determineddate": "20151111",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "51",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "1",
+      "determineddate": "20151111",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "52",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "2",
+      "determineddate": "20151111",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "53",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "3",
+      "determineddate": "20151111",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "54",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "4",
+      "determineddate": "20151111",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "55",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "5",
+      "determineddate": "20151111",
+      "value": "Present"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "56",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "6",
+      "determineddate": "20151111",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "57",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "7",
+      "determineddate": "20151111",
+      "value": "6"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "58",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "8",
+      "determineddate": "20151111",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "59",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "9",
+      "determineddate": "20151111",
+      "value": "2"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "6",
+      "determineddate": "20161101",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "60",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "6",
+      "attributedbid": "10",
+      "determineddate": "20151111",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "61",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "1",
+      "determineddate": "20151111",
+      "value": "Present"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "62",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "2",
+      "determineddate": "20151111",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "63",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "3",
+      "determineddate": "20151111",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "64",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "4",
+      "determineddate": "20151111",
+      "value": "8"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "65",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "5",
+      "determineddate": "20151111",
+      "value": "Present"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "66",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "6",
+      "determineddate": "20151111",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "67",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "7",
+      "determineddate": "20151111",
+      "value": "2"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "68",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "8",
+      "determineddate": "20151111",
+      "value": "6"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "69",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "9",
+      "determineddate": "20151111",
+      "value": "4"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "7",
+      "determineddate": "20161201",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "70",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "7",
+      "attributedbid": "10",
+      "determineddate": "20151111",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "71",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "1",
+      "determineddate": "20151111",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "72",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "2",
+      "determineddate": "20151111",
+      "value": "Absent"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "73",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "3",
+      "determineddate": "20151111",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "74",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "4",
+      "determineddate": "20151111",
+      "value": "1"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "75",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "5",
+      "determineddate": "20151111",
+      "value": "Heterozygous"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "76",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "6",
+      "determineddate": "20151111",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "77",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "7",
+      "determineddate": "20151111",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "78",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "8",
+      "determineddate": "20151111",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "79",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "9",
+      "determineddate": "20151111",
+      "value": "7"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "8",
+      "determineddate": "20161201",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "80",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "8",
+      "attributedbid": "10",
+      "determineddate": "20151111",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmdbid": "1",
+      "attributedbid": "9",
+      "determineddate": "20161201",
+      "value": "3"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Storage location",
+      "name": "Location 1",
+      "abbreviation": "L1",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.1275",
+      "longitude": "-75.356389",
+      "altitude": "828",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 10",
+      "abbreviation": "L10",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.25847",
+      "longitude": "-73.82075",
+      "altitude": "276",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 11",
+      "abbreviation": "L11",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.14639",
+      "longitude": "-74.30748",
+      "altitude": "323",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "12",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 12",
+      "abbreviation": "L12",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.30817",
+      "longitude": "-74.69242",
+      "altitude": "758",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Farmer field location",
+      "name": "Location 13",
+      "abbreviation": "L13",
+      "countryCode": "GHA",
+      "countryName": "Ghana",
+      "latitude": "6.71",
+      "longitude": "-1.572",
+      "altitude": "288",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Farmer field location",
+      "name": "Location 14",
+      "abbreviation": "L14",
+      "countryCode": "GHA",
+      "countryName": "Ghana",
+      "latitude": "5.123",
+      "longitude": "-1.462",
+      "altitude": "26",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Farmer field location",
+      "name": "Location 15",
+      "abbreviation": "L15",
+      "countryCode": "GHA",
+      "countryName": "Ghana",
+      "latitude": "10.87",
+      "longitude": "-1.1466",
+      "altitude": "183",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "16",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Storage location",
+      "name": "Location 16",
+      "abbreviation": "L16",
+      "countryCode": "UGA",
+      "countryName": "Uganda",
+      "latitude": "0.529144",
+      "longitude": "32.61246",
+      "altitude": "1173",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Storage location",
+      "name": "Location 17",
+      "abbreviation": "L17",
+      "countryCode": "UGA",
+      "countryName": "Uganda",
+      "latitude": "1.528",
+      "longitude": "33.616",
+      "altitude": "1067",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 2",
+      "abbreviation": "L2",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.16116",
+      "longitude": "-75.34171",
+      "altitude": "964",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Storage location",
+      "name": "Location 3",
+      "abbreviation": "L3",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-12.076289",
+      "longitude": "-76.948417",
+      "altitude": "244",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Farmer field location",
+      "name": "Location 4",
+      "abbreviation": "L4",
+      "countryCode": "MOZ",
+      "countryName": "Mozambique",
+      "latitude": "-15.4669",
+      "longitude": "36.9777",
+      "altitude": "701",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 5",
+      "abbreviation": "L5",
+      "countryCode": "MOZ",
+      "countryName": "Mozambique",
+      "latitude": "-26.0283",
+      "longitude": "32.39",
+      "altitude": "7",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 6",
+      "abbreviation": "L6",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-10.96096",
+      "longitude": "-75.22065",
+      "altitude": "717",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Breeding location",
+      "name": "Location 7",
+      "abbreviation": "L7",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-10.931809",
+      "longitude": "-74.855467",
+      "altitude": "484",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Farmer field location",
+      "name": "Location 8",
+      "abbreviation": "L8",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.05304",
+      "longitude": "-73.75254",
+      "altitude": "252",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.location",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "type": "Farmer field location",
+      "name": "Location 9",
+      "abbreviation": "L9",
+      "countryCode": "PER",
+      "countryName": "Peru",
+      "latitude": "-11.05304",
+      "longitude": "-73.75254",
+      "altitude": "252",
+      "instituteName": "Plant Science Institute",
+      "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "altern",
+      "value": "MARANK"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "altern",
+      "value": "SHIRANI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "altern",
+      "value": "BETALT"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "altern",
+      "value": "BETBAJ"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "altern",
+      "value": "OVIRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "altern",
+      "value": "PTOCOPA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "altern",
+      "value": "SNPEDRO"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "local",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "local",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "local",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "local",
+      "value": "San Miguel Centro Marankiari"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "local",
+      "value": "Shirani"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 13,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 14,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 15,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "local",
+      "value": "Nuevaluz Oviri"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 16,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "local",
+      "value": "Puerto Ocopa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 17,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "local",
+      "value": "San Pedro"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 18,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "local",
+      "value": "Fumesua"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 19,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "local",
+      "value": "Komenda"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 20,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "local",
+      "value": "Tono dam"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 21,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "local",
+      "value": "NaCRRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 22,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "local",
+      "value": "NaSARRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 23,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 24,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 25,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 26,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 27,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 28,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 29,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 30,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 31,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 32,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 33,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 34,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 35,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 36,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 37,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 38,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 39,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "creg",
+      "value": "NA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 40,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 41,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 42,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 43,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 44,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 45,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 46,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 47,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 48,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 49,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 50,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 51,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 52,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 53,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 54,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm3",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 55,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm3",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 56,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm3",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 57,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm3",
+      "value": "Peren\u00e9"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 58,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm3",
+      "value": "Pichanaki"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 59,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 60,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 61,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 62,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 63,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm3",
+      "value": "Coviriali"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 64,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 65,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm2",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 66,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm2",
+      "value": "Boane"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 67,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 68,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 69,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 70,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 71,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 72,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 73,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 74,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm2",
+      "value": "Ejisu-Juaben"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 75,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm2",
+      "value": "Kassena-Nankana"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 76,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 77,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm1",
+      "value": "Zambezia"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 78,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm1",
+      "value": "Maputo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 79,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 80,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 81,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 82,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 83,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 84,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 85,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 86,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm1",
+      "value": "Ashanti"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 87,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "adm1",
+      "value": "Central"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 88,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm1",
+      "value": "Upper East"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 89,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "adm1",
+      "value": "Serere"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 90,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualTotalPrecipitation",
+      "value": "360"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 91,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualTotalPrecipitation",
+      "value": "6.4"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 92,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualMeanTemperature",
+      "value": "23"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 93,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualMeanTemperature",
+      "value": "19.2"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 94,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "altern",
+      "value": "MARANK"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 95,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "altern",
+      "value": "SHIRANI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 96,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "altern",
+      "value": "BETALT"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 97,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "altern",
+      "value": "BETBAJ"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 98,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "altern",
+      "value": "OVIRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 99,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "altern",
+      "value": "PTOCOPA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 100,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "altern",
+      "value": "SNPEDRO"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 101,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "local",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 102,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "local",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 103,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "local",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 104,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "local",
+      "value": "San Miguel Centro Marankiari"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 105,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "local",
+      "value": "Shirani"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 106,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 107,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 108,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "local",
+      "value": "Nuevaluz Oviri"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 109,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "local",
+      "value": "Puerto Ocopa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 110,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "local",
+      "value": "San Pedro"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 111,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "local",
+      "value": "Fumesua"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 112,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "local",
+      "value": "Komenda"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 113,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "local",
+      "value": "Tono dam"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 114,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "local",
+      "value": "NaCRRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 115,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "local",
+      "value": "NaSARRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 116,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 117,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 118,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 119,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 120,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 121,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 122,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 123,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 124,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 125,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 126,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 127,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 128,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 129,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 130,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 131,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 132,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "creg",
+      "value": "NA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 133,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 134,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 135,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 136,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 137,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 138,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 139,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 140,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 141,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 142,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 143,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 144,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 145,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 146,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 147,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm3",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 148,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm3",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 149,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm3",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 150,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm3",
+      "value": "Peren\u00e9"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 151,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm3",
+      "value": "Pichanaki"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 152,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 153,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 154,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 155,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 156,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm3",
+      "value": "Coviriali"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 157,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 158,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm2",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 159,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm2",
+      "value": "Boane"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 160,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 161,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 162,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 163,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 164,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 165,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 166,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 167,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm2",
+      "value": "Ejisu-Juaben"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 168,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm2",
+      "value": "Kassena-Nankana"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 169,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 170,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm1",
+      "value": "Zambezia"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 171,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm1",
+      "value": "Maputo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 172,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 173,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 174,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 175,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 176,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 177,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 178,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 179,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm1",
+      "value": "Ashanti"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 180,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "adm1",
+      "value": "Central"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 181,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm1",
+      "value": "Upper East"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 182,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "adm1",
+      "value": "Serere"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 183,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualTotalPrecipitation",
+      "value": "360"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 184,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualTotalPrecipitation",
+      "value": "6.4"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 185,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualMeanTemperature",
+      "value": "23"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 186,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualMeanTemperature",
+      "value": "19.2"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 187,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "altern",
+      "value": "MARANK"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 188,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "altern",
+      "value": "SHIRANI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 189,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "altern",
+      "value": "BETALT"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 190,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "altern",
+      "value": "BETBAJ"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 191,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "altern",
+      "value": "OVIRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 192,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "altern",
+      "value": "PTOCOPA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 193,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "altern",
+      "value": "SNPEDRO"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 194,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "local",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 195,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "local",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 196,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "local",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 197,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "local",
+      "value": "San Miguel Centro Marankiari"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 198,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "local",
+      "value": "Shirani"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 199,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 200,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "local",
+      "value": "Betania"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 201,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "local",
+      "value": "Nuevaluz Oviri"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 202,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "local",
+      "value": "Puerto Ocopa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 203,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "local",
+      "value": "San Pedro"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 204,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "local",
+      "value": "Fumesua"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 205,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "local",
+      "value": "Komenda"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 206,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "local",
+      "value": "Tono dam"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 207,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "local",
+      "value": "NaCRRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 208,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "local",
+      "value": "NaSARRI"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 209,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 210,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 211,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 212,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 213,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 214,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 215,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 216,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 217,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 218,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "cont",
+      "value": "South America"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 219,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 220,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 221,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 222,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 223,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "cont",
+      "value": "Africa"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 224,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 225,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "creg",
+      "value": "NA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 226,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 227,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 228,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 229,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 230,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 231,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 232,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 233,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 234,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "creg",
+      "value": "LAC"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 235,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 236,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 237,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 238,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "16",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 239,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "creg",
+      "value": "SSA"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 240,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm3",
+      "value": "San Ramon"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 241,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm3",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 242,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm3",
+      "value": "Umbeluzi"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 243,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm3",
+      "value": "Peren\u00e9"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 244,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm3",
+      "value": "Pichanaki"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 245,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 246,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 247,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 248,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm3",
+      "value": "Rio Tambo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 249,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm3",
+      "value": "Coviriali"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 250,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 251,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm2",
+      "value": "Gurue"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 252,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm2",
+      "value": "Boane"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 253,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 254,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm2",
+      "value": "Chanchamayo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 255,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 256,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 257,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 258,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 259,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm2",
+      "value": "Satipo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 260,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm2",
+      "value": "Ejisu-Juaben"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 261,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm2",
+      "value": "Kassena-Nankana"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 262,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 263,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "4",
+      "key": "adm1",
+      "value": "Zambezia"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 264,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "5",
+      "key": "adm1",
+      "value": "Maputo"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 265,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "6",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 266,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "7",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 267,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "8",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 268,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "9",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 269,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "10",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 270,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "11",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 271,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "12",
+      "key": "adm1",
+      "value": "Junin"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 272,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "13",
+      "key": "adm1",
+      "value": "Ashanti"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 273,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "14",
+      "key": "adm1",
+      "value": "Central"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 274,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "15",
+      "key": "adm1",
+      "value": "Upper East"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 275,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "17",
+      "key": "adm1",
+      "value": "Serere"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 276,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualTotalPrecipitation",
+      "value": "360"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 277,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualTotalPrecipitation",
+      "value": "6.4"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 278,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "1",
+      "key": "annualMeanTemperature",
+      "value": "23"
+    }
+  },
+  {
+    "model": "brapi.locationadditionalinfo",
+    "pk": 279,
+    "fields": {
+      "cropdbid": "1",
+      "locationdbid": "3",
+      "key": "annualMeanTemperature",
+      "value": "19.2"
+    }
+  },
+  {
+    "model": "brapi.map",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.map",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.map",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "a_01_10001",
+      "type": "SNP",
+      "synonyms": "i_01_10001; popA_10001",
+      "refAlt": "A; T",
+      "analysisMethods": "illumina"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "A_01_10002",
+      "type": "SNP",
+      "synonyms": "i_01_10001; popA_10002",
+      "refAlt": "G; C",
+      "analysisMethods": "illumina"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "b_02_10003",
+      "type": "Dart",
+      "synonyms": "i_02_10001; popA_10003",
+      "refAlt": "C; G",
+      "analysisMethods": "kasp"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "B_02_10004",
+      "type": "Dart",
+      "synonyms": "i_02_10001; popA_10004",
+      "refAlt": "T; A",
+      "analysisMethods": "kasp"
+    }
+  },
+  {
+    "model": "brapi.marker",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "defaultDisplayName": "C_11_10005",
+      "type": "SNP",
+      "synonyms": "i_11_10001; popA_10005",
+      "refAlt": "T; A",
+      "analysisMethods": "illumina; kasp"
+    }
+  },
+  {
+    "model": "brapi.allelematrix",
+    "pk": 27,
+    "fields": {
+      "cropdbid": null,
+      "name": "testDs1",
+      "description": "a test dataset\n",
+      "lastUpdated": "2017-06-12T00:00:00",
+      "studyDbId": "1001"
+    }
+  },
+  {
+    "model": "brapi.allelematrix",
+    "pk": 28,
+    "fields": {
+      "cropdbid": null,
+      "name": "testDs2",
+      "description": "a second test dataset",
+      "lastUpdated": "2017-06-12T00:00:00",
+      "studyDbId": "1002"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "data": "1; 1; A/B"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "data": "1; 2; B"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "data": "2; 1; A"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "data": "2; 2; A/B"
+    }
+  },
+  {
+    "model": "brapi.method",
+    "pk": "CO_334:0010320",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2013-06-14T22:03:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "1.2"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "6",
+      "observationvariabledbid": "MO_123:100006",
+      "observationtimestamp": "2013-06-14T22:12:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "4.5"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "7",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2013-06-14T22:13:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "1.4"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "12",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "8",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2013-06-14T22:14:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "red"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "9",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2011-06-14T22:03:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "10"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "9",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2011-06-14T22:04:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "20"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "9",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2011-06-14T22:05:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "red"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "16",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "10",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2011-06-14T22:06:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "100"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "10",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2011-06-14T22:07:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "9"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "18",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "10",
+      "observationvariabledbid": "MO_123:100005",
+      "observationtimestamp": "2011-06-14T22:08:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "2"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "19",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2011-06-14T22:09:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "11"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "observationvariabledbid": "MO_123:100006",
+      "observationtimestamp": "2013-06-14T22:04:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "4.5"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "20",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2011-06-14T22:10:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "12"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "21",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2011-06-14T22:11:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "black"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "22",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "11",
+      "observationvariabledbid": "MO_123:100005",
+      "observationtimestamp": "2011-06-14T22:12:51Z",
+      "seasondbid": "2",
+      "collector": "B. Tech",
+      "value": "5"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2013-06-14T22:05:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "1.1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "observationvariabledbid": "MO_123:100006",
+      "observationtimestamp": "2013-06-14T22:06:51Z",
+      "seasondbid": "1",
+      "collector": "A. Technician",
+      "value": "5.1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2013-06-14T22:07:51Z",
+      "seasondbid": "4",
+      "collector": "A. Technician",
+      "value": "2.1"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2013-06-14T22:08:51Z",
+      "seasondbid": "4",
+      "collector": "A. Technician",
+      "value": "dark blue"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "observationvariabledbid": "MO_123:100003",
+      "observationtimestamp": "2013-06-14T22:09:51Z",
+      "seasondbid": "5",
+      "collector": "A. Technician",
+      "value": "1.8"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "observationvariabledbid": "MO_123:100004",
+      "observationtimestamp": "2013-06-14T22:10:51Z",
+      "seasondbid": "5",
+      "collector": "A. Technician",
+      "value": "blue"
+    }
+  },
+  {
+    "model": "brapi.observation",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "5",
+      "observationvariabledbid": "MO_123:100002",
+      "observationtimestamp": "2013-06-14T22:11:51Z",
+      "seasondbid": "3",
+      "collector": "A. Technician",
+      "value": "2.1"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "1",
+      "name": "Plot 1",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:1",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "1",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "4",
+      "name": "Plant 5",
+      "observationlevel": "plant",
+      "observationlevels": "block:101;plot:5;plant:5",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "5",
+      "blocknumber": "101",
+      "plantnumber": "5",
+      "x": "1",
+      "y": "1",
+      "replicate": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "2",
+      "name": "Plot 6",
+      "observationlevel": "plot",
+      "observationlevels": "block:101;plot:6",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "6",
+      "blocknumber": "101",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "1",
+      "name": "Plant 1",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:1;plant:1",
+      "entrynumber": "2",
+      "entrytype": "test",
+      "plotnumber": "1",
+      "blocknumber": "1",
+      "plantnumber": "1",
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "2",
+      "name": "Plot 2",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:2",
+      "entrynumber": "3",
+      "entrytype": "test",
+      "plotnumber": "2",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "2",
+      "name": "Plant 2",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:2;plant:2",
+      "entrynumber": "4",
+      "entrytype": "test",
+      "plotnumber": "2",
+      "blocknumber": "1",
+      "plantnumber": "2",
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "1",
+      "name": "Plot 3",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:3\u00a0",
+      "entrynumber": "5",
+      "entrytype": "test",
+      "plotnumber": "3",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "1",
+      "name": "Plant 3",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:3;plant:3",
+      "entrynumber": "6",
+      "entrytype": "test",
+      "plotnumber": "3",
+      "blocknumber": "1",
+      "plantnumber": "3",
+      "x": "1",
+      "y": "1",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "3",
+      "name": "Plot 4",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:4",
+      "entrynumber": "7",
+      "entrytype": "test",
+      "plotnumber": "4",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "3",
+      "name": "Plant 4",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:4;plant:4",
+      "entrynumber": "8",
+      "entrytype": "test",
+      "plotnumber": "4",
+      "blocknumber": "1",
+      "plantnumber": "4",
+      "x": "1",
+      "y": "2",
+      "replicate": "0"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "4",
+      "name": "Plot 5",
+      "observationlevel": "plot",
+      "observationlevels": "block:101;plot:5",
+      "entrynumber": "1",
+      "entrytype": "check",
+      "plotnumber": "5",
+      "blocknumber": "101",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865230"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH03"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "kernelDB",
+      "identifier": "239865"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865815"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH13"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "kernelDB",
+      "identifier": "239167"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865682"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH51"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "kernelDB",
+      "identifier": "239146"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865891"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH89"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "kernelDB",
+      "identifier": "239612"
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100002",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Plant height",
+      "traitdbid": "CO_334:0100620",
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100003",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Root weight",
+      "traitdbid": "CO_334:0100622",
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100004",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Root color",
+      "traitdbid": "CO_334:0100621",
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100005",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Virus susceptibility",
+      "traitdbid": "CO_334:0100621",
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.observationvariable",
+    "pk": "MO_123:100006",
+    "fields": {
+      "cropdbid": "1",
+      "ontologydbid": "MO_123",
+      "observationvariablename": "Carotenoid",
+      "traitdbid": "CO_334:0100620",
+      "methoddbid": null,
+      "scaledbid": null
+    }
+  },
+  {
+    "model": "brapi.ontology",
+    "pk": "MO_123",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.pedigree",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "1",
+      "pedigree": "Cree / Bonanza",
+      "parent1DbId": "5",
+      "parent2DbId": "8"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "name": "Wheat Resistance Program",
+      "abbreviation": "DRP1",
+      "objective": "Disease resistance",
+      "leadperson": "Dr. Henry Beachell"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "name": "Wheat Improvement Program",
+      "abbreviation": "DRP2",
+      "objective": "Yield improvement",
+      "leadperson": "Dr. Norman Borlaug"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "name": "P3",
+      "abbreviation": "W. Select",
+      "objective": "XYZ",
+      "leadperson": "Program 3"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "name": "P4",
+      "abbreviation": "G. Gain",
+      "objective": "ABC",
+      "leadperson": "Program 4"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "name": "P5",
+      "abbreviation": "C. Improvement",
+      "objective": "Processing",
+      "leadperson": "Program 5"
+    }
+  },
+  {
+    "model": "brapi.program",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "name": "P6",
+      "abbreviation": "A. Test",
+      "objective": "Demo",
+      "leadperson": "Program 6"
+    }
+  },
+  {
+    "model": "brapi.scale",
+    "pk": "CO_334:0100526",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.scale",
+    "pk": "CO_334:0100527",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.scale",
+    "pk": "CO_334:0100528",
+    "fields": {
+      "cropdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2013",
+      "season": "2013"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2011",
+      "season": "2011"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2014",
+      "season": "2014"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2013",
+      "season": "winter 2013"
+    }
+  },
+  {
+    "model": "brapi.season",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "year": "2013",
+      "season": "fall 2013"
+    }
+  },
+  {
+    "model": "brapi.study",
+    "pk": "1001",
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "locationdbid": "1",
+      "studytype": "Yield study",
+      "name": "Study 1",
+      "description": "Field yield phenotyping study",
+      "startdate": "1/1/2013",
+      "enddate": "1/1/2014",
+      "active": true,
+      "license": "https://creativecommons.org/licenses/by/4.0",
+      "lastupdateversion": "1.1",
+      "lastupdatetimestamp": "01/01/15"
+    }
+  },
+  {
+    "model": "brapi.study",
+    "pk": "1002",
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "locationdbid": "1",
+      "studytype": "Yield study",
+      "name": "Study 2",
+      "description": "Field yield phenotyping study",
+      "startdate": "1/1/2014",
+      "enddate": "1/1/2015",
+      "active": true,
+      "license": "https://creativecommons.org/licenses/by/4.0",
+      "lastupdateversion": "2.3",
+      "lastupdatetimestamp": "01/01/16"
+    }
+  },
+  {
+    "model": "brapi.study",
+    "pk": "1003",
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "locationdbid": "2",
+      "studytype": "Crossing Nursery",
+      "name": "Study 3",
+      "description": "Nursery study description",
+      "startdate": "1/1/2011",
+      "enddate": "1/1/2012",
+      "active": false,
+      "license": "https://creativecommons.org/licenses/by/4.0",
+      "lastupdateversion": "0.1",
+      "lastupdatetimestamp": "01/01/14"
+    }
+  },
+  {
+    "model": "brapi.markerprofile",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "3",
+      "uniqueDisplayName": "germplasm3",
+      "sampleDbId": 33,
+      "extractDbId": 1,
+      "studyDbId": "1001",
+      "analysisMethod": "GBS",
+      "resultCount": 1
+    }
+  },
+  {
+    "model": "brapi.markerprofile",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "4",
+      "uniqueDisplayName": "germplasm4",
+      "sampleDbId": 44,
+      "extractDbId": 2,
+      "studyDbId": "1002",
+      "analysisMethod": "GoldenGate",
+      "resultCount": 1
+    }
+  },
+  {
+    "model": "brapi.markerprofilesdata",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "markerDbId": "1",
+      "markerprofileDbId": "3",
+      "alleleCall": "A/B"
+    }
+  },
+  {
+    "model": "brapi.markerprofilesdata",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "markerDbId": "1",
+      "markerprofileDbId": "4",
+      "alleleCall": "B"
+    }
+  },
+  {
+    "model": "brapi.markerprofilesdata",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "markerDbId": "2",
+      "markerprofileDbId": "3",
+      "alleleCall": "A"
+    }
+  },
+  {
+    "model": "brapi.markerprofilesdata",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "markerDbId": "2",
+      "markerprofileDbId": "4",
+      "alleleCall": "A/B"
+    }
+  },
+  {
+    "model": "brapi.sample",
+    "pk": "1",
+    "fields": {
+      "cropDbId": "1",
+      "studyDbId": "1001",
+      "locationDbId": "1",
+      "plotId": "PlotId-123",
+      "plantId": "PlantID-123",
+      "sampleId": "Unique-Plant-SampleID",
+      "observationUnitDbId": "1",
+      "takenBy": "Mr. Technician",
+      "sampleTimestamp": "2016-07-27T13:43:22",
+      "sampleType": "TypeOfSample",
+      "tissueType": "TypeOfTissue",
+      "notes": "Cut from infected leaf",
+      "seasonDbId": "1",
+      "germplasmDbId": "1",
+      "plantingTimestamp": "2016-01-01T22:22:21",
+      "harvestTimestamp": "2016-06-30T22:33:23"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "key": "studyObjective",
+      "value": "Increase yield"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "key": "publications",
+      "value": "pmid:24039865287545"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "key": "publications",
+      "value": "pmid:23643517318968"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "key": "studyObjective",
+      "value": "Increase yield"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "key": "publications",
+      "value": "pmid:24039865287545"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "key": "publications",
+      "value": "pmid:23643517318968"
+    }
+  },
+  {
+    "model": "brapi.studycontact",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "contactdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.studycontact",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "contactdbid": "2"
+    }
+  },
+  {
+    "model": "brapi.studycontact",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "contactdbid": "2"
+    }
+  },
+  {
+    "model": "brapi.studycontact",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "contactdbid": "3"
+    }
+  },
+  {
+    "model": "brapi.studycontact",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "contactdbid": "4"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "name": "image-archive12.zip",
+      "type": "Image archive",
+      "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "name": "image-archive13.zip",
+      "type": "Image archive",
+      "url": "http://data.inra.fr/archive/biomass-img.zip"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "name": "trial-layout.pdf",
+      "type": "Trial layout documentation",
+      "url": "http://data.inra.fr/archive/trial-layout.pdf"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "name": "image-archive12.zip",
+      "type": "Image archive",
+      "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "name": "image-archive13.zip",
+      "type": "Image archive",
+      "url": "http://data.inra.fr/archive/biomass-img.zip"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "name": "trial-layout.pdf",
+      "type": "Trial layout documentation",
+      "url": "http://data.inra.fr/archive/trial-layout.pdf"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "name": "image-archive12.zip",
+      "type": "Image archive",
+      "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "name": "image-archive13.zip",
+      "type": "Image archive",
+      "url": "http://data.inra.fr/archive/biomass-img.zip"
+    }
+  },
+  {
+    "model": "brapi.studydatalink",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "name": "trial-layout.pdf",
+      "type": "Trial layout documentation",
+      "url": "http://data.inra.fr/archive/trial-layout.pdf"
+    }
+  },
+  {
+    "model": "brapi.studyseason",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "seasondbid": "1"
+    }
+  },
+  {
+    "model": "brapi.studyseason",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "seasondbid": "2"
+    }
+  },
+  {
+    "model": "brapi.studyseason",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "seasondbid": "2"
+    }
+  },
+  {
+    "model": "brapi.studyseason",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "seasondbid": "3"
+    }
+  },
+  {
+    "model": "brapi.studytype",
+    "pk": "Crossing Nursery",
+    "fields": {
+      "cropdbid": "1",
+      "description": "Description for Nursery study type"
+    }
+  },
+  {
+    "model": "brapi.studytype",
+    "pk": "Genotype",
+    "fields": {
+      "cropdbid": "1",
+      "description": "Description for Genotyping study type"
+    }
+  },
+  {
+    "model": "brapi.studytype",
+    "pk": "Yield study",
+    "fields": {
+      "cropdbid": "1",
+      "description": "Description for yield study type"
+    }
+  },
+  {
+    "model": "brapi.taxonxref",
+    "pk": "2340",
+    "fields": {
+      "cropdbid": "1",
+      "source": "ncbiTaxon",
+      "rank": "species"
+    }
+  },
+  {
+    "model": "brapi.taxonxref",
+    "pk": "E312",
+    "fields": {
+      "cropdbid": "1",
+      "source": "ciradTaxon",
+      "rank": "species"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "2"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "2"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "3"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "3"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "4"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "4"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "5"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "5"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "6"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "6"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 13,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "7"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 14,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "7"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 15,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "8"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 16,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "8"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 17,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2340",
+      "germplasmdbid": "9"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": 18,
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "E312",
+      "germplasmdbid": "9"
+    }
+  },
+  {
+    "model": "brapi.trait",
+    "pk": "CO_334:0100620",
+    "fields": {
+      "cropdbid": "1",
+      "name": "Carotenoid content",
+      "description": "Cassava storage root pulp carotenoid content"
+    }
+  },
+  {
+    "model": "brapi.trait",
+    "pk": "CO_334:0100621",
+    "fields": {
+      "cropdbid": "1",
+      "name": "Yield",
+      "description": "Cassava marketable yield"
+    }
+  },
+  {
+    "model": "brapi.trait",
+    "pk": "CO_334:0100622",
+    "fields": {
+      "cropdbid": "1",
+      "name": "Iron content",
+      "description": "Cassava storage root pulp iron content"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "factor": "water regimen",
+      "modality": "deficit"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "factor": "water regimen",
+      "modality": "deficit"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "5",
+      "factor": "water regimen",
+      "modality": "deficit"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "6",
+      "factor": "water regimen",
+      "modality": "deficit"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "factor": "water regimen",
+      "modality": "normal"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "factor": "water regimen",
+      "modality": "normal"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "7",
+      "factor": "water regimen",
+      "modality": "normal"
+    }
+  },
+  {
+    "model": "brapi.treatment",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "8",
+      "factor": "water regimen",
+      "modality": "normal"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "101",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "1",
+      "name": "Peru Yield Trial 1",
+      "startdate": "1/1/2013",
+      "enddate": "7/5/2013",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/312953986E3"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "102",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "1",
+      "name": "Peru Yield Trial 2",
+      "startdate": "6/1/2014",
+      "enddate": "1/15/2015",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/1234992349"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "103",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "2",
+      "name": "Ghana Genotype Trial 1",
+      "startdate": "5/1/2011",
+      "enddate": "12/15/2011",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/134591245"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "104",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "3",
+      "name": "Ghana Yield Trial 1",
+      "startdate": "7/1/2012",
+      "enddate": "2/1/2013",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/1235919"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "105",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "3",
+      "name": "Ghana Yield Trial 2",
+      "startdate": "8/15/2013",
+      "enddate": "2/28/2014",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/13425915"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "106",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "3",
+      "name": "Ghana Yield Trial 3",
+      "startdate": "9/22/2014",
+      "enddate": "3/21/2015",
+      "active": true,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/125512251"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "107",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "4",
+      "name": "Mozambique Yield Trial",
+      "startdate": "5/12/2011",
+      "enddate": "11/30/2011",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/34576437"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "108",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "4",
+      "name": "Mozambique Genotype Trial",
+      "startdate": "2/17/2012",
+      "enddate": "8/21/2012",
+      "active": false,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/34734756"
+    }
+  },
+  {
+    "model": "brapi.trial",
+    "pk": "109",
+    "fields": {
+      "cropdbid": "1",
+      "programdbid": "6",
+      "name": "Demo Yield Trial",
+      "startdate": "3/24/2016",
+      "enddate": "10/21/2016",
+      "active": true,
+      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetauthorshipdatasetpui": "doi:10.15454/35673236"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "pmid:239823988"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "pmid:210494013"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "doi:10.2345/GEZG3T23535"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "key": "publications",
+      "value": "pmid:245684568"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "key": "publications",
+      "value": "pmid:345966399"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "specialProject",
+      "value": "Project1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "donorName",
+      "value": "Donor2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "collaborator",
+      "value": "NationalPartner1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "fundingUSD",
+      "value": "300000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "104",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "104",
+      "key": "specialProject",
+      "value": "Project2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 13,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "107",
+      "key": "specialProject",
+      "value": "Project2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 14,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "107",
+      "key": "fundingUSD",
+      "value": "1000000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 15,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "108",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 16,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "108",
+      "key": "collaborator",
+      "value": "NationalPartner1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 17,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "109",
+      "key": "fundingUSD",
+      "value": "500000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 18,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "109",
+      "key": "specialProject",
+      "value": "Project1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 19,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "pmid:239823988"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 20,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "pmid:210494013"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 21,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "doi:10.2345/GEZG3T23535"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 22,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "key": "publications",
+      "value": "pmid:245684568"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 23,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "key": "publications",
+      "value": "pmid:345966399"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 24,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 25,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "specialProject",
+      "value": "Project1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 26,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "donorName",
+      "value": "Donor2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 27,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "collaborator",
+      "value": "NationalPartner1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 28,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "fundingUSD",
+      "value": "300000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 29,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "104",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 30,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "104",
+      "key": "specialProject",
+      "value": "Project2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 31,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "107",
+      "key": "specialProject",
+      "value": "Project2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 32,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "107",
+      "key": "fundingUSD",
+      "value": "1000000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 33,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "108",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 34,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "108",
+      "key": "collaborator",
+      "value": "NationalPartner1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 35,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "109",
+      "key": "fundingUSD",
+      "value": "500000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 36,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "109",
+      "key": "specialProject",
+      "value": "Project1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 37,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "pmid:239823988"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 38,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "pmid:210494013"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 39,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "publications",
+      "value": "doi:10.2345/GEZG3T23535"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 40,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "key": "publications",
+      "value": "pmid:245684568"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 41,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "key": "publications",
+      "value": "pmid:345966399"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 42,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 43,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "key": "specialProject",
+      "value": "Project1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 44,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "donorName",
+      "value": "Donor2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 45,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "collaborator",
+      "value": "NationalPartner1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 46,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "key": "fundingUSD",
+      "value": "300000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 47,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "104",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 48,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "104",
+      "key": "specialProject",
+      "value": "Project2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 49,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "107",
+      "key": "specialProject",
+      "value": "Project2"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 50,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "107",
+      "key": "fundingUSD",
+      "value": "1000000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 51,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "108",
+      "key": "donorName",
+      "value": "Donor1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 52,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "108",
+      "key": "collaborator",
+      "value": "NationalPartner1"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 53,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "109",
+      "key": "fundingUSD",
+      "value": "500000"
+    }
+  },
+  {
+    "model": "brapi.trialadditionalinfo",
+    "pk": 54,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "109",
+      "key": "specialProject",
+      "value": "Project1"
+    }
+  },
+  {
+    "model": "brapi.trialcontact",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "contactdbid": "4"
+    }
+  },
+  {
+    "model": "brapi.trialcontact",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "101",
+      "contactdbid": "3"
+    }
+  },
+  {
+    "model": "brapi.trialcontact",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "102",
+      "contactdbid": "3"
+    }
+  },
+  {
+    "model": "brapi.trialcontact",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "contactdbid": "1"
+    }
+  },
+  {
+    "model": "brapi.trialcontact",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "trialdbid": "103",
+      "contactdbid": "2"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:1",
+      "plotNumber": "1",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "Wheat Resistance Program",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 1,
+      "observationDbId": "1",
+      "observationVariableDbId": "MO_123:100002",
+      "season": "2013",
+      "value": "1.2",
+      "observationTimestamp": "2013-06-14T22:03:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:1",
+      "plotNumber": "1",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "Wheat Resistance Program",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 1,
+      "observationDbId": "2",
+      "observationVariableDbId": "MO_123:100006",
+      "season": "2013",
+      "value": "4.5",
+      "observationTimestamp": "2013-06-14T22:04:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:1",
+      "plotNumber": "1",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "Wheat Resistance Program",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 2,
+      "observationDbId": "1",
+      "observationVariableDbId": "MO_123:100002",
+      "season": "2013",
+      "value": "1.2",
+      "observationTimestamp": "2013-06-14T22:03:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:1",
+      "plotNumber": "1",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "Wheat Resistance Program",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 2,
+      "observationDbId": "2",
+      "observationVariableDbId": "MO_123:100006",
+      "season": "2013",
+      "value": "4.5",
+      "observationTimestamp": "2013-06-14T22:04:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:1",
+      "plotNumber": "1",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "Wheat Resistance Program",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 3,
+      "observationDbId": "1",
+      "observationVariableDbId": "MO_123:100002",
+      "season": "2013",
+      "value": "1.2",
+      "observationTimestamp": "2013-06-14T22:03:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:1",
+      "plotNumber": "1",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "Wheat Resistance Program",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 3,
+      "observationDbId": "2",
+      "observationVariableDbId": "MO_123:100006",
+      "season": "2013",
+      "value": "4.5",
+      "observationTimestamp": "2013-06-14T22:04:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:1;plant:1",
+      "plotNumber": "1",
+      "plantNumber": "1",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 4,
+      "observationDbId": "3",
+      "observationVariableDbId": "MO_123:100002",
+      "season": "2013",
+      "value": "1.1",
+      "observationTimestamp": "2013-06-14T22:05:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:1;plant:1",
+      "plotNumber": "1",
+      "plantNumber": "1",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 4,
+      "observationDbId": "4",
+      "observationVariableDbId": "MO_123:100006",
+      "season": "2013",
+      "value": "5.1",
+      "observationTimestamp": "2013-06-14T22:06:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:1;plant:1",
+      "plotNumber": "1",
+      "plantNumber": "1",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 5,
+      "observationDbId": "3",
+      "observationVariableDbId": "MO_123:100002",
+      "season": "2013",
+      "value": "1.1",
+      "observationTimestamp": "2013-06-14T22:05:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:1;plant:1",
+      "plotNumber": "1",
+      "plantNumber": "1",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 5,
+      "observationDbId": "4",
+      "observationVariableDbId": "MO_123:100006",
+      "season": "2013",
+      "value": "5.1",
+      "observationTimestamp": "2013-06-14T22:06:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:1;plant:1",
+      "plotNumber": "1",
+      "plantNumber": "1",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 6,
+      "observationDbId": "3",
+      "observationVariableDbId": "MO_123:100002",
+      "season": "2013",
+      "value": "1.1",
+      "observationTimestamp": "2013-06-14T22:05:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:1;plant:1",
+      "plotNumber": "1",
+      "plantNumber": "1",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "1",
+      "germplasmName": "Name001",
+      "x": "1",
+      "y": "1",
+      "factor": "water regimen",
+      "modality": "deficit",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 6,
+      "observationDbId": "4",
+      "observationVariableDbId": "MO_123:100006",
+      "season": "2013",
+      "value": "5.1",
+      "observationTimestamp": "2013-06-14T22:06:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:2",
+      "plotNumber": "2",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 7,
+      "observationDbId": "5",
+      "observationVariableDbId": "MO_123:100003",
+      "season": "winter 2013",
+      "value": "2.1",
+      "observationTimestamp": "2013-06-14T22:07:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:2",
+      "plotNumber": "2",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 7,
+      "observationDbId": "6",
+      "observationVariableDbId": "MO_123:100004",
+      "season": "winter 2013",
+      "value": "dark blue",
+      "observationTimestamp": "2013-06-14T22:08:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:2",
+      "plotNumber": "2",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 8,
+      "observationDbId": "5",
+      "observationVariableDbId": "MO_123:100003",
+      "season": "winter 2013",
+      "value": "2.1",
+      "observationTimestamp": "2013-06-14T22:07:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:2",
+      "plotNumber": "2",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 8,
+      "observationDbId": "6",
+      "observationVariableDbId": "MO_123:100004",
+      "season": "winter 2013",
+      "value": "dark blue",
+      "observationTimestamp": "2013-06-14T22:08:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:2",
+      "plotNumber": "2",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 9,
+      "observationDbId": "5",
+      "observationVariableDbId": "MO_123:100003",
+      "season": "winter 2013",
+      "value": "2.1",
+      "observationTimestamp": "2013-06-14T22:07:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plot",
+      "observationLevels": "block:1;plot:2",
+      "plotNumber": "2",
+      "plantNumber": null,
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P4",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 9,
+      "observationDbId": "6",
+      "observationVariableDbId": "MO_123:100004",
+      "season": "winter 2013",
+      "value": "dark blue",
+      "observationTimestamp": "2013-06-14T22:08:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:2;plant:2",
+      "plotNumber": "2",
+      "plantNumber": "2",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P5",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 10,
+      "observationDbId": "7",
+      "observationVariableDbId": "MO_123:100003",
+      "season": "fall 2013",
+      "value": "1.8",
+      "observationTimestamp": "2013-06-14T22:09:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:2;plant:2",
+      "plotNumber": "2",
+      "plantNumber": "2",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P5",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "ebi.biosample",
+      "observationUnitXrefDbId": 10,
+      "observationDbId": "8",
+      "observationVariableDbId": "MO_123:100004",
+      "season": "fall 2013",
+      "value": "blue",
+      "observationTimestamp": "2013-06-14T22:10:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:2;plant:2",
+      "plotNumber": "2",
+      "plantNumber": "2",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P5",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 11,
+      "observationDbId": "7",
+      "observationVariableDbId": "MO_123:100003",
+      "season": "fall 2013",
+      "value": "1.8",
+      "observationTimestamp": "2013-06-14T22:09:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:2;plant:2",
+      "plotNumber": "2",
+      "plantNumber": "2",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P5",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "gnpis.lot",
+      "observationUnitXrefDbId": 11,
+      "observationDbId": "8",
+      "observationVariableDbId": "MO_123:100004",
+      "season": "fall 2013",
+      "value": "blue",
+      "observationTimestamp": "2013-06-14T22:10:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:2;plant:2",
+      "plotNumber": "2",
+      "plantNumber": "2",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P5",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 12,
+      "observationDbId": "7",
+      "observationVariableDbId": "MO_123:100003",
+      "season": "fall 2013",
+      "value": "1.8",
+      "observationTimestamp": "2013-06-14T22:09:51Z",
+      "collector": "A. Technician"
+    }
+  },
+  {
+    "model": "brapi.phenotype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "studyName": "Study 1",
+      "locationDbId": "1",
+      "locationName": "Location 1",
+      "observationLevel": "plant",
+      "observationLevels": "block:1;plot:2;plant:2",
+      "plotNumber": "2",
+      "plantNumber": "2",
+      "blockNumber": "1",
+      "replicate": "0",
+      "programName": "P5",
+      "germplasmDbId": "2",
+      "germplasmName": "Name002",
+      "x": "1",
+      "y": "2",
+      "factor": "water regimen",
+      "modality": "normal",
+      "source": "kernelDB",
+      "observationUnitXrefDbId": 12,
+      "observationDbId": "8",
+      "observationVariableDbId": "MO_123:100004",
+      "season": "fall 2013",
+      "value": "blue",
+      "observationTimestamp": "2013-06-14T22:10:51Z",
+      "collector": "A. Technician"
+    }
+  }
+]

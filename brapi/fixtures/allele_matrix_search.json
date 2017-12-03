@@ -1,0 +1,34 @@
+[
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "data": "1; 1; A/B"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "data": "1; 2; B"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "data": "2; 1; A"
+    }
+  },
+  {
+    "model": "brapi.allelematrixsearch",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "data": "2; 2; A/B"
+    }
+  }
+]

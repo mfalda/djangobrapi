@@ -19,10 +19,9 @@ from brapi.views.traits import TraitView, TraitDetailsView
 #                                   GermplasmSearchView)
 from brapi.views.trials import TrialView, TrialDetailsView
 from brapi.views.samples import SampleView
-#from brapi.views.phenotypes import PhenotypeSearchView
+from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
-                                        MarkerProfilesView, MarkerProfilesDataView,
-                                        GermplasmMarkerProfile)
+                                        MarkerProfilesView, MarkerProfilesDataView)
 #from brapi.views.obs_variables import (DatatypesViewSet, OntologiesViewSet,
 #                                       ObsVariablesListView, ObsVariablesView,
 #                                       VSearchView)
@@ -54,7 +53,7 @@ router.register(r'brapi/v1/programs', ProgramViewSet, 'programs')
 #router.register(r'brapi/v1/seasons', StudySeasonsViewSet, 'study_seasons')
 #router.register(r'brapi/v1/observationLevels', StudyObsLevelsViewSet, 'study_obs_levels')
 #router.register(r'brapi/v1/studyTypes', StudyTypesViewSet, 'study_types')
-#router.register(r'brapi/v1/allelematrices', AlleleMatrixViewSet, 'allele_matrix')
+router.register(r'brapi/v1/allelematrices', AlleleMatrixViewSet, 'allele_matrix')
 
 # The API URLs are now determined automatically by the router
 # Additionally, we include the login URLs for the browsable API
@@ -82,19 +81,19 @@ urlpatterns = [
     # written as a view to block 'brapi/v1/samples'
     url(r'brapi/v1/samples/(?P<sampleId>.+)/?$', SampleView.as_view()),
 
-#    url(r'brapi/v1/phenotypes-search/?$', PhenotypeSearchView.as_view()),
+    url(r'brapi/v1/phenotypes-search/?$', PhenotypeSearchView.as_view()),
 
     url(r'brapi/v1/programs-search/?$', ProgramSearchView.as_view()), 
     
 #    url(r'brapi/v1/studies/(?P<studyDbId>[0-9]+)/layout/?$', StudyPlotView.as_view()),
 
-#    url(r'brapi/v1/allelematrix-search/?', AlleleMSearchView.as_view()),
+    url(r'brapi/v1/allelematrix-search/?', AlleleMatrixSearchView.as_view()),
 
     url(r'brapi/v1/markers/(?P<markerDbId>[0-9]+)/?$', MarkerDetailsView.as_view()),
     url(r'brapi/v1/markers/?$', MarkerView.as_view()),
     
-#    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[0-9]+)/?$', MarkerProfilesDataView.as_view()),
-#    url(r'brapi/v1/markerprofiles/?$', MarkerProfilesView.as_view()),
+    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[0-9]+)/?$', MarkerProfilesDataView.as_view()),
+    url(r'brapi/v1/markerprofiles/?$', MarkerProfilesView.as_view()),
 
     url(r'brapi/v1/trials/(?P<trialDbId>[0-9]+)/?$', TrialDetailsView.as_view()),
     url(r'brapi/v1/trials', TrialView.as_view()),

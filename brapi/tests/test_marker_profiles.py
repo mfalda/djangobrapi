@@ -5,7 +5,9 @@ from brapi.aux_fun import test_get, test_post
 
 class MarkerProfilesTest(APITestCase):
     
-    fixtures = ['taxa.json', 'germplasm.json', 'allele_matrices.json', 
+    fixtures = ['crops.json', 'programs.json', 'trials.json', 'study_types.json',
+                'locations.json', 'studies.json',
+                'germplasm.json', 'allele_matrices.json',
                 'allele_matrix_search.json', 'marker_profiles.json']
     
     
@@ -30,14 +32,14 @@ class MarkerProfilesTest(APITestCase):
                 "matrixDbId": 27,
                 "description": "a test dataset",
                 "lastUpdated": "2017-06-12",
-                "studyDbId": 13
+                "studyDbId": 1001
             },
             {
                 "name": "testDs2",
                 "matrixDbId": 28,
                 "description": "a second test dataset",
                 "lastUpdated": "2017-06-12",
-                "studyDbId": 13
+                "studyDbId": 1002
             }
         ]
     }
@@ -115,7 +117,7 @@ class MarkerProfilesTest(APITestCase):
                 "studyDbId": 1,
                 "analysisMethod": "GBS",
                 "resultCount": 1,
-                "germplasmDbId": 3
+                "germplasmDbId": "3"
             },
             {
                 "markerProfilesDbId": 4,
@@ -125,7 +127,7 @@ class MarkerProfilesTest(APITestCase):
                 "studyDbId": 2,
                 "analysisMethod": "GoldenGate",
                 "resultCount": 1,
-                "germplasmDbId": 4
+                "germplasmDbId": "4"
             }
         ]
     }
@@ -159,7 +161,7 @@ class MarkerProfilesTest(APITestCase):
                 "studyDbId": 1,
                 "analysisMethod": "GBS",
                 "resultCount": 1,
-                "germplasmDbId": 3
+                "germplasmDbId": "3"
             }
         ]
     }
@@ -193,7 +195,7 @@ class MarkerProfilesTest(APITestCase):
                 "studyDbId": 1,
                 "analysisMethod": "GBS",
                 "resultCount": 1,
-                "germplasmDbId": 3
+                "germplasmDbId": "3"
             }
         ]
     }

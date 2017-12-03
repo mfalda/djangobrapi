@@ -1,0 +1,24 @@
+[
+  {
+    "model": "brapi.allelematrix",
+    "pk": 27,
+    "fields": {
+      "cropdbid": "1",
+      "name": "testDs1",
+      "description": "a test dataset",
+      "lastUpdated": "2017-06-12",
+      "studyDbId": "1001"
+    }
+  },
+  {
+    "model": "brapi.allelematrix",
+    "pk": 28,
+    "fields": {
+      "cropdbid": "1",
+      "name": "testDs2",
+      "description": "a second test dataset",
+      "lastUpdated": "2017-06-12",
+      "studyDbId": "1002"
+    }
+  }
+]

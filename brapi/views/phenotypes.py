@@ -3,7 +3,6 @@ from rest_framework.views import APIView
 from django.db.models import Q
 import logging
 
-from brapi.models import Phenotype
 from brapi.serializers import PhenotypeSerializer
 from brapi.aux_fun import search_post_params_in, paginate
 
@@ -31,7 +30,7 @@ class PhenotypeSearchView(APIView):
         params = self.request.data
 
         logger = logging.getLogger(__name__)
-        logger.warn("Search parameters: %s" % params)
+        logger.warning("Search parameters: %s" % params)
 
         queryset = search_post_params_in(self, queryset, [('germplasmDbIds', 'germplasmDbIds'), 
             ('observationVariableDbIds', 'observationVariableDbIds'), ('studyDbIds', 'studyDbIds'), 

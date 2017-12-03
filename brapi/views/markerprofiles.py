@@ -3,10 +3,10 @@ from rest_framework.views import APIView
 import logging
 
 from brapi.models import (AlleleMatrix, AlleleMatrixSearch,
-                            MarkerProfile, GermplasmMarkerProfile)
+                            MarkerProfile)
 
 from brapi.serializers import (AlleleMatrixSerializer, AlleleMatrixSearchSerializer,
-                                MarkerProfileSerializer, GermplasmMarkerProfileSerializer)
+                                MarkerProfileSerializer)
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
@@ -14,7 +14,7 @@ from brapi.paginators import BrAPIListPagination
 
 
 class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
-    
+
     serializer_class = AlleleMatrixSerializer
 
     def get_queryset(self):
@@ -28,13 +28,13 @@ class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
 # end class AlleleMatrixViewSet
 
 
-class AlleleMSearchView(APIView):
-    
+class AlleleMatrixSearchView(APIView):
+
     serializer_class = AlleleMatrixSearchSerializer
 
 
     def get(self, request, format=None, *args, **kwargs):
-        
+
         queryset = AlleleMatrixSearch.objects.all()
 
         # TODO: it is not clear to which data the query parameters apply!
@@ -45,9 +45,9 @@ class AlleleMSearchView(APIView):
 
     # end def get
 
-       
+
     def post(self, request, format=None, *args, **kwargs):
-            
+
         queryset = AlleleMatrixSearch.objects.all()
 
         # TODO: it is not clear to which data the query parameters apply!
@@ -58,23 +58,23 @@ class AlleleMSearchView(APIView):
 
     # end def post
 
-         
-# end class AlleleMSearchView
+
+# end class AlleleMatrixSearchView
 
 
 class MarkerProfilesDataView(APIView):
- 
+
     def get(self, request, format=None, *args, **kwargs):
-    
+
         queryset = MarkerProfile.objects.all()
 
         markerprofileDbId = self.kwargs.get('markerprofileDbId', None)
-        
+
         logger = logging.getLogger(__name__)
         logger.warning("Markerprofiles data: %s" % markerprofileDbId)
 
         if markerprofileDbId is not None:
-            queryset = queryset.filter(markerProfilesDbId_details=markerprofileDbId)
+            queryset = queryset.filter(markerprofileDbId=markerprofileDbId)
         # end if
 
         # TODO: it is not clear to which data the query parameters apply!
@@ -109,18 +109,18 @@ class MarkerProfilesView(APIView):
 
 
     def post(self, request, format=None, *args, **kwargs):
-        
+
         params = self.request.data
 
         logger = logging.getLogger(__name__)
         logger.warning("Searching with parameters: %s" % params)
-        
+
         queryset = MarkerProfile.objects.all()
 
         queryset = search_post_params_in(self, queryset, [('germplasmDbId', 'germplasm'),
             ('studyDbId', 'studyDbId'), ('sampleDbId', 'sample'), ('extractDbId', 'extract'),
             ('analysisMethod', 'method')])
-    
+
         return paginate(queryset, request, MarkerProfileSerializer)
 
     # end def post
@@ -137,7 +137,7 @@ class GPMarkerPView(APIView):
         germplasmDbId = self.kwargs.get('id', None)
         if germplasmDbId is not None:
             queryset = queryset.filter(germplasmDbId=germplasmDbId)
-        # end if        
+        # end if
 
         return paginate(queryset, request, MarkerProfileSerializer)
 

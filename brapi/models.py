@@ -73,6 +73,7 @@ class Donor(models.Model):
     donoraccessionnumber = models.TextField(blank=True, null=True)
     donorinstitutecode = models.TextField(blank=True, null=True)
     donorgermplasmpui = models.TextField(blank=True, null=True)
+    donordbid = models.TextField(primary_key=True)
 
     class Meta:
 
@@ -162,6 +163,7 @@ class GermplasmAttributeValue(models.Model):
     attributedbid = models.ForeignKey(GermplasmAttribute, models.DO_NOTHING, db_column='attributedbid')
     determineddate = models.TextField(blank=True, null=True)
     value = models.TextField()
+    germplasmattributevaluedbid = models.TextField(primary_key=True)
 
     class Meta:
 
@@ -176,17 +178,17 @@ class GermplasmAttributeValue(models.Model):
 class Location(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    locationdbid = models.TextField(primary_key=True)
+    locationDbId = models.TextField(primary_key=True, db_column='locationdbid')
     type = models.TextField(blank=True, null=True)
     name = models.TextField(blank=True, null=True)
     abbreviation = models.TextField(blank=True, null=True)
-    countrycode = models.TextField(blank=True, null=True)
-    countryname = models.TextField(blank=True, null=True)
+    countryCode = models.TextField(blank=True, null=True, db_column='countrycode')
+    countryName = models.TextField(blank=True, null=True, db_column='countryname')
     latitude = models.FloatField(blank=True, null=True)
     longitude = models.FloatField(blank=True, null=True)
     altitude = models.FloatField(blank=True, null=True)
-    institutename = models.TextField(blank=True, null=True)
-    instituteaddress = models.TextField(blank=True, null=True)
+    instituteName = models.TextField(blank=True, null=True, db_column='institutename')
+    instituteAddress = models.TextField(blank=True, null=True, db_column='instituteaddress')
 
     class Meta:
 
@@ -201,7 +203,7 @@ class Location(models.Model):
 class LocationAdditionalInfo(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', related_name='additionalInfo', to_field='locationdbid', blank=True, null=True)
+    locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', related_name='additionalInfo', blank=True, null=True)
     key = models.TextField()
     value = models.TextField()
     locationaddinfodbid = models.IntegerField(primary_key=True)
@@ -265,24 +267,29 @@ class Marker(models.Model):
 
 class AlleleMatrix(models.Model):
 
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     name = models.CharField(max_length=100, blank=True, default='')
-    matrixDbId = models.IntegerField()
+    matrixDbId = models.IntegerField(db_column='matrixdbid', primary_key=True)
     description = models.CharField(max_length=100, blank=True, default='')
-    lastUpdated = models.DateField()
-    studyDbId = models.IntegerField()
+    lastUpdated = models.DateField(db_column='lastupdated')
+    studyDbId = models.IntegerField(db_column='studydbid')
 
 
     class Meta:
 
-        ordering = ('id',)
+        managed = settings.IS_TESTING
+        ordering = ('matrixDbId',)
+        db_table = 'allelematrix'
 
-        # end class Meta
+    # end class Meta
 
 # end class AlleleMatrix
 
 
 class AlleleMatrixSearch(models.Model):
 
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    allelematrixsearchDbId = models.IntegerField(db_column='allelematrixsearchdbid', primary_key=True)
     data = models.CharField(max_length=100, blank=True, default='')
 
     def save(self, *args, **kwargs):
@@ -294,71 +301,13 @@ class AlleleMatrixSearch(models.Model):
 
     class Meta:
 
-        ordering = ('id',)
+        managed = settings.IS_TESTING
+        ordering = ('allelematrixsearchDbId',)
+        db_table = 'allelematrixsearch'
 
-        # end class Meta
+    # end class Meta
 
 # end class AlleleMatrixSearch
-
-
-class MarkerProfile(models.Model):
-
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerprofileDbId = models.IntegerField()
-    uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
-    sampleDbId = models.IntegerField()
-    extractDbId = models.IntegerField()
-    studyDbId = models.IntegerField()
-    analysisMethod = models.CharField(max_length=100, blank=True, default='')
-    resultCount = models.IntegerField()
-
-
-    class Meta:
-
-        ordering = ('id',)
-
-        # end class Meta
-
-# end class MarkerProfile
-
-
-class GermplasmMarkerProfile(models.Model):
-
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='markerProfilesDbIds', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='markerprofileDbId')
-
-    class Meta:
-
-        ordering = ('id',)
-
-        # end class Meta
-
-# end class GermplasmMarkerProfile
-
-
-class MarkerProfilesData(models.Model):
-
-    germplasmDbId = models.IntegerField()
-    uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
-    extractDbId = models.IntegerField()
-    markerprofileDbId = models.IntegerField()
-    analysisMethod = models.CharField(max_length=100, blank=True, default='')
-    data = models.CharField(max_length=100, blank=True, default='')
-
-    def save(self, *args, **kwargs):
-
-        self.data = '; '.join(self.data)
-
-    # end def save
-
-
-    class Meta:
-
-        ordering = ('id',)
-
-        # end class Meta
-
-# end class MarkerProfilesData
 
 
 class Method(models.Model):
@@ -481,10 +430,11 @@ class Ontology(models.Model):
 class Pedigree(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='germplasm')
+    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='germplasm')
     pedigree = models.TextField()
-    parent1id = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent1id', related_name='parents1')
-    parent2id = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent2id', related_name='parents2')
+    parent1DbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent1dbid', related_name='parents1')
+    parent2DbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent2dbid', related_name='parents2')
+    pedigreeDbId = models.TextField(primary_key=True, db_column='pedigreedbid')
 
     class Meta:
 
@@ -573,6 +523,69 @@ class Study(models.Model):
 # end class Study
 
 
+class MarkerProfile(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmdbid', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmdbid')
+    markerprofileDbId = models.IntegerField(db_column='markerprofiledbid', primary_key=True)
+    uniqueDisplayName = models.CharField(db_column='uniquedisplayname', max_length=100, blank=True, default='')
+    sampleDbId = models.IntegerField(db_column='sampledbid')
+    extractDbId = models.IntegerField(db_column='extractdbid')
+    studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', blank=True, null=True)
+    analysisMethod = models.CharField(db_column='analysismethod', max_length=100, blank=True, default='')
+    resultCount = models.IntegerField(db_column='resultcount')
+
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        ordering = ('markerprofileDbId',)
+        db_table = 'markerprofile'
+
+    # end class Meta
+
+# end class MarkerProfile
+
+
+class MarkerProfilesData(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    markerDbId = models.ForeignKey(Marker, models.DO_NOTHING, db_column='markerdbid', blank=True, null=True)
+    markerprofileDbId = models.ForeignKey(MarkerProfile, models.DO_NOTHING, db_column='markerprofiledbid', blank=True, null=True)
+    alleleCall = models.CharField(max_length=100, db_column='allelecall', blank=True, default='')
+    markerprofilesdatadbid = models.TextField(primary_key=True)
+
+    def save(self, *args, **kwargs):
+
+        self.data = '; '.join(self.data)
+
+    # end def save
+
+
+    class Meta:
+
+        ordering = ('markerprofilesdatadbid',)
+        db_table = 'markerprofilesdata'
+
+        # end class Meta
+
+# end class MarkerProfilesData
+
+
+# class GermplasmMarkerProfile(models.Model):
+#
+#     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmdbid', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmdbid')
+#     markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='markerprofilesdbids', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='markerprofileDbId')
+#
+#     class Meta:
+#
+#         ordering = ('id',)
+#
+#         # end class Meta
+#
+# # end class GermplasmMarkerProfile
+
+
 class Sample(models.Model):
 
     cropDbId = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -611,6 +624,7 @@ class StudyAdditionalInfo(models.Model):
     studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', blank=True, null=True)
     key = models.TextField()
     value = models.TextField()
+    studyadditionalinfodbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -646,6 +660,7 @@ class StudyDataLink(models.Model):
     name = models.TextField(blank=True, null=True)
     type = models.TextField(blank=True, null=True)
     url = models.TextField()
+    studydatalinkdbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -662,6 +677,7 @@ class StudySeason(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid')
     seasondbid = models.ForeignKey(Season, models.DO_NOTHING, db_column='seasondbid')
+    studyseasondbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -711,6 +727,7 @@ class TaxonXrefGermplasm(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     taxondbid = models.ForeignKey(TaxonXref, models.DO_NOTHING, db_column='taxondbid', blank=True, null=True)
     germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', blank=True, null=True)
+    taxonxrefgermplasmdbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -745,6 +762,7 @@ class Treatment(models.Model):
     observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
     factor = models.TextField()
     modality = models.TextField()
+    treatmentdbid = models.IntegerField(primary_key=True)
 
     class Meta:
 
@@ -812,3 +830,44 @@ class TrialContact(models.Model):
     # end class Meta
 
 # end class TrialContact
+
+
+class Phenotype(models.Model):
+
+    cropdbid = models.TextField(db_column='cropdbid')
+    observationUnitDbId = models.TextField(db_column='observationunitdbid', primary_key=True)
+    studyDbId = models.TextField(db_column='studydbid')
+    studyName = models.TextField(db_column='studyname')
+    locationDbId = models.TextField(db_column='locationdbid')
+    locationName = models.TextField(db_column='locationname')
+    observationLevel = models.TextField(db_column='observationlevel')
+    observationLevels = models.TextField(db_column='observationlevels')
+    plotNumber = models.TextField(db_column='plotnumber')
+    plantNumber = models.TextField(db_column='plantnumber')
+    blockNumber = models.TextField(db_column='blocknumber')
+    replicate = models.TextField()
+    programName = models.TextField(db_column='programname')
+    germplasmDbId = models.TextField(db_column='germplasmdbid')
+    germplasmName = models.TextField(db_column='germplasmname')
+    x = models.TextField()
+    y = models.TextField()
+    factor = models.TextField()
+    modality = models.TextField()
+    source = models.TextField()
+    observationUnitXrefDbId = models.TextField(db_column='observationunitxrefdbid')
+    observationDbId = models.TextField(db_column='observationdbid')
+    observationVariableDbId = models.TextField(db_column='observationvariabledbid')
+    season = models.TextField()
+    value = models.TextField()
+    observationTimestamp = models.TextField(db_column='observationtimestamp')
+    collector = models.TextField()
+
+
+    class Meta:
+
+        managed = False
+        db_table = 'phenotype'
+
+    # end class Meta
+
+# end class Phenotype
