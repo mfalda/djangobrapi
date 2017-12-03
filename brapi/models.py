@@ -366,6 +366,22 @@ class ObservationVariable(models.Model):
 # end class ObservationVariable
 
 
+class ObservationVariableDatatype(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    observationvariabledatatypedbid = models.IntegerField(db_column='observationvariabledatatypedbid', primary_key=True)
+    data = models.TextField(blank=True, default='')
+
+
+    class Meta:
+
+        ordering = ('observationvariabledatatypedbid',)
+
+        # end class Meta
+
+# end class ObservationVariableDatatype
+
+
 class Ontology(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -672,6 +688,22 @@ class StudyDataLink(models.Model):
     # end class Meta
 
 # end class StudyDataLink
+
+
+class StudyObservationLevel(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    studyobservationleveldbid = models.IntegerField(primary_key=True)
+    data = models.TextField(blank=True, default='')
+
+
+    class Meta:
+
+        ordering = ('studyobservationleveldbid',)
+
+    # end class Meta
+
+# end class StudyObservationLevel
 
 
 class StudySeason(models.Model):

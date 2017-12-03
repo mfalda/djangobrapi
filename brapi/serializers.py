@@ -354,6 +354,18 @@ class ObservationVariableSerializer(ExtendedSerializer):
 # end class ObservationVariableSerializer
 
 
+class ObservationVariableDatatypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = ObservationVariableDatatype
+        fields = ['data']
+
+    # end class Meta
+
+# end class ObservationVariableDatatypeSerializer
+
+
 class MethodSerializer(ExtendedSerializer):
 
     observationVariables = ObservationVariableSerializer(many=True, read_only=True)
@@ -421,6 +433,18 @@ class ScaleSerializer(ExtendedSerializer):
     # end class Meta
 
 # end class ScaleSerializer
+
+
+class StudyObservationLevelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = StudyObservationLevel
+        fields = ['data']
+
+    # end class Meta
+
+# end class StudyObservationLevelSerializer
 
 
 class StudyAdditionalInfoSerializer(serializers.ModelSerializer):
