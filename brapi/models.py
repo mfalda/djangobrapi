@@ -346,52 +346,6 @@ class Observation(models.Model):
 # end class Observation
 
 
-class ObservationUnit(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studydbid = models.ForeignKey('Study', models.DO_NOTHING, db_column='studydbid')
-    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
-    observationunitdbid = models.TextField(primary_key=True)
-    name = models.TextField()
-    observationlevel = models.TextField(blank=True, null=True)
-    observationlevels = models.TextField(blank=True, null=True)
-    entrynumber = models.TextField(blank=True, null=True)
-    entrytype = models.TextField(blank=True, null=True)
-    plotnumber = models.TextField(blank=True, null=True)
-    blocknumber = models.TextField(blank=True, null=True)
-    plantnumber = models.TextField(blank=True, null=True)
-    x = models.TextField(blank=True, null=True)
-    y = models.TextField(blank=True, null=True)
-    replicate = models.TextField(blank=True, null=True)
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'observation_unit'
-
-    # end class Meta
-
-# end class ObservationUnit
-
-
-class ObservationUnitXref(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
-    source = models.TextField()
-    identifier = models.TextField()
-    observationunitxrefdbid = models.TextField(primary_key=True)
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'observation_unit_xref'
-
-    # end class Meta
-
-# end class ObservationUnitXref
-
-
 class ObservationVariable(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -463,6 +417,54 @@ class Program(models.Model):
     # end class Meta
 
 # end class Program
+
+
+class ObservationUnit(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    studydbid = models.ForeignKey('Study', models.DO_NOTHING, db_column='studydbid')
+    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
+    observationunitdbid = models.TextField(primary_key=True)
+    name = models.TextField()
+    observationlevel = models.TextField(blank=True, null=True)
+    observationlevels = models.TextField(blank=True, null=True)
+    entrynumber = models.TextField(blank=True, null=True)
+    entrytype = models.TextField(blank=True, null=True)
+    plotnumber = models.TextField(blank=True, null=True)
+    blocknumber = models.TextField(blank=True, null=True)
+    plantnumber = models.TextField(blank=True, null=True)
+    x = models.TextField(blank=True, null=True)
+    y = models.TextField(blank=True, null=True)
+    replicate = models.TextField(blank=True, null=True)
+    programDbId = models.ForeignKey(Program, models.DO_NOTHING, db_column='programdbid')
+
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'observation_unit'
+
+    # end class Meta
+
+# end class ObservationUnit
+
+
+class ObservationUnitXref(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
+    source = models.TextField()
+    identifier = models.TextField()
+    observationunitxrefdbid = models.TextField(primary_key=True)
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'observation_unit_xref'
+
+    # end class Meta
+
+# end class ObservationUnitXref
 
 
 class Scale(models.Model):

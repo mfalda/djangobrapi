@@ -5071,7 +5071,7 @@
       "cropdbid": null,
       "name": "testDs1",
       "description": "a test dataset\n",
-      "lastUpdated": "2017-06-12T00:00:00",
+      "lastUpdated": "2017-06-12",
       "studyDbId": "1001"
     }
   },
@@ -5082,7 +5082,7 @@
       "cropdbid": null,
       "name": "testDs2",
       "description": "a second test dataset",
-      "lastUpdated": "2017-06-12T00:00:00",
+      "lastUpdated": "2017-06-12",
       "studyDbId": "1002"
     }
   },
@@ -5412,346 +5412,6 @@
     }
   },
   {
-    "model": "brapi.observationunit",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1001",
-      "germplasmdbid": "1",
-      "name": "Plot 1",
-      "observationlevel": "plot",
-      "observationlevels": "block:1;plot:1",
-      "entrynumber": "1",
-      "entrytype": "test",
-      "plotnumber": "1",
-      "blocknumber": "1",
-      "plantnumber": null,
-      "x": "1",
-      "y": "1",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "10",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1003",
-      "germplasmdbid": "4",
-      "name": "Plant 5",
-      "observationlevel": "plant",
-      "observationlevels": "block:101;plot:5;plant:5",
-      "entrynumber": "1",
-      "entrytype": "test",
-      "plotnumber": "5",
-      "blocknumber": "101",
-      "plantnumber": "5",
-      "x": "1",
-      "y": "1",
-      "replicate": "1"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "11",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1003",
-      "germplasmdbid": "2",
-      "name": "Plot 6",
-      "observationlevel": "plot",
-      "observationlevels": "block:101;plot:6",
-      "entrynumber": "1",
-      "entrytype": "test",
-      "plotnumber": "6",
-      "blocknumber": "101",
-      "plantnumber": null,
-      "x": "1",
-      "y": "1",
-      "replicate": "1"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1001",
-      "germplasmdbid": "1",
-      "name": "Plant 1",
-      "observationlevel": "plant",
-      "observationlevels": "block:1;plot:1;plant:1",
-      "entrynumber": "2",
-      "entrytype": "test",
-      "plotnumber": "1",
-      "blocknumber": "1",
-      "plantnumber": "1",
-      "x": "1",
-      "y": "1",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1001",
-      "germplasmdbid": "2",
-      "name": "Plot 2",
-      "observationlevel": "plot",
-      "observationlevels": "block:1;plot:2",
-      "entrynumber": "3",
-      "entrytype": "test",
-      "plotnumber": "2",
-      "blocknumber": "1",
-      "plantnumber": null,
-      "x": "1",
-      "y": "2",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1001",
-      "germplasmdbid": "2",
-      "name": "Plant 2",
-      "observationlevel": "plant",
-      "observationlevels": "block:1;plot:2;plant:2",
-      "entrynumber": "4",
-      "entrytype": "test",
-      "plotnumber": "2",
-      "blocknumber": "1",
-      "plantnumber": "2",
-      "x": "1",
-      "y": "2",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "5",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1002",
-      "germplasmdbid": "1",
-      "name": "Plot 3",
-      "observationlevel": "plot",
-      "observationlevels": "block:1;plot:3\u00a0",
-      "entrynumber": "5",
-      "entrytype": "test",
-      "plotnumber": "3",
-      "blocknumber": "1",
-      "plantnumber": null,
-      "x": "1",
-      "y": "1",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "6",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1002",
-      "germplasmdbid": "1",
-      "name": "Plant 3",
-      "observationlevel": "plant",
-      "observationlevels": "block:1;plot:3;plant:3",
-      "entrynumber": "6",
-      "entrytype": "test",
-      "plotnumber": "3",
-      "blocknumber": "1",
-      "plantnumber": "3",
-      "x": "1",
-      "y": "1",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "7",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1002",
-      "germplasmdbid": "3",
-      "name": "Plot 4",
-      "observationlevel": "plot",
-      "observationlevels": "block:1;plot:4",
-      "entrynumber": "7",
-      "entrytype": "test",
-      "plotnumber": "4",
-      "blocknumber": "1",
-      "plantnumber": null,
-      "x": "1",
-      "y": "2",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "8",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1002",
-      "germplasmdbid": "3",
-      "name": "Plant 4",
-      "observationlevel": "plant",
-      "observationlevels": "block:1;plot:4;plant:4",
-      "entrynumber": "8",
-      "entrytype": "test",
-      "plotnumber": "4",
-      "blocknumber": "1",
-      "plantnumber": "4",
-      "x": "1",
-      "y": "2",
-      "replicate": "0"
-    }
-  },
-  {
-    "model": "brapi.observationunit",
-    "pk": "9",
-    "fields": {
-      "cropdbid": "1",
-      "studydbid": "1003",
-      "germplasmdbid": "4",
-      "name": "Plot 5",
-      "observationlevel": "plot",
-      "observationlevels": "block:101;plot:5",
-      "entrynumber": "1",
-      "entrytype": "check",
-      "plotnumber": "5",
-      "blocknumber": "101",
-      "plantnumber": null,
-      "x": "1",
-      "y": "1",
-      "replicate": "1"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 1,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "1",
-      "source": "ebi.biosample",
-      "identifier": "SAMEA179865230"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 2,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "1",
-      "source": "gnpis.lot",
-      "identifier": "INRA:CoeSt6_SMH03"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 3,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "1",
-      "source": "kernelDB",
-      "identifier": "239865"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 4,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "2",
-      "source": "ebi.biosample",
-      "identifier": "SAMEA179865815"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 5,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "2",
-      "source": "gnpis.lot",
-      "identifier": "INRA:CoeSt6_SMH13"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 6,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "2",
-      "source": "kernelDB",
-      "identifier": "239167"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 7,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "3",
-      "source": "ebi.biosample",
-      "identifier": "SAMEA179865682"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 8,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "3",
-      "source": "gnpis.lot",
-      "identifier": "INRA:CoeSt6_SMH51"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 9,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "3",
-      "source": "kernelDB",
-      "identifier": "239146"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 10,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "4",
-      "source": "ebi.biosample",
-      "identifier": "SAMEA179865891"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 11,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "4",
-      "source": "gnpis.lot",
-      "identifier": "INRA:CoeSt6_SMH89"
-    }
-  },
-  {
-    "model": "brapi.observationunitxref",
-    "pk": 12,
-    "fields": {
-      "cropdbid": "1",
-      "observationunitdbid": "4",
-      "source": "kernelDB",
-      "identifier": "239612"
-    }
-  },
-  {
     "model": "brapi.observationvariable",
     "pk": "MO_123:100002",
     "fields": {
@@ -5893,6 +5553,357 @@
       "abbreviation": "A. Test",
       "objective": "Demo",
       "leadperson": "Program 6"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "1",
+      "name": "Plot 1",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:1",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "1",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "0",
+      "programDbId": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "4",
+      "name": "Plant 5",
+      "observationlevel": "plant",
+      "observationlevels": "block:101;plot:5;plant:5",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "5",
+      "blocknumber": "101",
+      "plantnumber": "5",
+      "x": "1",
+      "y": "1",
+      "replicate": "1",
+      "programDbId": "2"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "2",
+      "name": "Plot 6",
+      "observationlevel": "plot",
+      "observationlevels": "block:101;plot:6",
+      "entrynumber": "1",
+      "entrytype": "test",
+      "plotnumber": "6",
+      "blocknumber": "101",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "1",
+      "programDbId": "3"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "1",
+      "name": "Plant 1",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:1;plant:1",
+      "entrynumber": "2",
+      "entrytype": "test",
+      "plotnumber": "1",
+      "blocknumber": "1",
+      "plantnumber": "1",
+      "x": "1",
+      "y": "1",
+      "replicate": "0",
+      "programDbId": "4"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "2",
+      "name": "Plot 2",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:2",
+      "entrynumber": "3",
+      "entrytype": "test",
+      "plotnumber": "2",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "2",
+      "replicate": "0",
+      "programDbId": "4"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1001",
+      "germplasmdbid": "2",
+      "name": "Plant 2",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:2;plant:2",
+      "entrynumber": "4",
+      "entrytype": "test",
+      "plotnumber": "2",
+      "blocknumber": "1",
+      "plantnumber": "2",
+      "x": "1",
+      "y": "2",
+      "replicate": "0",
+      "programDbId": "5"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "1",
+      "name": "Plot 3",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:3\u00a0",
+      "entrynumber": "5",
+      "entrytype": "test",
+      "plotnumber": "3",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "0",
+      "programDbId": "6"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "1",
+      "name": "Plant 3",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:3;plant:3",
+      "entrynumber": "6",
+      "entrytype": "test",
+      "plotnumber": "3",
+      "blocknumber": "1",
+      "plantnumber": "3",
+      "x": "1",
+      "y": "1",
+      "replicate": "0",
+      "programDbId": "5"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "3",
+      "name": "Plot 4",
+      "observationlevel": "plot",
+      "observationlevels": "block:1;plot:4",
+      "entrynumber": "7",
+      "entrytype": "test",
+      "plotnumber": "4",
+      "blocknumber": "1",
+      "plantnumber": null,
+      "x": "1",
+      "y": "2",
+      "replicate": "0",
+      "programDbId": "2"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1002",
+      "germplasmdbid": "3",
+      "name": "Plant 4",
+      "observationlevel": "plant",
+      "observationlevels": "block:1;plot:4;plant:4",
+      "entrynumber": "8",
+      "entrytype": "test",
+      "plotnumber": "4",
+      "blocknumber": "1",
+      "plantnumber": "4",
+      "x": "1",
+      "y": "2",
+      "replicate": "0",
+      "programDbId": "6"
+    }
+  },
+  {
+    "model": "brapi.observationunit",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "studydbid": "1003",
+      "germplasmdbid": "4",
+      "name": "Plot 5",
+      "observationlevel": "plot",
+      "observationlevels": "block:101;plot:5",
+      "entrynumber": "1",
+      "entrytype": "check",
+      "plotnumber": "5",
+      "blocknumber": "101",
+      "plantnumber": null,
+      "x": "1",
+      "y": "1",
+      "replicate": "1",
+      "programDbId": "1"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865230"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 2,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH03"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 3,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "source": "kernelDB",
+      "identifier": "239865"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 4,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865815"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 5,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH13"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 6,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "source": "kernelDB",
+      "identifier": "239167"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 7,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865682"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 8,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH51"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 9,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "3",
+      "source": "kernelDB",
+      "identifier": "239146"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 10,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "ebi.biosample",
+      "identifier": "SAMEA179865891"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 11,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "gnpis.lot",
+      "identifier": "INRA:CoeSt6_SMH89"
+    }
+  },
+  {
+    "model": "brapi.observationunitxref",
+    "pk": 12,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "4",
+      "source": "kernelDB",
+      "identifier": "239612"
     }
   },
   {
@@ -7365,774 +7376,6 @@
       "cropdbid": "1",
       "trialdbid": "103",
       "contactdbid": "2"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:1",
-      "plotNumber": "1",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "Wheat Resistance Program",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 1,
-      "observationDbId": "1",
-      "observationVariableDbId": "MO_123:100002",
-      "season": "2013",
-      "value": "1.2",
-      "observationTimestamp": "2013-06-14T22:03:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:1",
-      "plotNumber": "1",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "Wheat Resistance Program",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 1,
-      "observationDbId": "2",
-      "observationVariableDbId": "MO_123:100006",
-      "season": "2013",
-      "value": "4.5",
-      "observationTimestamp": "2013-06-14T22:04:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:1",
-      "plotNumber": "1",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "Wheat Resistance Program",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 2,
-      "observationDbId": "1",
-      "observationVariableDbId": "MO_123:100002",
-      "season": "2013",
-      "value": "1.2",
-      "observationTimestamp": "2013-06-14T22:03:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:1",
-      "plotNumber": "1",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "Wheat Resistance Program",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 2,
-      "observationDbId": "2",
-      "observationVariableDbId": "MO_123:100006",
-      "season": "2013",
-      "value": "4.5",
-      "observationTimestamp": "2013-06-14T22:04:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:1",
-      "plotNumber": "1",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "Wheat Resistance Program",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 3,
-      "observationDbId": "1",
-      "observationVariableDbId": "MO_123:100002",
-      "season": "2013",
-      "value": "1.2",
-      "observationTimestamp": "2013-06-14T22:03:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:1",
-      "plotNumber": "1",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "Wheat Resistance Program",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 3,
-      "observationDbId": "2",
-      "observationVariableDbId": "MO_123:100006",
-      "season": "2013",
-      "value": "4.5",
-      "observationTimestamp": "2013-06-14T22:04:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:1;plant:1",
-      "plotNumber": "1",
-      "plantNumber": "1",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 4,
-      "observationDbId": "3",
-      "observationVariableDbId": "MO_123:100002",
-      "season": "2013",
-      "value": "1.1",
-      "observationTimestamp": "2013-06-14T22:05:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:1;plant:1",
-      "plotNumber": "1",
-      "plantNumber": "1",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 4,
-      "observationDbId": "4",
-      "observationVariableDbId": "MO_123:100006",
-      "season": "2013",
-      "value": "5.1",
-      "observationTimestamp": "2013-06-14T22:06:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:1;plant:1",
-      "plotNumber": "1",
-      "plantNumber": "1",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 5,
-      "observationDbId": "3",
-      "observationVariableDbId": "MO_123:100002",
-      "season": "2013",
-      "value": "1.1",
-      "observationTimestamp": "2013-06-14T22:05:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:1;plant:1",
-      "plotNumber": "1",
-      "plantNumber": "1",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 5,
-      "observationDbId": "4",
-      "observationVariableDbId": "MO_123:100006",
-      "season": "2013",
-      "value": "5.1",
-      "observationTimestamp": "2013-06-14T22:06:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:1;plant:1",
-      "plotNumber": "1",
-      "plantNumber": "1",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 6,
-      "observationDbId": "3",
-      "observationVariableDbId": "MO_123:100002",
-      "season": "2013",
-      "value": "1.1",
-      "observationTimestamp": "2013-06-14T22:05:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:1;plant:1",
-      "plotNumber": "1",
-      "plantNumber": "1",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "1",
-      "germplasmName": "Name001",
-      "x": "1",
-      "y": "1",
-      "factor": "water regimen",
-      "modality": "deficit",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 6,
-      "observationDbId": "4",
-      "observationVariableDbId": "MO_123:100006",
-      "season": "2013",
-      "value": "5.1",
-      "observationTimestamp": "2013-06-14T22:06:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:2",
-      "plotNumber": "2",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 7,
-      "observationDbId": "5",
-      "observationVariableDbId": "MO_123:100003",
-      "season": "winter 2013",
-      "value": "2.1",
-      "observationTimestamp": "2013-06-14T22:07:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:2",
-      "plotNumber": "2",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 7,
-      "observationDbId": "6",
-      "observationVariableDbId": "MO_123:100004",
-      "season": "winter 2013",
-      "value": "dark blue",
-      "observationTimestamp": "2013-06-14T22:08:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:2",
-      "plotNumber": "2",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 8,
-      "observationDbId": "5",
-      "observationVariableDbId": "MO_123:100003",
-      "season": "winter 2013",
-      "value": "2.1",
-      "observationTimestamp": "2013-06-14T22:07:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:2",
-      "plotNumber": "2",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 8,
-      "observationDbId": "6",
-      "observationVariableDbId": "MO_123:100004",
-      "season": "winter 2013",
-      "value": "dark blue",
-      "observationTimestamp": "2013-06-14T22:08:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:2",
-      "plotNumber": "2",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 9,
-      "observationDbId": "5",
-      "observationVariableDbId": "MO_123:100003",
-      "season": "winter 2013",
-      "value": "2.1",
-      "observationTimestamp": "2013-06-14T22:07:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plot",
-      "observationLevels": "block:1;plot:2",
-      "plotNumber": "2",
-      "plantNumber": null,
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P4",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 9,
-      "observationDbId": "6",
-      "observationVariableDbId": "MO_123:100004",
-      "season": "winter 2013",
-      "value": "dark blue",
-      "observationTimestamp": "2013-06-14T22:08:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:2;plant:2",
-      "plotNumber": "2",
-      "plantNumber": "2",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P5",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 10,
-      "observationDbId": "7",
-      "observationVariableDbId": "MO_123:100003",
-      "season": "fall 2013",
-      "value": "1.8",
-      "observationTimestamp": "2013-06-14T22:09:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:2;plant:2",
-      "plotNumber": "2",
-      "plantNumber": "2",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P5",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "ebi.biosample",
-      "observationUnitXrefDbId": 10,
-      "observationDbId": "8",
-      "observationVariableDbId": "MO_123:100004",
-      "season": "fall 2013",
-      "value": "blue",
-      "observationTimestamp": "2013-06-14T22:10:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:2;plant:2",
-      "plotNumber": "2",
-      "plantNumber": "2",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P5",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 11,
-      "observationDbId": "7",
-      "observationVariableDbId": "MO_123:100003",
-      "season": "fall 2013",
-      "value": "1.8",
-      "observationTimestamp": "2013-06-14T22:09:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:2;plant:2",
-      "plotNumber": "2",
-      "plantNumber": "2",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P5",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "gnpis.lot",
-      "observationUnitXrefDbId": 11,
-      "observationDbId": "8",
-      "observationVariableDbId": "MO_123:100004",
-      "season": "fall 2013",
-      "value": "blue",
-      "observationTimestamp": "2013-06-14T22:10:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:2;plant:2",
-      "plotNumber": "2",
-      "plantNumber": "2",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P5",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 12,
-      "observationDbId": "7",
-      "observationVariableDbId": "MO_123:100003",
-      "season": "fall 2013",
-      "value": "1.8",
-      "observationTimestamp": "2013-06-14T22:09:51Z",
-      "collector": "A. Technician"
-    }
-  },
-  {
-    "model": "brapi.phenotype",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "studyDbId": "1001",
-      "studyName": "Study 1",
-      "locationDbId": "1",
-      "locationName": "Location 1",
-      "observationLevel": "plant",
-      "observationLevels": "block:1;plot:2;plant:2",
-      "plotNumber": "2",
-      "plantNumber": "2",
-      "blockNumber": "1",
-      "replicate": "0",
-      "programName": "P5",
-      "germplasmDbId": "2",
-      "germplasmName": "Name002",
-      "x": "1",
-      "y": "2",
-      "factor": "water regimen",
-      "modality": "normal",
-      "source": "kernelDB",
-      "observationUnitXrefDbId": 12,
-      "observationDbId": "8",
-      "observationVariableDbId": "MO_123:100004",
-      "season": "fall 2013",
-      "value": "blue",
-      "observationTimestamp": "2013-06-14T22:10:51Z",
-      "collector": "A. Technician"
     }
   }
 ]
