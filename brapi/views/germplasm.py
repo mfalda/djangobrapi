@@ -1,8 +1,9 @@
 from rest_framework.views import APIView
 import logging
 
-from brapi.models.germplasm import (Germplasm, GPPedigree,
-                                    GermplasmSerializer, GPPedigreeSerializer)
+from brapi.models import Germplasm
+from brapi.serializers import GermplasmSerializer
+
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 
@@ -26,30 +27,30 @@ class GermplasmView(APIView):
 # end class GermplasmView
 
 
-class GPPedigreeView(APIView):
-
-    serializer_class = GPPedigreeSerializer
-
-    def get(self, request, format=None, *args, **kwargs):
-
-        queryset = GPPedigree.objects.all()
-
-        germplasmDbId = self.kwargs.get('germplasmDbId', None)
-        if germplasmDbId is not None:
-            queryset = queryset.filter(germplasmDbId=germplasmDbId)
-        # end if        
-
-        notation = self.request.query_params.get('notation', None)
-
-        if notation is not None:
-            raise Exception('Deal with "notation" parameter')
-        # end if
-
-        return paginate(queryset, request, GPPedigreeSerializer)
-
-    # end def get
-
-# end class GPPedigreeView
+# class GPPedigreeView(APIView):
+#
+#     serializer_class = GPPedigreeSerializer
+#
+#     def get(self, request, format=None, *args, **kwargs):
+#
+#         queryset = GPPedigree.objects.all()
+#
+#         germplasmDbId = self.kwargs.get('germplasmDbId', None)
+#         if germplasmDbId is not None:
+#             queryset = queryset.filter(germplasmDbId=germplasmDbId)
+#         # end if
+#
+#         notation = self.request.query_params.get('notation', None)
+#
+#         if notation is not None:
+#             raise Exception('Deal with "notation" parameter')
+#         # end if
+#
+#         return paginate(queryset, request, GPPedigreeSerializer)
+#
+#     # end def get
+#
+# # end class GPPedigreeView
 
 
 class GermplasmSearchView(APIView):
@@ -59,7 +60,7 @@ class GermplasmSearchView(APIView):
         queryset = Germplasm.objects.all()
 
         logger = logging.getLogger(__name__)
-        logger.warn("Searching with parameters %s" % self.request.query_params)
+        logger.warning("Searching with parameters %s" % self.request.query_params)
 
         queryset = search_get_qparams(self, queryset, [('germplasmName', 'germplasmName'), 
             ('germplasmDbId', 'germplasmDbId'), ('germplasmPUI', 'germplasmPUI')])
@@ -88,7 +89,7 @@ class GermplasmSearchView(APIView):
         params = self.request.data
 
         logger = logging.getLogger(__name__)
-        logger.warn("Parameters: %s" % params)
+        logger.warning("Parameters: %s" % params)
 
         queryset = search_post_params_in(self, queryset, [('germplasmNames', 'germplasmName'), 
                 ('germplasmDbId', 'germplasmDbId'), ('germplasmPUIs', 'germplasmPUI'), 

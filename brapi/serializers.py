@@ -2,6 +2,7 @@ from rest_framework import serializers
 
 from brapi.models import *
 from brapi.aux_types import StringListField
+from brapi.aux_types import StringListField, IntListField
 
 
 class ExtendedSerializer(serializers.ModelSerializer):
@@ -85,11 +86,23 @@ class DonorSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Donor
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'donordbid', 'germplasmdbid']
 
     # end class Meta
 
 # end class DonorSerializer
+
+
+# class GPPedigreeSerializer(serializers.ModelSerializer):
+#
+#     class Meta:
+#
+#         model = GPPedigree
+#         fields = ['germplasmDbId', 'defaultDisplayName', 'pedigree', 'parent1Id', 'parent2Id']
+#
+#         # end class Meta
+#
+# # end class GPPedigreeSerializer
 
 
 class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
@@ -506,7 +519,7 @@ class SeasonSerializer(ExtendedSerializer):
 # end class SeasonSerializer
 
 
-class TaxonXrefGermplasmSerializer(serializers.ModelSerializer):
+class TaxonXrefGermplasmSerializer(ExtendedSerializer):
 
     class Meta:
 
@@ -647,22 +660,58 @@ class LocationSerializer(ExtendedSerializer):
 
 class GermplasmSerializer(ExtendedSerializer):
 
+    synonyms = StringListField()
+    typeOfGermplasmStorageCode = IntListField()
     donors = DonorSerializer(many=True, read_only=True)
-    attributes = GermplasmAttributeValueSerializer(many=True, read_only=True)
-    observationUnits = ObservationUnitSerializer(many=True, read_only=True)
-    pedigrees = PedigreeSerializer(many=True, read_only=True)
-    parent1id = PedigreeSerializer(many=True, read_only=True)
-    parent2id = PedigreeSerializer(many=True, read_only=True)
-    taxonXrefGermplasm = TaxonXrefGermplasmSerializer(many=True, read_only=True)
+    taxonIds = serializers.SerializerMethodField()
+    donors = DonorSerializer(many=True, read_only=True)
+    #pedigree = PedigreeSerializer(many=True, read_only=True)
+
 
     class Meta:
 
         model = Germplasm
         exclude = ['cropdbid']
-        extra_fields = ['donors', 'attributes', 'observationUnits', 'pedigrees',
-                        'parent1id', 'parent2id', 'taxonXrefGermplasm']
+        extra_fields = ['synonyms', 'typeOfGermplasmStorageCode', 'donors',
+                        'acquisitionDate', 'taxonIds']
 
     # end class Meta
+
+
+    def get_taxonIds(self, obj):
+
+        t = Germplasm.objects.get(germplasmDbId=obj.germplasmDbId)
+        t1 = t.taxonIDs.values_list('taxondbid')[0][0]
+        t2 = TaxonXref.objects.get(taxondbid=t1)
+        return t2.objects.value_list('source')
+
+    # end def get_taxonIds
+
+
+    def to_representation(self, instance: Germplasm):
+
+        instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
+        instance.typeOfGermplasmStorageCode = [int(s) for s in instance.typeOfGermplasmStorageCode.split('; ')]
+
+        return super(GermplasmSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(GermplasmSerializer, self).to_internal_value(data)
+        if ret['typeOfGermplasmStorageCode']:
+            ret['typeOfGermplasmStorageCode'] = '; '.join(str(s) for s in ret['typeOfGermplasmStorageCode'])
+        # end if
+
+        if ret['synonyms']:
+            ret['synonyms'] = '; '.join(str(s) for s in ret['synonyms'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
 
 # end class GermplasmSerializer
 

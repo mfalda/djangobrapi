@@ -69,7 +69,7 @@ class Crop(models.Model):
 class Donor(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmdbid = models.ForeignKey('Germplasm', models.DO_NOTHING, db_column='germplasmdbid', blank=True, null=True)
+    germplasmdbid = models.ForeignKey('Germplasm', models.DO_NOTHING, db_column='germplasmdbid', related_name='donors', blank=True, null=True)
     donoraccessionnumber = models.TextField(blank=True, null=True)
     donorinstitutecode = models.TextField(blank=True, null=True)
     donorgermplasmpui = models.TextField(blank=True, null=True)
@@ -88,25 +88,25 @@ class Donor(models.Model):
 class Germplasm(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmdbid = models.TextField(primary_key=True)
-    germplasmpui = models.TextField(blank=True, null=True)
-    germplasmname = models.TextField()
-    defaultdisplayname = models.TextField()
-    accessionnumber = models.TextField(blank=True, null=True)
+    germplasmDbId = models.TextField(db_column='germplasmdbid', primary_key=True)
+    germplasmPUI = models.TextField(db_column='germplasmpui', blank=True, null=True)
+    germplasmName = models.TextField(db_column='germplasmname',)
+    defaultDisplayName = models.TextField(db_column='defaultdisplayname')
+    accessionNumber = models.TextField(db_column='accessionnumber', blank=True, null=True)
     pedigree = models.TextField(blank=True, null=True)
-    seedsource = models.TextField(blank=True, null=True)
+    seedSource = models.TextField(db_column='seedsource', blank=True, null=True)
     synonyms = models.TextField(blank=True, null=True)
-    institutecode = models.TextField()
-    institutename = models.TextField(blank=True, null=True)
-    biologicalstatusofaccessioncode = models.TextField(blank=True, null=True)
-    countryoforigincode = models.TextField(blank=True, null=True)
-    typeofgermplasmstoragecode = models.TextField(blank=True, null=True)
+    instituteCode = models.TextField(db_column='institutecode')
+    instituteName = models.TextField(db_column='institutename', blank=True, null=True)
+    biologicalStatusOfAccessionCode = models.TextField(db_column='biologicalstatusofaccessioncode', blank=True, null=True)
+    countryOfOriginCode = models.TextField(db_column='countryoforigincode', blank=True, null=True)
+    typeOfGermplasmStorageCode = models.TextField(db_column='typeofgermplasmstoragecode', blank=True, null=True)
     genus = models.TextField(blank=True, null=True)
     species = models.TextField(blank=True, null=True)
-    speciesauthority = models.TextField(blank=True, null=True)
-    subtaxa = models.TextField(blank=True, null=True)
-    subtaxaauthority = models.TextField(blank=True, null=True)
-    acquisitiondate = models.TextField(blank=True, null=True)
+    speciesAuthority = models.TextField(db_column='speciesauthority', blank=True, null=True)
+    subTaxa = models.TextField(db_column='subtaxa', blank=True, null=True)
+    subtaxaAuthority = models.TextField(db_column='subtaxaauthority', blank=True, null=True)
+    acquisitionDate = models.DateField(db_column='acquisitiondate', blank=True, null=True)
 
     class Meta:
 
@@ -376,6 +376,7 @@ class ObservationVariableDatatype(models.Model):
     class Meta:
 
         ordering = ('observationvariabledatatypedbid',)
+        db_table = 'observation_variable_data'
 
         # end class Meta
 
@@ -544,7 +545,7 @@ class Study(models.Model):
 class MarkerProfile(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmdbid', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmdbid')
+    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmdbid', related_name='mprofiles-details+', on_delete=models.CASCADE, default='')
     markerprofileDbId = models.IntegerField(db_column='markerprofiledbid', primary_key=True)
     uniqueDisplayName = models.CharField(db_column='uniquedisplayname', max_length=100, blank=True, default='')
     sampleDbId = models.IntegerField(db_column='sampledbid')
@@ -759,8 +760,8 @@ class TaxonXref(models.Model):
 class TaxonXrefGermplasm(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    taxondbid = models.ForeignKey(TaxonXref, models.DO_NOTHING, db_column='taxondbid', blank=True, null=True)
-    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', blank=True, null=True)
+    taxondbid = models.ForeignKey(TaxonXref, models.DO_NOTHING, db_column='taxondbid', related_name='taxa', blank=True, null=True)
+    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='taxonIDs', blank=True, null=True)
     taxonxrefgermplasmdbid = models.IntegerField(primary_key=True)
 
     class Meta:
