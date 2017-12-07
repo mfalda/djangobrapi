@@ -428,11 +428,12 @@ class Pedigree(models.Model):
 class Program(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    programdbid = models.TextField(primary_key=True)
+    programDbId = models.TextField(db_column='programdbid', primary_key=True)
     name = models.TextField()
     abbreviation = models.TextField(blank=True, null=True)
     objective = models.TextField(blank=True, null=True)
-    leadperson = models.TextField(blank=True, null=True)
+    leadPerson = models.TextField(db_column='leadperson', blank=True, null=True)
+
 
     class Meta:
 

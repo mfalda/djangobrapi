@@ -23,11 +23,9 @@ from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
                                         MarkerProfilesView, MarkerProfilesDataView)
-from brapi.views.obs_variables import ObservationVariableDatatypeViewSet, OntologiesViewSet
-
-#                                       ObsVariablesListView, ObsVariablesView,
-#                                       VSearchView)
-from brapi.views.obs_variables import ObservationVariableDatatypeViewSet
+#from brapi.views.obs_variables import VSearchView
+from brapi.views.obs_variables import (ObservationVariablesListView, ObservationVariableView, OntologiesViewSet,
+                                       ObservationVariableDatatypeViewSet)
 #from brapi.views.studies import (StudyPlotView, StudyObsUnitsView,
 #                                 StudyObsUnitsDetailsView, StudyDetailsView,
 #                                 StudyGermplasmDetailsView, StudyObsUnitsTableView,
@@ -102,8 +100,8 @@ urlpatterns = [
     url(r'brapi/v1/trials/(?P<trialDbId>[0-9]+)/?$', TrialDetailsView.as_view()),
     url(r'brapi/v1/trials', TrialView.as_view()),
     
-#    url(r'brapi/v1/variables/(?P<observationVariableDbId>.+)/$', ObsVariablesView.as_view()),
-#    url(r'brapi/v1/variables/?$', ObsVariablesListView.as_view()),
+    url(r'brapi/v1/variables/(?P<observationVariableDbId>.+)/$', ObservationVariableView.as_view()),
+    url(r'brapi/v1/variables/?$', ObservationVariablesListView.as_view()),
 #    url(r'brapi/v1/variables-search/?$', VSearchView.as_view()),
 
     url(r'brapi/v1/traits/(?P<traitDbId>[0-9]+)/?$', TraitDetailsView.as_view()),

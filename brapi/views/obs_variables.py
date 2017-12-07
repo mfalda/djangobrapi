@@ -28,7 +28,7 @@ class OntologiesViewSet(viewsets.ReadOnlyModelViewSet):
 # end class OntologiesViewSet
     
     
-class ObsVariablesView(APIView):
+class ObservationVariableView(APIView):
     
     serializer_class = ObservationVariableSerializer
 
@@ -46,10 +46,10 @@ class ObsVariablesView(APIView):
 
     # end def get_queryset
 
-# end class ObsVariablesView
+# end class ObservationVariableView
 
 
-class ObsVariablesListView(APIView):
+class ObservationVariablesListView(APIView):
     
     serializer_class = ObservationVariableSerializer
 
@@ -68,7 +68,7 @@ class ObsVariablesListView(APIView):
 
     # end def get
 
-# end class ObsVariablesListView
+# end class ObservationVariablesListView
 
 
 class VSearchView(APIView):
