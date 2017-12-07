@@ -1,4 +1,5 @@
 from rest_framework import serializers
+import logging
 
 from brapi.models import *
 from brapi.aux_types import StringListField
@@ -345,7 +346,7 @@ class ObservationUnitXrefSerializer(ExtendedSerializer):
 
         model = ObservationUnitXref
         exclude = ['cropdbid']
-        extra_fields = ['observations', 'observationUnits']
+        extra_fields = ['observationUnits']
 
     # end class Meta
 
@@ -421,18 +422,6 @@ class PedigreeSerializer(serializers.ModelSerializer):
 # end class PedigreeSerializer
 
 
-class SampleSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Sample
-        exclude = ['cropDbId']
-
-        # end class Meta
-
-# end class SampleSerializer
-
-
 class ScaleSerializer(ExtendedSerializer):
 
     observationVariables = ObservationVariableSerializer(many=True, read_only=True)
@@ -493,30 +482,49 @@ class StudyDataLinkSerializer(serializers.ModelSerializer):
 
 class StudySeasonSerializer(serializers.ModelSerializer):
 
-    class Meta:
-
-        model = StudySeason
-        exclude = ['cropdbid']
-
-    # end class Meta
+    pass
 
 # end class StudySeasonSerializer
 
 
 class SeasonSerializer(ExtendedSerializer):
 
-    observations = ObservationSerializer(many=True, read_only=True)
-    seasons = StudySeasonSerializer(many=True, read_only=True)
+    #observations = ObservationSerializer(many=True, read_only=True)
+    #seasons = StudySeasonSerializer(many=True, read_only=True)
 
     class Meta:
 
         model = Season
         exclude = ['cropdbid']
-        extra_fields = ['observations', 'seasons']
 
-        # end class Meta
+    # end class Meta
 
 # end class SeasonSerializer
+
+
+class SampleSerializer(ExtendedSerializer):
+
+    season = serializers.SerializerMethodField()
+
+
+    class Meta:
+
+        model = Sample
+        exclude = ['cropDbId', 'seasonDbId']
+        extra_fields = ['season']
+
+    # end class Meta
+
+
+    def get_season(self, obj):
+
+        logger = logging.getLogger(__name__)
+        logger.warning("Getting seasonID %s" % obj.seasonDbId_id)
+        return Season.objects.get(pk=obj.seasonDbId_id).season
+
+    # end def get_season
+
+# end class SampleSerializer
 
 
 class TaxonXrefGermplasmSerializer(ExtendedSerializer):
@@ -541,7 +549,7 @@ class TaxonXrefSerializer(ExtendedSerializer):
         exclude = ['cropdbid']
         extra_fields = ['taxonXrefGermplasm']
 
-        # end class Meta
+    # end class Meta
 
 # end class TaxonXrefSerializer
 
@@ -594,7 +602,7 @@ class StudySerializer(ExtendedSerializer):
     observationUnits = ObservationUnitSerializer(many=True, read_only=True)
     contacts = StudyContactSerializer(many=True, read_only=True)
     dataLinks = StudyDataLinkSerializer(many=True, read_only=True)
-    seasons = StudySeasonSerializer(many=True, read_only=True)
+    seasons = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
     class Meta:
@@ -606,6 +614,18 @@ class StudySerializer(ExtendedSerializer):
     # end class Meta
 
 
+    def get_seasons(self, obj):
+
+        logger = logging.getLogger(__name__)
+        sID = obj.studydbid
+        logger.warning("Getting seasons for study %s" % sID)
+        sseasons = Season.objects.filter(seasons1__studyDbId=sID).all()
+        logger.warning("Getting seasons for study %s" % sseasons.seasons1)
+        return sseasons
+
+    # end def get_seasons
+
+
     def get_additionalInfo(self, obj):
 
         return {
@@ -613,20 +633,20 @@ class StudySerializer(ExtendedSerializer):
             for info in StudyAdditionalInfo.objects.all()
         }
 
-        # end def get_addInfo
+    # end def get_addInfo
 
 # end class StudySerializer
 
 
 class StudyTypeSerializer(ExtendedSerializer):
 
-    studies = StudySerializer(many=True, read_only=True)
+    #studies = StudySerializer(many=True, read_only=True)
 
     class Meta:
 
         model = StudyType
         exclude = ['cropdbid']
-        extra_fields = ['studies']
+        #extra_fields = ['studies']
 
     # end class Meta
 
@@ -823,6 +843,9 @@ class ContactSerializer(ExtendedSerializer):
 
 
 class PhenotypeSerializer(serializers.ModelSerializer):
+
+    observationUnitXref = ObservationUnitXrefSerializer(many=True, read_only=True)
+    observations = ObservationSerializer(read_only=True)
 
     class Meta:
 

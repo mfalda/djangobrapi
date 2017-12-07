@@ -29,7 +29,7 @@ if os.getenv('DJANGO_ENV') == 'prod':
     # ...
 else:
     DEBUG = True
-    ALLOWED_HOSTS = []
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
     IS_TESTING = True
 
     LOGGING = {
@@ -37,7 +37,7 @@ else:
         'disable_existing_loggers': False,
         'handlers': {
             'console': {
-                'level': 'INFO',
+                'level': 'DEBUG',
                 'class': 'logging.StreamHandler',
             },
         },

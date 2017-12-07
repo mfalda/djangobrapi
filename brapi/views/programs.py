@@ -41,7 +41,7 @@ class ProgramSearchView(APIView):
         params = self.request.data
 
         logger = logging.getLogger(__name__)
-        logger.warn("Search parameters: %s" % params)
+        logger.warning("Search parameters: %s" % params)
 
         queryset = search_post_params_in(self, queryset, [('programDbId', 'programDbId'), 
             ('name', 'name'), ('abbreviation', 'abbreviation'), 

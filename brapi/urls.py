@@ -23,16 +23,17 @@ from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
                                         MarkerProfilesView, MarkerProfilesDataView)
-#from brapi.views.obs_variables import (DatatypesViewSet, OntologiesViewSet,
+from brapi.views.obs_variables import ObservationVariableDatatypeViewSet, OntologiesViewSet
+
 #                                       ObsVariablesListView, ObsVariablesView,
 #                                       VSearchView)
 from brapi.views.obs_variables import ObservationVariableDatatypeViewSet
-#from brapi.views.studies import (StudyPlotView, SSearchView, StudyObsUnitsView,
+#from brapi.views.studies import (StudyPlotView, StudyObsUnitsView,
 #                                 StudyObsUnitsDetailsView, StudyDetailsView,
 #                                 StudyGermplasmDetailsView, StudyObsUnitsTableView,
-#                                 StudyObsVarsView, StudySeasonsViewSet,
+#                                 StudyObsVarsView, StudySeasonViewSet,
 #                                 StudyTypesViewSet, StudyObsLevelsViewSet)
-from brapi.views.studies import StudyObservationLevelViewSet
+from brapi.views.studies import StudySeasonViewSet, StudySearchView, StudyTypeViewSet, StudyObservationLevelViewSet
 
 
 handler400 = errors.error400
@@ -52,10 +53,10 @@ router.register(r'brapi/v1/programs', ProgramViewSet, 'programs')
 #router.register(r'brapi/v1/attributes/categories', GAListViewSet, 'GA_list')
 #router.register(r'brapi/v1/attributes', GAAttrAvailViewSet, 'GA_attr_avail')
 router.register(r'brapi/v1/variables/datatypes', ObservationVariableDatatypeViewSet, 'datatypes')
-#router.register(r'brapi/v1/ontologies', OntologiesViewSet, 'ontologies')
-#router.register(r'brapi/v1/seasons', StudySeasonsViewSet, 'study_seasons')
+router.register(r'brapi/v1/ontologies', OntologiesViewSet, 'ontologies')
+router.register(r'brapi/v1/seasons', StudySeasonViewSet, 'study_seasons')
 router.register(r'brapi/v1/observationLevels', StudyObservationLevelViewSet, 'study_obs_levels')
-#router.register(r'brapi/v1/studyTypes', StudyTypesViewSet, 'study_types')
+router.register(r'brapi/v1/studyTypes', StudyTypeViewSet, 'study_types')
 router.register(r'brapi/v1/allelematrices', AlleleMatrixViewSet, 'allele_matrix')
 
 # The API URLs are now determined automatically by the router
@@ -108,7 +109,7 @@ urlpatterns = [
     url(r'brapi/v1/traits/(?P<traitDbId>[0-9]+)/?$', TraitDetailsView.as_view()),
     url(r'brapi/v1/traits/?', TraitView.as_view()),
     
-#    url(r'brapi/v1/studies/studies-search/?$', SSearchView.as_view()),
+    url(r'brapi/v1/studies-search/?$', StudySearchView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations$', StudyObsUnitsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObsUnitsDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),

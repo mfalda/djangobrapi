@@ -336,6 +336,7 @@ class Observation(models.Model):
     collector = models.TextField(blank=True, null=True)
     value = models.TextField(blank=True, null=True)
 
+
     class Meta:
 
         managed = settings.IS_TESTING
@@ -376,7 +377,7 @@ class ObservationVariableDatatype(models.Model):
     class Meta:
 
         ordering = ('observationvariabledatatypedbid',)
-        db_table = 'observation_variable_data'
+        db_table = 'observation_variable_datatype'
 
         # end class Meta
 
@@ -386,7 +387,14 @@ class ObservationVariableDatatype(models.Model):
 class Ontology(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    ontologydbid = models.TextField(primary_key=True)
+    ontologyDbId = models.TextField(db_column='ontologydbid', primary_key=True)
+    ontologyName = models.TextField(db_column='ontologyname', blank=True, null=True)
+    authors = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    version = models.TextField(blank=True, null=True)
+    copyright = models.TextField(blank=True, null=True)
+    license = models.TextField(blank=True, null=True)
+
 
     class Meta:
 
@@ -505,6 +513,7 @@ class Season(models.Model):
     seasondbid = models.TextField(primary_key=True)
     year = models.TextField(blank=True, null=True)
     season = models.TextField(blank=True, null=True)
+
 
     class Meta:
 
@@ -632,7 +641,7 @@ class Sample(models.Model):
         managed = settings.IS_TESTING
         db_table = 'sample'
 
-        # end class Meta
+    # end class Meta
 
 # end class Sample
 
@@ -701,6 +710,7 @@ class StudyObservationLevel(models.Model):
     class Meta:
 
         ordering = ('studyobservationleveldbid',)
+        db_table = 'study_observation_level'
 
     # end class Meta
 
@@ -710,8 +720,8 @@ class StudyObservationLevel(models.Model):
 class StudySeason(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid')
-    seasondbid = models.ForeignKey(Season, models.DO_NOTHING, db_column='seasondbid')
+    studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', related_name='seasons')
+    seasonDbId = models.ForeignKey(Season, models.DO_NOTHING, db_column='seasondbid', related_name='seasons1')
     studyseasondbid = models.IntegerField(primary_key=True)
 
     class Meta:
@@ -884,13 +894,13 @@ class Phenotype(models.Model):
     programName = models.TextField(db_column='programname')
     germplasmDbId = models.TextField(db_column='germplasmdbid')
     germplasmName = models.TextField(db_column='germplasmname')
-    x = models.TextField()
-    y = models.TextField()
+    X = models.TextField(db_column='x')
+    Y = models.TextField(db_column='y')
     factor = models.TextField()
     modality = models.TextField()
     source = models.TextField()
-    observationUnitXrefDbId = models.TextField(db_column='observationunitxrefdbid')
-    observationDbId = models.TextField(db_column='observationdbid')
+    observationUnitXref = models.TextField()
+    observations = models.TextField()
     observationVariableDbId = models.TextField(db_column='observationvariabledbid')
     season = models.TextField()
     value = models.TextField()

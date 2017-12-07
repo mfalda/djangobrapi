@@ -1,10 +1,10 @@
 from rest_framework import viewsets
 from rest_framework.views import APIView
 
-from brapi.models import (StudyType, StudySeason, StudyObservationLevel,
+from brapi.models import (StudyType, Season, StudyObservationLevel,
                                 Study)
 from brapi.serializers import (StudySerializer,
-                                StudyTypeSerializer, StudySeasonSerializer, 
+                                StudyTypeSerializer, SeasonSerializer,
                                 StudyObservationLevelSerializer)
 
 #from brapi.models.germplasm import Germplasm, GermplasmSerializer
@@ -33,47 +33,47 @@ from brapi.paginators import BrAPIListPagination
 ## end class StudyObsUnitsView
     
 
-# class SSearchView(APIView):
-#
-#     serializer_class = StudyObsUnitSerializer
-#
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = Study.objects.all()
-#
-#         queryset = search_get_qparams(self, queryset, [('studyType', 'studyType'),
-#             ('seasonDbId', 'seasonDbId'),
-#             ('locationDbId', 'locationDbId'),
-#             ('programDbId', 'programDbId'),
-#             ('germplasmDbId', 'germplasmDbIds'),
-#             ('observationVariableDbId', 'observationVariableDbIds'),
-#             ('active', 'active')])
-#
-#         return paginate(queryset, request, StudySerializer)
-#
-#     # end def get
-#
-#
-#     def post(self, request, format=None, *args, **kwargs):
-#
-#         queryset = Study.objects.all()
-#
-#         queryset = search_post_params_in(self, queryset, [('studyType', 'studyType'),
-#             ('seasonDbId', 'seasonDbId'),
-#             ('locationDbId', 'locationDbId'),
-#             ('programDbId', 'programDbId'),
-#             ('germplasmDbId', 'germplasmDbIds'),
-#             ('observationVariableDbId', 'observationVariableDbIds'),
-#             ('active', 'active')])
-#
-#         return paginate(queryset, request, StudySerializer)
-#
-#     # end def post
-#
-# # end class SSearchView
-#
-#
+class StudySearchView(APIView):
+
+    serializer_class = StudySerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = Study.objects.all()
+
+        queryset = search_get_qparams(self, queryset, [('studyType', 'studyType'),
+            ('seasonDbId', 'seasonDbId'),
+            ('locationDbId', 'locationDbId'),
+            ('programDbId', 'programDbId'),
+            ('germplasmDbId', 'germplasmDbIds'),
+            ('observationVariableDbId', 'observationVariableDbIds'),
+            ('active', 'active')])
+
+        return paginate(queryset, request, StudySerializer)
+
+    # end def get
+
+
+    def post(self, request, format=None, *args, **kwargs):
+
+        queryset = Study.objects.all()
+
+        queryset = search_post_params_in(self, queryset, [('studyType', 'studyType'),
+            ('seasonDbId', 'seasonDbId'),
+            ('locationDbId', 'locationDbId'),
+            ('programDbId', 'programDbId'),
+            ('germplasmDbId', 'germplasmDbIds'),
+            ('observationVariableDbId', 'observationVariableDbIds'),
+            ('active', 'active')])
+
+        return paginate(queryset, request, StudySerializer)
+
+    # end def post
+
+# end class StudySearchView
+
+
 # class StudyObsUnitsView(APIView):
 #
 #     serializer_class = StudyObsUnitSerializer
@@ -107,27 +107,27 @@ from brapi.paginators import BrAPIListPagination
 # # end class StudyObsUnitsDetailsView
 
 
-class StudySeasonsViewSet(viewsets.ReadOnlyModelViewSet):
+class StudySeasonViewSet(viewsets.ReadOnlyModelViewSet):
     
-    serializer_class = StudySeasonSerializer
+    serializer_class = SeasonSerializer
 
     def get_queryset(self):
 
-        queryset = StudySeason.objects.all()
+        queryset = Season.objects.all()
 
         return search_get_qparams(self, queryset, [('year', 'year')])
 
     # end def get_queryset
 
-# end class StudySeasonsViewSet
+# end class StudySeasonViewSet
 
 
-class StudyTypesViewSet(viewsets.ReadOnlyModelViewSet):
+class StudyTypeViewSet(viewsets.ReadOnlyModelViewSet):
     
     queryset = StudyType.objects.all()
     serializer_class = StudyTypeSerializer
 
-# end class StudyTypesViewSet
+# end class StudyTypeViewSet
 
 
 class StudyObservationLevelViewSet(viewsets.ReadOnlyModelViewSet):
