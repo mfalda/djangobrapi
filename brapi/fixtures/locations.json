@@ -3,7 +3,7 @@
     "model": "brapi.location",
     "pk": 1,
     "fields": {
-      "locationDbId": "1",
+      "locationDbId": 1,
       "locationType": "Storage location",
       "name": "Experimental station San Ramon (CIP)",
       "abbreviation": "CIPSRM-1",
@@ -20,7 +20,7 @@
     "model": "brapi.location",
     "pk": 2,
     "fields": {
-      "locationDbId": "2",
+      "locationDbId": 2,
       "locationType": "Breeding location",
       "name": "San Ramon",
       "abbreviation": "CIPSRM-2",
@@ -37,7 +37,7 @@
     "model": "brapi.location",
     "pk": 3,
     "fields": {
-      "locationDbId": "3",
+      "locationDbId": 3,
       "locationType": "Storage location",
       "name": "Experimental station CIP headquarters",
       "abbreviation": "CIPHQ",
@@ -54,7 +54,7 @@
     "model": "brapi.location",
     "pk": 4,
     "fields": {
-      "locationDbId": "4",
+      "locationDbId": 4,
       "locationType": "Farmer field location",
       "name": "Gurue",
       "abbreviation": "GURUE",
@@ -71,7 +71,7 @@
     "model": "brapi.location",
     "pk": 5,
     "fields": {
-      "locationDbId": "5",
+      "locationDbId": 5,
       "locationType": "Breeding location",
       "name": "Umbeluzi",
       "abbreviation": "UMBEL",
@@ -88,7 +88,7 @@
     "model": "brapi.location",
     "pk": 6,
     "fields": {
-      "locationDbId": "6",
+      "locationDbId": 6,
       "locationType": "Breeding location",
       "name": "Marankiari",
       "abbreviation": "MARANK",
@@ -105,7 +105,7 @@
     "model": "brapi.location",
     "pk": 7,
     "fields": {
-      "locationDbId": "7",
+      "locationDbId": 7,
       "locationType": "Breeding location",
       "name": "Shirani",
       "abbreviation": "SHIRANI",
@@ -122,7 +122,7 @@
     "model": "brapi.location",
     "pk": 8,
     "fields": {
-      "locationDbId": "8",
+      "locationDbId": 8,
       "locationType": "Farmer field location",
       "name": "Betania Alta",
       "abbreviation": "BETALT",
@@ -139,7 +139,7 @@
     "model": "brapi.location",
     "pk": 9,
     "fields": {
-      "locationDbId": "9",
+      "locationDbId": 9,
       "locationType": "Farmer field location",
       "name": "Betania Baja",
       "abbreviation": "BETBAJ",
@@ -156,7 +156,7 @@
     "model": "brapi.location",
     "pk": 10,
     "fields": {
-      "locationDbId": "10",
+      "locationDbId": 10,
       "locationType": "Breeding location",
       "name": "Nuevaluz Oviri",
       "abbreviation": "OVIRI",
@@ -173,7 +173,7 @@
     "model": "brapi.location",
     "pk": 11,
     "fields": {
-      "locationDbId": "11",
+      "locationDbId": 11,
       "locationType": "Breeding location",
       "name": "Puerto Ocopa",
       "abbreviation": "PTOCOPA",
@@ -190,7 +190,7 @@
     "model": "brapi.location",
     "pk": 12,
     "fields": {
-      "locationDbId": "12",
+      "locationDbId": 12,
       "locationType": "Breeding location",
       "name": "San Pedro",
       "abbreviation": "SNPEDRO",
@@ -207,7 +207,7 @@
     "model": "brapi.location",
     "pk": 13,
     "fields": {
-      "locationDbId": "13",
+      "locationDbId": 13,
       "locationType": "Farmer field location",
       "name": "Fumesua",
       "abbreviation": "FUMESUA",
@@ -224,7 +224,7 @@
     "model": "brapi.location",
     "pk": 14,
     "fields": {
-      "locationDbId": "14",
+      "locationDbId": 14,
       "locationType": "Farmer field location",
       "name": "Komenda",
       "abbreviation": "KOMENDA",
@@ -241,7 +241,7 @@
     "model": "brapi.location",
     "pk": 15,
     "fields": {
-      "locationDbId": "15",
+      "locationDbId": 15,
       "locationType": "Farmer field location",
       "name": "Tono dam",
       "abbreviation": "TONO",
@@ -258,7 +258,7 @@
     "model": "brapi.location",
     "pk": 16,
     "fields": {
-      "locationDbId": "16",
+      "locationDbId": 16,
       "locationType": "Storage location",
       "name": "National Crops Resources Research Institute",
       "abbreviation": "NaCRRI",
@@ -275,7 +275,7 @@
     "model": "brapi.location",
     "pk": 17,
     "fields": {
-      "locationDbId": "17",
+      "locationDbId": 17,
       "locationType": "Storage location",
       "name": "National Semi-Arid Resources Research Institute",
       "abbreviation": "NaSARRI",

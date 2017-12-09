@@ -3,9 +3,9 @@ from rest_framework.views import APIView
 import logging
 
 from brapi.models.markerprofile import (AlleleMatrix, AlleleMSearch, 
-                                        MarkerProfile, GPMarkerP,
+                                        MarkerProfile, GermplasmMarkerprofile,
                                         AlleleMatrixSerializer, AlleleMSearchSerializer,
-                                        MarkerProfileSerializer, GPMarkerPSerializer)
+                                        MarkerProfileSerializer, GermplasmMarkerprofileSerializer)
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 from brapi.paginators import BrAPIListPagination
@@ -126,19 +126,19 @@ class MarkerProfilesView(APIView):
 # end class MarkerProfilesView
 
 
-class GPMarkerPView(APIView):
+class GermplasmMarkerprofileView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 
-        queryset = MarkerProfile.objects.all()
+        queryset = GermplasmMarkerprofile.objects.all()
 
         germplasmDbId = self.kwargs.get('id', None)
         if germplasmDbId is not None:
             queryset = queryset.filter(germplasmDbId=germplasmDbId)
         # end if        
 
-        return paginate(queryset, request, MarkerProfileSerializer)
+        return paginate(queryset, request, GermplasmMarkerprofileSerializer)
 
     # end def get
 
-# end class GPMarkerPView
+# end class GermplasmMarkerprofileView

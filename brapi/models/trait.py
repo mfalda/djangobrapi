@@ -6,11 +6,12 @@ from brapi.aux_types import StringListField
 
 class Trait(models.Model):
 
-    traitDbId = models.IntegerField()
+    traitDbId = models.IntegerField(primary_key=True)
     traitId = models.CharField(max_length=100, blank=True, default='')
     name = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=100, blank=True, default='')
     observationVariables = models.CharField(max_length=100, blank=True, default='')
+    defaultValue = models.CharField(max_length=100, blank=True, default='')
 
     def save(self, *args, **kwargs):
 
@@ -22,19 +23,10 @@ class Trait(models.Model):
 
     class Meta:
         
-        ordering = ('id',)
+        ordering = ('traitDbId',)
         
     # end class Meta
-    
-    
-    def get_defaultValue(self):
-        
-        return self._defaultValue if self._defaultValue is not None else 'NA'
-    
-    # end def get_defaultValue
-    
-    defaultValue = property(get_defaultValue)
-    
+
 # end class Trait
 
 
@@ -43,6 +35,8 @@ class Trait(models.Model):
 class TraitSerializer(serializers.ModelSerializer):
 
     observationVariables = StringListField()
+    defaultValue = serializers.SerializerMethodField()
+
 
     class Meta:
 
@@ -72,5 +66,12 @@ class TraitSerializer(serializers.ModelSerializer):
         return ret
 
     # end def to_internal_value
+
+
+    def get_defaultValue(self, obj):
+
+        return self._defaultValue if self._defaultValue is not None else 'NA'
+
+    # end def get_defaultValue
 
 # end class TraitSerializer

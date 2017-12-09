@@ -31,10 +31,11 @@ class Trial(models.Model):
     
 class TrialAdditionalInfo(models.Model):
 
-    trialdbid = models.OneToOneField(Trial, models.DO_NOTHING, 
-                                     related_name='additionalInfo', 
-                                     db_column='trialDbId', 
-                                     blank=True, null=True)
+    trialDbId = models.IntegerField()
+        # TODO: models.OneToOneField(Trial, models.DO_NOTHING,
+        #                             related_name='additionalInfo',
+        #                             db_column='trialDbId',
+        #                             blank=True, null=True)
     values = models.CharField(max_length=100, blank=True, default='')
 
     class Meta:
@@ -168,7 +169,8 @@ class Study(models.Model):
     
     studyDbId = models.IntegerField()
     studyName = models.CharField(max_length=100, blank=True, default='')
-    trialDbId = models.ForeignKey(Trial, db_column='trialDbId', related_name='studies', on_delete=models.CASCADE, default='', to_field='trialDbId')
+    trialDbId = models.IntegerField()
+        # TODO: models.ForeignKey(Trial, db_column='trialDbId', related_name='studies', on_delete=models.CASCADE, default='', to_field='trialDbId')
     locationName = models.CharField(max_length=100, blank=True, default='')
     trialName = models.CharField(max_length=100, blank=True, default='')
     studyType = models.CharField(max_length=100, blank=True, default='')
@@ -181,7 +183,8 @@ class Study(models.Model):
     endDate = models.DateField(null=True)
     active = models.BooleanField()
     contactDbId = models.CharField(max_length=100, blank=True, default='')
-    dataLinks = models.ForeignKey(DataLink, db_column='dataLinks', related_name='dataLinks', on_delete=models.CASCADE, default='', to_field='id')
+    dataLinks = models.IntegerField()
+        # TODO: models.ForeignKey(DataLink, db_column='dataLinks', related_name='dataLinks', on_delete=models.CASCADE, default='', to_field='id')
     lastUpdate = models.CharField(max_length=100, null=True, default='')
 
     def save(self, *args, **kwargs):

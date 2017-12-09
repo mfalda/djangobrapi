@@ -1,4 +1,4 @@
-traitDbId	name	class	description	synonyms	mainAbbreviation	alternativeAbbreviations	entity	attribute	status	xref
+traitDbId	name	classis	description	synonyms	mainAbbreviation	alternativeAbbreviations	entity	attribute	status	xref
 CO_334:0100620	Carotenoid content	physiological trait	Cassava storage root pulp carotenoid content	carotenoid content measure	CC	CCS	root	carotenoid	recommended	TL_455:0003023
 CO_334:0100621	Yield	agronomic trait	Cassava marketable yield	Marketable yield	YD	MYD; CMYD	root		recommended	
 CO_334:0100622	Iron content	physiological trait	Cassava storage root pulp iron content		Fe		root	Fe	recommended	

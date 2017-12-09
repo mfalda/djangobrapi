@@ -22,7 +22,7 @@ from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMSearchView, 
                                         MarkerProfilesView, MarkerProfilesDataView,
-                                        GPMarkerPView)
+                                        GermplasmMarkerprofileView)
 from brapi.views.obs_variables import (DatatypesViewSet, OntologiesViewSet,
                                        ObsVariablesListView, ObsVariablesView, 
                                        VSearchView)
@@ -75,7 +75,7 @@ urlpatterns = [
     url(r'brapi/v1/locations/(?P<locationDbId>[0-9]+)/?$', LocationDetailsView.as_view()),
     url(r'brapi/v1/locations/?$', LocationView.as_view()),
     
-    url(r'brapi/v1/germplasm/(?P<id>[0-9]+)/markerprofiles/?$', GPMarkerPView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<id>[0-9]+)/markerprofiles/?$', GermplasmMarkerprofileView.as_view()),
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/pedigree/?$', GPPedigreeView.as_view()),
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/?$', GermplasmView.as_view()),
     url(r'brapi/v1/germplasm-search/?$', GermplasmSearchView.as_view()),

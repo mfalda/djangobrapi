@@ -3,7 +3,6 @@
     "model": "brapi.marker",
     "pk": 1,
     "fields": {
-      "markerDbId": 1,
       "defaultDisplayName": "a_01_10001",
       "type": "SNP",
       "synonyms": "i_01_10001; popA_10001",
@@ -15,7 +14,6 @@
     "model": "brapi.marker",
     "pk": 2,
     "fields": {
-      "markerDbId": 2,
       "defaultDisplayName": "A_01_10002",
       "type": "SNP",
       "synonyms": "i_01_10001; popA_10002",
@@ -27,7 +25,6 @@
     "model": "brapi.marker",
     "pk": 3,
     "fields": {
-      "markerDbId": 3,
       "defaultDisplayName": "b_02_10003",
       "type": "Dart",
       "synonyms": "i_02_10001; popA_10003",
@@ -39,7 +36,6 @@
     "model": "brapi.marker",
     "pk": 4,
     "fields": {
-      "markerDbId": 4,
       "defaultDisplayName": "B_02_10004",
       "type": "Dart",
       "synonyms": "i_02_10001; popA_10004",
@@ -51,7 +47,6 @@
     "model": "brapi.marker",
     "pk": 5,
     "fields": {
-      "markerDbId": 5,
       "defaultDisplayName": "C_11_10005",
       "type": "SNP",
       "synonyms": "i_11_10001; popA_10005",

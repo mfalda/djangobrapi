@@ -7,7 +7,7 @@ from brapi.aux_types import StringListField, IntListField
 
 class Germplasm(models.Model):
 
-    germplasmDbId = models.IntegerField(unique=True)
+    germplasmDbId = models.IntegerField(primary_key=True)
     defaultDisplayName = models.CharField(max_length=100, blank=True, default='')
     accessionNumber = models.CharField(max_length=100, blank=True, default='')
     germplasmName = models.CharField(max_length=100, blank=True, default='')
@@ -20,20 +20,22 @@ class Germplasm(models.Model):
     instituteName = models.CharField(max_length=100, blank=True, default='')
     biologicalStatusOfAccessionCode = models.IntegerField()
     countryOfOriginCode = models.CharField(max_length=100, blank=True, default='')
-    typeOfGermplasmStorageCode = models.IntegerField()
+    typeOfGermplasmStorageCode = models.CharField(max_length=100, blank=True, default='')
     genus = models.CharField(max_length=100, blank=True, default='')
     species = models.CharField(max_length=100, blank=True, default='')
     speciesAuthority = models.CharField(max_length=100, blank=True, default='')
-    subtaxa = models.CharField(max_length=100, blank=True, default='')
-    subtaxaAuthority = models.CharField(max_length=100, blank=True, default='')
+    subtaxa = models.CharField(max_length=100, blank=True, null=True, default='')
+    subtaxaAuthority = models.CharField(max_length=100, null=True, blank=True, default='')
     acquisitionDate = models.DateField()
     # TODO: represent as a list of objects
-    taxonIds = models.ForeignKey(Taxon, db_column='taxonIds', related_name='taxonIds', on_delete=models.CASCADE, default='', to_field='id')
+    taxonIds = models.IntegerField()
+        # TODO: models.ForeignKey(Taxon, db_column='taxonIds', related_name='taxonIds', on_delete=models.CASCADE, default='', to_field='taxonDbId')
+
 
     def save(self, *args, **kwargs):
 
         self.synonyms = '; '.join(self.synonyms)
-        self.typeOfGermplasmStorageCode = '; '.join([int(t) for t in self.typeOfGermplasmStorageCode])
+        self.typeOfGermplasmStorageCode = '; '.join([t for t in self.typeOfGermplasmStorageCode])
         self.taxonIds = '; '.join(self.taxonIds)
         super(Germplasm, self).save(*args, **kwargs)
 
@@ -42,7 +44,7 @@ class Germplasm(models.Model):
 
     class Meta:
         
-        ordering = ('id',)
+        ordering = ('germplasmDbId',)
         
     # end class Meta
     
@@ -51,7 +53,8 @@ class Germplasm(models.Model):
 
 class GPDonor(models.Model):
 
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='donors', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    germplasmDbId = models.IntegerField()
+        # TODO: models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='donors', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
     donorAccessionNumber = models.CharField(max_length=100, blank=True, default='')
     donorInstituteCode = models.CharField(max_length=100, blank=True, default='')
     germplasmPUI = models.CharField(max_length=100, blank=True, default='')
@@ -68,7 +71,8 @@ class GPDonor(models.Model):
     
 class GPPedigree(models.Model):
 
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='gppedigrees-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    germplasmDbId = models.IntegerField()
+        # TODO: models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='gppedigrees-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
     defaultDisplayName = models.CharField(max_length=100, blank=True, default='')
     pedigree = models.CharField(max_length=100, blank=True, default='')
     # TODO: is this a foreign key?

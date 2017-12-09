@@ -27,7 +27,8 @@ class Phenotype(models.Model):
     entryNumber = models.IntegerField(null=True)
     treatments = models.IntegerField(null=True)
     observationUnitXref = models.IntegerField(null=True)
-    observations = models.ForeignKey(Observation, db_column='observations', related_name='observations', on_delete=models.CASCADE, default='', to_field='observationDbId')
+    observations = models.IntegerField()
+        # TODO: models.ForeignKey(Observation, db_column='observations', related_name='observations', on_delete=models.CASCADE, default='', to_field='observationDbId')
 
 
     class Meta:

@@ -3,55 +3,55 @@
     "model": "brapi.trait",
     "pk": 1,
     "fields": {
-      "traitDbId": 1,
       "traitId": "CO_334:0100620",
       "name": "Carotenoid content",
       "description": "Cassava storage root pulp carotenoid content",
-      "observationVariables": "CO_334:0100621; CO_334:0100623; CO_334:0100623"
+      "observationVariables": "CO_334:0100621; CO_334:0100623; CO_334:0100623",
+      "defaultValue": ""
     }
   },
   {
     "model": "brapi.trait",
     "pk": 2,
     "fields": {
-      "traitDbId": 2,
       "traitId": "CO_334:0100621",
       "name": "Plant height",
       "description": "Plant height",
-      "observationVariables": "CO_334:0200001"
+      "observationVariables": "CO_334:0200001",
+      "defaultValue": ""
     }
   },
   {
     "model": "brapi.trait",
     "pk": 3,
     "fields": {
-      "traitDbId": 3,
       "traitId": "CO_334:0100622",
       "name": "Root weight",
       "description": "Root weight",
-      "observationVariables": "CO_334:0200002; CO_334:0300002"
+      "observationVariables": "CO_334:0200002; CO_334:0300002",
+      "defaultValue": ""
     }
   },
   {
     "model": "brapi.trait",
     "pk": 4,
     "fields": {
-      "traitDbId": 4,
       "traitId": "CO_334:0100623",
       "name": "Root color",
       "description": "Root color",
-      "observationVariables": "CO_334:0200003"
+      "observationVariables": "CO_334:0200003",
+      "defaultValue": "3"
     }
   },
   {
     "model": "brapi.trait",
     "pk": 5,
     "fields": {
-      "traitDbId": 5,
       "traitId": "CO_334:0100624",
       "name": "Virus susceptibility",
       "description": "Virus susceptibility",
-      "observationVariables": "CO_334:0200004"
+      "observationVariables": "CO_334:0200004",
+      "defaultValue": "5"
     }
   }
 ]

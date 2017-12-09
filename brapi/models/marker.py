@@ -6,7 +6,7 @@ from brapi.aux_types import StringListField
 
 class Marker(models.Model):
 
-    markerDbId = models.IntegerField()
+    markerDbId = models.IntegerField(primary_key=True)
     defaultDisplayName = models.CharField(max_length=100, blank=True, default='')
     type = models.CharField(max_length=100, blank=True, default='')
     synonyms = models.CharField(max_length=100, blank=True, default='')
@@ -25,7 +25,7 @@ class Marker(models.Model):
 
     class Meta:
         
-        ordering = ('id',)
+        ordering = ('markerDbId',)
         
     # end class Meta
     

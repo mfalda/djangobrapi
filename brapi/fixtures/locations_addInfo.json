@@ -4,7 +4,7 @@
     "pk": 1,
     "fields": {
       "locationdbid": 1,
-      "values": " local:San Ramon; crops:potato,sweetpotato; cont:South America; creg:LAC; adm3:San Ramon; adm2:Chanchamayo; adm1:Junin; annualTotalPrecipitation:360; annualMeanTemperature:23"
+      "values": "local:San Ramon; crops:potato,sweetpotato; cont:South America; creg:LAC; adm3:San Ramon; adm2:Chanchamayo; adm1:Junin; annualTotalPrecipitation:360; annualMeanTemperature:23"
     }
   },
   {
@@ -12,7 +12,7 @@
     "pk": 2,
     "fields": {
       "locationdbid": 3,
-      "values": " annualTotalPrecipitation:6.4; annualMeanTemperature:19.2"
+      "values": "annualTotalPrecipitation:6.4; annualMeanTemperature:19.2"
     }
   },
   {
@@ -20,7 +20,7 @@
     "pk": 3,
     "fields": {
       "locationdbid": 4,
-      "values": " local:Gurue; crops:potato,sweetpotato; cont:Africa; creg:SSA; adm3:Gurue; adm2:Gurue; adm1:Zambezia"
+      "values": "local:Gurue; crops:potato,sweetpotato; cont:Africa; creg:SSA; adm3:Gurue; adm2:Gurue; adm1:Zambezia"
     }
   },
   {
@@ -28,7 +28,7 @@
     "pk": 4,
     "fields": {
       "locationdbid": 5,
-      "values": " local:Umbeluzi; crops:potato,sweetpotato; cont:Africa; creg:SSA; adm3:Umbeluzi; adm2:Boane; adm1:Maputo"
+      "values": "local:Umbeluzi; crops:potato,sweetpotato; cont:Africa; creg:SSA; adm3:Umbeluzi; adm2:Boane; adm1:Maputo"
     }
   },
   {
@@ -36,7 +36,7 @@
     "pk": 5,
     "fields": {
       "locationdbid": 6,
-      "values": " altern:MARANK; local:San Miguel Centro Marankiari; crops:sweetpotato; cont:South America; creg:LAC; adm3:Peren\ufffd; adm2:Chanchamayo; adm1:Junin"
+      "values": "altern:MARANK; local:San Miguel Centro Marankiari; crops:sweetpotato; cont:South America; creg:LAC; adm3:Peren\ufffd; adm2:Chanchamayo; adm1:Junin"
     }
   },
   {
@@ -44,7 +44,7 @@
     "pk": 6,
     "fields": {
       "locationdbid": 7,
-      "values": " altern:SHIRANI; local:Shirani; crops:sweetpotato; cont:South America; creg:LAC; adm3:Pichanaki; adm2:Chanchamayo; adm1:Junin"
+      "values": "altern:SHIRANI; local:Shirani; crops:sweetpotato; cont:South America; creg:LAC; adm3:Pichanaki; adm2:Chanchamayo; adm1:Junin"
     }
   },
   {
@@ -52,7 +52,7 @@
     "pk": 7,
     "fields": {
       "locationdbid": 8,
-      "values": " altern:BETALT; local:Betania; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
+      "values": "altern:BETALT; local:Betania; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
     }
   },
   {
@@ -60,7 +60,7 @@
     "pk": 8,
     "fields": {
       "locationdbid": 9,
-      "values": " altern:BETBAJ; local:Betania; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
+      "values": "altern:BETBAJ; local:Betania; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
     }
   },
   {
@@ -68,7 +68,7 @@
     "pk": 9,
     "fields": {
       "locationdbid": 10,
-      "values": " altern:OVIRI; local:Nuevaluz Oviri; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
+      "values": "altern:OVIRI; local:Nuevaluz Oviri; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
     }
   },
   {
@@ -76,7 +76,7 @@
     "pk": 10,
     "fields": {
       "locationdbid": 11,
-      "values": " altern:PTOCOPA; local:Puerto Ocopa; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
+      "values": "altern:PTOCOPA; local:Puerto Ocopa; crops:sweetpotato; cont:South America; creg:LAC; adm3:Rio Tambo; adm2:Satipo; adm1:Junin"
     }
   },
   {
@@ -84,7 +84,7 @@
     "pk": 11,
     "fields": {
       "locationdbid": 12,
-      "values": " altern:SNPEDRO; local:San Pedro; crops:sweetpotato; cont:South America; creg:LAC; adm3:Coviriali; adm2:Satipo; adm1:Junin"
+      "values": "altern:SNPEDRO; local:San Pedro; crops:sweetpotato; cont:South America; creg:LAC; adm3:Coviriali; adm2:Satipo; adm1:Junin"
     }
   },
   {
@@ -92,7 +92,7 @@
     "pk": 12,
     "fields": {
       "locationdbid": 13,
-      "values": " local:Fumesua; crops:sweetpotato; cont:Africa; creg:SSA; adm2:Ejisu-Juaben; adm1:Ashanti"
+      "values": "local:Fumesua; crops:sweetpotato; cont:Africa; creg:SSA; adm2:Ejisu-Juaben; adm1:Ashanti"
     }
   },
   {
@@ -100,7 +100,7 @@
     "pk": 13,
     "fields": {
       "locationdbid": 14,
-      "values": " local:Komenda; crops:sweetpotato; cont:Africa; creg:SSA; adm1:Central"
+      "values": "local:Komenda; crops:sweetpotato; cont:Africa; creg:SSA; adm1:Central"
     }
   },
   {
@@ -108,7 +108,7 @@
     "pk": 14,
     "fields": {
       "locationdbid": 15,
-      "values": " local:Tono dam; crops:sweetpotato; cont:Africa; creg:SSA; adm2:Kassena-Nankana; adm1:Upper East"
+      "values": "local:Tono dam; crops:sweetpotato; cont:Africa; creg:SSA; adm2:Kassena-Nankana; adm1:Upper East"
     }
   },
   {
@@ -116,7 +116,7 @@
     "pk": 15,
     "fields": {
       "locationdbid": 16,
-      "values": " local:NaCRRI; crops:sweetpotato; cont:Africa; creg:SSA"
+      "values": "local:NaCRRI; crops:sweetpotato; cont:Africa; creg:SSA"
     }
   },
   {
@@ -124,7 +124,7 @@
     "pk": 16,
     "fields": {
       "locationdbid": 17,
-      "values": " local:NaSARRI; crops:sweetpotato; cont:Africa; creg:SSA; adm1:Serere"
+      "values": "local:NaSARRI; crops:sweetpotato; cont:Africa; creg:SSA; adm1:Serere"
     }
   }
 ]

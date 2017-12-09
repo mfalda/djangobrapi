@@ -5,7 +5,7 @@
     "fields": {
       "methodDbId": "CO_334:0010320",
       "name": "Visual Rating:total carotenoid by chart_method",
-      "classe": "Estimation",
+      "classis": "Estimation",
       "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
       "formula": "",
       "reference": ""

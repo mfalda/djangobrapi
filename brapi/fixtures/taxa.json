@@ -1,10 +1,18 @@
 [
   {
     "model": "brapi.taxon",
+    "pk": 0,
+    "fields": {
+      "sourceName": "23-E",
+      "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+    }
+  },
+  {
+    "model": "brapi.taxon",
     "pk": 1,
     "fields": {
-      "ncbiTaxon": "http://purl.obolibrary.org/obo/NCBITaxon_4641",
-      "ciradTaxon": "23-E"
+      "sourceName": "ncbiTaxon",
+      "taxonId": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
     }
   }
 ]

@@ -63,7 +63,7 @@ class ObsMethod(models.Model):
     
     methodDbId = models.CharField(max_length=100, unique=True, default='')
     name = models.CharField(max_length=100, blank=True, default='')
-    classe = models.CharField(max_length=100, blank=True, default='')
+    classis = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=100, blank=True, default='')
     formula = models.CharField(max_length=100, blank=True, default='')
     reference = models.CharField(max_length=100, blank=True, default='')
@@ -85,7 +85,8 @@ class ObsScale(models.Model):
     datatype = models.CharField(max_length=100, blank=True, default='')
     decimalPlaces = models.CharField(max_length=100, blank=True, default='')
     xref = models.CharField(max_length=100, null=True, default='')
-    validValues = models.ForeignKey(ObsVValue, db_column='validValues', related_name='validValues', on_delete=models.CASCADE, default='', to_field='id')
+    validValues = models.IntegerField()
+        # TODO: models.ForeignKey(ObsVValue, db_column='validValues', related_name='validValues', on_delete=models.CASCADE, default='', to_field='id')
 
 
     class Meta:
@@ -101,9 +102,9 @@ class ObsTrait(models.Model):
 
     traitDbId = models.CharField(max_length=100, unique=True, default='')
     name = models.CharField(max_length=100, blank=True, default='')
-    classe = models.CharField(max_length=100, blank=True, default='')
+    classis = models.CharField(max_length=100, blank=True, default='')
     description = models.CharField(max_length=100, blank=True, default='')
-    synonyms = models.CharField(max_length=100, blank=True, default='')
+    synonyms = models.CharField(max_length=100, blank=True, null=True, default='')
     mainAbbreviation = models.CharField(max_length=100, blank=True, default='')
     alternativeAbbreviations = models.CharField(max_length=100, blank=True, default='')
     entity = models.CharField(max_length=100, blank=True, default='')
@@ -143,9 +144,12 @@ class ObsVariable(models.Model):
     language = models.CharField(max_length=100, null=True, default='')
     crop = models.CharField(max_length=100, null=True, default='')
     defaultValue = models.CharField(max_length=100, null=True, default='')
-    trait = models.ForeignKey(ObsTrait, db_column='trait', related_name='trait', on_delete=models.CASCADE, default='', to_field='traitDbId')
-    method = models.ForeignKey(ObsMethod, db_column='method', related_name='method', on_delete=models.CASCADE, default='', to_field='methodDbId')
-    scale = models.ForeignKey(ObsScale, db_column='scale', related_name='scale', on_delete=models.CASCADE, default='', to_field='scaleDbId')
+    trait = models.CharField(max_length=100, null=True, default='')
+        # TODO: models.ForeignKey(ObsTrait, db_column='trait', related_name='trait', on_delete=models.CASCADE, default='', to_field='traitDbId')
+    method = models.CharField(max_length=100, null=True, default='')
+        # TODO: models.ForeignKey(ObsMethod, db_column='method', related_name='method', on_delete=models.CASCADE, default='', to_field='methodDbId')
+    scale = models.CharField(max_length=100, null=True, default='')
+        # TODO: models.ForeignKey(ObsScale, db_column='scale', related_name='scale', on_delete=models.CASCADE, default='', to_field='scaleDbId')
 
 
     class Meta:
@@ -160,7 +164,8 @@ class ObsVariable(models.Model):
 class Observation(models.Model):
 
     observationDbId = models.IntegerField(unique=True)
-    observationVariableDbId = models.ForeignKey(ObsVariable, db_column='observations', related_name='observation_variables', on_delete=models.CASCADE, default='', to_field='observationVariableDbId')
+    observationVariableDbId = models.CharField(max_length=100, blank=True, default='')
+        # TODO: models.ForeignKey(ObsVariable, db_column='observations', related_name='observation_variables', on_delete=models.CASCADE, default='', to_field='observationVariableDbId')
     observationVariableName = models.CharField(max_length=100, blank=True, default='')
     observationTimeStamp = models.DateTimeField()
     season = models.CharField(max_length=100, blank=True, default='')
@@ -175,8 +180,17 @@ class Observation(models.Model):
     # end class Meta
     
 # end class Observation
-    
-    
+
+
+class ObservationUnitXref(models.Model):
+
+    ouXrefId = models.IntegerField()
+    source = models.CharField(max_length=100, blank=True, default='')
+    ouId = models.CharField(db_column='id_field', max_length=100, default='')
+
+# end class ObservationUnitXref
+
+
 class DatatypeSerializer(serializers.ModelSerializer):
     
      class Meta:
@@ -290,12 +304,3 @@ class ObsVariableSerializer(serializers.ModelSerializer):
     # end class Meta
  
 # end class ObsVariableSerializer
-
-
-class ObservationUnitXref(models.Model):
-
-    ouXrefId = models.IntegerField()
-    source = models.CharField(max_length=100, blank=True, default='')
-    ouId = models.CharField(db_column='id_field', max_length=100, default='')
-
-# end class ObservationUnitXref

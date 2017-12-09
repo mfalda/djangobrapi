@@ -19,8 +19,8 @@
       "crop": null,
       "defaultValue": null,
       "trait": "CO_334:0100630",
-      "method": "CO_334:0010320",
-      "scale": "CO_334:0100527"
+      "method": "",
+      "scale": ""
     }
   },
   {

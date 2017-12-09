@@ -2,7 +2,7 @@ from django.db import models
 from rest_framework import serializers
 
 from brapi.models.germplasm import Germplasm
-from brapi.aux_types import StringListField
+from brapi.aux_types import StringListField, IntListField
 from brapi.serializers import ExtendedSerializer
 
 
@@ -46,8 +46,9 @@ class AlleleMSearch(models.Model):
     
 class MarkerProfile(models.Model):
 
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerprofileDbId = models.IntegerField()
+    germplasmDbId = models.IntegerField()
+        # TODO: models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='mprofiles-details+', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    markerprofileDbId = models.IntegerField(primary_key=True)
     uniqueDisplayName = models.CharField(max_length=100, blank=True, default='')
     sampleDbId = models.IntegerField()
     extractDbId = models.IntegerField()
@@ -58,25 +59,34 @@ class MarkerProfile(models.Model):
 
     class Meta:
         
-        ordering = ('id',)
+        ordering = ('markerprofileDbId',)
         
     # end class Meta
     
 # end class MarkerProfile
     
 
-class GPMarkerP(models.Model):
+class GermplasmMarkerprofile(models.Model):
 
-    germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
-    markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='markerProfilesDbIds', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='markerprofileDbId')
-    
+    germplasmDbId = models.IntegerField()
+        # TODO: models.ForeignKey(Germplasm, db_column='germplasmDbId', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmDbId')
+    markerprofilesDbIds = models.CharField(max_length=100, blank=True, default='')
+
+
     class Meta:
         
         ordering = ('id',)
         
     # end class Meta
-    
-# end class GPMarkerP
+
+
+    def save(self, *args, **kwargs):
+
+        self.markerprofilesDbIds = '; '.join(self.markerprofilesDbIds)
+
+    # end def save
+
+# end class GermplasmMarkerprofile
     
     
 class MarkerProfilesData(models.Model):
@@ -151,26 +161,51 @@ class AlleleMSearchSerializer(serializers.ModelSerializer):
 # end class AlleleMSearchSerializer
     
     
-class GPMarkerPSerializer(serializers.ModelSerializer):
-    
+class GermplasmMarkerprofileSerializer(serializers.ModelSerializer):
+
+    markerprofilesDbIds = IntListField()
+
+
     class Meta:
 
-        model = GPMarkerP
-        fields = ['germplasmDbId', 'markerProfilesDbIds']
+        model = GermplasmMarkerprofile
+        fields = ['germplasmDbId', 'markerprofilesDbIds']
 
     # end class Meta
 
-# end class GPMarkerPSerializer
+
+    def to_representation(self, instance):
+
+        instance.markerprofilesDbIds = [str(s) for s in instance.markerprofilesDbIds.split('; ')]
+
+        return super(GermplasmMarkerprofileSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(GermplasmMarkerprofileSerializer, self).to_internal_value(data)
+
+        if ret['markerprofilesDbIds']:
+            ret['markerprofilesDbIds'] = '; '.join(str(s) for s in ret['markerprofilesDbIds'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+
+# end class GermplasmMarkerprofile
     
     
 class MarkerProfileSerializer(ExtendedSerializer):
 
-    markerProfilesDbId = GPMarkerPSerializer(many=True, read_only=True)
+    markerprofilesDbIds = GermplasmMarkerprofileSerializer(many=True, read_only=True)
     
     class Meta:
 
         model = MarkerProfile
-        fields = ['germplasmDbId', 'markerProfilesDbId']
+        fields = ['germplasmDbId', 'markerprofilesDbIds']
 
     # end class Meta
 
