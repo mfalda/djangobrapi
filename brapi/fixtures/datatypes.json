@@ -1,0 +1,50 @@
+[
+  {
+    "model": "brapi.ObservationVariableDatatype",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "data": "Numeric"
+    }
+  },
+  {
+    "model": "brapi.ObservationVariableDatatype",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "data": "Categorical"
+    }
+  },
+  {
+    "model": "brapi.ObservationVariableDatatype",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "data": "Date"
+    }
+  },
+  {
+    "model": "brapi.ObservationVariableDatatype",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "data": "Text"
+    }
+  },
+  {
+    "model": "brapi.ObservationVariableDatatype",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "data": "Picture"
+    }
+  },
+  {
+    "model": "brapi.ObservationVariableDatatype",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "data": "Boolean"
+    }
+  }
+]

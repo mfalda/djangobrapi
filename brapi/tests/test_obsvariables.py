@@ -5,10 +5,9 @@ from brapi.aux_fun import test_get, test_post
 
 class ObsVariablesTest(APITestCase):
 
-    fixtures = ['datatypes.json', 'ontologies.json',
-                'obs_vvalues.json',
-                'obs_methods.json', 'obs_scales.json',
-                'obs_traits.json', 'obs_variables.json']
+    fixtures = ['crops.json', 'datatypes.json', 'ontologies.json',
+                'methods.json', 'scales.json',
+                'observation_variables.json', 'traits.json']
     
 
     def test_get_datatypes(self):
@@ -130,8 +129,8 @@ class ObsVariablesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
-            "totalCount": 5,
+            "pageTotal": 1,
+            "totalCount": 2,
             "pageSize": 2
         },
         "status": [],
@@ -140,20 +139,22 @@ class ObsVariablesTest(APITestCase):
     "result": {
         "data": [
             {
-                "ontologyDbId": "CO_334",
-                "ontologyName": "Wheat ontology",
+                "license": "CC BY-SA 4.0",
                 "authors": "J. Snow, H. Peterson",
-                "version": "v1.2",
-                "copyright": "2016, INRA",
-                "licence": "CC BY-SA 4.0"
+                "description": "developped for European genetic studies projects",
+                "ontologyDbId": "CO_334",
+                "copyright": "© 2016, INRA",
+                "ontologyName": "Wheat ontology",
+                "version": "v1.2"
             },
             {
-                "ontologyDbId": "CO_334",
-                "ontologyName": "Wheat ontology",
-                "authors": "J. Snow, H. Peterson",
-                "version": "v1.2",
-                "copyright": "2016, INRA",
-                "licence": "CC BY-SA 4.0"
+                "license": null,
+                "authors": "J. Doe",
+                "description": "developped for IRRI and amended with partners needs",
+                "ontologyDbId": "CO_335",
+                "copyright": null,
+                "ontologyName": "Rice ontology",
+                "version": "v2"
             }
         ]
     }
