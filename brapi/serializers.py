@@ -2,7 +2,6 @@ from rest_framework import serializers
 import logging
 
 from brapi.models import *
-from brapi.aux_types import StringListField
 from brapi.aux_types import StringListField, IntListField
 
 
@@ -111,7 +110,7 @@ class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = GermplasmAttributeValue
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'germplasmattributevaluedbid']
 
     # end class Meta
 
@@ -543,6 +542,7 @@ class TaxonXrefSerializer(ExtendedSerializer):
 
     taxonXrefGermplasm = TaxonXrefGermplasmSerializer(many=True, read_only=True)
 
+
     class Meta:
 
         model = TaxonXref
@@ -562,7 +562,7 @@ class TraitSerializer(ExtendedSerializer):
 
         model = Trait
         exclude = ['cropdbid']
-        extra_fields = ['traitDbId', 'observationVariables']
+        extra_fields = ['traitDbId', 'observationVariables', 'defaultValue']
 
     # end class Meta
 

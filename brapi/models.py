@@ -1,6 +1,7 @@
 from django.db import models
 from tutorial import settings
 
+
 class Call(models.Model):
 
     cropdbid = models.ForeignKey('Crop', models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -88,15 +89,15 @@ class Donor(models.Model):
 class Germplasm(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmDbId = models.TextField(db_column='germplasmdbid', primary_key=True)
+    germplasmDbId = models.TextField(db_column='germplasmdbid', primary_key=True, default='')
     germplasmPUI = models.TextField(db_column='germplasmpui', blank=True, null=True)
-    germplasmName = models.TextField(db_column='germplasmname',)
-    defaultDisplayName = models.TextField(db_column='defaultdisplayname')
+    germplasmName = models.TextField(db_column='germplasmname', default='')
+    defaultDisplayName = models.TextField(db_column='defaultdisplayname', default='')
     accessionNumber = models.TextField(db_column='accessionnumber', blank=True, null=True)
     pedigree = models.TextField(blank=True, null=True)
     seedSource = models.TextField(db_column='seedsource', blank=True, null=True)
     synonyms = models.TextField(blank=True, null=True)
-    instituteCode = models.TextField(db_column='institutecode')
+    instituteCode = models.TextField(db_column='institutecode', default='')
     instituteName = models.TextField(db_column='institutename', blank=True, null=True)
     biologicalStatusOfAccessionCode = models.TextField(db_column='biologicalstatusofaccessioncode', blank=True, null=True)
     countryOfOriginCode = models.TextField(db_column='countryoforigincode', blank=True, null=True)
@@ -104,7 +105,7 @@ class Germplasm(models.Model):
     genus = models.TextField(blank=True, null=True)
     species = models.TextField(blank=True, null=True)
     speciesAuthority = models.TextField(db_column='speciesauthority', blank=True, null=True)
-    subTaxa = models.TextField(db_column='subtaxa', blank=True, null=True)
+    subtaxa = models.TextField(db_column='subtaxa', blank=True, null=True)
     subtaxaAuthority = models.TextField(db_column='subtaxaauthority', blank=True, null=True)
     acquisitionDate = models.DateField(db_column='acquisitiondate', blank=True, null=True)
 
@@ -121,8 +122,8 @@ class Germplasm(models.Model):
 class GermplasmAttribute(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    attributecategorydbid = models.ForeignKey('GermplasmAttributeCategory', models.DO_NOTHING, db_column='attributecategorydbid')
-    attributedbid = models.TextField(primary_key=True)
+    attributeCategoryDbId = models.ForeignKey('GermplasmAttributeCategory', models.DO_NOTHING, db_column='attributecategorydbid', default='')
+    attributeDbId = models.TextField(db_column='attributedbid', primary_key=True, default='')
     code = models.TextField(blank=True, null=True)
     uri = models.TextField(blank=True, null=True)
     name = models.TextField()
@@ -143,8 +144,8 @@ class GermplasmAttribute(models.Model):
 class GermplasmAttributeCategory(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    attributecategorydbid = models.TextField(primary_key=True)
-    attributecategoryname = models.TextField(blank=True, null=True)
+    attributeCategoryDbId = models.TextField(db_column='attributecategorydbid', primary_key=True, default='')
+    name = models.TextField(db_column='attributecategoryname', blank=True, null=True)
 
     class Meta:
 
@@ -159,10 +160,12 @@ class GermplasmAttributeCategory(models.Model):
 class GermplasmAttributeValue(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
-    attributedbid = models.ForeignKey(GermplasmAttribute, models.DO_NOTHING, db_column='attributedbid')
-    determineddate = models.TextField(blank=True, null=True)
+    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
+    attributeDbId = models.ForeignKey(GermplasmAttribute, models.DO_NOTHING, db_column='attributedbid', default='')
+    determinedDate = models.DateField(db_column='determineddate', blank=True, null=True)
     value = models.TextField()
+    attributeCode = models.TextField(db_column='attributecode', blank=True, null=True)
+    attributeName = models.TextField(db_column='attributename', blank=True, null=True)
     germplasmattributevaluedbid = models.TextField(primary_key=True)
 
     class Meta:
@@ -387,7 +390,7 @@ class ObservationVariableDatatype(models.Model):
 class Ontology(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    ontologyDbId = models.TextField(db_column='ontologydbid', primary_key=True)
+    ontologyDbId = models.TextField(db_column='ontologydbid', primary_key=True, default='')
     ontologyName = models.TextField(db_column='ontologyname', blank=True, null=True)
     authors = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
@@ -428,7 +431,7 @@ class Pedigree(models.Model):
 class Program(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    programDbId = models.TextField(db_column='programdbid', primary_key=True)
+    programDbId = models.TextField(db_column='programdbid', primary_key=True, default='')
     name = models.TextField()
     abbreviation = models.TextField(blank=True, null=True)
     objective = models.TextField(blank=True, null=True)
@@ -511,7 +514,7 @@ class Scale(models.Model):
 class Season(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    seasondbid = models.TextField(primary_key=True)
+    seasonDbId = models.TextField(db_column='seasondbid', primary_key=True, default='')
     year = models.TextField(blank=True, null=True)
     season = models.TextField(blank=True, null=True)
 
@@ -721,8 +724,8 @@ class StudyObservationLevel(models.Model):
 class StudySeason(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', related_name='seasons')
-    seasonDbId = models.ForeignKey(Season, models.DO_NOTHING, db_column='seasondbid', related_name='seasons1')
+    studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', related_name='seasons', default='')
+    seasonDbId = models.ForeignKey(Season, models.DO_NOTHING, db_column='seasondbid', related_name='seasons1', default='')
     studyseasondbid = models.IntegerField(primary_key=True)
 
     class Meta:
@@ -789,8 +792,10 @@ class Trait(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     traitDbId = models.TextField(primary_key=True, db_column='traitdbid')
+    traitId = models.TextField(db_column='traitid', blank=True, null=True)
     name = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
+    defaultValue = models.CharField(max_length=100, blank=True, default='')
 
     class Meta:
 

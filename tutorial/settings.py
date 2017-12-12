@@ -37,7 +37,7 @@ else:
         'disable_existing_loggers': False,
         'handlers': {
             'console': {
-                'level': 'DEBUG',
+                'level': 'INFO',
                 'class': 'logging.StreamHandler',
             },
         },
@@ -112,8 +112,8 @@ DATABASES = {
     }
 }
 
-#if os.getenv('DJANGO_ENV') == 'prod':
-if True:
+if os.getenv('DJANGO_ENV') == 'prod':
+#if True:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',

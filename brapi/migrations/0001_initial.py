@@ -137,7 +137,7 @@ class Migration(migrations.Migration):
                 ('germplasmdbid', models.TextField(primary_key=True, serialize=False)),
                 ('germplasmpui', models.TextField(blank=True, null=True)),
                 ('germplasmname', models.TextField()),
-                ('defaultdisplayname', models.TextField()),
+                ('defaultdisplayname', models.TextField(default='')),
                 ('accessionnumber', models.TextField(blank=True, null=True)),
                 ('pedigree', models.TextField(blank=True, null=True)),
                 ('seedsource', models.TextField(blank=True, null=True)),

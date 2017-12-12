@@ -4,7 +4,7 @@
     "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "attributecategoryname": "Morphological"
+      "name": "Morphological"
     }
   },
   {
@@ -12,7 +12,7 @@
     "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "attributecategoryname": "Agronomic"
+      "name": "Agronomic"
     }
   },
   {
@@ -20,7 +20,7 @@
     "pk": "3",
     "fields": {
       "cropdbid": "1",
-      "attributecategoryname": "Biotic stress"
+      "name": "Biotic stress"
     }
   },
   {
@@ -28,7 +28,7 @@
     "pk": "4",
     "fields": {
       "cropdbid": "1",
-      "attributecategoryname": "Abiotic stress"
+      "name": "Abiotic stress"
     }
   }
 ]

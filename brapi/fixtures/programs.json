@@ -7,7 +7,7 @@
       "name": "Wheat Resistance Program",
       "abbreviation": "DRP1",
       "objective": "Disease resistance",
-      "leadperson": "Dr. Henry Beachell"
+      "leadPerson": "Dr. Henry Beachell"
     }
   },
   {
@@ -18,7 +18,7 @@
       "name": "Wheat Improvement Program",
       "abbreviation": "DRP2",
       "objective": "Yield improvement",
-      "leadperson": "Dr. Norman Borlaug"
+      "leadPerson": "Dr. Norman Borlaug"
     }
   },
   {
@@ -29,7 +29,7 @@
       "name": "P3",
       "abbreviation": "W. Select",
       "objective": "XYZ",
-      "leadperson": "Program 3"
+      "leadPerson": "Program 3"
     }
   },
   {
@@ -40,7 +40,7 @@
       "name": "P4",
       "abbreviation": "G. Gain",
       "objective": "ABC",
-      "leadperson": "Program 4"
+      "leadPerson": "Program 4"
     }
   },
   {
@@ -51,7 +51,7 @@
       "name": "P5",
       "abbreviation": "C. Improvement",
       "objective": "Processing",
-      "leadperson": "Program 5"
+      "leadPerson": "Program 5"
     }
   },
   {
@@ -62,7 +62,7 @@
       "name": "P6",
       "abbreviation": "A. Test",
       "objective": "Demo",
-      "leadperson": "Program 6"
+      "leadPerson": "Program 6"
     }
   }
 ]

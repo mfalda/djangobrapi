@@ -23,46 +23,54 @@ class LocationTest(APITestCase):
         "datafiles": []
     },
     "result": {
-        "data": [
+"data": [
             {
-                "locationDbId": 1,
-                "locationType": "Storage location",
-                "name": "Experimental station San Ramon (CIP)",
-                "abbreviation": "CIPSRM-1",
-                "countryCode": "PER",
-                "countryName": "Peru",
-                "latitude": -11.1275,
                 "longitude": -75.356389,
-                "altitude": "828",
-                "instituteName": "INRA - GDEC",
-                "instituteAdress": "route foo, Clermont Ferrand, France",
                 "additionalInfo": {
-                    "values": {
-                        " local": "San Ramon",
-                        "crops": "potato,sweetpotato",
-                        "cont": "South America",
-                        "creg": "LAC",
-                        "adm3": "San Ramon",
-                        "adm2": "Chanchamayo",
-                        "adm1": "Junin",
-                        "annualTotalPrecipitation": "360",
-                        "annualMeanTemperature": "23"
-                    }
-                }
+                    "altern": "SNPEDRO",
+                    "local": "NaSARRI",
+                    "cont": "Africa",
+                    "creg": "SSA",
+                    "adm3": "Coviriali",
+                    "adm2": "Kassena-Nankana",
+                    "adm1": "Serere",
+                    "annualTotalPrecipitation": "6.4",
+                    "annualMeanTemperature": "19.2"
+                },
+                "latitude": -11.1275,
+                "countryName": "Peru",
+                "type": "Storage location",
+                "locationDbId": "1",
+                "name": "Location 1",
+                "abbreviation": "L1",
+                "countryCode": "PER",
+                "altitude": 828.0,
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute"
             },
             {
-                "locationDbId": 2,
-                "locationType": "Breeding location",
-                "name": "San Ramon",
-                "abbreviation": "CIPSRM-2",
-                "countryCode": "PER",
+                "longitude": -73.82075,
+                "additionalInfo": {
+                    "altern": "SNPEDRO",
+                    "local": "NaSARRI",
+                    "cont": "Africa",
+                    "creg": "SSA",
+                    "adm3": "Coviriali",
+                    "adm2": "Kassena-Nankana",
+                    "adm1": "Serere",
+                    "annualTotalPrecipitation": "6.4",
+                    "annualMeanTemperature": "19.2"
+                },
+                "latitude": -11.25847,
                 "countryName": "Peru",
-                "latitude": -11.16116,
-                "longitude": -75.34171,
-                "altitude": "964",
-                "instituteName": "INRA - GDEC",
-                "instituteAdress": "route foo, Clermont Ferrand, France",
-                "additionalInfo": null
+                "type": "Breeding location",
+                "locationDbId": "10",
+                "name": "Location 10",
+                "abbreviation": "L10",
+                "countryCode": "PER",
+                "altitude": 276.0,
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute"
             }
         ]
     }
@@ -90,30 +98,28 @@ class LocationTest(APITestCase):
     "result": {
         "data": [
             {
+                "longitude": -75.356389,
+                "additionalInfo": {
+                    "altern": "SNPEDRO",
+                    "local": "NaSARRI",
+                    "cont": "Africa",
+                    "creg": "SSA",
+                    "adm3": "Coviriali",
+                    "adm2": "Kassena-Nankana",
+                    "adm1": "Serere",
+                    "annualTotalPrecipitation": "6.4",
+                    "annualMeanTemperature": "19.2"
+                },
                 "latitude": -11.1275,
                 "countryName": "Peru",
-                "abbreviation": "CIPSRM-1",
-                "instituteName": "INRA - GDEC",
-                "longitude": -75.356389,
-                "altitude": "828",
-                "instituteAdress": "route foo, Clermont Ferrand, France",
-                "locationType": "Storage location",
-                "additionalInfo": {
-                    "values": {
-                        " local": "San Ramon",
-                        "crops": "potato,sweetpotato",
-                        "cont": "South America",
-                        "creg": "LAC",
-                        "adm3": "San Ramon",
-                        "adm2": "Chanchamayo",
-                        "adm1": "Junin",
-                        "annualTotalPrecipitation": "360",
-                        "annualMeanTemperature": "23"
-                    }
-                },
-                "locationDbId": 1,
+                "type": "Storage location",
+                "locationDbId": "1",
+                "name": "Location 1",
+                "abbreviation": "L1",
                 "countryCode": "PER",
-                "name": "Experimental station San Ramon (CIP)"
+                "altitude": 828.0,
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "instituteName": "Plant Science Institute"
             }
         ]
     }

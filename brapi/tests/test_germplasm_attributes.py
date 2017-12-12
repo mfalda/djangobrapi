@@ -5,8 +5,8 @@ from brapi.aux_fun import test_get
 
 class GermplasmAttrsTest(APITestCase):
       
-    fixtures = ['germplasm_attrs.json', 'germplasm_attrs_list.json', 
-                'germplasm_attrs_avail.json']
+    fixtures = ['crops.json', 'germplasm.json', 'germplasm_attributes.json',
+                'germplasm_attribute_values.json', 'germplasm_attribute_categories.json']
     
 
     def test_get_germplasm_attrs(self):
@@ -18,8 +18,8 @@ class GermplasmAttrsTest(APITestCase):
         "pagination": {
             "currentPage": 1,
             "pageTotal": 1,
-            "totalCount": 3,
-            "pageSize": 100
+            "totalCount": 2,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -27,30 +27,25 @@ class GermplasmAttrsTest(APITestCase):
     "result": {
         "data": [
             {
-                "attributeDbId": 1,
-                "attributeName": "Morphological",
-                "attributeCode": "FLSHORG",
+                "determinedDate": "2017-12-11",
                 "value": "Present",
-                "dateDetermined": "2016-01-01"
-            },
-            {
-                "attributeDbId": 2,
-                "attributeName": "Agronomic",
                 "attributeCode": "RHT",
-                "value": "Absent",
-                "dateDetermined": "2016-01-01"
+                "attributeName": "Rht-B1b",
+                "germplasmDbId": "1",
+                "attributeDbId": "1"
             },
             {
-                "attributeDbId": 3,
-                "attributeName": "Biotic stress",
-                "attributeCode": "WEV",
-                "value": "Present",
-                "dateDetermined": "2016-01-01"
+                "determinedDate": "2017-12-11",
+                "value": "Absent",
+                "attributeCode": "RHT2",
+                "attributeName": "Rht-B2b",
+                "germplasmDbId": "1",
+                "attributeDbId": "1"
             }
         ]
     }
 }"""
-        test_get(self, '/brapi/v1/germplasm/1/attributes', expected)
+        test_get(self, '/brapi/v1/germplasm/1/attributes?pageSize=2', expected)
 
     # end def test_get_germplasm_attrs
 
@@ -63,7 +58,7 @@ class GermplasmAttrsTest(APITestCase):
         "pagination": {
             "currentPage": 1,
             "pageTotal": 2,
-            "totalCount": 3,
+            "totalCount": 4,
             "pageSize": 2
         },
         "status": [],
@@ -72,11 +67,11 @@ class GermplasmAttrsTest(APITestCase):
     "result": {
         "data": [
             {
-                "attributeCategoryDbId": 1,
+                "attributeCategoryDbId": "1",
                 "name": "Morphological"
             },
             {
-                "attributeCategoryDbId": 2,
+                "attributeCategoryDbId": "2",
                 "name": "Agronomic"
             }
         ]
@@ -94,9 +89,9 @@ class GermplasmAttrsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 1,
-            "pageSize": 100
+            "pageTotal": 5,
+            "totalCount": 10,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -104,22 +99,29 @@ class GermplasmAttrsTest(APITestCase):
     "result": {
         "data": [
             {
-                "attributeCategoryDbId": 1,
                 "code": "RHT",
-                "uri": "http://www.cropontology.org/rdf/CO_321:0000020",
+                "attributeDbId": "1",
+                "values": "['Present', 'Absent', 'Heterozygous']",
                 "name": "Rht-B1b",
-                "description": "Allele of marker 11_4769, diagnostic for allele b of reduced-height gene Rht-B1''",
+                "uri": "http://www.brapi.org/ontology/MO_123:1000001",
+                "description": "Allele of marker 11_4769",
                 "datatype": "Categorical",
-                "values": [
-                    "Present",
-                    "Absent",
-                    "Heterozygous"
-                ]
+                "attributeCategoryDbId": "2"
+            },
+            {
+                "code": "RAL6",
+                "attributeDbId": "10",
+                "values": "['1', '2', '3', '4']",
+                "name": "R allele 6",
+                "uri": "http://www.brapi.org/ontology/MO_123:1000010",
+                "description": "Resistance allele",
+                "datatype": "Categorical",
+                "attributeCategoryDbId": "4"
             }
         ]
     }
 }"""
-        test_get(self, '/brapi/v1/attributes/', expected)
+        test_get(self, '/brapi/v1/attributes/?pageSize=2', expected)
 
     # end def test_get_germplasm_attr_avail
     

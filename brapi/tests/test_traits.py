@@ -5,7 +5,8 @@ from brapi.aux_fun import test_get
 
 class TraitTest(APITestCase):
     
-    fixtures = ['crops.json', 'traits.json']
+    fixtures = ['crops.json', 'observation_variables.json',
+                'ontologies.json', 'traits.json']
     
 
     def test_get_traits(self):
@@ -15,8 +16,8 @@ class TraitTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
-            "totalCount": 5,
+            "pageTotal": 2,
+            "totalCount": 3,
             "pageSize": 2
         },
         "status": [],
@@ -25,24 +26,26 @@ class TraitTest(APITestCase):
     "result": {
         "data": [
             {
-                "traitDbId": 1,
+                "traitDbId": "1",
                 "traitId": "CO_334:0100620",
                 "name": "Carotenoid content",
                 "description": "Cassava storage root pulp carotenoid content",
                 "observationVariables": [
-                    "CO_334:0100621",
-                    "CO_334:0100623",
-                    "CO_334:0100623"
-                ]
+                    "MO_123:100002",
+                    "MO_123:100003"
+                ],
+                "defaultValue": ""
             },
             {
-                "traitDbId": 2,
+                "traitDbId": "2",
                 "traitId": "CO_334:0100621",
                 "name": "Plant height",
-                "description": "Plant height",
+                "description": "Cassava marketable yield",
                 "observationVariables": [
-                    "CO_334:0200001"
-                ]
+                    "MO_123:100004",
+                    "MO_123:100005"
+                ],
+                "defaultValue": ""
             }
         ]
     }
@@ -70,15 +73,15 @@ class TraitTest(APITestCase):
     "result": {
         "data": [
             {
-                "traitDbId": 1,
+                "traitDbId": "1",
                 "traitId": "CO_334:0100620",
                 "name": "Carotenoid content",
                 "description": "Cassava storage root pulp carotenoid content",
                 "observationVariables": [
-                    "CO_334:0100621",
-                    "CO_334:0100623",
-                    "CO_334:0100623"
-                ]
+                    "MO_123:100002",
+                    "MO_123:100003"
+                ],
+                "defaultValue": ""
             }
         ]
     }

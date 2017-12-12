@@ -64,11 +64,11 @@ class ProgramTest(APITestCase):
     "result": {
         "data": [
             {
-                "programDbId": 1,
-                "name": "CIPHQ",
-                "abbreviation": "CIPHQ",
-                "objective": "Global Population Improvement",
-                "leadPerson": "G. Leader"
+                "programDbId": "1",
+                "name": "Wheat Resistance Program",
+                "abbreviation": "DRP1",
+                "objective": "Disease resistance",
+                "leadPerson": "Dr. Henry Beachell"
             }
         ]
     }

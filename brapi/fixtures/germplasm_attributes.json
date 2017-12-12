@@ -4,7 +4,7 @@
     "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "2",
+      "attributeCategoryDbId": "2",
       "code": "RHT",
       "uri": "http://www.brapi.org/ontology/MO_123:1000001",
       "name": "Rht-B1b",
@@ -18,7 +18,7 @@
     "pk": "10",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "4",
+      "attributeCategoryDbId": "4",
       "code": "RAL6",
       "uri": "http://www.brapi.org/ontology/MO_123:1000010",
       "name": "R allele 6",
@@ -32,7 +32,7 @@
     "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "3",
+      "attributeCategoryDbId": "3",
       "code": "WEV",
       "uri": "http://www.brapi.org/ontology/MO_123:1000002",
       "name": "Weevil Resistance",
@@ -46,7 +46,7 @@
     "pk": "3",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "1",
+      "attributeCategoryDbId": "1",
       "code": "FLSHORG",
       "uri": "http://www.brapi.org/ontology/MO_123:1000003",
       "name": "Flesh Color Orange allele",
@@ -60,7 +60,7 @@
     "pk": "4",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "1",
+      "attributeCategoryDbId": "1",
       "code": "FLWCOL",
       "uri": "http://www.brapi.org/ontology/MO_123:1000004",
       "name": "Flower color white allele",
@@ -74,7 +74,7 @@
     "pk": "5",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "3",
+      "attributeCategoryDbId": "3",
       "code": "RAL1",
       "uri": "http://www.brapi.org/ontology/MO_123:1000005",
       "name": "R allele 1",
@@ -88,7 +88,7 @@
     "pk": "6",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "3",
+      "attributeCategoryDbId": "3",
       "code": "RAL2",
       "uri": "http://www.brapi.org/ontology/MO_123:1000006",
       "name": "R allele 2",
@@ -102,7 +102,7 @@
     "pk": "7",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "3",
+      "attributeCategoryDbId": "3",
       "code": "RAL3",
       "uri": "http://www.brapi.org/ontology/MO_123:1000007",
       "name": "R allele 3",
@@ -116,7 +116,7 @@
     "pk": "8",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "4",
+      "attributeCategoryDbId": "4",
       "code": "RAL4",
       "uri": "http://www.brapi.org/ontology/MO_123:1000008",
       "name": "R allele 4",
@@ -130,7 +130,7 @@
     "pk": "9",
     "fields": {
       "cropdbid": "1",
-      "attributecategorydbid": "4",
+      "attributeCategoryDbId": "4",
       "code": "RAL5",
       "uri": "http://www.brapi.org/ontology/MO_123:1000009",
       "name": "R allele 5",

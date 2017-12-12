@@ -13,8 +13,8 @@ from brapi.views.programs import ProgramViewSet, ProgramSearchView
 #from brapi.views.maps import MapView, MapDetailView, MapLinkageView, MapLinkageViewPositions
 from brapi.views.markers import MarkerView, MarkerDetailsView
 from brapi.views.traits import TraitView, TraitDetailsView
-#from brapi.views.germplasm_attributes import (GAListViewSet, GAAttrAvailViewSet,
-#                                              GermplasmAttrView)
+from brapi.views.germplasm_attributes import (GermplasmAttributesListViewSet, GermplasmAttributesAvailailableViewSet,
+                                                GermplasmAttributeView)
 #from brapi.views.germplasm import (GermplasmView, GPPedigreeView,
 #                                   GermplasmSearchView)
 from brapi.views.germplasm import GermplasmView, GermplasmSearchView
@@ -48,8 +48,8 @@ router = DefaultRouter()
 
 router.register(r'brapi/v1/crops', CropsViewSet, 'crops')
 router.register(r'brapi/v1/programs', ProgramViewSet, 'programs')
-#router.register(r'brapi/v1/attributes/categories', GAListViewSet, 'GA_list')
-#router.register(r'brapi/v1/attributes', GAAttrAvailViewSet, 'GA_attr_avail')
+router.register(r'brapi/v1/attributes/categories', GermplasmAttributesListViewSet, 'GA_list')
+router.register(r'brapi/v1/attributes', GermplasmAttributesAvailailableViewSet, 'GA_attr_avail')
 router.register(r'brapi/v1/variables/datatypes', ObservationVariableDatatypeViewSet, 'datatypes')
 router.register(r'brapi/v1/ontologies', OntologiesViewSet, 'ontologies')
 router.register(r'brapi/v1/seasons', StudySeasonViewSet, 'study_seasons')
@@ -68,7 +68,7 @@ urlpatterns = [
 #    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
 #    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)/?$', MapLinkageViewPositions.as_view()),
 
-#    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/attributes/?$', GermplasmAttrView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/attributes/?$', GermplasmAttributeView.as_view()),
 
 #    url(r'brapi/v1/studies/(?P<studyDbId>[0-9]+)/germplasm/?$', GermplasmView.as_view()),
 

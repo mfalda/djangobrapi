@@ -5,7 +5,7 @@ from brapi.aux_fun import test_get
 
 class SampleTest(APITestCase):
     
-    fixtures = ['samples.json']
+    fixtures = ['crops.json', 'germplasm.json', 'locations.json', 'samples.json']
     
 
     def test_get_samples(self):
