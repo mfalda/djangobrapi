@@ -1,5 +1,6 @@
 from rest_framework import serializers
 import logging
+from pprint import pprint
 
 from brapi.models import *
 from brapi.aux_types import StringListField, IntListField
@@ -86,23 +87,23 @@ class DonorSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Donor
-        exclude = ['cropdbid', 'donordbid', 'germplasmdbid']
+        exclude = ['cropdbid', 'donordbid', 'germplasmDbId']
 
     # end class Meta
 
 # end class DonorSerializer
 
 
-# class GPPedigreeSerializer(serializers.ModelSerializer):
-#
-#     class Meta:
-#
-#         model = GPPedigree
-#         fields = ['germplasmDbId', 'defaultDisplayName', 'pedigree', 'parent1Id', 'parent2Id']
-#
-#         # end class Meta
-#
-# # end class GPPedigreeSerializer
+class PedigreeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = Pedigree
+        exclude = ['cropdbid', 'pedigreeDbId']
+
+    # end class Meta
+
+# end class PedigreeSerializer
 
 
 class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
@@ -278,14 +279,34 @@ class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
 
 class MarkerProfileSerializer(ExtendedSerializer):
 
-    #markerProfilesDbId = GermplasmMarkerProfileSerializer(many=True, read_only=True)
-
     class Meta:
 
         model = MarkerProfile
         exclude = ['cropdbid', 'sampleDbId', 'resultCount', 'studyDbId']
 
         # end class Meta
+
+# end class MarkerProfileSerializer
+
+
+class GermplasmMarkerProfileSerializer(ExtendedSerializer):
+
+    markerprofileDbIds = serializers.SerializerMethodField()
+
+
+    class Meta:
+
+        model = MarkerProfile
+        fields = ['germplasmDbId', 'markerprofileDbIds']
+
+    # end class Meta
+
+
+    def get_markerprofileDbIds(self, obj):
+
+        return [ mp.markerprofileDbId for mp in MarkerProfile.objects.filter(germplasmDbId=obj.germplasmDbId) ]
+
+    # end def get_markerprofileDbIds
 
 # end class MarkerProfileSerializer
 
@@ -540,16 +561,7 @@ class TaxonXrefGermplasmSerializer(ExtendedSerializer):
 
 class TaxonXrefSerializer(ExtendedSerializer):
 
-    taxonXrefGermplasm = TaxonXrefGermplasmSerializer(many=True, read_only=True)
-
-
-    class Meta:
-
-        model = TaxonXref
-        exclude = ['cropdbid']
-        extra_fields = ['taxonXrefGermplasm']
-
-    # end class Meta
+    pass
 
 # end class TaxonXrefSerializer
 
@@ -685,7 +697,6 @@ class GermplasmSerializer(ExtendedSerializer):
     donors = DonorSerializer(many=True, read_only=True)
     taxonIds = serializers.SerializerMethodField()
     donors = DonorSerializer(many=True, read_only=True)
-    #pedigree = PedigreeSerializer(many=True, read_only=True)
 
 
     class Meta:
@@ -700,10 +711,16 @@ class GermplasmSerializer(ExtendedSerializer):
 
     def get_taxonIds(self, obj):
 
-        t = Germplasm.objects.get(germplasmDbId=obj.germplasmDbId)
-        t1 = t.taxonIDs.values_list('taxondbid')[0][0]
-        t2 = TaxonXref.objects.get(taxondbid=t1)
-        return t2.objects.value_list('source')
+        logger = logging.getLogger(__name__)
+
+        t = TaxonXrefGermplasm.objects.filter(germplasmDbId=obj.germplasmDbId)
+        #pprint(t.__dict__)
+
+        t2 = TaxonXref.objects.filter(taxondbid__in=t)
+        #logger.warning("Filtering taxa:")
+        #[pprint(t.__dict__) for t in t2]
+
+        return [ { t.source: t.rank } for t in t2 ]
 
     # end def get_taxonIds
 

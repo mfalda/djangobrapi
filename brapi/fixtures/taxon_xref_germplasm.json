@@ -1,1 +1,38 @@
 [
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "1",
+      "germplasmDbId": "1"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2",
+      "germplasmDbId": "1"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "2",
+      "germplasmDbId": "3"
+    }
+  },
+  {
+    "model": "brapi.taxonxrefgermplasm",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "taxondbid": "1",
+      "germplasmDbId": "2"
+    }
+  }
+]

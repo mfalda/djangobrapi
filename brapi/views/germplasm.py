@@ -1,8 +1,8 @@
 from rest_framework.views import APIView
 import logging
 
-from brapi.models import Germplasm
-from brapi.serializers import GermplasmSerializer
+from brapi.models import Germplasm, Pedigree
+from brapi.serializers import GermplasmSerializer, PedigreeSerializer
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
@@ -27,30 +27,30 @@ class GermplasmView(APIView):
 # end class GermplasmView
 
 
-# class GPPedigreeView(APIView):
-#
-#     serializer_class = GPPedigreeSerializer
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = GPPedigree.objects.all()
-#
-#         germplasmDbId = self.kwargs.get('germplasmDbId', None)
-#         if germplasmDbId is not None:
-#             queryset = queryset.filter(germplasmDbId=germplasmDbId)
-#         # end if
-#
-#         notation = self.request.query_params.get('notation', None)
-#
-#         if notation is not None:
-#             raise Exception('Deal with "notation" parameter')
-#         # end if
-#
-#         return paginate(queryset, request, GPPedigreeSerializer)
-#
-#     # end def get
-#
-# # end class GPPedigreeView
+class GermplasmPedigreeView(APIView):
+
+    serializer_class = PedigreeSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = Pedigree.objects.all()
+
+        germplasmDbId = self.kwargs.get('germplasmDbId', None)
+        if germplasmDbId is not None:
+            queryset = queryset.filter(germplasmDbId=germplasmDbId)
+        # end if
+
+        notation = self.request.query_params.get('notation', None)
+
+        if notation is not None:
+            raise Exception('Deal with "notation" parameter')
+        # end if
+
+        return paginate(queryset, request, PedigreeSerializer)
+
+    # end def get
+
+# end class GermplasmPedigreeView
 
 
 class GermplasmSearchView(APIView):

@@ -15,14 +15,15 @@ from brapi.views.markers import MarkerView, MarkerDetailsView
 from brapi.views.traits import TraitView, TraitDetailsView
 from brapi.views.germplasm_attributes import (GermplasmAttributesListViewSet, GermplasmAttributesAvailailableViewSet,
                                                 GermplasmAttributeView)
-#from brapi.views.germplasm import (GermplasmView, GPPedigreeView,
-#                                   GermplasmSearchView)
+from brapi.views.germplasm import (GermplasmView, GermplasmPedigreeView,
+                                   GermplasmSearchView)
 from brapi.views.germplasm import GermplasmView, GermplasmSearchView
 from brapi.views.trials import TrialView, TrialDetailsView
 from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
-                                        MarkerProfilesView, MarkerProfilesDataView)
+                                        MarkerProfilesView, MarkerProfilesDataView,
+                                        GermplasmMarkeprofileView)
 #from brapi.views.obs_variables import VSearchView
 from brapi.views.obs_variables import (ObservationVariablesListView, ObservationVariableView, OntologiesViewSet,
                                        ObservationVariableDatatypeViewSet)
@@ -75,8 +76,8 @@ urlpatterns = [
     url(r'brapi/v1/locations/(?P<locationDbId>[0-9]+)/?$', LocationDetailsView.as_view()),
     url(r'brapi/v1/locations/?$', LocationView.as_view()),
     
-#    url(r'brapi/v1/germplasm/(?P<id>[0-9]+)/markerprofiles/?$', GPMarkerPView.as_view()),
-#    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/pedigree/?$', GPPedigreeView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<id>[0-9]+)/markerprofiles/?$', GermplasmMarkeprofileView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/pedigree/?$', GermplasmPedigreeView.as_view()),
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/?$', GermplasmView.as_view()),
     url(r'brapi/v1/germplasm-search/?$', GermplasmSearchView.as_view()),
 

@@ -1,10 +1,10 @@
 [
   {
     "model": "brapi.markerprofile",
-    "pk": "3",
+    "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "germplasmDbId": "3",
+      "germplasmDbId": "1",
       "uniqueDisplayName": "germplasm3",
       "sampleDbId": 33,
       "extractDbId": 1,
@@ -15,10 +15,24 @@
   },
   {
     "model": "brapi.markerprofile",
-    "pk": "4",
+    "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "germplasmDbId": "4",
+      "germplasmDbId": "1",
+      "uniqueDisplayName": "germplasm4",
+      "sampleDbId": 44,
+      "extractDbId": 2,
+      "studyDbId": "1002",
+      "analysisMethod": "GoldenGate",
+      "resultCount": 1
+    }
+  },
+  {
+    "model": "brapi.markerprofile",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "2",
       "uniqueDisplayName": "germplasm4",
       "sampleDbId": 44,
       "extractDbId": 2,

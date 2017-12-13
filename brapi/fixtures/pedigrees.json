@@ -1,1 +1,16 @@
 [
+  {
+    "model": "brapi.pedigree",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "1",
+      "defaultDisplayName": "Pahang",
+      "pedigree" : "Cree / Bonanza",
+      "parent1DbId" : "2",
+      "parent2DbId" : "3"
+    }
+  }
+]
+
+

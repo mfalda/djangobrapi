@@ -6,7 +6,7 @@ from brapi.models import (AlleleMatrix, AlleleMatrixSearch,
                             MarkerProfile)
 
 from brapi.serializers import (AlleleMatrixSerializer, AlleleMatrixSearchSerializer,
-                                MarkerProfileSerializer)
+                                MarkerProfileSerializer, GermplasmMarkerProfileSerializer)
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
@@ -128,7 +128,7 @@ class MarkerProfilesView(APIView):
 # end class MarkerProfilesView
 
 
-class GPMarkerPView(APIView):
+class GermplasmMarkeprofileView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 
@@ -136,11 +136,11 @@ class GPMarkerPView(APIView):
 
         germplasmDbId = self.kwargs.get('id', None)
         if germplasmDbId is not None:
-            queryset = queryset.filter(germplasmDbId=germplasmDbId)
+            queryset = queryset.filter(germplasmDbId=germplasmDbId)[:1]
         # end if
 
-        return paginate(queryset, request, MarkerProfileSerializer)
+        return paginate(queryset, request, GermplasmMarkerProfileSerializer)
 
     # end def get
 
-# end class GPMarkerPView
+# end class GermplasmMarkeprofileView

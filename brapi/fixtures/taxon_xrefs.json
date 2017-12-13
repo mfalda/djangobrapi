@@ -1,20 +1,20 @@
 [
   {
     "model": "brapi.taxonxref",
-    "pk": "2340",
+    "pk": "1",
     "fields": {
       "cropdbid": "1",
       "source": "ncbiTaxon",
-      "rank": "species"
+      "rank": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
     }
   },
   {
     "model": "brapi.taxonxref",
-    "pk": "E312",
+    "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "source": "ciradTaxon",
-      "rank": "species"
+      "source" : "ciradTaxon",
+      "rank": "23-E"
     }
   }
 ]

@@ -1,5 +1,5 @@
 from django.db import models
-from tutorial import settings
+from djangobrapi import settings
 
 
 class Call(models.Model):
@@ -70,10 +70,10 @@ class Crop(models.Model):
 class Donor(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    germplasmdbid = models.ForeignKey('Germplasm', models.DO_NOTHING, db_column='germplasmdbid', related_name='donors', blank=True, null=True)
-    donoraccessionnumber = models.TextField(blank=True, null=True)
-    donorinstitutecode = models.TextField(blank=True, null=True)
-    donorgermplasmpui = models.TextField(blank=True, null=True)
+    germplasmDbId = models.ForeignKey('Germplasm', models.DO_NOTHING, db_column='germplasmdbid', related_name='donors', blank=True, null=True)
+    donorAccessionNumber = models.TextField(db_column='donoraccessionnumber', blank=True, null=True)
+    donorInstituteCode = models.TextField(db_column='', blank=True, null=True)
+    donorGermplasmPUI = models.TextField(db_column='', blank=True, null=True)
     donordbid = models.TextField(primary_key=True)
 
     class Meta:
@@ -103,6 +103,7 @@ class Germplasm(models.Model):
     countryOfOriginCode = models.TextField(db_column='countryoforigincode', blank=True, null=True)
     typeOfGermplasmStorageCode = models.TextField(db_column='typeofgermplasmstoragecode', blank=True, null=True)
     genus = models.TextField(blank=True, null=True)
+    commonCropName = models.TextField(db_column='commoncropname', blank=True, null=True)
     species = models.TextField(blank=True, null=True)
     speciesAuthority = models.TextField(db_column='speciesauthority', blank=True, null=True)
     subtaxa = models.TextField(db_column='subtaxa', blank=True, null=True)
@@ -414,6 +415,7 @@ class Pedigree(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='germplasm')
     pedigree = models.TextField()
+    defaultDisplayName = models.TextField(db_column='defaultdisplayname', null=True, blank=True)
     parent1DbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent1dbid', related_name='parents1')
     parent2DbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='parent2dbid', related_name='parents2')
     pedigreeDbId = models.TextField(primary_key=True, db_column='pedigreedbid')
@@ -775,7 +777,7 @@ class TaxonXrefGermplasm(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     taxondbid = models.ForeignKey(TaxonXref, models.DO_NOTHING, db_column='taxondbid', related_name='taxa', blank=True, null=True)
-    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='taxonIDs', blank=True, null=True)
+    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid', related_name='germplasm1', blank=True, null=True)
     taxonxrefgermplasmdbid = models.IntegerField(primary_key=True)
 
     class Meta:

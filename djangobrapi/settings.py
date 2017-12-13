@@ -65,7 +65,6 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'corsheaders',
     "psycopg2",
-    'snippets',
     'brapi'
 ]
 
@@ -81,7 +80,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'tutorial.urls'
+ROOT_URLCONF = 'djangobrapi.urls'
 
 TEMPLATES = [
     {
@@ -99,7 +98,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tutorial.wsgi.application'
+WSGI_APPLICATION = 'djangobrapi.wsgi.application'
 
 
 # Database

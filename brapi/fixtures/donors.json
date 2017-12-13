@@ -1,1 +1,68 @@
 [
+  {
+    "model": "brapi.donor",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "1",
+      "donorAccessionNumber": "BRA001001",
+      "donorInstituteCode" : "BRA001",
+      "donorGermplasmPUI" : "http://bra/accession/BRA001001"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "2",
+      "donorAccessionNumber": "ECU001001",
+      "donorInstituteCode" : "ECU001",
+      "donorGermplasmPUI" : "http://ecu/accession/ECU001001"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "3",
+      "donorAccessionNumber": "A000003",
+      "donorInstituteCode" : "PER001",
+      "donorGermplasmPUI" : "http://data.cipotato.org/accession/A000003"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "4",
+      "donorAccessionNumber": "A000004",
+      "donorInstituteCode" : "PER001",
+      "donorGermplasmPUI" : "http://data.cipotato.org/accession/A000004"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "5",
+      "donorAccessionNumber": "ECU001002",
+      "donorInstituteCode" : "ECU002",
+      "donorGermplasmPUI" : "http://ecu/accession/ECU001002"
+    }
+  },
+  {
+    "model": "brapi.donor",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "5",
+      "donorAccessionNumber": "PER002001",
+      "donorInstituteCode" : "PER002",
+      "donorGermplasmPUI" : "http://per/accession/PER002001"
+    }
+  }
+]
