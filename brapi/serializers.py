@@ -895,6 +895,78 @@ class ContactSerializer(ExtendedSerializer):
 # end class ContactSerializer
 
 
+
+class MapLinkageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+
+        model = MapLinkage
+        exclude = ['id', 'mapDbId']
+
+    # end class Meta
+
+# end class MapLinkageSerializer
+
+
+class MapSerializer(serializers.ModelSerializer):
+
+    linkageGroupCount = serializers.SerializerMethodField()
+    markerCount = serializers.SerializerMethodField()
+
+
+    class Meta:
+
+        model = Map
+        fields = '__all__'
+
+    # end class Meta
+
+
+    def get_linkageGroupCount(self, obj):
+
+        return obj.linkageGroups.count()
+
+    # end def get_linkageGroupCount
+
+
+    def get_markerCount(self, obj):
+
+        return (Map.objects
+                .aggregate(markerCount=models.Count('linkageGroups__markerDbId'))
+                ['markerCount'])
+
+    # end def get_markerCount
+
+# end class MapSerializer
+
+
+class MapDetailSerializer(serializers.ModelSerializer):
+
+    linkageGroups = serializers.SerializerMethodField()
+
+
+    class Meta:
+
+        model = Map
+        fields = ['mapDbId', 'name', 'type', 'unit', 'linkageGroups']
+
+    # end class Meta
+
+
+    def get_linkageGroups(self, obj):
+
+        return (Map.objects
+                .annotate(linkageGroupId=models.F('linkageGroups__linkageGroupId'))
+                .values('linkageGroupId')
+                .annotate(markerCount=models.Count('linkageGroups__markerDbId'))
+                .annotate(maxPosition=models.Max('linkageGroups__location'))
+                .values('linkageGroupId', 'markerCount', 'maxPosition'))
+
+    # end def get_linkageGroups
+
+# end class MapDetailSerializer
+
+
 class PhenotypeSerializer(serializers.ModelSerializer):
 
     observationUnitXref = ObservationUnitXrefSerializer(many=True, read_only=True)

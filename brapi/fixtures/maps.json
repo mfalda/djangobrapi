@@ -1,23 +1,26 @@
 [
   {
     "model": "brapi.map",
-    "pk": "1",
+    "pk": 1,
     "fields": {
-      "cropdbid": "1"
+      "name": "SSR map 1",
+      "species": "Ipomoea batatas",
+      "type": "Genetic",
+      "unit": "cM",
+      "publishedDate": "2016-01-06",
+      "comments": "10"
     }
   },
   {
     "model": "brapi.map",
-    "pk": "2",
+    "pk": 2,
     "fields": {
-      "cropdbid": "1"
-    }
-  },
-  {
-    "model": "brapi.map",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1"
+      "name": "Some Map",
+      "species": "Some species",
+      "type": "Genetic",
+      "unit": "kM",
+      "publishedDate": "2008-04-16",
+      "comments": "This map contains ..."
     }
   }
 ]

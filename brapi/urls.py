@@ -10,7 +10,7 @@ from brapi.views.calls import CallsView
 from brapi.views.locations import LocationView, LocationDetailsView
 from brapi.views.crops import CropsViewSet
 from brapi.views.programs import ProgramViewSet, ProgramSearchView
-#from brapi.views.maps import MapView, MapDetailView, MapLinkageView, MapLinkageViewPositions
+from brapi.views.maps import MapView, MapDetailView, MapLinkageView, MapLinkageViewPositions
 from brapi.views.markers import MarkerView, MarkerDetailsView
 from brapi.views.traits import TraitView, TraitDetailsView
 from brapi.views.germplasm_attributes import (GermplasmAttributesListViewSet, GermplasmAttributesAvailailableViewSet,
@@ -64,10 +64,10 @@ urlpatterns = [
     url(r'^', include(router.urls)),
     url(r'brapi/v1/calls', CallsView.as_view()),
 
-#    url(r'brapi/v1/maps/?$', MapView.as_view()),
-#    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/?$', MapDetailView.as_view()),
-#    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
-#    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)/?$', MapLinkageViewPositions.as_view()),
+    url(r'brapi/v1/maps/?$', MapView.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/?$', MapDetailView.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
+    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)/?$', MapLinkageViewPositions.as_view()),
 
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/attributes/?$', GermplasmAttributeView.as_view()),
 

@@ -223,21 +223,6 @@ class LocationAdditionalInfo(models.Model):
 # end class LocationAdditionalInfo
 
 
-class Map(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    mapdbid = models.TextField(primary_key=True)
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'map'
-
-    # end class Meta
-
-# end class Map
-
-
 class Marker(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -886,6 +871,48 @@ class TrialContact(models.Model):
     # end class Meta
 
 # end class TrialContact
+
+
+class Map(models.Model):
+
+    mapDbId = models.IntegerField(primary_key=True, default='')
+    name = models.CharField(max_length=100, blank=True, null=True)
+    species = models.CharField(max_length=100, blank=True, null=True)
+    type = models.CharField(max_length=100, blank=True, null=True)
+    unit = models.CharField(max_length=100, blank=True, null=True)
+    publishedDate = models.DateField(blank=True, null=True)
+    comments = models.CharField(max_length=100, blank=True, null=True)
+
+
+    class Meta:
+
+       ordering = ('mapDbId',)
+       managed = settings.IS_TESTING
+       db_table = 'map'
+
+    # end class Meta
+
+# end class Map
+
+
+class MapLinkage(models.Model):
+
+    mapDbId = models.ForeignKey(Map, db_column='mapDbId', related_name='linkageGroups', on_delete=models.CASCADE, default='', to_field='mapDbId')
+    markerDbId = models.IntegerField()
+    markerName = models.CharField(max_length=100, blank=True, null=True)
+    location = models.IntegerField()
+    linkageGroupId = models.IntegerField()
+
+
+    class Meta:
+
+        ordering = ('id',)
+        managed = settings.IS_TESTING
+        db_table = 'map_linkage'
+
+    # end class Meta
+
+# end class MapLinkage
 
 
 class Phenotype(models.Model):

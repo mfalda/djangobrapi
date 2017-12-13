@@ -3,9 +3,10 @@ from rest_framework.views import APIView
 from django.db.models import Q
 import logging
 
-from brapi.models.map import (Map, MapLinkage, MapSerializer, 
-                              MapDetailSerializer, MapLinkageSerializer)
+from brapi.models import Map, MapLinkage
 
+from brapi.serializers import (MapSerializer, MapDetailSerializer,
+                               MapLinkageSerializer)
 from brapi.aux_fun import search_get_qparams, paginate
 
 
