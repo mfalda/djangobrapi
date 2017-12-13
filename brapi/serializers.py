@@ -568,8 +568,6 @@ class TaxonXrefSerializer(ExtendedSerializer):
 
 class TraitSerializer(ExtendedSerializer):
 
-    #observationVariables = ObservationVariableSerializer(many=True, read_only=True)
-
     class Meta:
 
         model = Trait
@@ -621,7 +619,7 @@ class StudySerializer(ExtendedSerializer):
 
         model = Study
         exclude = ['cropdbid']
-        extra_fields = ['observationUnits', 'contacts', 'dataLinks', 'seasons', 'additionalInfo']
+        extra_fields = ['observationUnits', 'contacts', 'dataLinks', 'seasons', 'additionalInfo', 'locationName']
 
     # end class Meta
 
@@ -629,10 +627,13 @@ class StudySerializer(ExtendedSerializer):
     def get_seasons(self, obj):
 
         logger = logging.getLogger(__name__)
+
         sID = obj.studydbid
         logger.warning("Getting seasons for study %s" % sID)
+
         sseasons = Season.objects.filter(seasons1__studyDbId=sID).all()
         logger.warning("Getting seasons for study %s" % sseasons.seasons1)
+
         return sseasons
 
     # end def get_seasons
@@ -767,24 +768,45 @@ class TrialAdditionalInfoSerializer(serializers.ModelSerializer):
 
 class TrialContactSerializer(serializers.ModelSerializer):
 
+    contacts = serializers.SerializerMethodField()
+
+
     class Meta:
 
         model = TrialContact
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'trialcontactdbid']
 
     # end class Meta
+
+
+    def get_contacts(self, obj):
+
+        print(Contact.objects.filter(pk=obj.contactdbid.contactDbId))
+        return [ContactSerializer(c).data for c in Contact.objects.filter(pk=obj.contactdbid.contactDbId)]
+
+    # end def get_contacts
 
 # end class TrialContactSerializer
 
 
 class TrialStudySerializer(ExtendedSerializer):
 
+    locationName = serializers.SerializerMethodField()
+
+
     class Meta:
 
         model = Study
-        fields = ['studydbid', 'locationdbid', 'name']
+        fields = ['studydbid', 'locationDbId', 'studyName', 'locationName']
 
     # end class Meta
+
+
+    def get_locationName(self, obj):
+
+        return Location.objects.get(pk=obj.locationDbId.locationDbId).name
+
+    # end def get_locationName
 
 # end class TrialStudySerializer
 
@@ -794,13 +816,15 @@ class TrialSerializer(ExtendedSerializer):
     studies = TrialStudySerializer(many=True, read_only=True)
     contacts = TrialContactSerializer(many=True, read_only=True)
     datasetAuthorship = serializers.SerializerMethodField()
+    contacts = serializers.SerializerMethodField()
+    programName = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
 
     class Meta:
 
         model = Trial
-        exclude = ['cropdbid', 'datasetauthorshiplicence', 'datasetauthorshipdatasetpui']
+        exclude = ['cropdbid', 'datasetAuthorshipLicence', 'datasetAuthorshipDatasetPUI']
         extra_fields = ['studies', 'contacts', 'additionalInfo', 'datasetAuthorship']
 
     # end class Meta
@@ -809,11 +833,27 @@ class TrialSerializer(ExtendedSerializer):
     def get_datasetAuthorship(self, obj):
 
         return {
-            'license': obj.datasetauthorshiplicence,
-            'datasetPUI': obj.datasetauthorshipdatasetpui
+            'license': obj.datasetAuthorshipLicence,
+            'datasetPUI': obj.datasetAuthorshipDatasetPUI
         }
 
     # end def get_addInfo
+
+
+    def get_contacts(self, obj):
+
+        tc = TrialContact.objects.filter(trialdbid=obj.trialDbId).all()
+        print("TC:", tc)
+        return [ContactSerializer(c).data for c in Contact.objects.filter(pk=tc)]
+
+    # end def get_contacts
+
+
+    def get_programName(self, obj):
+
+        return Program.objects.get(pk=obj.programDbId.programDbId).name
+
+    # end def get_programName
 
 
     def get_additionalInfo(self, obj):
@@ -845,14 +885,10 @@ class ProgramSerializer(ExtendedSerializer):
 
 class ContactSerializer(ExtendedSerializer):
 
-    studyContacts = StudyContactSerializer(many=True, read_only=True)
-    trialContacts = TrialContactSerializer(many=True, read_only=True)
-
     class Meta:
 
         model = Contact
         exclude = ['cropdbid']
-        extra_fields = ['studyContacts', 'trialContacts']
 
     # end class Meta
 

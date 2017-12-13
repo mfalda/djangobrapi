@@ -8,7 +8,7 @@
       "email": "a.breeder@brapi.org",
       "type": "Breeder",
       "orcid": "0000-0002-0607-8728",
-      "institutename": "Plant Science Institute"
+      "instituteName": "Plant Science Institute"
     }
   },
   {
@@ -20,7 +20,7 @@
       "email": "b.breeder@brapi.org",
       "type": "Breeder",
       "orcid": "0000-0002-0607-8729",
-      "institutename": "Plant Science Institute"
+      "instituteName": "Plant Science Institute"
     }
   },
   {
@@ -32,7 +32,7 @@
       "email": "a.technician@brapi.org",
       "type": "Technician",
       "orcid": "0000-0002-0607-8731",
-      "institutename": "Plant Science Institute"
+      "instituteName": "Plant Science Institute"
     }
   },
   {
@@ -44,7 +44,7 @@
       "email": "b.technician@brapi.org",
       "type": "Technician",
       "orcid": "0000-0002-0607-8732",
-      "institutename": "Plant Science Institute"
+      "instituteName": "Plant Science Institute"
     }
   }
 ]

@@ -4,13 +4,13 @@
     "pk": "101",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "1",
-      "name": "Peru Yield Trial 1",
-      "startdate": "1/1/2013",
-      "enddate": "7/5/2013",
+      "programDbId": "1",
+      "trialName": "Peru Yield Trial 1",
+      "startDate": "2013-1-1",
+      "endDate": "2013-5-7",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/312953986E3"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/312953986E3"
     }
   },
   {
@@ -18,13 +18,13 @@
     "pk": "102",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "1",
-      "name": "Peru Yield Trial 2",
-      "startdate": "6/1/2014",
-      "enddate": "1/15/2015",
+      "programDbId": "1",
+      "trialName": "Peru Yield Trial 2",
+      "startDate": "2014-1-6",
+      "endDate": "2015-1-15",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/1234992349"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/1234992349"
     }
   },
   {
@@ -32,13 +32,13 @@
     "pk": "103",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "2",
-      "name": "Ghana Genotype Trial 1",
-      "startdate": "5/1/2011",
-      "enddate": "12/15/2011",
+      "programDbId": "2",
+      "trialName": "Ghana Genotype Trial 1",
+      "startDate": "2011-1-5",
+      "endDate": "2011-12-15",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/134591245"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/134591245"
     }
   },
   {
@@ -46,13 +46,13 @@
     "pk": "104",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "3",
-      "name": "Ghana Yield Trial 1",
-      "startdate": "7/1/2012",
-      "enddate": "2/1/2013",
+      "programDbId": "3",
+      "trialName": "Ghana Yield Trial 1",
+      "startDate": "2012-1-7",
+      "endDate": "2013-1-2",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/1235919"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/1235919"
     }
   },
   {
@@ -60,13 +60,13 @@
     "pk": "105",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "3",
-      "name": "Ghana Yield Trial 2",
-      "startdate": "8/15/2013",
-      "enddate": "2/28/2014",
+      "programDbId": "3",
+      "trialName": "Ghana Yield Trial 2",
+      "startDate": "2013-8-15",
+      "endDate": "2014-2-28",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/13425915"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/13425915"
     }
   },
   {
@@ -74,13 +74,13 @@
     "pk": "106",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "3",
-      "name": "Ghana Yield Trial 3",
-      "startdate": "9/22/2014",
-      "enddate": "3/21/2015",
+      "programDbId": "3",
+      "trialName": "Ghana Yield Trial 3",
+      "startDate": "2014-9-22",
+      "endDate": "2015-3-31",
       "active": true,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/125512251"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/125512251"
     }
   },
   {
@@ -88,13 +88,13 @@
     "pk": "107",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "4",
-      "name": "Mozambique Yield Trial",
-      "startdate": "5/12/2011",
-      "enddate": "11/30/2011",
+      "programDbId": "4",
+      "trialName": "Mozambique Yield Trial",
+      "startDate": "2011-12-5",
+      "endDate": "2011-11-30",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/34576437"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/34576437"
     }
   },
   {
@@ -102,13 +102,13 @@
     "pk": "108",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "4",
-      "name": "Mozambique Genotype Trial",
-      "startdate": "2/17/2012",
-      "enddate": "8/21/2012",
+      "programDbId": "4",
+      "trialName": "Mozambique Genotype Trial",
+      "startDate": "2012-2-17",
+      "endDate": "2012-8-21",
       "active": false,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/34734756"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/34734756"
     }
   },
   {
@@ -116,13 +116,13 @@
     "pk": "109",
     "fields": {
       "cropdbid": "1",
-      "programdbid": "6",
-      "name": "Demo Yield Trial",
-      "startdate": "3/24/2016",
-      "enddate": "10/21/2016",
+      "programDbId": "6",
+      "trialName": "Demo Yield Trial",
+      "startDate": "2016-3-24",
+      "endDate": "2016-10-21",
       "active": true,
-      "datasetauthorshiplicence": "https://creativecommons.org/licenses/by/4.0",
-      "datasetauthorshipdatasetpui": "doi:10.15454/35673236"
+      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipDatasetPUI": "doi:10.15454/35673236"
     }
   }
 ]

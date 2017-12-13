@@ -4,17 +4,17 @@
     "pk": "1001",
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "101",
-      "locationdbid": "1",
-      "studytype": "Yield study",
-      "name": "Study 1",
+      "trialDbId": "101",
+      "locationDbId": "1",
+      "studyType": "Yield study",
+      "studyName": "Study 1",
       "description": "Field yield phenotyping study",
-      "startdate": "1/1/2013",
-      "enddate": "1/1/2014",
+      "startDate": "2013-1-1",
+      "endDate": "2014-1-1",
       "active": true,
       "license": "https://creativecommons.org/licenses/by/4.0",
-      "lastupdateversion": "1.1",
-      "lastupdatetimestamp": "01/01/15"
+      "lastUpdateVersion": "1.1",
+      "lastUpdateTimestamp": "2015-01-01 07:54"
     }
   },
   {
@@ -22,17 +22,17 @@
     "pk": "1002",
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "101",
-      "locationdbid": "1",
-      "studytype": "Yield study",
-      "name": "Study 2",
+      "trialDbId": "101",
+      "locationDbId": "1",
+      "studyType": "Yield study",
+      "studyName": "Study 2",
       "description": "Field yield phenotyping study",
-      "startdate": "1/1/2014",
-      "enddate": "1/1/2015",
+      "startDate": "2014-1-1",
+      "endDate": "2015-1-1",
       "active": true,
       "license": "https://creativecommons.org/licenses/by/4.0",
-      "lastupdateversion": "2.3",
-      "lastupdatetimestamp": "01/01/16"
+      "lastUpdateVersion": "2.3",
+      "lastUpdateTimestamp": "2016-01-01 08:54"
     }
   },
   {
@@ -40,17 +40,17 @@
     "pk": "1003",
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "102",
-      "locationdbid": "2",
-      "studytype": "Crossing Nursery",
-      "name": "Study 3",
+      "trialDbId": "102",
+      "locationDbId": "2",
+      "studyType": "Crossing Nursery",
+      "studyName": "Study 3",
       "description": "Nursery study description",
-      "startdate": "1/1/2011",
-      "enddate": "1/1/2012",
+      "startDate": "2011-1-1",
+      "endDate": "2012-1-1",
       "active": false,
       "license": "https://creativecommons.org/licenses/by/4.0",
-      "lastupdateversion": "0.1",
-      "lastupdatetimestamp": "01/01/14"
+      "lastUpdateVersion": "0.1",
+      "lastUpdateTimestamp": "2014-01-01 18:54"
     }
   }
 ]

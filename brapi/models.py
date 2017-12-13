@@ -34,17 +34,18 @@ class Call(models.Model):
 class Contact(models.Model):
 
     cropdbid = models.ForeignKey('Crop', models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    contactdbid = models.TextField(primary_key=True)
+    contactDbId = models.TextField(db_column='contactdbid', primary_key=True, default='')
     name = models.TextField(blank=True, null=True)
     email = models.TextField(blank=True, null=True)
     type = models.TextField(blank=True, null=True)
     orcid = models.TextField(blank=True, null=True)
-    institutename = models.TextField(blank=True, null=True)
+    instituteName = models.TextField(db_column='institutename', blank=True, null=True)
 
     class Meta:
 
         managed = settings.IS_TESTING
         db_table = 'contact'
+        ordering = ('contactDbId',)
 
     # end class Meta
 
@@ -531,26 +532,67 @@ class Season(models.Model):
 # end class Season
 
 
+class Trial(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    programDbId = models.ForeignKey(Program, models.DO_NOTHING, db_column='programdbid', blank=True, null=True)
+    trialDbId = models.TextField(db_column='trialdbid', primary_key=True, default='')
+    trialName = models.TextField(db_column='name', default='')
+    startDate = models.DateField(db_column='startdate', blank=True, null=True)
+    endDate = models.DateField(db_column='enddate', blank=True, null=True)
+    active = models.NullBooleanField()
+    datasetAuthorshipLicence = models.TextField(db_column='datasetauthorshiplicence', blank=True, null=True)
+    datasetAuthorshipDatasetPUI = models.TextField(db_column='datasetauthorshipdatasetpui', blank=True, null=True)
+
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'trial'
+        ordering = ('trialDbId',)
+
+        # end class Meta
+
+# end class Trial
+
+
+class StudyType(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    name = models.TextField(primary_key=True)
+    description = models.TextField(blank=True, null=True)
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'study_type'
+
+        # end class Meta
+
+# end class StudyType
+
+
 class Study(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    trialdbid = models.ForeignKey('Trial', models.DO_NOTHING, db_column='trialdbid', related_name='studies')
-    locationdbid = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', blank=True, null=True)
-    studytype = models.ForeignKey('StudyType', models.DO_NOTHING, db_column='studytype', related_name='studies', blank=True, null=True)
+    trialDbId = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='studies')
+    locationDbId = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', related_name='locations', blank=True, null=True)
+    studyType = models.ForeignKey(StudyType, models.DO_NOTHING, db_column='studytype', related_name='studies', blank=True, null=True)
     studydbid = models.TextField(primary_key=True)
-    name = models.TextField()
+    studyName = models.TextField(default='', db_column='studyname')
     description = models.TextField(blank=True, null=True)
-    startdate = models.TextField(blank=True, null=True)
-    enddate = models.TextField(blank=True, null=True)
+    startDate = models.DateField(db_column='startdate', blank=True, null=True)
+    endDate = models.DateField(db_column='enddate', blank=True, null=True)
     active = models.NullBooleanField()
     license = models.TextField(blank=True, null=True)
-    lastupdateversion = models.TextField(blank=True, null=True)
-    lastupdatetimestamp = models.TextField(blank=True, null=True)
+    lastUpdateVersion = models.TextField(db_column='lastupdateversion', blank=True, null=True)
+    lastUpdateTimestamp = models.DateTimeField(db_column='lastupdatetimestamp', blank=True, null=True)
 
     class Meta:
 
         managed = settings.IS_TESTING
         db_table = 'study'
+        ordering = ('studydbid',)
 
     # end class Meta
 
@@ -740,22 +782,6 @@ class StudySeason(models.Model):
 # end class StudySeason
 
 
-class StudyType(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    name = models.TextField(primary_key=True)
-    description = models.TextField(blank=True, null=True)
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'study_type'
-
-    # end class Meta
-
-# end class StudyType
-
-
 class TaxonXref(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -827,29 +853,6 @@ class Treatment(models.Model):
 # end class Treatment
 
 
-class Trial(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    programdbid = models.ForeignKey(Program, models.DO_NOTHING, db_column='programdbid', blank=True, null=True)
-    trialdbid = models.TextField(primary_key=True)
-    name = models.TextField()
-    startdate = models.TextField(blank=True, null=True)
-    enddate = models.TextField(blank=True, null=True)
-    active = models.NullBooleanField()
-    datasetauthorshiplicence = models.TextField(blank=True, null=True)
-    datasetauthorshipdatasetpui = models.TextField(blank=True, null=True)
-
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'trial'
-
-    # end class Meta
-
-# end class Trial
-
-
 class TrialAdditionalInfo(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -872,7 +875,7 @@ class TrialContact(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     trialdbid = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='contacts', blank=True, null=True)
-    contactdbid = models.ForeignKey(Contact, models.DO_NOTHING, db_column='contactdbid', related_name='contacts', blank=True, null=True)
+    contactdbid = models.ForeignKey(Contact, models.DO_NOTHING, db_column='contactdbid', related_name='contacts1', blank=True, null=True)
     trialcontactdbid = models.IntegerField(primary_key=True)
 
     class Meta:
