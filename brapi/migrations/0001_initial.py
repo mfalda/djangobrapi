@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.RunSQL("""CREATE VIEW phenotype AS
                 SELECT ou.observationunitdbid,
                     s.studydbid,
-                    s.name AS studyname,
+                    s.studyName AS studyname,
                     s.locationdbid,
                     l.name AS locationname,
                     ou.observationlevel,

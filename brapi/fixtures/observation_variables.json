@@ -5,10 +5,10 @@
     "fields": {
       "cropdbid": "1",
       "ontologydbid": "CO_334",
-      "observationvariablename": "Plant height",
+      "observationVariableName": "Plant height",
       "traitdbid": "1",
       "methoddbid": null,
-      "scaledbid": null
+      "scales": "CO_334:0100528"
     }
   },
   {
@@ -17,10 +17,10 @@
     "fields": {
       "cropdbid": "1",
       "ontologydbid": "CO_335",
-      "observationvariablename": "Root weight",
+      "observationVariableName": "Root weight",
       "traitdbid": "1",
       "methoddbid": null,
-      "scaledbid": null
+      "scales": "CO_334:0100527"
     }
   },
   {
@@ -29,10 +29,10 @@
     "fields": {
       "cropdbid": "1",
       "ontologydbid": "CO_334",
-      "observationvariablename": "Root color",
+      "observationVariableName": "Root color",
       "traitdbid": "2",
       "methoddbid": null,
-      "scaledbid": null
+      "scales": "CO_334:0100526"
     }
   },
   {
@@ -41,10 +41,10 @@
     "fields": {
       "cropdbid": "1",
       "ontologydbid": "CO_335",
-      "observationvariablename": "Virus susceptibility",
+      "observationVariableName": "Virus susceptibility",
       "traitdbid": "2",
       "methoddbid": null,
-      "scaledbid": null
+      "scales": "CO_334:0100527"
     }
   },
   {
@@ -53,10 +53,10 @@
     "fields": {
       "cropdbid": "1",
       "ontologydbid": "CO_335",
-      "observationvariablename": "Carotenoid",
+      "observationVariableName": "Carotenoid",
       "traitdbid": "3",
       "methoddbid": null,
-      "scaledbid": null
+      "scales": "CO_334:0100526"
     }
   }
 ]

@@ -341,11 +341,11 @@ class ObservationVariable(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     ontologydbid = models.ForeignKey('Ontology', models.DO_NOTHING, db_column='ontologydbid')
-    observationvariabledbid = models.TextField(primary_key=True)
-    observationvariablename = models.TextField(blank=True, null=True)
+    observationVariableDbId = models.TextField(db_column='observationvariabledbid', primary_key=True, default='')
+    observationVariableName = models.TextField(db_column='observationvariablename', blank=True, null=True)
     traitdbid = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
     methoddbid = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
-    scaledbid = models.ForeignKey('Scale', models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
+    scales = models.ForeignKey('Scale', models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
 
     class Meta:
 
@@ -484,10 +484,36 @@ class ObservationUnitXref(models.Model):
 # end class ObservationUnitXref
 
 
+class ValidValue(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    min = models.IntegerField(db_column='min')
+    max = models.IntegerField(db_column='max')
+    validValueDbId = models.TextField(db_column='validvaluedbid', primary_key=True)
+    categories = models.TextField()
+
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'validvalue'
+
+    # end class Meta
+
+# end class ValidValue
+
+
 class Scale(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    scaledbid = models.TextField(primary_key=True)
+    scaleDbId = models.TextField(db_column='scaledbid', primary_key=True, default='')
+    name = models.TextField(default='')
+    dataType = models.ForeignKey(ObservationVariableDatatype, models.DO_NOTHING, db_column='data', blank=True, null=True)
+    decimalPlaces = models.IntegerField(db_column='decimalplaces', default=0)
+    xref = models.TextField(blank=True, null=True)
+    validValues = models.ForeignKey(ValidValue, models.DO_NOTHING, db_column='vvalueid', blank=True, null=True)
+    defaultValue = models.TextField(db_column='', blank=True, null=True)
+
 
     class Meta:
 

@@ -65,7 +65,7 @@ class CallSerializer(serializers.ModelSerializer):
 
         return ret
 
-        # end def to_internal_value
+    # end def to_internal_value
 
 # end class CallsSerializer
 
@@ -376,6 +376,7 @@ class ObservationUnitXrefSerializer(ExtendedSerializer):
 class ObservationVariableSerializer(ExtendedSerializer):
 
     observations = ObservationSerializer(many=True, read_only=True)
+    scale = serializers.SerializerMethodField()
 
     class Meta:
 
@@ -384,6 +385,13 @@ class ObservationVariableSerializer(ExtendedSerializer):
         extra_fields = ['observations']
 
     # end class Meta
+
+
+    def get_scale(self, obj):
+
+        return ScaleSerializer(Scale.objects.get(pk=obj.scales.scaleDbId)).data
+
+    # end def get_scale
 
 # end class ObservationVariableSerializer
 
@@ -442,15 +450,53 @@ class PedigreeSerializer(serializers.ModelSerializer):
 # end class PedigreeSerializer
 
 
+class ValidValueSerializer(ExtendedSerializer):
+
+    categories = StringListField()
+
+
+    class Meta:
+
+        model = ValidValue
+        exclude = ['cropdbid']
+        extra_fields = ['categories']
+
+    # end class Meta
+
+
+    def to_representation(self, instance: ValidValue):
+
+        instance.categories = [str(s) for s in instance.categories.split('; ')]
+
+        return super(ValidValueSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(ValidValueSerializer, self).to_internal_value(data)
+
+        if ret['categories']:
+            ret['categories'] = '; '.join(str(s) for s in ret['categories'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+
+# end class ValidValueSerializer
+
+
 class ScaleSerializer(ExtendedSerializer):
 
-    observationVariables = ObservationVariableSerializer(many=True, read_only=True)
+    validValues = ValidValueSerializer(many=True, read_only=True)
 
     class Meta:
 
         model = Scale
         exclude = ['cropdbid']
-        extra_fields = ['observationVariables']
+        extra_fields = ['validValues']
 
     # end class Meta
 
