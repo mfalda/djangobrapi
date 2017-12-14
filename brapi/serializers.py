@@ -1,8 +1,9 @@
 from rest_framework import serializers
 import logging
-from pprint import pprint
+from pprint import pformat
 
 from brapi.models import *
+from brapi.aux_fun import in_list
 from brapi.aux_types import StringListField, IntListField
 
 
@@ -534,12 +535,12 @@ class StudyContactSerializer(serializers.ModelSerializer):
 # end class StudyContactSerializer
 
 
-class StudyDataLinkSerializer(serializers.ModelSerializer):
+class StudyDataLinkSerializer(ExtendedSerializer):
 
     class Meta:
 
         model = StudyDataLink
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'studydatalinkdbid', 'studydbid']
 
     # end class Meta
 
@@ -637,35 +638,56 @@ class TreatmentSerializer(serializers.ModelSerializer):
 # end class TreatmentSerializer
 
 
-class ObservationUnitSerializer(ExtendedSerializer):
+class StudyPlotLayoutSerializer(ExtendedSerializer):
 
-    observations = ObservationSerializer(many=True, read_only=True)
-    treatments = TreatmentSerializer(many=True, read_only=True)
+    germplasmName = serializers.SerializerMethodField()
+    additionalInfo = serializers.SerializerMethodField()
+
 
     class Meta:
 
         model = ObservationUnit
-        exclude = ['cropdbid']
-        extra_fields = ['observations', 'treatments']
+        exclude = ['cropdbid', 'plotNumber', 'plantNumber', 'programDbId', 'entryNumber',
+                   'observationLevels']
+        extra_fields = ['germplasmName']
 
     # end class Meta
 
-# end class ObservationUnitSerializer
+
+    def get_germplasmName(self, obj):
+
+        return Germplasm.objects.get(pk=obj.germplasmDbId.germplasmDbId).germplasmName
+
+    # end def get_germplasmName
+
+
+    def get_additionalInfo(self, obj):
+
+        return {
+            info.key: info.value
+            for info in ObservationUnitAdditionalInfo.objects.all()
+        }
+
+    # end def get_addInfo
+
+# end class StudyPlotLayoutSerializer
 
 
 class StudySerializer(ExtendedSerializer):
 
-    observationUnits = ObservationUnitSerializer(many=True, read_only=True)
-    contacts = StudyContactSerializer(many=True, read_only=True)
     dataLinks = StudyDataLinkSerializer(many=True, read_only=True)
     seasons = serializers.SerializerMethodField()
+    location = serializers.SerializerMethodField()
+    trialName = serializers.SerializerMethodField()
+    lastUpdate = serializers.SerializerMethodField()
+    contacts = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
     class Meta:
 
         model = Study
         exclude = ['cropdbid']
-        extra_fields = ['observationUnits', 'contacts', 'dataLinks', 'seasons', 'additionalInfo', 'locationName']
+        extra_fields = ['contacts', 'dataLinks', 'seasons', 'additionalInfo', 'location']
 
     # end class Meta
 
@@ -674,27 +696,123 @@ class StudySerializer(ExtendedSerializer):
 
         logger = logging.getLogger(__name__)
 
-        sID = obj.studydbid
-        logger.warning("Getting seasons for study %s" % sID)
+        ss = StudySeason.objects.filter(studyDbId=obj.studyDbId).all()
+        logger.warning("Getting seasons for study %s" % str([pformat(ss.__dict__) for ss in ss]))
 
-        sseasons = Season.objects.filter(seasons1__studyDbId=sID).all()
-        logger.warning("Getting seasons for study %s" % sseasons.seasons1)
+        seasons = Season.objects.filter(seasonDbId__in=ss)
+        logger.warning("Season: %s" % str([pformat(season.__dict__) for season in seasons]))
 
-        return sseasons
+        return ["%s %s" % (season.year, season.season) for season in seasons]
 
     # end def get_seasons
+
+
+    def get_trialName(self, obj):
+
+        return Trial.objects.get(pk=obj.trialDbId.trialDbId).trialName
+
+    # end def get_trialName
+
+
+    def get_location(self, obj):
+
+        return LocationSerializer(Location.objects.get(pk=obj.locationDbId.locationDbId)).data
+
+    # end def get_location
+
+
+    def get_lastUpdate(self, obj):
+
+        return {
+            'version': obj.lastUpdateVersion,
+            'timestamp': obj.lastUpdateTimestamp
+        }
+
+    # end def get_lastUpdate
+
+
+    def get_contacts(self, obj):
+
+        sc = StudyContact.objects.filter(studydbid=obj.studyDbId).all()
+
+        logger = logging.getLogger(__name__)
+        logger.warning("Study contacts: %s" % str([pformat(s.__dict__) for s in sc]))
+
+        contacts = Contact.objects.filter(contactDbId__in=sc)
+        logger.warning("Contact: %s" % str([pformat(contact.__dict__) for contact in contacts]))
+
+        return [ContactSerializer(contact).data for contact in contacts]
+
+    # end def get_contacts
 
 
     def get_additionalInfo(self, obj):
 
         return {
-            info.key: info.value
+            info.key: in_list(info.value)
             for info in StudyAdditionalInfo.objects.all()
         }
 
     # end def get_addInfo
 
 # end class StudySerializer
+
+
+class StudySearchSerializer(ExtendedSerializer):
+
+    seasons = serializers.SerializerMethodField()
+    locationName = serializers.SerializerMethodField()
+    trialName = serializers.SerializerMethodField()
+    additionalInfo = serializers.SerializerMethodField()
+
+    class Meta:
+
+        model = Study
+        exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion']
+        extra_fields = ['observationUnits', 'seasons', 'additionalInfo', 'locationDbId', 'locationName']
+
+    # end class Meta
+
+
+    def get_seasons(self, obj):
+
+        logger = logging.getLogger(__name__)
+
+        ss = StudySeason.objects.filter(studyDbId=obj.studyDbId).all()
+        logger.warning("Getting seasons for study %s" % str([pformat(ss.__dict__) for ss in ss]))
+
+        seasons = Season.objects.filter(seasonDbId__in=ss)
+        logger.warning("Season: %s" % str([pformat(season.__dict__) for season in seasons]))
+
+        return ["%s %s" % (season.year, season.season) for season in seasons]
+
+    # end def get_seasons
+
+
+    def get_trialName(self, obj):
+
+        return Trial.objects.get(pk=obj.trialDbId.trialDbId).trialName
+
+    # end def get_trialName
+
+
+    def get_locationName(self, obj):
+
+        return Location.objects.get(pk=obj.locationDbId.locationDbId).name
+
+    # end def get_locationName
+
+
+    def get_additionalInfo(self, obj):
+
+        return {
+            info.key: in_list(info.value)
+            for info in StudyAdditionalInfo.objects.all()
+        }
+
+        # end def get_addInfo
+
+# end class StudySearchSerializer
 
 
 class StudyTypeSerializer(ExtendedSerializer):
@@ -860,7 +978,7 @@ class TrialStudySerializer(ExtendedSerializer):
 class TrialSerializer(ExtendedSerializer):
 
     studies = TrialStudySerializer(many=True, read_only=True)
-    contacts = TrialContactSerializer(many=True, read_only=True)
+    #contacts = TrialContactSerializer(many=True, read_only=True)
     datasetAuthorship = serializers.SerializerMethodField()
     contacts = serializers.SerializerMethodField()
     programName = serializers.SerializerMethodField()
@@ -889,7 +1007,9 @@ class TrialSerializer(ExtendedSerializer):
     def get_contacts(self, obj):
 
         tc = TrialContact.objects.filter(trialdbid=obj.trialDbId).all()
-        print("TC:", tc)
+        logger = logging.getLogger(__name__)
+        logger.warning("Trial contact: %s" % tc)
+
         return [ContactSerializer(c).data for c in Contact.objects.filter(pk=tc)]
 
     # end def get_contacts

@@ -439,19 +439,19 @@ class Program(models.Model):
 class ObservationUnit(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studydbid = models.ForeignKey('Study', models.DO_NOTHING, db_column='studydbid')
-    germplasmdbid = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
-    observationunitdbid = models.TextField(primary_key=True)
-    name = models.TextField()
-    observationlevel = models.TextField(blank=True, null=True)
-    observationlevels = models.TextField(blank=True, null=True)
-    entrynumber = models.TextField(blank=True, null=True)
-    entrytype = models.TextField(blank=True, null=True)
-    plotnumber = models.TextField(blank=True, null=True)
-    blocknumber = models.TextField(blank=True, null=True)
-    plantnumber = models.TextField(blank=True, null=True)
-    x = models.TextField(blank=True, null=True)
-    y = models.TextField(blank=True, null=True)
+    studyDbId = models.ForeignKey('Study', models.DO_NOTHING, db_column='studydbid', default='')
+    germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
+    observationUnitDbId = models.TextField(db_column='observationunitdbid', primary_key=True, default='')
+    observationUnitName = models.TextField(db_column='name', default='')
+    observationLevel = models.TextField(db_column='observationlevel', blank=True, null=True)
+    observationLevels = models.TextField(db_column='observationlevels', blank=True, null=True)
+    entryNumber = models.TextField(db_column='entrynumber', blank=True, null=True)
+    entryType = models.TextField(db_column='entrytype', blank=True, null=True)
+    plotNumber = models.TextField(db_column='plotnumber', blank=True, null=True)
+    blockNumber = models.TextField(db_column='blocknumber', blank=True, null=True)
+    plantNumber = models.TextField(db_column='plantnumber', blank=True, null=True)
+    X = models.TextField(db_column='x', blank=True, null=True)
+    Y = models.TextField(db_column='y', blank=True, null=True)
     replicate = models.TextField(blank=True, null=True)
     programDbId = models.ForeignKey(Program, models.DO_NOTHING, db_column='programdbid')
 
@@ -464,6 +464,24 @@ class ObservationUnit(models.Model):
     # end class Meta
 
 # end class ObservationUnit
+
+
+class ObservationUnitAdditionalInfo(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='trialdbid', related_name='observationunitdbid', blank=True, null=True)
+    key = models.TextField()
+    value = models.TextField()
+    observationunitadditionalinfodbid = models.IntegerField(primary_key=True)
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'observation_unit_additional_info'
+
+        # end class Meta
+
+# end class ObservationUnitAdditionalInfo
 
 
 class ObservationUnitXref(models.Model):
@@ -562,7 +580,7 @@ class Trial(models.Model):
         db_table = 'trial'
         ordering = ('trialDbId',)
 
-        # end class Meta
+    # end class Meta
 
 # end class Trial
 
@@ -573,12 +591,13 @@ class StudyType(models.Model):
     name = models.TextField(primary_key=True)
     description = models.TextField(blank=True, null=True)
 
+
     class Meta:
 
         managed = settings.IS_TESTING
         db_table = 'study_type'
 
-        # end class Meta
+    # end class Meta
 
 # end class StudyType
 
@@ -588,10 +607,10 @@ class Study(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     trialDbId = models.ForeignKey(Trial, models.DO_NOTHING, db_column='trialdbid', related_name='studies')
     locationDbId = models.ForeignKey(Location, models.DO_NOTHING, db_column='locationdbid', related_name='locations', blank=True, null=True)
-    studyType = models.ForeignKey(StudyType, models.DO_NOTHING, db_column='studytype', related_name='studies', blank=True, null=True)
-    studydbid = models.TextField(primary_key=True)
+    studyType = models.ForeignKey(StudyType, models.DO_NOTHING, db_column='studytype', related_name='studies', blank=True, null=True, default='')
+    studyDbId = models.TextField(db_column='studydbid', primary_key=True, default='')
     studyName = models.TextField(default='', db_column='studyname')
-    description = models.TextField(blank=True, null=True)
+    studyDescription = models.TextField(db_column='description', blank=True, null=True)
     startDate = models.DateField(db_column='startdate', blank=True, null=True)
     endDate = models.DateField(db_column='enddate', blank=True, null=True)
     active = models.NullBooleanField()
@@ -599,11 +618,12 @@ class Study(models.Model):
     lastUpdateVersion = models.TextField(db_column='lastupdateversion', blank=True, null=True)
     lastUpdateTimestamp = models.DateTimeField(db_column='lastupdatetimestamp', blank=True, null=True)
 
+
     class Meta:
 
         managed = settings.IS_TESTING
         db_table = 'study'
-        ordering = ('studydbid',)
+        ordering = ('studyDbId',)
 
     # end class Meta
 
@@ -654,7 +674,7 @@ class MarkerProfilesData(models.Model):
         ordering = ('markerprofilesdatadbid',)
         db_table = 'markerprofilesdata'
 
-        # end class Meta
+    # end class Meta
 
 # end class MarkerProfilesData
 
@@ -668,7 +688,7 @@ class MarkerProfilesData(models.Model):
 #
 #         ordering = ('id',)
 #
-#         # end class Meta
+#     # end class Meta
 #
 # # end class GermplasmMarkerProfile
 
@@ -708,7 +728,7 @@ class Sample(models.Model):
 class StudyAdditionalInfo(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', blank=True, null=True)
+    studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', blank=True, null=True, default='')
     key = models.TextField()
     value = models.TextField()
     studyadditionalinfodbid = models.IntegerField(primary_key=True)
@@ -743,7 +763,7 @@ class StudyContact(models.Model):
 class StudyDataLink(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid')
+    studydbid = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', related_name='dataLinks')
     name = models.TextField(blank=True, null=True)
     type = models.TextField(blank=True, null=True)
     url = models.TextField()

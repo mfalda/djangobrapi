@@ -1,0 +1,22 @@
+[
+  {
+    "model": "brapi.observationunitadditionalinfo",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "1",
+      "key": "publications",
+      "value": "pmid:239823988"
+    }
+  },
+  {
+    "model": "brapi.observationunitadditionalinfo",
+    "pk": 1,
+    "fields": {
+      "cropdbid": "1",
+      "observationunitdbid": "2",
+      "key": "publications",
+      "value": "pmid:210494013"
+    }
+  }
+]

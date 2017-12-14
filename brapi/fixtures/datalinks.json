@@ -1,11 +1,12 @@
 [
   {
-    "model": "brapi.datalink",
+    "model": "brapi.studydatalink",
     "pk": 1,
     "fields": {
       "type": "Image archive",
       "name": "image-archive12.zip",
-      "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+      "url": "http://data.inra.fr/archive/multi-spect-flowering.zip",
+      "studydbid": 1001
     }
   }
 ]

@@ -1,1 +1,32 @@
 [
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "key": "studyObjective",
+      "value": "Increase yield"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1002",
+      "key": "principalInvestigator",
+      "value": "Dr. Breeder"
+    }
+  },
+  {
+    "model": "brapi.studyadditionalinfo",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1002",
+      "key": "publications",
+      "value": "pmid:24039865287545;"
+    }
+  }
+]

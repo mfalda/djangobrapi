@@ -27,12 +27,12 @@ from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchV
 #from brapi.views.obs_variables import VSearchView
 from brapi.views.obs_variables import (ObservationVariablesListView, ObservationVariableView, OntologiesViewSet,
                                        ObservationVariableDatatypeViewSet)
-#from brapi.views.studies import (StudyPlotView, StudyObsUnitsView,
-#                                 StudyObsUnitsDetailsView, StudyDetailsView,
+#from brapi.views.studies import (StudyObsUnitsView,
+#                                 StudyObsUnitsDetailsView,
 #                                 StudyGermplasmDetailsView, StudyObsUnitsTableView,
-#                                 StudyObsVarsView, StudySeasonViewSet,
-#                                 StudyTypesViewSet, StudyObsLevelsViewSet)
-from brapi.views.studies import StudySeasonViewSet, StudySearchView, StudyTypeViewSet, StudyObservationLevelViewSet
+#                                 StudyObsVarsView)
+from brapi.views.studies import (StudySeasonViewSet, StudySearchView, StudyTypeViewSet,
+                                 StudyObservationLevelViewSet, StudyDetailView, StudyPlotLayoutView)
 
 
 handler400 = errors.error400
@@ -65,47 +65,47 @@ urlpatterns = [
     url(r'brapi/v1/calls', CallsView.as_view()),
 
     url(r'brapi/v1/maps/?$', MapView.as_view()),
-    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/?$', MapDetailView.as_view()),
-    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
-    url(r'brapi/v1/maps/(?P<mapDbId>[0-9]+)/positions/(?P<linkageGroupId>[0-9]+)/?$', MapLinkageViewPositions.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>[^/]+)/?$', MapDetailView.as_view()),
+    url(r'brapi/v1/maps/(?P<mapDbId>[^/]+)/positions/?$', MapLinkageView.as_view(), name='map_positions'),
+    url(r'brapi/v1/maps/(?P<mapDbId>[^/]+)/positions/(?P<linkageGroupId>[^/]+)/?$', MapLinkageViewPositions.as_view()),
 
-    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/attributes/?$', GermplasmAttributeView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[^/]+)/attributes/?$', GermplasmAttributeView.as_view()),
 
-#    url(r'brapi/v1/studies/(?P<studyDbId>[0-9]+)/germplasm/?$', GermplasmView.as_view()),
+#    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/germplasm/?$', GermplasmView.as_view()),
 
-    url(r'brapi/v1/locations/(?P<locationDbId>[0-9]+)/?$', LocationDetailsView.as_view()),
+    url(r'brapi/v1/locations/(?P<locationDbId>[^/]+)/?$', LocationDetailsView.as_view()),
     url(r'brapi/v1/locations/?$', LocationView.as_view()),
     
-    url(r'brapi/v1/germplasm/(?P<id>[0-9]+)/markerprofiles/?$', GermplasmMarkeprofileView.as_view()),
-    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/pedigree/?$', GermplasmPedigreeView.as_view()),
-    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[0-9]+)/?$', GermplasmView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<id>[^/]+)/markerprofiles/?$', GermplasmMarkeprofileView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[^/]+)/pedigree/?$', GermplasmPedigreeView.as_view()),
+    url(r'brapi/v1/germplasm/(?P<germplasmDbId>[^/]+)/?$', GermplasmView.as_view()),
     url(r'brapi/v1/germplasm-search/?$', GermplasmSearchView.as_view()),
 
     # written as a view to block 'brapi/v1/samples'
-    url(r'brapi/v1/samples/(?P<sampleId>.+)/?$', SampleView.as_view()),
+    url(r'brapi/v1/samples/(?P<sampleId>[^/]+)/?$', SampleView.as_view()),
 
     url(r'brapi/v1/phenotypes-search/?$', PhenotypeSearchView.as_view()),
 
     url(r'brapi/v1/programs-search/?$', ProgramSearchView.as_view()), 
     
-#    url(r'brapi/v1/studies/(?P<studyDbId>[0-9]+)/layout/?$', StudyPlotView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/layout/?$', StudyPlotLayoutView.as_view()),
 
     url(r'brapi/v1/allelematrix-search/?', AlleleMatrixSearchView.as_view()),
 
-    url(r'brapi/v1/markers/(?P<markerDbId>[0-9]+)/?$', MarkerDetailsView.as_view()),
+    url(r'brapi/v1/markers/(?P<markerDbId>[^/]+)/?$', MarkerDetailsView.as_view()),
     url(r'brapi/v1/markers/?$', MarkerView.as_view()),
     
-    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[0-9]+)/?$', MarkerProfilesDataView.as_view()),
+    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[^/]+)/?$', MarkerProfilesDataView.as_view()),
     url(r'brapi/v1/markerprofiles/?$', MarkerProfilesView.as_view()),
 
-    url(r'brapi/v1/trials/(?P<trialDbId>[0-9]+)/?$', TrialDetailsView.as_view()),
+    url(r'brapi/v1/trials/(?P<trialDbId>[^/]+)/?$', TrialDetailsView.as_view()),
     url(r'brapi/v1/trials', TrialView.as_view()),
     
-    url(r'brapi/v1/variables/(?P<observationVariableDbId>.+)/$', ObservationVariableView.as_view()),
+    url(r'brapi/v1/variables/(?P<observationVariableDbId>[^/]+)/$', ObservationVariableView.as_view()),
     url(r'brapi/v1/variables/?$', ObservationVariablesListView.as_view()),
 #    url(r'brapi/v1/variables-search/?$', VSearchView.as_view()),
 
-    url(r'brapi/v1/traits/(?P<traitDbId>[0-9]+)/?$', TraitDetailsView.as_view()),
+    url(r'brapi/v1/traits/(?P<traitDbId>[^/]+)/?$', TraitDetailsView.as_view()),
     url(r'brapi/v1/traits/?', TraitView.as_view()),
     
     url(r'brapi/v1/studies-search/?$', StudySearchView.as_view()),
@@ -114,7 +114,7 @@ urlpatterns = [
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/table/?$', StudyObsUnitsTableView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables/?$', StudyObsVarsView.as_view()),
-#    url(r'brapi/v1/studies/(?P<studyDbId>.+)/?$', StudyDetailsView.as_view())
+    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/?$', StudyDetailView.as_view())
 ]
 
 # OAuth2 provider endpoints

@@ -11,6 +11,17 @@ from brapi.paginators import BrAPIResultsSetPagination
 # the DefaultRouter class we're using in urls.py  also automatically creates the API root view
 
 
+def in_list(s):
+
+    if ';' in s:
+        return [i for i in s.split(';') if i != '']
+    else:
+        return s
+        # end if
+
+# end def in_list
+
+
 def search_get_qparams(self, queryset, params):
 
     #  [('name', 'name'), ('type', 'type'), ('matchMethod', 'matchMethod'), ('include', 'synonyms')]

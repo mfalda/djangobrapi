@@ -1,11 +1,12 @@
 from rest_framework import viewsets
 from rest_framework.views import APIView
+import logging
 
 from brapi.models import (StudyType, Season, StudyObservationLevel,
-                                Study)
-from brapi.serializers import (StudySerializer,
+                                Study, ObservationUnit)
+from brapi.serializers import (StudySerializer, StudySearchSerializer,
                                 StudyTypeSerializer, SeasonSerializer,
-                                StudyObservationLevelSerializer)
+                                StudyObservationLevelSerializer, StudyPlotLayoutSerializer)
 
 #from brapi.models.germplasm import Germplasm, GermplasmSerializer
 #from brapi.models.observation import ObsVariable, ObsVariableSerializer
@@ -42,7 +43,8 @@ class StudySearchView(APIView):
 
         queryset = Study.objects.all()
 
-        queryset = search_get_qparams(self, queryset, [('studyType', 'studyType'),
+        queryset = search_get_qparams(self, queryset, [
+            ('studyType', 'studyType'),
             ('seasonDbId', 'seasonDbId'),
             ('locationDbId', 'locationDbId'),
             ('programDbId', 'programDbId'),
@@ -50,16 +52,33 @@ class StudySearchView(APIView):
             ('observationVariableDbId', 'observationVariableDbIds'),
             ('active', 'active')])
 
-        return paginate(queryset, request, StudySerializer)
+        return paginate(queryset, request, StudySearchSerializer)
 
     # end def get
 
 
     def post(self, request, format=None, *args, **kwargs):
 
+        # PARAMS:
+        # {
+        #     "studyType" : "Trial",
+        #     "studyNames" : ["Study A", "StydyB"],
+        #     "studyLocations" : ["Kenya", "Zimbabwe"],
+        #     "programNames": ["Test Program", "Program2"],
+        #     "germplasmDbIds" : [ "CML123", "CWL123"],
+        #     "trialDbIds" : [ "7", "8"],
+        #     "observationVariableDbIds": ["CO-PH-123", "Var-123"]
+        #     "active" : "true",
+        #     "sortBy" : "studyDbId",
+        #     "sortOrder" : "desc",
+        #     "pageSize": 1000,
+        #     "page": 0,
+        # }
+
         queryset = Study.objects.all()
 
-        queryset = search_post_params_in(self, queryset, [('studyType', 'studyType'),
+        queryset = search_post_params_in(self, queryset, [
+            ('studyType', 'studyType'),
             ('seasonDbId', 'seasonDbId'),
             ('locationDbId', 'locationDbId'),
             ('programDbId', 'programDbId'),
@@ -67,7 +86,7 @@ class StudySearchView(APIView):
             ('observationVariableDbId', 'observationVariableDbIds'),
             ('active', 'active')])
 
-        return paginate(queryset, request, StudySerializer)
+        return paginate(queryset, request, StudySearchSerializer)
 
     # end def post
 
@@ -139,7 +158,7 @@ class StudyObservationLevelViewSet(viewsets.ReadOnlyModelViewSet):
 # end class StudyObservationLevelViewSet
 
 
-class StudyDetailsView(APIView):
+class StudyDetailView(APIView):
     
     serializer_class = StudySerializer
 
@@ -149,6 +168,9 @@ class StudyDetailsView(APIView):
         queryset = Study.objects.all()
 
         studyDbId = self.kwargs.get('studyDbId', None)
+        logger = logging.getLogger(__name__)
+        logger.warning("Got study ID %s" % studyDbId)
+
         if studyDbId is not None:
             queryset = queryset.filter(studyDbId=studyDbId)
         # end if
@@ -157,7 +179,7 @@ class StudyDetailsView(APIView):
 
     # end def get
     
-# end class StudyDetailsView
+# end class StudyDetailView
 
 #
 # class StudyGermplasmDetailsView(APIView):
@@ -218,23 +240,23 @@ class StudyDetailsView(APIView):
 # # end class StudyObsVarsView
 #
 #
-# # cannot use ViewSets nor generic views because the detail view is not standard
-# class StudyPlotView(APIView):
-#
-#     queryset = StudyPlot.objects.all()
-#     serializer_class = StudyPlotSerializer
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = StudyPlot.objects.all()
-#
-#         studyDbId = self.kwargs.get('studyDbId', None)
-#         if studyDbId is not None:
-#             queryset = queryset.filter(studyDbId=studyDbId)
-#         # end if
-#
-#         return paginate(queryset, request, StudyPlotSerializer)
-#
-#     # end def get
-#
-# # end class StudyPlotView
+# cannot use ViewSets nor generic views because the detail view is not standard
+class StudyPlotLayoutView(APIView):
+
+    queryset = ObservationUnit.objects.all()
+    serializer_class = StudyPlotLayoutSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = ObservationUnit.objects.all()
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            queryset = queryset.filter(studyDbId=studyDbId)
+        # end if
+
+        return paginate(queryset, request, StudyPlotLayoutSerializer)
+
+    # end def get
+
+# end class StudyPlotLayoutView

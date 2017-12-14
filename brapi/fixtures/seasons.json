@@ -5,7 +5,7 @@
     "fields": {
       "cropdbid": "1",
       "year": "2013",
-      "season": "2013"
+      "season": "Spring"
     }
   },
   {
@@ -14,7 +14,7 @@
     "fields": {
       "cropdbid": "1",
       "year": "2011",
-      "season": "2011"
+      "season": "Fall"
     }
   },
   {
@@ -23,7 +23,7 @@
     "fields": {
       "cropdbid": "1",
       "year": "2014",
-      "season": "2014"
+      "season": "Spring"
     }
   },
   {
@@ -32,7 +32,7 @@
     "fields": {
       "cropdbid": "1",
       "year": "2013",
-      "season": "winter 2013"
+      "season": "Winter"
     }
   },
   {
@@ -41,7 +41,7 @@
     "fields": {
       "cropdbid": "1",
       "year": "2013",
-      "season": "fall 2013"
+      "season": "Summer"
     }
   }
 ]

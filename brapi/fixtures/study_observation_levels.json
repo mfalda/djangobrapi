@@ -1,0 +1,18 @@
+[
+  {
+    "model": "brapi.studyobservationlevel",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "data": "plant"
+    }
+  },
+  {
+    "model": "brapi.studyobservationlevel",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "data": "plot"
+    }
+  }
+]

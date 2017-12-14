@@ -1,1 +1,29 @@
 [
+  {
+    "model": "brapi.studyseason",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "seasonDbId": "1"
+    }
+  },
+  {
+    "model": "brapi.studyseason",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1001",
+      "seasonDbId": "3"
+    }
+  },
+  {
+    "model": "brapi.studyseason",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "studyDbId": "1002",
+      "seasonDbId": "5"
+    }
+  }
+]
