@@ -455,7 +455,7 @@ class Program(models.Model):
 class ObservationUnit(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    studyDbId = models.ForeignKey('Study', models.DO_NOTHING, db_column='studydbid', default='')
+    studyDbId = models.ForeignKey('Study', models.DO_NOTHING, db_column='studydbid', default='', related_name='studies')
     germplasmDbId = models.ForeignKey(Germplasm, models.DO_NOTHING, db_column='germplasmdbid')
     observationUnitDbId = models.TextField(db_column='observationunitdbid', primary_key=True, default='')
     observationUnitName = models.TextField(db_column='name', default='')

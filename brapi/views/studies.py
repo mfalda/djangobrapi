@@ -2,7 +2,7 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
-from brapi.models import (StudyType, Season, StudyObservationLevel,
+from brapi.models import (StudyType, Season, StudyObservationLevel, Observation,
                                 Study, ObservationUnit, ObservationVariable)
 from brapi.serializers import (StudySerializer, StudySearchSerializer,
                                 StudyTypeSerializer, SeasonSerializer,
@@ -231,7 +231,14 @@ class StudyObservationVariableView(APIView):
 
         studyDbId = self.kwargs.get('studyDbId', None)
         if studyDbId is not None:
-            queryset = queryset.filter(studyDbId=studyDbId)
+            # get the ObservationUnit ID
+            ou = ObservationUnit.studyDbId.filter(studyDbId=studyDbId).all()
+
+            # get the Observation ID
+            o = Observation.objects.get(observationunitdbid__in=ou)
+
+            # get the ObservationVariable
+            queryset = queryset.filter(observationVariableDbId=o.observationvariabledbid)
         # end if
 
         return paginate(queryset, request, ObservationVariableSerializer)
