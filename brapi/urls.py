@@ -24,15 +24,15 @@ from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
                                         MarkerProfilesView, MarkerProfilesDataView,
                                         GermplasmMarkeprofileView)
-#from brapi.views.obs_variables import VSearchView
-from brapi.views.obs_variables import (ObservationVariablesListView, ObservationVariableView, OntologiesViewSet,
-                                       ObservationVariableDatatypeViewSet)
+from brapi.views.observation_variables import (ObservationVariableSearchView, ObservationVariablesListView,
+                                               ObservationVariableView, OntologiesViewSet,
+                                               ObservationVariableDatatypeViewSet)
 #from brapi.views.studies import (StudyObsUnitsView,
 #                                 StudyObsUnitsDetailsView,
-#                                 StudyGermplasmDetailsView, StudyObsUnitsTableView,
-#                                 StudyObsVarsView)
+#                                 StudyGermplasmDetailsView, StudyObsUnitsTableView)
 from brapi.views.studies import (StudySeasonViewSet, StudySearchView, StudyTypeViewSet,
-                                 StudyObservationLevelViewSet, StudyDetailView, StudyPlotLayoutView)
+                                 StudyObservationLevelViewSet, StudyDetailView, StudyPlotLayoutView,
+                                 StudyObservationVariableView)
 
 
 handler400 = errors.error400
@@ -103,7 +103,7 @@ urlpatterns = [
     
     url(r'brapi/v1/variables/(?P<observationVariableDbId>[^/]+)/$', ObservationVariableView.as_view()),
     url(r'brapi/v1/variables/?$', ObservationVariablesListView.as_view()),
-#    url(r'brapi/v1/variables-search/?$', VSearchView.as_view()),
+    url(r'brapi/v1/variables-search/?$', ObservationVariableSearchView.as_view()),
 
     url(r'brapi/v1/traits/(?P<traitDbId>[^/]+)/?$', TraitDetailsView.as_view()),
     url(r'brapi/v1/traits/?', TraitView.as_view()),
@@ -113,7 +113,7 @@ urlpatterns = [
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObsUnitsDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/table/?$', StudyObsUnitsTableView.as_view()),
-#    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables/?$', StudyObsVarsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables/?$', StudyObservationVariableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/?$', StudyDetailView.as_view())
 ]
 

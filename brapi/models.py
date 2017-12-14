@@ -303,7 +303,13 @@ class AlleleMatrixSearch(models.Model):
 class Method(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    methoddbid = models.TextField(primary_key=True)
+    methodDbId = models.TextField(db_column='methoddbid', primary_key=True)
+    name = models.TextField(blank=True, null=True)
+    classis = models.TextField(db_column='class', blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    formula = models.TextField(blank=True, null=True)
+    reference = models.TextField(blank=True, null=True)
+
 
     class Meta:
 
@@ -340,11 +346,21 @@ class Observation(models.Model):
 class ObservationVariable(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    ontologydbid = models.ForeignKey('Ontology', models.DO_NOTHING, db_column='ontologydbid')
+    ontologyDbId = models.ForeignKey('Ontology', models.DO_NOTHING, db_column='ontologydbid')
     observationVariableDbId = models.TextField(db_column='observationvariabledbid', primary_key=True, default='')
     observationVariableName = models.TextField(db_column='observationvariablename', blank=True, null=True)
-    traitdbid = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
-    methoddbid = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
+    synonyms = models.TextField(blank=True, null=True)
+    contextOfUse = models.TextField(db_column='contextofuse', blank=True, null=True)
+    status = models.TextField(blank=True, null=True)
+    xref = models.TextField(blank=True, null=True)
+    institution = models.TextField(blank=True, null=True)
+    scientist = models.TextField(blank=True, null=True)
+    submissionTimestamp = models.DateTimeField(db_column='submissiontimestamp', blank=True, null=True)
+    language = models.TextField(blank=True, null=True)
+    crop = models.TextField(blank=True, null=True)
+    defaultValue = models.TextField(db_column='defaultvalue', blank=True, null=True)
+    traitDbId = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
+    methodDbId = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
     scales = models.ForeignKey('Scale', models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
 
     class Meta:
@@ -526,7 +542,7 @@ class Scale(models.Model):
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     scaleDbId = models.TextField(db_column='scaledbid', primary_key=True, default='')
     name = models.TextField(default='')
-    dataType = models.ForeignKey(ObservationVariableDatatype, models.DO_NOTHING, db_column='data', blank=True, null=True)
+    datatypeDbId = models.ForeignKey(ObservationVariableDatatype, models.DO_NOTHING, db_column='data', blank=True, null=True)
     decimalPlaces = models.IntegerField(db_column='decimalplaces', default=0)
     xref = models.TextField(blank=True, null=True)
     validValues = models.ForeignKey(ValidValue, models.DO_NOTHING, db_column='vvalueid', blank=True, null=True)
@@ -854,7 +870,15 @@ class Trait(models.Model):
     traitId = models.TextField(db_column='traitid', blank=True, null=True)
     name = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    defaultValue = models.CharField(max_length=100, blank=True, default='')
+    classis = models.TextField(blank=True, null=True)
+    synonyms = models.TextField(blank=True, null=True)
+    mainAbbreviation = models.TextField(db_column='mainabbreviation', blank=True, null=True)
+    alternativeAbbreviations = models.TextField(db_column='alternativeabbreviations', blank=True, null=True)
+    entity = models.TextField(blank=True, null=True)
+    attribute = models.TextField(blank=True, null=True)
+    status = models.TextField(blank=True, null=True)
+    xref = models.TextField(blank=True, null=True)
+    defaultValue = models.CharField(db_column='defaultvalue', max_length=100, blank=True, default='')
 
     class Meta:
 

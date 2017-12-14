@@ -376,16 +376,64 @@ class ObservationUnitXrefSerializer(ExtendedSerializer):
 
 class ObservationVariableSerializer(ExtendedSerializer):
 
-    observations = ObservationSerializer(many=True, read_only=True)
+    #observations = ObservationSerializer(many=True, read_only=True)
+    synonyms = StringListField()
+    ontologyName = serializers.SerializerMethodField()
+    contextOfUse = StringListField()
+    crop = serializers.SerializerMethodField()
     scale = serializers.SerializerMethodField()
+    trait = serializers.SerializerMethodField()
+    method = serializers.SerializerMethodField()
+
 
     class Meta:
 
         model = ObservationVariable
-        exclude = ['cropdbid']
-        extra_fields = ['observations']
+        exclude = ['cropdbid', 'traitDbId', 'methodDbId', 'scales']
+        extra_fields = ['crop', 'trait', 'method']
 
     # end class Meta
+
+
+    def to_representation(self, instance: ObservationVariable):
+
+        instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
+        instance.contextOfUse = [str(s) for s in instance.contextOfUse.split('; ')]
+
+        return super(ObservationVariableSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(ObservationVariableSerializer, self).to_internal_value(data)
+
+        if ret['synonyms']:
+            ret['synonyms'] = '; '.join(str(s) for s in ret['synonyms'])
+        # end if
+
+        if ret['contextOfUse']:
+            ret['contextOfUse'] = '; '.join(str(s) for s in ret['contextOfUse'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+
+
+    def get_ontologyName(self, obj):
+
+        return Ontology.objects.get(pk=obj.ontologyDbId.ontologyDbId).ontologyName
+
+    # end def get_ontologyName
+
+
+    def get_crop(self, obj):
+
+        return Crop.objects.get(pk=obj.cropdbid.cropdbid).commonname
+
+    # end def get_crop
 
 
     def get_scale(self, obj):
@@ -393,6 +441,20 @@ class ObservationVariableSerializer(ExtendedSerializer):
         return ScaleSerializer(Scale.objects.get(pk=obj.scales.scaleDbId)).data
 
     # end def get_scale
+
+
+    def get_trait(self, obj):
+
+        return OVTraitSerializer(Trait.objects.get(pk=obj.traitDbId.traitDbId)).data
+
+    # end def get_trait
+
+
+    def get_method(self, obj):
+
+        return MethodSerializer(Method.objects.filter(methodDbId=obj.methodDbId).first()).data
+
+    # end def get_method
 
 # end class ObservationVariableSerializer
 
@@ -459,7 +521,7 @@ class ValidValueSerializer(ExtendedSerializer):
     class Meta:
 
         model = ValidValue
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'validValueDbId']
         extra_fields = ['categories']
 
     # end class Meta
@@ -491,15 +553,38 @@ class ValidValueSerializer(ExtendedSerializer):
 
 class ScaleSerializer(ExtendedSerializer):
 
-    validValues = ValidValueSerializer(many=True, read_only=True)
+    datatype = serializers.SerializerMethodField()
+    validValues = serializers.SerializerMethodField()
+
 
     class Meta:
 
         model = Scale
         exclude = ['cropdbid']
-        extra_fields = ['validValues']
+        extra_fields = ['datatype', 'validValues']
 
     # end class Meta
+
+
+    def get_datatype(self, obj):
+
+        return obj.datatypeDbId.data
+
+    # end def get_datatype
+
+
+    def get_validValues(self, obj):
+
+        logger = logging.getLogger(__name__)
+
+        # get all related objects in a One-to-Many relation
+        vv = ValidValue.objects.get(pk=obj.validValues.validValueDbId)
+        logger.warning("Getting vValues for scale %s" % pformat(vv.__dict__))
+
+        # serialize the retrieved object(s), the JSON is in the 'data' field
+        return ValidValueSerializer(vv).data
+
+    # end def get_validValues
 
 # end class ScaleSerializer
 
@@ -624,6 +709,49 @@ class TraitSerializer(ExtendedSerializer):
     # end class Meta
 
 # end class TraitSerializer
+
+
+class OVTraitSerializer(ExtendedSerializer):
+
+    synonyms = StringListField()
+    alternativeAbbreviations = StringListField()
+
+    class Meta:
+
+        model = Trait
+        exclude = ['cropdbid']
+        extra_fields = ['traitDbId', 'defaultValue']
+
+        # end class Meta
+
+
+    def to_representation(self, instance: Trait):
+
+        instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
+        instance.alternativeAbbreviations = [str(s) for s in instance.alternativeAbbreviations.split('; ')]
+
+        return super(OVTraitSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(OVTraitSerializer, self).to_internal_value(data)
+
+        if ret['synonyms']:
+            ret['synonyms'] = '; '.join(str(s) for s in ret['synonyms'])
+        # end if
+
+        if ret['alternativeAbbreviations']:
+            ret['alternativeAbbreviations'] = '; '.join(str(s) for s in ret['alternativeAbbreviations'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+
+# end class OVTraitSerializer
 
 
 class TreatmentSerializer(serializers.ModelSerializer):

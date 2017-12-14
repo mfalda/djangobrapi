@@ -3,10 +3,11 @@ from rest_framework.views import APIView
 import logging
 
 from brapi.models import (StudyType, Season, StudyObservationLevel,
-                                Study, ObservationUnit)
+                                Study, ObservationUnit, ObservationVariable)
 from brapi.serializers import (StudySerializer, StudySearchSerializer,
                                 StudyTypeSerializer, SeasonSerializer,
-                                StudyObservationLevelSerializer, StudyPlotLayoutSerializer)
+                                StudyObservationLevelSerializer, StudyPlotLayoutSerializer,
+                                ObservationVariableSerializer)
 
 #from brapi.models.germplasm import Germplasm, GermplasmSerializer
 #from brapi.models.observation import ObsVariable, ObsVariableSerializer
@@ -217,29 +218,29 @@ class StudyDetailView(APIView):
 #     # end def get
 #
 # # end class StudyObsUnitsTableView
-#
-#
-# class StudyObsVarsView(APIView):
-#
-#     serializer_class = ObsVariableSerializer
-#
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = StudyObsUnit.objects.all()
-#
-#         studyDbId = self.kwargs.get('studyDbId', None)
-#         if studyDbId is not None:
-#             queryset = queryset.filter(studyDbId=studyDbId)
-#         # end if
-#
-#         return paginate(queryset, request, StudyObsUnitSerializer)
-#
-#     # end def get
-#
-# # end class StudyObsVarsView
-#
-#
+
+
+class StudyObservationVariableView(APIView):
+
+    serializer_class = ObservationVariableSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = ObservationVariable.objects.all()
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            queryset = queryset.filter(studyDbId=studyDbId)
+        # end if
+
+        return paginate(queryset, request, ObservationVariableSerializer)
+
+    # end def get
+
+# end class StudyObservationVariableView
+
+
 # cannot use ViewSets nor generic views because the detail view is not standard
 class StudyPlotLayoutView(APIView):
 

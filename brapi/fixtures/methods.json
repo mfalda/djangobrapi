@@ -3,7 +3,12 @@
     "model": "brapi.method",
     "pk": "CO_334:0010320",
     "fields": {
-      "cropdbid": "1"
+      "cropdbid": "1",
+      "name": "Visual Rating:total carotenoid by chart_method",
+      "classis": "Estimation",
+      "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+      "formula": null,
+      "reference": null
     }
   }
 ]

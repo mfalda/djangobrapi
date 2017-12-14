@@ -71,11 +71,25 @@ class ObservationVariablesListView(APIView):
 # end class ObservationVariablesListView
 
 
-class VSearchView(APIView):
+class ObservationVariableSearchView(APIView):
 
     serializer_class = ObservationVariableSerializer
 
     def post(self, request, format=None, *args, **kwargs):
+
+        # PARAMS:
+        # {
+        #     "page": 0,
+        #     "pageSize": 2,
+        #     "observationVariableDbIds" : ["obs-variable-id1", "obs-variable-id1"],
+        #     "ontologyXrefs" : ["CO:123", "CO:456"],
+        #     "ontologyDbIds" : ["CO_334:0100632"],
+        #     "methodDbIds" : ["method-1", "method=2"],
+        #     "scaleDbIds" : ["scale-1", "scale-2"],
+        #     "names" : ["caro_spectro"],
+        #     "datatypes" : ["numeric"],
+        #     "traitClasses" : ["Phenological", "Physiological"]
+        # }
 
         params = self.request.data
         
@@ -90,10 +104,10 @@ class VSearchView(APIView):
             ('ontologyDbId', 'ontologyDbIds'),
             ('method', 'methodDbIds'),
             ('scale', 'scaleDbIds'),
-            ('name', 'names')])
+            ('observationVariableName', 'names')])
 
         return paginate(queryset, request, ObservationVariableSerializer)
 
     # end def post
 
-# end class VSearchView
+# end class ObservationVariableSearchView

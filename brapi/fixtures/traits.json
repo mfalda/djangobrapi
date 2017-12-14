@@ -7,7 +7,15 @@
       "traitId": "CO_334:0100620",
       "defaultValue": "",
       "name": "Carotenoid content",
-      "description": "Cassava storage root pulp carotenoid content"
+      "description": "Cassava storage root pulp carotenoid content",
+      "classis": "physiological trait",
+      "synonyms": "carotenoid content measure",
+      "mainAbbreviation": "CC",
+      "alternativeAbbreviations": "CCS",
+      "entity": "root",
+      "attribute": "carotenoid",
+      "status": "recommended",
+      "xref": "TL_455:0003023"
     }
   },
   {
@@ -18,7 +26,15 @@
       "traitId": "CO_334:0100621",
       "defaultValue": "",
       "name": "Plant height",
-      "description": "Cassava marketable yield"
+      "description": "Cassava marketable yield",
+      "classis": "physiological trait",
+      "synonyms": "height measure",
+      "mainAbbreviation": "HM",
+      "alternativeAbbreviations": "PHM",
+      "entity": "trunk",
+      "attribute": "height",
+      "status": "accepted",
+      "xref": "TL_455:0003024"
     }
   },
   {
@@ -29,7 +45,15 @@
       "traitId": "CO_334:0100622",
       "defaultValue": "",
       "name": "Iron content",
-      "description": "Cassava storage root pulp iron content"
+      "description": "Cassava storage root pulp iron content",
+      "classis": "physiological trait",
+      "synonyms": "storage measure",
+      "mainAbbreviation": "SM",
+      "alternativeAbbreviations": "CSM",
+      "entity": "leaf",
+      "attribute": "storage",
+      "status": "accepted",
+      "xref": "TL_455:0003025"
     }
   }
 ]
