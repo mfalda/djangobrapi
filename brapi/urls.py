@@ -19,7 +19,7 @@ from brapi.views.trials import TrialView, TrialDetailsView
 from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
-                                        MarkerProfilesView, MarkerProfilesDataView,
+                                        MarkerprofileView, MarkerprofileDataView,
                                         GermplasmMarkeprofileView)
 from brapi.views.observation_variables import (ObservationVariableSearchView, ObservationVariablesListView,
                                                ObservationVariableView, OntologiesViewSet,
@@ -66,8 +66,6 @@ urlpatterns = [
 
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[^/]+)/attributes/?$', GermplasmAttributeView.as_view()),
 
-#    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/germplasm/?$', GermplasmView.as_view()),
-
     url(r'brapi/v1/locations/(?P<locationDbId>[^/]+)/?$', LocationDetailsView.as_view()),
     url(r'brapi/v1/locations/?$', LocationView.as_view()),
     
@@ -90,8 +88,8 @@ urlpatterns = [
     url(r'brapi/v1/markers/(?P<markerDbId>[^/]+)/?$', MarkerDetailsView.as_view()),
     url(r'brapi/v1/markers/?$', MarkerView.as_view()),
     
-    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[^/]+)/?$', MarkerProfilesDataView.as_view()),
-    url(r'brapi/v1/markerprofiles/?$', MarkerProfilesView.as_view()),
+    url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[^/]+)/?$', MarkerprofileDataView.as_view()),
+    url(r'brapi/v1/markerprofiles/?$', MarkerprofileView.as_view()),
 
     url(r'brapi/v1/trials/(?P<trialDbId>[^/]+)/?$', TrialDetailsView.as_view()),
     url(r'brapi/v1/trials', TrialView.as_view()),

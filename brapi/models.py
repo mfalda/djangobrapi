@@ -648,7 +648,7 @@ class Study(models.Model):
 # end class Study
 
 
-class MarkerProfile(models.Model):
+class Markerprofile(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmdbid', related_name='mprofiles-details+', on_delete=models.CASCADE, default='')
@@ -669,14 +669,14 @@ class MarkerProfile(models.Model):
 
     # end class Meta
 
-# end class MarkerProfile
+# end class Markerprofile
 
 
-class MarkerProfilesData(models.Model):
+class MarkerprofileData(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
     markerDbId = models.ForeignKey(Marker, models.DO_NOTHING, db_column='markerdbid', blank=True, null=True)
-    markerprofileDbId = models.ForeignKey(MarkerProfile, models.DO_NOTHING, db_column='markerprofiledbid', blank=True, null=True)
+    markerprofileDbId = models.ForeignKey(Markerprofile, models.DO_NOTHING, db_column='markerprofiledbid', blank=True, null=True)
     alleleCall = models.CharField(max_length=100, db_column='allelecall', blank=True, default='')
     markerprofilesdatadbid = models.TextField(primary_key=True)
 
@@ -694,7 +694,7 @@ class MarkerProfilesData(models.Model):
 
     # end class Meta
 
-# end class MarkerProfilesData
+# end class MarkerprofileData
 
 
 # class GermplasmMarkerProfile(models.Model):

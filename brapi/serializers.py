@@ -278,26 +278,26 @@ class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
 # # end class GermplasmMarkerProfileSerializer
 
 
-class MarkerProfileSerializer(ExtendedSerializer):
+class MarkerprofileSerializer(ExtendedSerializer):
 
     class Meta:
 
-        model = MarkerProfile
-        exclude = ['cropdbid', 'sampleDbId', 'resultCount', 'studyDbId']
+        model = Markerprofile
+        exclude = ['cropdbid', 'studyDbId']
 
         # end class Meta
 
-# end class MarkerProfileSerializer
+# end class MarkerprofileSerializer
 
 
-class GermplasmMarkerProfileSerializer(ExtendedSerializer):
+class GermplasmMarkerprofileSerializer(ExtendedSerializer):
 
     markerprofileDbIds = serializers.SerializerMethodField()
 
 
     class Meta:
 
-        model = MarkerProfile
+        model = Markerprofile
         fields = ['germplasmDbId', 'markerprofileDbIds']
 
     # end class Meta
@@ -305,46 +305,38 @@ class GermplasmMarkerProfileSerializer(ExtendedSerializer):
 
     def get_markerprofileDbIds(self, obj):
 
-        return [ mp.markerprofileDbId for mp in MarkerProfile.objects.filter(germplasmDbId=obj.germplasmDbId) ]
+        return [ mp.markerprofileDbId for mp in Markerprofile.objects.filter(germplasmDbId=obj.germplasmDbId) ]
 
     # end def get_markerprofileDbIds
 
-# end class MarkerProfileSerializer
+# end class MarkerprofileSerializer
 
 
-class MarkerProfilesDataSerializer(serializers.ModelSerializer):
+class MarkerprofileDataSerializer(serializers.ModelSerializer):
 
-    data = StringListField()
+    data = serializers.SerializerMethodField()
+
 
     class Meta:
 
-        model = MarkerProfilesData
+        model = MarkerprofileData
         exclude = ['cropdbid']
 
     # end class Meta
 
-    def to_representation(self, instance):
 
-        instance.data = [str(s) for s in instance.data.split('; ')]
+    def get_data(self, obj):
 
-        return super(MarkerProfilesDataSerializer, self).to_representation(instance)
+        return {
+            info.key: info.value
+            for info in Markerprofile.objects.all()
+        }
 
-    # end def to_representation
+        return ObservationVariable.objects.get(pk=obj.obsVariable.observationVariableDbId).observationVariableName
 
+    # end def get_data
 
-    def to_internal_value(self, data):
-
-        ret = super(MarkerProfilesDataSerializer, self).to_internal_value(data)
-
-        if ret['data']:
-            ret['data'] = '; '.join(str(s) for s in ret['data'])
-        # end if
-
-        return ret
-
-        # end def to_internal_value
-
-# end class MarkerProfilesDataSerializer
+# end class MarkerprofilesDataSerializer
 
 
 class ObservationSerializer(serializers.ModelSerializer):

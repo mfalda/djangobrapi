@@ -1,0 +1,266 @@
+[
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 1,
+      "markerDbId": 1,
+      "markerName": "m1",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "2",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 1,
+      "markerDbId": 2,
+      "markerName": "m2",
+      "alleleCall": "B/B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 3,
+      "markerName": "m3",
+      "alleleCall": "A|B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 4,
+      "markerName": "m4",
+      "alleleCall": "A|B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 5,
+      "markerName": "m5",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 6,
+      "markerName": "m6",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 7,
+      "markerName": "m7",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 8,
+      "markerName": "m8",
+      "alleleCall": "B/B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "9",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 9,
+      "markerName": "m9",
+      "alleleCall": "N"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "10",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 10,
+      "markerName": "m10",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "11",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 11,
+      "markerName": "m11",
+      "alleleCall": "B/B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "12",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 3,
+      "markerDbId": 12,
+      "markerName": "m12",
+      "alleleCall": "A|B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 1,
+      "markerName": "m13",
+      "alleleCall": "A|B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 2,
+      "markerName": "m14",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 3,
+      "markerName": "m15",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "16",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 4,
+      "markerName": "m16",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 5,
+      "markerName": "m17",
+      "alleleCall": "B/B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "18",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 6,
+      "markerName": "m18",
+      "alleleCall": "A|B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "19",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 7,
+      "markerName": "m19",
+      "alleleCall": "A|B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "20",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 8,
+      "markerName": "m20",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "21",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 9,
+      "markerName": "m21",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "212",
+    "fields":{
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 10,
+      "markerName": "m22",
+      "alleleCall": "A/A"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "23",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 11,
+      "markerName": "m23",
+      "alleleCall": "B/B"
+    }
+  },
+  {
+    "model": "brapi.markerprofiledata",
+    "pk": "24",
+    "fields": {
+      "cropdbid": "1",
+      "markerprofileDbId": 4,
+      "markerDbId": 12,
+      "markerName": "m24",
+      "alleleCall": "N"
+    }
+  }
+]
