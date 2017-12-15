@@ -1,7 +1,6 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
 from rest_framework.schemas import get_schema_view
-from django.conf.urls import handler400, handler403, handler404, handler500
 import oauth2_provider.views as oauth2_views
 from django.conf import settings
 
@@ -15,9 +14,7 @@ from brapi.views.markers import MarkerView, MarkerDetailsView
 from brapi.views.traits import TraitView, TraitDetailsView
 from brapi.views.germplasm_attributes import (GermplasmAttributesListViewSet, GermplasmAttributesAvailailableViewSet,
                                                 GermplasmAttributeView)
-from brapi.views.germplasm import (GermplasmView, GermplasmPedigreeView,
-                                   GermplasmSearchView)
-from brapi.views.germplasm import GermplasmView, GermplasmSearchView
+from brapi.views.germplasm import (GermplasmPedigreeView, GermplasmView, GermplasmSearchView)
 from brapi.views.trials import TrialView, TrialDetailsView
 from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView

@@ -780,6 +780,10 @@ class SeasonSerializer(ExtendedSerializer):
 class SampleSerializer(ExtendedSerializer):
 
     season = serializers.SerializerMethodField()
+    locationName = serializers.SerializerMethodField()
+    studyName = serializers.SerializerMethodField()
+    plotNumber = serializers.SerializerMethodField()
+    entryNumber = serializers.SerializerMethodField()
 
 
     class Meta:
@@ -798,6 +802,34 @@ class SampleSerializer(ExtendedSerializer):
         return Season.objects.get(pk=obj.seasonDbId_id).season
 
     # end def get_season
+
+
+    def get_locationName(self, obj):
+
+        return Location.objects.get(pk=obj.locationDbId.locationDbId).name
+
+    # end def get_locationName
+
+
+    def get_studyName(self, obj):
+
+        return Study.objects.get(pk=obj.studyDbId.studyDbId).studyName
+
+    # end def get_studyName
+
+
+    def get_plotNumber(self, obj):
+
+        return ObservationUnit.objects.get(pk=obj.observationUnitDbId.observationUnitDbId).plotNumber
+
+    # end def get_plotNumber
+
+
+    def get_entryNumber(self, obj):
+
+        return ObservationUnit.objects.get(pk=obj.observationUnitDbId.observationUnitDbId).entryNumber
+
+    # end def get_entryNumber
 
 # end class SampleSerializer
 

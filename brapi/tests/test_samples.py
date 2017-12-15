@@ -5,7 +5,10 @@ from brapi.aux_fun import test_get
 
 class SampleTest(APITestCase):
     
-    fixtures = ['crops.json', 'germplasm.json', 'locations.json', 'samples.json']
+    fixtures = ['crops.json', 'germplasm.json', 'locations.json',
+                'observation_units.json', 'seasons.json', 'programs.json',
+                'trials.json', 'locations.json', 'study_types.json', 'studies.json',
+                'samples.json']
     
 
     def test_get_samples(self):
@@ -25,30 +28,32 @@ class SampleTest(APITestCase):
     "result": {
         "data": [
             {
-                "studyDbId": "StudyId-123",
-                "locationDbId": "LocationId-123",
-                "plotId": "PlotId-123",
-                "plantId": "PlantID-123",
-                "sampleId": "Unique-Plant-SampleID",
-                "takenBy": "Mr. Technician",
-                "sampleTimestamp": "2016-07-27T13:43:22Z",
-                "sampleType": "TypeOfSample",
-                "tissueType": "TypeOfTissue",
                 "notes": "Cut from infected leaf",
-                "studyName": "Yield Trial A",
-                "season": "Summer",
-                "locationName": "Kenya",
-                "entryNumber": 11,
-                "plotNumber": 1,
-                "germplasmDbId": 15,
                 "plantingTimestamp": "2016-01-01T22:22:21Z",
-                "harvestTimestamp": "2016-06-30T22:33:23Z"
+                "germplasmDbId": "1",
+                "studyName": "Study 1",
+                "sampleDbId": "1",
+                "plantId": "PlantID-123",
+                "sampleType": "TypeOfSample",
+                "sampleTimestamp": "2016-07-27T13:43:22Z",
+                "season": "Spring",
+                "entryNumber": "1",
+                "studyDbId": "1001",
+                "observationUnitDbId": "1",
+                "plotNumber": "1",
+                "locationName": "Location 1",
+                "plotId": "PlotId-123",
+                "takenBy": "Mr. Technician",
+                "sampleId": "Unique-Plant-SampleID",
+                "harvestTimestamp": "2016-06-30T22:33:23Z",
+                "tissueType": "TypeOfTissue",
+                "locationDbId": "1"
             }
         ]
     }
 }"""
         
-        test_get(self, '/brapi/v1/samples/Unique-Plant-SampleID', expected)
+        test_get(self, '/brapi/v1/samples/Unique-Plant-SampleID/', expected)
         
     # end def test_get_samples
 
