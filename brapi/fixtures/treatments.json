@@ -1,1 +1,12 @@
 [
+  {
+    "model": "brapi.treatment",
+    "pk": "1",
+    "fields": {
+      "cropdbid": "1",
+      "factor": "water regimen",
+      "modality": "water deficit",
+      "observationUnitDbId": 1
+    }
+  }
+]

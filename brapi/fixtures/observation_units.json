@@ -13,7 +13,7 @@
       "entryType": "test",
       "plotNumber": "1",
       "blockNumber": "1",
-      "plantNumber": null,
+      "plantNumber": 1,
       "X": "1",
       "Y": "1",
       "replicate": "0",

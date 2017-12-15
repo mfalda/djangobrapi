@@ -914,7 +914,7 @@ class TreatmentSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Treatment
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'treatmentdbid', 'observationUnitDbId']
 
     # end class Meta
 
@@ -1470,14 +1470,40 @@ class MapDetailSerializer(serializers.ModelSerializer):
 
 class PhenotypeSerializer(serializers.ModelSerializer):
 
-    observationUnitXref = ObservationUnitXrefSerializer(many=True, read_only=True)
-    observations = ObservationSerializer(read_only=True)
+    observationUnitXref = serializers.SerializerMethodField()
+    observations = serializers.SerializerMethodField()
+    treatments = serializers.SerializerMethodField()
+
 
     class Meta:
 
         model = Phenotype
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'treatmentDbId', 'seasonDbId']
 
     # end class Meta
+
+
+    def get_observationUnitXref(self, obj):
+
+        x = ObservationUnitXref.objects.filter(observationunitxrefdbid=obj.observationUnitXref).all()
+        return [ObservationUnitXrefSerializer(x).data for x in x]
+
+    # end def get_observationUnitXref
+
+
+    def get_observations(self, obj):
+
+        o = Observation.objects.filter(observationDbId=obj.observationDbId).all()
+        return [ObservationSerializer(o).data for o in o]
+
+    # end def get_observations
+
+
+    def get_treatments(self, obj):
+
+        o = Treatment.objects.filter(treatmentdbid=obj.treatmentDbId).all()
+        return [TreatmentSerializer(o).data for o in o]
+
+    # end def get_treatments
 
 # end class PhenotypeSerializer

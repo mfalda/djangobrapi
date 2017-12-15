@@ -895,7 +895,7 @@ class Trait(models.Model):
 class Treatment(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
+    observationUnitDbId = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
     factor = models.TextField()
     modality = models.TextField()
     treatmentdbid = models.IntegerField(primary_key=True)
@@ -991,6 +991,9 @@ class Phenotype(models.Model):
 
     cropdbid = models.TextField(db_column='cropdbid')
     observationUnitDbId = models.TextField(db_column='observationunitdbid', primary_key=True)
+    observationUnitName = models.TextField(db_column='observationunitname')
+    entryNumber = models.TextField(db_column='entrynumber')
+    entryType = models.TextField(db_column='entrytype')
     studyDbId = models.TextField(db_column='studydbid')
     studyName = models.TextField(db_column='studyname')
     locationDbId = models.TextField(db_column='locationdbid')
@@ -1006,16 +1009,13 @@ class Phenotype(models.Model):
     germplasmName = models.TextField(db_column='germplasmname')
     X = models.TextField(db_column='x')
     Y = models.TextField(db_column='y')
-    factor = models.TextField()
-    modality = models.TextField()
-    source = models.TextField()
-    observationUnitXref = models.TextField()
-    observations = models.TextField()
+    treatmentDbId = models.TextField(db_column='treatmentdbid')
+    observationUnitXref = models.TextField(db_column='observationunitxrefdbid')
     observationVariableDbId = models.TextField(db_column='observationvariabledbid')
+    seasonDbId = models.TextField(db_column='seasondbid')
     season = models.TextField()
-    value = models.TextField()
+    observationDbId = models.TextField(db_column='observationdbid')
     observationTimestamp = models.TextField(db_column='observationtimestamp')
-    collector = models.TextField()
 
 
     class Meta:
