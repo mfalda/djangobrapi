@@ -349,34 +349,157 @@ class MarkerProfilesDataSerializer(serializers.ModelSerializer):
 
 class ObservationSerializer(serializers.ModelSerializer):
 
+    observationVariableName = serializers.SerializerMethodField()
+    observationVariableDbId = serializers.SerializerMethodField()
+
     class Meta:
 
         model = Observation
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'observationUnit', 'obsVariable']
 
     # end class Meta
+
+
+    def get_observationVariableName(self, obj):
+
+        return ObservationVariable.objects.get(pk=obj.obsVariable.observationVariableDbId).observationVariableName
+
+    # end def get_observationVariableName
+
+
+    def get_observationVariableDbId(self, obj):
+
+        return obj.obsVariable.observationVariableDbId
+
+    # end def get_observationVariableDbId
 
 # end class ObservationSerializer
 
 
-class ObservationUnitXrefSerializer(ExtendedSerializer):
+class ObservationUnitXrefSerializer(serializers.ModelSerializer):
 
-    observationUnits = ObservationSerializer(many=True, read_only=True)
-
-    class Meta:
+     class Meta:
 
         model = ObservationUnitXref
-        exclude = ['cropdbid']
-        extra_fields = ['observationUnits']
+        exclude = ['cropdbid', 'observationunitdbid', 'observationunitxrefdbid']
 
     # end class Meta
 
 # end class ObservationUnitXrefSerializer
 
 
+class ObservationUnitSerializer(ExtendedSerializer):
+
+    germplasmName = serializers.SerializerMethodField()
+    observationUnitXref = ObservationUnitXrefSerializer(many=True, read_only=True)
+    observations = ObservationSerializer(many=True, read_only=True)
+
+
+    class Meta:
+
+        model = ObservationUnit
+        exclude = ['cropdbid', 'observationLevels', 'programDbId', 'studyDbId']
+        extra_fields = ['germplasmName', 'observations', 'observationUnitXref']
+
+    # end class Meta
+
+
+    def get_germplasmName(self, obj):
+
+        return Germplasm.objects.get(pk=obj.germplasmDbId.germplasmDbId).germplasmName
+
+    # end def get_germplasmName
+
+# end class ObservationUnitSerializer
+
+
+class StudyObservationUnitByObservationVariableSerializer(ExtendedSerializer):
+
+    studyDbId = serializers.SerializerMethodField()
+    observationVariableName = serializers.SerializerMethodField()
+    observationVariableDbId = serializers.SerializerMethodField()
+    observationUnitDbId = serializers.SerializerMethodField()
+    observationUnitName = serializers.SerializerMethodField()
+    observationLevel = serializers.SerializerMethodField()
+    germplasmDbId = serializers.SerializerMethodField()
+    germplasmName = serializers.SerializerMethodField()
+
+
+    class Meta:
+
+        model = Observation
+        exclude = ['cropdbid', 'obsVariable', 'observationUnit']
+
+    # end class Meta
+
+
+    def get_germplasmDbId(self, obj):
+
+        return obj.observationUnit.germplasmDbId.germplasmDbId
+
+    # end def get_germplasmDbId
+
+
+    def get_germplasmName(self, obj):
+
+        return Germplasm.objects.get(pk=obj.observationUnit.germplasmDbId.germplasmDbId).germplasmName
+
+    # end def get_germplasmName
+
+
+    def get_studyDbId(self, obj):
+
+        return obj.observationUnit.studyDbId.studyDbId
+
+    # end def get_studyDbId
+
+
+    def get_observationUnitName(self, obj):
+
+        return obj.observationUnit.observationUnitName
+
+    # end def get_observationUnitName
+
+
+    def get_observationUnitDbId(self, obj):
+
+        return obj.observationUnit.observationUnitDbId
+
+    # end def get_observationUnitDbId
+
+
+    def get_observationVariableDbId(self, obj):
+
+        return obj.obsVariable.observationVariableDbId
+
+    # end def get_observationVariableDbId
+
+
+    def get_observationVariableName(self, obj):
+
+        return obj.obsVariable.observationVariableName
+
+    # end def get_observationVariableName
+
+
+    def get_observationLevel(self, obj):
+
+        return obj.observationUnit.observationLevel
+
+    # end def get_observationLevel
+
+
+    def get_value(self, obj):
+
+        return obj.observationUnit.value
+
+    # end def get_value
+
+# end class StudyObservationUnitByObservationVariableSerializer
+
+
 class ObservationVariableSerializer(ExtendedSerializer):
 
-    #observations = ObservationSerializer(many=True, read_only=True)
     synonyms = StringListField()
     ontologyName = serializers.SerializerMethodField()
     contextOfUse = StringListField()
@@ -579,7 +702,7 @@ class ScaleSerializer(ExtendedSerializer):
 
         # get all related objects in a One-to-Many relation
         vv = ValidValue.objects.get(pk=obj.validValues.validValueDbId)
-        logger.warning("Getting vValues for scale %s" % pformat(vv.__dict__))
+        logger.warning("Getting valid values for scale %s" % pformat(vv.__dict__))
 
         # serialize the retrieved object(s), the JSON is in the 'data' field
         return ValidValueSerializer(vv).data
@@ -1044,6 +1167,58 @@ class GermplasmSerializer(ExtendedSerializer):
     # end def to_internal_value
 
 # end class GermplasmSerializer
+
+
+class StudyGermplasmSerializer(ExtendedSerializer):
+
+    entryNumber = serializers.SerializerMethodField()
+    synonyms = StringListField()
+
+
+    class Meta:
+
+        model = Germplasm
+        exclude = ['cropdbid', 'species', 'subtaxa', 'genus',
+                   'speciesAuthority', 'subtaxaAuthority',
+                   'typeOfGermplasmStorageCode', 'commonCropName',
+                    'instituteName', 'countryOfOriginCode',
+                    'defaultDisplayName', 'instituteCode',
+                    'biologicalStatusOfAccessionCode',
+                    'acquisitionDate']
+        extra_fields = ['synonyms', 'entryNumber']
+
+    # end class Meta
+
+
+    def get_entryNumber(self, obj):
+
+        return ObservationUnit.objects.get(pk=obj.germplasmDbId).entryNumber
+
+    # end def get_entryNumber
+
+
+    def to_representation(self, instance: Germplasm):
+
+        instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
+
+        return super(StudyGermplasmSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(StudyGermplasmSerializer, self).to_internal_value(data)
+
+        if ret['synonyms']:
+            ret['synonyms'] = '; '.join(str(s) for s in ret['synonyms'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
+
+# end class StudyGermplasmSerializer
 
 
 class TrialAdditionalInfoSerializer(serializers.ModelSerializer):

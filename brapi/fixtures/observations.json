@@ -4,11 +4,12 @@
     "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "1",
-      "observationvariabledbid": "MO_123:100002",
-      "observationtimestamp": "2013-06-14T22:03:51Z",
-      "seasondbid": "1",
+      "observationUnit": "1",
+      "obsVariable": "MO_123:100002",
+      "observationTimestamp": "2013-06-14T22:03:51Z",
+      "seasonDbId": "1",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId4",
       "value": "1.2"
     }
   },
@@ -17,11 +18,12 @@
     "pk": "10",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "6",
-      "observationvariabledbid": "MO_123:100006",
-      "observationtimestamp": "2013-06-14T22:12:51Z",
-      "seasondbid": "3",
+      "observationUnit": "6",
+      "obsVariable": "MO_123:100006",
+      "observationTimestamp": "2013-06-14T22:12:51Z",
+      "seasonDbId": "3",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId4",
       "value": "4.5"
     }
   },
@@ -30,11 +32,12 @@
     "pk": "11",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "7",
-      "observationvariabledbid": "MO_123:100003",
-      "observationtimestamp": "2013-06-14T22:13:51Z",
-      "seasondbid": "3",
+      "observationUnit": "7",
+      "obsVariable": "MO_123:100003",
+      "observationTimestamp": "2013-06-14T22:13:51Z",
+      "seasonDbId": "3",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId3",
       "value": "1.4"
     }
   },
@@ -43,11 +46,12 @@
     "pk": "12",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "8",
-      "observationvariabledbid": "MO_123:100004",
-      "observationtimestamp": "2013-06-14T22:14:51Z",
-      "seasondbid": "3",
+      "observationUnit": "8",
+      "obsVariable": "MO_123:100004",
+      "observationTimestamp": "2013-06-14T22:14:51Z",
+      "seasonDbId": "3",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId3",
       "value": "red"
     }
   },
@@ -56,11 +60,12 @@
     "pk": "13",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "9",
-      "observationvariabledbid": "MO_123:100002",
-      "observationtimestamp": "2011-06-14T22:03:51Z",
-      "seasondbid": "2",
+      "observationUnit": "9",
+      "obsVariable": "MO_123:100002",
+      "observationTimestamp": "2011-06-14T22:03:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId2",
       "value": "10"
     }
   },
@@ -69,11 +74,12 @@
     "pk": "14",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "9",
-      "observationvariabledbid": "MO_123:100003",
-      "observationtimestamp": "2011-06-14T22:04:51Z",
-      "seasondbid": "2",
+      "observationUnit": "9",
+      "obsVariable": "MO_123:100003",
+      "observationTimestamp": "2011-06-14T22:04:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId2",
       "value": "20"
     }
   },
@@ -82,11 +88,12 @@
     "pk": "15",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "9",
-      "observationvariabledbid": "MO_123:100004",
-      "observationtimestamp": "2011-06-14T22:05:51Z",
-      "seasondbid": "2",
+      "observationUnit": "9",
+      "obsVariable": "MO_123:100004",
+      "observationTimestamp": "2011-06-14T22:05:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId1",
       "value": "red"
     }
   },
@@ -95,11 +102,12 @@
     "pk": "16",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "10",
-      "observationvariabledbid": "MO_123:100002",
-      "observationtimestamp": "2011-06-14T22:06:51Z",
-      "seasondbid": "2",
+      "observationUnit": "10",
+      "obsVariable": "MO_123:100002",
+      "observationTimestamp": "2011-06-14T22:06:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId1",
       "value": "100"
     }
   },
@@ -108,11 +116,12 @@
     "pk": "17",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "10",
-      "observationvariabledbid": "MO_123:100003",
-      "observationtimestamp": "2011-06-14T22:07:51Z",
-      "seasondbid": "2",
+      "observationUnit": "10",
+      "obsVariable": "MO_123:100003",
+      "observationTimestamp": "2011-06-14T22:07:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId",
       "value": "9"
     }
   },
@@ -121,11 +130,12 @@
     "pk": "18",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "10",
-      "observationvariabledbid": "MO_123:100005",
-      "observationtimestamp": "2011-06-14T22:08:51Z",
-      "seasondbid": "2",
+      "observationUnit": "10",
+      "obsVariable": "MO_123:100005",
+      "observationTimestamp": "2011-06-14T22:08:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId",
       "value": "2"
     }
   },
@@ -134,11 +144,12 @@
     "pk": "19",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "11",
-      "observationvariabledbid": "MO_123:100002",
-      "observationtimestamp": "2011-06-14T22:09:51Z",
-      "seasondbid": "2",
+      "observationUnit": "11",
+      "obsVariable": "MO_123:100002",
+      "observationTimestamp": "2011-06-14T22:09:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId",
       "value": "11"
     }
   },
@@ -147,11 +158,12 @@
     "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "1",
-      "observationvariabledbid": "MO_123:100006",
-      "observationtimestamp": "2013-06-14T22:04:51Z",
-      "seasondbid": "1",
+      "observationUnit": "1",
+      "obsVariable": "MO_123:100006",
+      "observationTimestamp": "2013-06-14T22:04:51Z",
+      "seasonDbId": "1",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId",
       "value": "4.5"
     }
   },
@@ -160,11 +172,12 @@
     "pk": "20",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "11",
-      "observationvariabledbid": "MO_123:100003",
-      "observationtimestamp": "2011-06-14T22:10:51Z",
-      "seasondbid": "2",
+      "observationUnit": "11",
+      "obsVariable": "MO_123:100003",
+      "observationTimestamp": "2011-06-14T22:10:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId1",
       "value": "12"
     }
   },
@@ -173,11 +186,12 @@
     "pk": "21",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "11",
-      "observationvariabledbid": "MO_123:100004",
-      "observationtimestamp": "2011-06-14T22:11:51Z",
-      "seasondbid": "2",
+      "observationUnit": "11",
+      "obsVariable": "MO_123:100004",
+      "observationTimestamp": "2011-06-14T22:11:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId1",
       "value": "black"
     }
   },
@@ -186,11 +200,12 @@
     "pk": "22",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "11",
-      "observationvariabledbid": "MO_123:100005",
-      "observationtimestamp": "2011-06-14T22:12:51Z",
-      "seasondbid": "2",
+      "observationUnit": "11",
+      "obsVariable": "MO_123:100005",
+      "observationTimestamp": "2011-06-14T22:12:51Z",
+      "seasonDbId": "2",
       "collector": "B. Tech",
+      "uploadedBy": "dbUserId2",
       "value": "5"
     }
   },
@@ -199,11 +214,12 @@
     "pk": "3",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "2",
-      "observationvariabledbid": "MO_123:100002",
-      "observationtimestamp": "2013-06-14T22:05:51Z",
-      "seasondbid": "1",
+      "observationUnit": "2",
+      "obsVariable": "MO_123:100002",
+      "observationTimestamp": "2013-06-14T22:05:51Z",
+      "seasonDbId": "1",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId2",
       "value": "1.1"
     }
   },
@@ -212,11 +228,12 @@
     "pk": "4",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "2",
-      "observationvariabledbid": "MO_123:100006",
-      "observationtimestamp": "2013-06-14T22:06:51Z",
-      "seasondbid": "1",
+      "observationUnit": "2",
+      "obsVariable": "MO_123:100006",
+      "observationTimestamp": "2013-06-14T22:06:51Z",
+      "seasonDbId": "1",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId3",
       "value": "5.1"
     }
   },
@@ -225,11 +242,12 @@
     "pk": "5",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "3",
-      "observationvariabledbid": "MO_123:100003",
-      "observationtimestamp": "2013-06-14T22:07:51Z",
-      "seasondbid": "4",
+      "observationUnit": "3",
+      "obsVariable": "MO_123:100003",
+      "observationTimestamp": "2013-06-14T22:07:51Z",
+      "seasonDbId": "4",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId3",
       "value": "2.1"
     }
   },
@@ -238,11 +256,12 @@
     "pk": "6",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "3",
-      "observationvariabledbid": "MO_123:100004",
-      "observationtimestamp": "2013-06-14T22:08:51Z",
-      "seasondbid": "4",
+      "observationUnit": "3",
+      "obsVariable": "MO_123:100004",
+      "observationTimestamp": "2013-06-14T22:08:51Z",
+      "seasonDbId": "4",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId4",
       "value": "dark blue"
     }
   },
@@ -251,11 +270,12 @@
     "pk": "7",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "4",
-      "observationvariabledbid": "MO_123:100003",
-      "observationtimestamp": "2013-06-14T22:09:51Z",
-      "seasondbid": "5",
+      "observationUnit": "4",
+      "obsVariable": "MO_123:100003",
+      "observationTimestamp": "2013-06-14T22:09:51Z",
+      "seasonDbId": "5",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId4",
       "value": "1.8"
     }
   },
@@ -264,11 +284,12 @@
     "pk": "8",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "4",
-      "observationvariabledbid": "MO_123:100004",
-      "observationtimestamp": "2013-06-14T22:10:51Z",
-      "seasondbid": "5",
+      "observationUnit": "4",
+      "obsVariable": "MO_123:100004",
+      "observationTimestamp": "2013-06-14T22:10:51Z",
+      "seasonDbId": "5",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId5",
       "value": "blue"
     }
   },
@@ -277,11 +298,12 @@
     "pk": "9",
     "fields": {
       "cropdbid": "1",
-      "observationunitdbid": "5",
-      "observationvariabledbid": "MO_123:100002",
-      "observationtimestamp": "2013-06-14T22:11:51Z",
-      "seasondbid": "3",
+      "observationUnit": "5",
+      "obsVariable": "MO_123:100002",
+      "observationTimestamp": "2013-06-14T22:11:51Z",
+      "seasonDbId": "3",
       "collector": "A. Technician",
+      "uploadedBy": "dbUserId5",
       "value": "2.1"
     }
   }

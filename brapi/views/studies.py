@@ -1,15 +1,17 @@
 from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
+from pprint import pformat
 
 from brapi.models import (StudyType, Season, StudyObservationLevel, Observation,
-                                Study, ObservationUnit, ObservationVariable)
+                                Study, ObservationUnit, ObservationVariable, Germplasm)
+
 from brapi.serializers import (StudySerializer, StudySearchSerializer,
                                 StudyTypeSerializer, SeasonSerializer,
                                 StudyObservationLevelSerializer, StudyPlotLayoutSerializer,
-                                ObservationVariableSerializer)
+                                ObservationVariableSerializer, StudyGermplasmSerializer,
+                                ObservationUnitSerializer, StudyObservationUnitByObservationVariableSerializer)
 
-#from brapi.models.germplasm import Germplasm, GermplasmSerializer
 #from brapi.models.observation import ObsVariable, ObsVariableSerializer
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
@@ -94,37 +96,58 @@ class StudySearchView(APIView):
 # end class StudySearchView
 
 
-# class StudyObsUnitsView(APIView):
-#
-#     serializer_class = StudyObsUnitSerializer
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = StudyObsUnit.objects.all()
-#         queryset = search_get_qparams(self, queryset,
-#                    [('observationVariableDbIds', 'observationVariableDbIds')])
-#
-#         return paginate(queryset, request, StudyObsUnitSerializer)
-#
-#     # end def get
-#
-# # end class StudyObsUnitsView
-#
-#
-# class StudyObsUnitsDetailsView(APIView):
-#
-#     serializer_class = StudyObsUnitSerializer
-#
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = StudyObsUnit.objects.all()
-#
-#         return paginate(queryset, request, StudyObsUnitSerializer)
-#
-#     # end def get
-#
-# # end class StudyObsUnitsDetailsView
+class StudyObservationUnitByObservationVariableView(APIView):
+
+    serializer_class = StudyObservationUnitByObservationVariableSerializer
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = None
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            # get the ObservationUnits
+            queryset = Observation.objects.filter(observationUnit__studyDbId=studyDbId)
+
+            queryset = search_get_qparams(self, queryset,
+                   [('observationVariableDbIds', 'obsVariable')])
+        # end if
+
+        return paginate(queryset, request, StudyObservationUnitByObservationVariableSerializer)
+
+    # end def get
+
+# end class StudyObservationUnitByObservationVariableView
+
+
+class StudyObservationUnitDetailsView(APIView):
+
+    serializer_class = ObservationUnitSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = ObservationUnit.objects.all()
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        logger = logging.getLogger(__name__)
+        logger.warning("Got study ID %s" % studyDbId)
+
+        if studyDbId is not None:
+            queryset = queryset.filter(studyDbId=studyDbId)
+        # end if
+
+        observationLevel = self.request.query_params.get('observationLevel', None)
+
+        if observationLevel is not None:
+            queryset = queryset.filter(observationLevel=observationLevel)
+        # end if
+
+        return paginate(queryset, request, ObservationUnitSerializer)
+
+    # end def get
+
+# end class StudyObservationUnitDetailsView
 
 
 class StudySeasonViewSet(viewsets.ReadOnlyModelViewSet):
@@ -182,28 +205,38 @@ class StudyDetailView(APIView):
     
 # end class StudyDetailView
 
-#
-# class StudyGermplasmDetailsView(APIView):
-#
-#     serializer_class = GermplasmSerializer
-#
-#
-#     def get(self, request, format=None, *args, **kwargs):
-#
-#         queryset = Germplasm.objects.all()
-#
-#         studyDbId = self.kwargs.get('studyDbId', None)
-#         if studyDbId is not None:
-#             queryset = queryset.filter(study__studyDbId=studyDbId)
-#         # end if
-#
-#         return paginate(queryset, request, GermplasmSerializer)
-#
-#     # end def get
-#
-# # end class StudyGermplasmDetailsView
-#
-#
+
+class StudyGermplasmDetailsView(APIView):
+
+    serializer_class = StudyGermplasmSerializer
+
+
+    def get(self, request, format=None, *args, **kwargs):
+
+        queryset = None
+
+        logger = logging.getLogger(__name__)
+
+        studyDbId = self.kwargs.get('studyDbId', None)
+        if studyDbId is not None:
+            # get the ObservationUnit
+            ou = ObservationUnit.objects.filter(studyDbId=studyDbId)
+            logger.warning("ObservationUnits: %s" % str([pformat(ou.__dict__) for ou in ou]))
+
+            # get the Germplasm
+            g = Germplasm.objects.all()
+            # and filter them
+            queryset = g.filter(germplasmDbId__in=ou)
+            logger.warning("Obs. variables: %s" % str([pformat(g.__dict__) for g in g]))
+        # end if
+
+        return paginate(queryset, request, StudyGermplasmSerializer)
+
+    # end def get
+
+# end class StudyGermplasmDetailsView
+
+
 # class StudyObsUnitsTableView(APIView):
 #
 #     serializer_class = StudyObsUnitSerializer
@@ -227,18 +260,19 @@ class StudyObservationVariableView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 
-        queryset = ObservationVariable.objects.all()
+        logger = logging.getLogger(__name__)
 
         studyDbId = self.kwargs.get('studyDbId', None)
         if studyDbId is not None:
-            # get the ObservationUnit ID
-            ou = ObservationUnit.studyDbId.filter(studyDbId=studyDbId).all()
+            # get the Observation
+            obs = Observation.objects.filter(observationUnit__studyDbId=studyDbId)
+            logger.warning("Observations: %s" % str([pformat(o.__dict__) for o in obs]))
 
-            # get the Observation ID
-            o = Observation.objects.get(observationunitdbid__in=ou)
-
-            # get the ObservationVariable
-            queryset = queryset.filter(observationVariableDbId=o.observationvariabledbid)
+            # get the ObservationVariables
+            ov = ObservationVariable.objects.all()
+            # and filter them
+            queryset = ov.filter(observationVariableDbId__in=ov)
+            logger.warning("Obs. variables: %s" % str([pformat(queryset.__dict__) for ov in ov]))
         # end if
 
         return paginate(queryset, request, ObservationVariableSerializer)

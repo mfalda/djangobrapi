@@ -303,7 +303,7 @@ class AlleleMatrixSearch(models.Model):
 class Method(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    methodDbId = models.TextField(db_column='methoddbid', primary_key=True)
+    methodDbId = models.TextField(db_column='methoddbid', primary_key=True, default='')
     name = models.TextField(blank=True, null=True)
     classis = models.TextField(db_column='class', blank=True, null=True)
     description = models.TextField(blank=True, null=True)
@@ -324,18 +324,20 @@ class Method(models.Model):
 class Observation(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    observationunitdbid = models.ForeignKey('ObservationUnit', models.DO_NOTHING, db_column='observationunitdbid', blank=True, null=True)
-    observationvariabledbid = models.ForeignKey('ObservationVariable', models.DO_NOTHING, db_column='observationvariabledbid', blank=True, null=True)
-    observationdbid = models.TextField(primary_key=True)
-    observationtimestamp = models.TextField(blank=True, null=True)
-    seasondbid = models.ForeignKey('Season', models.DO_NOTHING, db_column='seasondbid', blank=True, null=True)
+    observationUnit = models.ForeignKey('ObservationUnit', models.DO_NOTHING, db_column='observationunitdbid', related_name='observations', blank=True, null=True)
+    obsVariable = models.ForeignKey('ObservationVariable', models.DO_NOTHING, db_column='observationvariabledbid', related_name='obsVariable', blank=True, null=True)
+    observationDbId = models.TextField(db_column='observationdbid', primary_key=True, default='')
+    observationTimestamp = models.TextField(db_column='observationtimestamp', blank=True, null=True)
+    seasonDbId = models.ForeignKey('Season', models.DO_NOTHING, db_column='seasondbid', blank=True, null=True)
     collector = models.TextField(blank=True, null=True)
+    uploadedBy = models.TextField(db_column='uploadedby', blank=True, null=True)
     value = models.TextField(blank=True, null=True)
 
 
     class Meta:
 
         managed = settings.IS_TESTING
+        ordering = ('observationDbId',)
         db_table = 'observation'
 
     # end class Meta
@@ -357,7 +359,7 @@ class ObservationVariable(models.Model):
     scientist = models.TextField(blank=True, null=True)
     submissionTimestamp = models.DateTimeField(db_column='submissiontimestamp', blank=True, null=True)
     language = models.TextField(blank=True, null=True)
-    crop = models.TextField(blank=True, null=True)
+    growthStage = models.TextField(blank=True, null=True)
     defaultValue = models.TextField(db_column='defaultvalue', blank=True, null=True)
     traitDbId = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
     methodDbId = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
@@ -503,7 +505,7 @@ class ObservationUnitAdditionalInfo(models.Model):
 class ObservationUnitXref(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid')
+    observationunitdbid = models.ForeignKey(ObservationUnit, models.DO_NOTHING, db_column='observationunitdbid', related_name='observationUnitXref')
     source = models.TextField()
     identifier = models.TextField()
     observationunitxrefdbid = models.TextField(primary_key=True)

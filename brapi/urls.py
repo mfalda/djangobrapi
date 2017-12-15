@@ -27,12 +27,10 @@ from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchV
 from brapi.views.observation_variables import (ObservationVariableSearchView, ObservationVariablesListView,
                                                ObservationVariableView, OntologiesViewSet,
                                                ObservationVariableDatatypeViewSet)
-#from brapi.views.studies import (StudyObsUnitsView,
-#                                 StudyObsUnitsDetailsView,
-#                                 StudyGermplasmDetailsView, StudyObsUnitsTableView)
 from brapi.views.studies import (StudySeasonViewSet, StudySearchView, StudyTypeViewSet,
                                  StudyObservationLevelViewSet, StudyDetailView, StudyPlotLayoutView,
-                                 StudyObservationVariableView)
+                                 StudyObservationVariableView, StudyGermplasmDetailsView,
+                                 StudyObservationUnitDetailsView, StudyObservationUnitByObservationVariableView)
 
 
 handler400 = errors.error400
@@ -109,9 +107,9 @@ urlpatterns = [
     url(r'brapi/v1/traits/?', TraitView.as_view()),
     
     url(r'brapi/v1/studies-search/?$', StudySearchView.as_view()),
-#    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations$', StudyObsUnitsView.as_view()),
-#    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObsUnitsDetailsView.as_view()),
-#    url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations/?$', StudyObservationUnitByObservationVariableView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObservationUnitDetailsView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/table/?$', StudyObsUnitsTableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables/?$', StudyObservationVariableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/?$', StudyDetailView.as_view())
