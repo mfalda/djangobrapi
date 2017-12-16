@@ -276,30 +276,6 @@ class AlleleMatrix(models.Model):
 # end class AlleleMatrix
 
 
-class AlleleMatrixSearch(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    allelematrixsearchDbId = models.IntegerField(db_column='allelematrixsearchdbid', primary_key=True)
-    data = models.CharField(max_length=100, blank=True, default='')
-
-    def save(self, *args, **kwargs):
-
-        self.data = '; '.join(self.data)
-
-    # end def save
-
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        ordering = ('allelematrixsearchDbId',)
-        db_table = 'allelematrixsearch'
-
-    # end class Meta
-
-# end class AlleleMatrixSearch
-
-
 class Method(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
@@ -658,7 +634,6 @@ class Markerprofile(models.Model):
     extractDbId = models.IntegerField(db_column='extractdbid')
     studyDbId = models.ForeignKey(Study, models.DO_NOTHING, db_column='studydbid', blank=True, null=True)
     analysisMethod = models.CharField(db_column='analysismethod', max_length=100, blank=True, default='')
-    resultCount = models.IntegerField(db_column='resultcount')
 
 
     class Meta:
@@ -695,20 +670,6 @@ class MarkerprofileData(models.Model):
     # end class Meta
 
 # end class MarkerprofileData
-
-
-# class GermplasmMarkerProfile(models.Model):
-#
-#     germplasmDbId = models.ForeignKey(Germplasm, db_column='germplasmdbid', related_name='germplasmDbId_details', on_delete=models.CASCADE, default='', to_field='germplasmdbid')
-#     markerProfilesDbIds = models.OneToOneField(MarkerProfile, db_column='markerprofilesdbids', related_name='markerProfilesDbId_details', on_delete=models.CASCADE, default='', to_field='markerprofileDbId')
-#
-#     class Meta:
-#
-#         ordering = ('id',)
-#
-#     # end class Meta
-#
-# # end class GermplasmMarkerProfile
 
 
 class Sample(models.Model):

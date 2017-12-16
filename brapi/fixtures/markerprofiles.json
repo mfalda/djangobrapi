@@ -9,8 +9,7 @@
       "sampleDbId": 33,
       "extractDbId": 1,
       "studyDbId": "1001",
-      "analysisMethod": "GBS",
-      "resultCount": 1
+      "analysisMethod": "GBS"
     }
   },
   {
@@ -23,8 +22,7 @@
       "sampleDbId": 44,
       "extractDbId": 2,
       "studyDbId": "1002",
-      "analysisMethod": "GoldenGate",
-      "resultCount": 1
+      "analysisMethod": "GoldenGate"
     }
   },
   {
@@ -37,8 +35,20 @@
       "sampleDbId": 44,
       "extractDbId": 2,
       "studyDbId": "1002",
-      "analysisMethod": "GoldenGate",
-      "resultCount": 1
+      "analysisMethod": "GoldenGate"
+    }
+  },
+  {
+    "model": "brapi.markerprofile",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "2",
+      "uniqueDisplayName": "germplasm5",
+      "sampleDbId": 44,
+      "extractDbId": 2,
+      "studyDbId": "1002",
+      "analysisMethod": "GoldenGate"
     }
   }
 ]

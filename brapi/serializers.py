@@ -231,61 +231,47 @@ class AlleleMatrixSerializer(serializers.ModelSerializer):
 
 class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
 
-    data = StringListField()
+    data = serializers.SerializerMethodField()
 
 
     class Meta:
 
-        model = AlleleMatrixSearch
-        exclude = ['cropdbid']
+        model = MarkerprofileData
+        exclude = ['cropdbid', 'markerprofilesdatadbid', 'alleleCall', 'markerDbId', 'markerprofileDbId']
 
     # end class Meta
 
 
-    def to_representation(self, instance):
+    def get_data(self, obj):
 
-        instance.data = [str(s) for s in instance.data.split('; ')]
+        return [
+            ( mpd.markerDbId.markerDbId, mpd.markerprofileDbId.markerprofileDbId, mpd.alleleCall )
+            for mpd in MarkerprofileData.objects.filter(markerprofileDbId=obj.markerprofileDbId)
+        ]
 
-        return super(AlleleMatrixSearchSerializer, self).to_representation(instance)
-
-    # end def to_representation
-
-
-    def to_internal_value(self, data):
-
-        ret = super(AlleleMatrixSearchSerializer, self).to_internal_value(data)
-
-        if ret['data']:
-            ret['data'] = '; '.join(str(s) for s in ret['data'])
-        # end if
-
-        return ret
-
-    # end def to_internal_value
+    # end def get_data
 
 # end class AlleleMatrixSearchSerializer
 
 
-# class GermplasmMarkerProfileSerializer(serializers.ModelSerializer):
-#
-#     class Meta:
-#
-#         model = GermplasmMarkerProfile
-#         fields = ['germplasmDbId', 'markerProfilesDbIds']
-#
-#         # end class Meta
-#
-# # end class GermplasmMarkerProfileSerializer
-
-
 class MarkerprofileSerializer(ExtendedSerializer):
+
+    resultCount = serializers.SerializerMethodField()
+
 
     class Meta:
 
         model = Markerprofile
         exclude = ['cropdbid', 'studyDbId']
 
-        # end class Meta
+    # end class Meta
+
+
+    def get_resultCount(self, obj):
+
+        return MarkerprofileData.objects.filter(markerprofileDbId=obj.markerprofileDbId).count()
+
+    # end def get_resultCount
 
 # end class MarkerprofileSerializer
 
@@ -319,20 +305,18 @@ class MarkerprofileDataSerializer(serializers.ModelSerializer):
 
     class Meta:
 
-        model = MarkerprofileData
-        exclude = ['cropdbid']
+        model = Markerprofile
+        exclude = ['cropdbid', 'sampleDbId', 'studyDbId']
 
     # end class Meta
 
 
     def get_data(self, obj):
 
-        return {
-            info.key: info.value
-            for info in Markerprofile.objects.all()
-        }
-
-        return ObservationVariable.objects.get(pk=obj.obsVariable.observationVariableDbId).observationVariableName
+        return [
+            { mpd.markerDbId.defaultDisplayName: mpd.alleleCall }
+            for mpd in MarkerprofileData.objects.filter(markerprofileDbId=obj.markerprofileDbId)
+        ]
 
     # end def get_data
 

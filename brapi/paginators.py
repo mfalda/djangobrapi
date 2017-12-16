@@ -107,3 +107,38 @@ class BrAPIListPagination(PageNumberPagination):
     # end def get_paginated_response
 
 # end class BrAPIListPagination
+
+
+class BrAPISimplePagination(PageNumberPagination):
+
+    page_size_query_param = 'pageSize'
+    request = None
+
+
+    def paginate_queryset(self, queryset, request, view=None):
+
+        self.request = request
+        return _paginate_queryset(self, queryset, request, view)
+
+    # end def paginate_queryset
+
+
+    def get_paginated_response(self, data):
+
+        return Response({
+            "metadata": {
+                "pagination": {
+                    "currentPage": self.page.number,
+                    "pageTotal": self.page.paginator.num_pages,
+                    "totalCount": self.page.paginator.count,
+                    "pageSize": self.get_page_size(self.request)
+                },
+                "status": [],
+                "datafiles": []
+            },
+            "result": data
+        })
+
+    # end def get_paginated_response
+
+# end class BrAPISimplePagination

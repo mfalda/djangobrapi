@@ -39,7 +39,7 @@ def search_get_qparams(self, queryset, params):
 
 def search_post_params_in(self, queryset, params, in_=True):
     
-    #  [('name', 'name'), ('type', 'type'), ('matchMethod', 'matchMethod'), ('include', 'synonyms')]
+    #  [('paramName', 'dbField'), ('type', 'type'), ('matchMethod', 'matchMethod'), ('include', 'synonyms')]
     for (search, param_name) in params:
         param_value = self.request.data.get(param_name, None)
         if param_value is not None:

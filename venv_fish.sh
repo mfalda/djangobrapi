@@ -1,3 +1,3 @@
 #!/usr/bin/fish
 
-begin; set -lx PATH /home/marco/myEnv3/bin $PATH; fish; end
+begin; set -lx PATH /home/marco/drfEnv3/bin $PATH; fish; end

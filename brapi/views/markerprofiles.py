@@ -2,15 +2,15 @@ from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
-from brapi.models import (AlleleMatrix, AlleleMatrixSearch,
-                            Markerprofile)
+from brapi.models import (AlleleMatrix, Markerprofile, MarkerprofileData)
 
 from brapi.serializers import (AlleleMatrixSerializer, AlleleMatrixSearchSerializer,
-                                MarkerprofileSerializer, MarkerprofileDataSerializer)
+                                MarkerprofileSerializer, GermplasmMarkerprofileSerializer,
+                               MarkerprofileDataSerializer)
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
-from brapi.paginators import BrAPIListPagination
+from brapi.paginators import BrAPIListPagination, BrAPISimplePagination
 
 
 class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
@@ -35,7 +35,7 @@ class AlleleMatrixSearchView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 
-        queryset = AlleleMatrixSearch.objects.all()
+        queryset = MarkerprofileData.objects.all()
 
         # TODO: it is not clear to which data the query parameters apply!
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
@@ -48,7 +48,7 @@ class AlleleMatrixSearchView(APIView):
 
     def post(self, request, format=None, *args, **kwargs):
 
-        queryset = AlleleMatrixSearch.objects.all()
+        queryset = MarkerprofileData.objects.all()
 
         # TODO: it is not clear to which data the query parameters apply!
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
@@ -69,10 +69,6 @@ class MarkerprofileDataView(APIView):
         queryset = Markerprofile.objects.all()
 
         markerprofileDbId = self.kwargs.get('markerprofileDbId', None)
-
-        logger = logging.getLogger(__name__)
-        logger.warning("Markerprofiles data: %s" % markerprofileDbId)
-
         if markerprofileDbId is not None:
             queryset = queryset.filter(markerprofileDbId=markerprofileDbId)
         # end if
@@ -80,7 +76,7 @@ class MarkerprofileDataView(APIView):
         # TODO: it is not clear to which data the query parameters apply!
         # unknownString=&sepPhased=&sepUnphased=&expandHomozygotes=
 
-        return paginate(queryset, request, MarkerprofileDataSerializer)
+        return paginate(queryset, request, MarkerprofileDataSerializer, BrAPISimplePagination)
 
     # end def get
 
@@ -99,9 +95,9 @@ class MarkerprofileView(APIView):
 
         queryset = Markerprofile.objects.all()
 
-        queryset = search_get_qparams(self, queryset, [('germplasmDbId', 'germplasm'),
-            ('studyDbId', 'studyDbId'), ('sampleDbId', 'sample'), ('extractDbId', 'extract'),
-            ('analysisMethod', 'method')])
+        queryset = search_get_qparams(self, queryset, [('germplasm', 'germplasmDbId'),
+            ('studyDbId', 'studyDbId'), ('sample', 'sampleDbId'), ('extract', 'extractDbId'),
+            ('method', 'analysisMethod')])
 
         return paginate(queryset, request, MarkerprofileSerializer)
 

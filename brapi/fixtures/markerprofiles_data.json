@@ -6,7 +6,6 @@
       "cropdbid": "1",
       "markerprofileDbId": 1,
       "markerDbId": 1,
-      "markerName": "m1",
       "alleleCall": "A/A"
     }
   },
@@ -16,8 +15,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 1,
-      "markerDbId": 2,
-      "markerName": "m2",
+      "markerDbId": 1,
       "alleleCall": "B/B"
     }
   },
@@ -28,7 +26,6 @@
       "cropdbid": "1",
       "markerprofileDbId": 3,
       "markerDbId": 3,
-      "markerName": "m3",
       "alleleCall": "A|B"
     }
   },
@@ -39,7 +36,6 @@
       "cropdbid": "1",
       "markerprofileDbId": 3,
       "markerDbId": 4,
-      "markerName": "m4",
       "alleleCall": "A|B"
     }
   },
@@ -50,7 +46,6 @@
       "cropdbid": "1",
       "markerprofileDbId": 3,
       "markerDbId": 5,
-      "markerName": "m5",
       "alleleCall": "A/A"
     }
   },
@@ -60,8 +55,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 6,
-      "markerName": "m6",
+      "markerDbId": 1,
       "alleleCall": "A/A"
     }
   },
@@ -71,8 +65,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 7,
-      "markerName": "m7",
+      "markerDbId": 2,
       "alleleCall": "A/A"
     }
   },
@@ -82,8 +75,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 8,
-      "markerName": "m8",
+      "markerDbId": 3,
       "alleleCall": "B/B"
     }
   },
@@ -93,9 +85,8 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 9,
-      "markerName": "m9",
-      "alleleCall": "N"
+      "markerDbId": 4,
+       "alleleCall": "N"
     }
   },
   {
@@ -104,8 +95,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 10,
-      "markerName": "m10",
+      "markerDbId": 5,
       "alleleCall": "A/A"
     }
   },
@@ -115,8 +105,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 11,
-      "markerName": "m11",
+      "markerDbId": 1,
       "alleleCall": "B/B"
     }
   },
@@ -126,8 +115,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 3,
-      "markerDbId": 12,
-      "markerName": "m12",
+      "markerDbId": 2,
       "alleleCall": "A|B"
     }
   },
@@ -137,8 +125,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 1,
-      "markerName": "m13",
+      "markerDbId": 3,
       "alleleCall": "A|B"
     }
   },
@@ -148,8 +135,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 2,
-      "markerName": "m14",
+      "markerDbId": 4,
       "alleleCall": "A/A"
     }
   },
@@ -159,8 +145,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 3,
-      "markerName": "m15",
+      "markerDbId": 5,
       "alleleCall": "A/A"
     }
   },
@@ -170,8 +155,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 4,
-      "markerName": "m16",
+      "markerDbId": 1,
       "alleleCall": "A/A"
     }
   },
@@ -181,8 +165,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 5,
-      "markerName": "m17",
+      "markerDbId": 2,
       "alleleCall": "B/B"
     }
   },
@@ -192,8 +175,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 6,
-      "markerName": "m18",
+      "markerDbId": 3,
       "alleleCall": "A|B"
     }
   },
@@ -203,8 +185,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 7,
-      "markerName": "m19",
+      "markerDbId": 4,
       "alleleCall": "A|B"
     }
   },
@@ -214,8 +195,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 8,
-      "markerName": "m20",
+      "markerDbId": 5,
       "alleleCall": "A/A"
     }
   },
@@ -225,8 +205,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 9,
-      "markerName": "m21",
+      "markerDbId": 1,
       "alleleCall": "A/A"
     }
   },
@@ -236,8 +215,7 @@
     "fields":{
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 10,
-      "markerName": "m22",
+      "markerDbId": 2,
       "alleleCall": "A/A"
     }
   },
@@ -247,8 +225,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 11,
-      "markerName": "m23",
+      "markerDbId": 3,
       "alleleCall": "B/B"
     }
   },
@@ -258,8 +235,7 @@
     "fields": {
       "cropdbid": "1",
       "markerprofileDbId": 4,
-      "markerDbId": 12,
-      "markerName": "m24",
+      "markerDbId": 4,
       "alleleCall": "N"
     }
   }
