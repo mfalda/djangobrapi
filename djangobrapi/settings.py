@@ -24,7 +24,7 @@ SECRET_KEY = 'k^zf_)bym^a-c+0oi1#(o!h^a@u_-+u(i^oqkw9dm__obv3zqp'
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.getenv('DJANGO_ENV') == 'prod':
     DEBUG = False
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'fuzzyge.cribi.unipd.it']
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'bioinformatics.cribi.unipd.it', 'fuzzyge.cribi.unipd.it']
     IS_TESTING = False
     # ...
 else:

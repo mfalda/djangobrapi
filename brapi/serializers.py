@@ -834,7 +834,8 @@ class TraitSerializer(ExtendedSerializer):
     class Meta:
 
         model = Trait
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'attribute', 'alternativeAbbreviations', 'xref', 'classis',
+                   'entity', 'status', 'mainAbbreviation', 'synonyms']
         extra_fields = ['traitDbId', 'observationVariables', 'defaultValue']
 
     # end class Meta
@@ -1028,7 +1029,7 @@ class StudySearchSerializer(ExtendedSerializer):
 
         model = Study
         exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion']
-        extra_fields = ['observationUnits', 'seasons', 'additionalInfo', 'locationDbId', 'locationName']
+        extra_fields = ['seasons', 'additionalInfo', 'locationDbId', 'locationName']
 
     # end class Meta
 
@@ -1272,7 +1273,7 @@ class TrialStudySerializer(ExtendedSerializer):
     class Meta:
 
         model = Study
-        fields = ['studydbid', 'locationDbId', 'studyName', 'locationName']
+        fields = ['studyDbId', 'locationDbId', 'studyName', 'locationName']
 
     # end class Meta
 
@@ -1289,7 +1290,6 @@ class TrialStudySerializer(ExtendedSerializer):
 class TrialSerializer(ExtendedSerializer):
 
     studies = TrialStudySerializer(many=True, read_only=True)
-    #contacts = TrialContactSerializer(many=True, read_only=True)
     datasetAuthorship = serializers.SerializerMethodField()
     contacts = serializers.SerializerMethodField()
     programName = serializers.SerializerMethodField()

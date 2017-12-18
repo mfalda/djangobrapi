@@ -7,9 +7,6 @@ from brapi.aux_fun import search_get_qparams, paginate
 
 class LocationView(APIView):
 
-    serializer_class = LocationSerializer
-
-
     def get(self, request, format=None, *args, **kwargs):
     
         queryset = Location.objects.all()
@@ -25,9 +22,7 @@ class LocationView(APIView):
 
 class LocationDetailsView(APIView):
 
-    serializer_class = LocationSerializer
-
-    def get(self, request, format=None, *args, **kwargs):
+     def get(self, request, format=None, *args, **kwargs):
     
         queryset = Location.objects.all()
         

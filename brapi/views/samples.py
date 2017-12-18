@@ -8,8 +8,6 @@ from brapi.aux_fun import paginate
 
 class SampleView(APIView):
 
-    serializer_class = SampleSerializer
-
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = Sample.objects.all()

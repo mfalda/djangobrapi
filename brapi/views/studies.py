@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 from pprint import pformat
@@ -12,35 +11,11 @@ from brapi.serializers import (StudySerializer, StudySearchSerializer,
                                 ObservationVariableSerializer, StudyGermplasmSerializer,
                                 ObservationUnitSerializer, StudyObservationUnitByObservationVariableSerializer)
 
-#from brapi.models.observation import ObsVariable, ObsVariableSerializer
-
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
-
 from brapi.paginators import BrAPIListPagination
 
 
-#class StudyObsUnitsView(APIView):
-#
-#    serializer_class = StudyObsUnitSerializer
-#
-#
-#    def get(self, request, format=None, *args, **kwargs):
-#        
-#        queryset = StudyObsUnit.objects.all()
-#
-#        queryset = search_post_params_in(self, queryset, [('observationVariableDbIds', 'observationVariableDbIds')])
-#    
-#        return paginate(queryset, request, StudyObsVariableSerializer)
-#
-#    # end def get
-#    
-## end class StudyObsUnitsView
-    
-
 class StudySearchView(APIView):
-
-    serializer_class = StudySerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
 
@@ -98,8 +73,6 @@ class StudySearchView(APIView):
 
 class StudyObservationUnitByObservationVariableView(APIView):
 
-    serializer_class = StudyObservationUnitByObservationVariableSerializer
-
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = None
@@ -121,9 +94,6 @@ class StudyObservationUnitByObservationVariableView(APIView):
 
 
 class StudyObservationUnitDetailsView(APIView):
-
-    serializer_class = ObservationUnitSerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
 
@@ -150,42 +120,46 @@ class StudyObservationUnitDetailsView(APIView):
 # end class StudyObservationUnitDetailsView
 
 
-class StudySeasonViewSet(viewsets.ReadOnlyModelViewSet):
+class StudySeasonView(APIView):
     
-    serializer_class = SeasonSerializer
-
-    def get_queryset(self):
+    def get(self, request, format=None, *args, **kwargs):
 
         queryset = Season.objects.all()
 
-        return search_get_qparams(self, queryset, [('year', 'year')])
+        return paginate(queryset, request, SeasonSerializer)
 
-    # end def get_queryset
+    # end def get
 
-# end class StudySeasonViewSet
+# end class StudySeasonView
 
 
-class StudyTypeViewSet(viewsets.ReadOnlyModelViewSet):
+class StudyTypeView(APIView):
     
-    queryset = StudyType.objects.all()
-    serializer_class = StudyTypeSerializer
+    def get(self, request, format=None, *args, **kwargs):
 
-# end class StudyTypeViewSet
+        queryset = StudyType.objects.all()
+
+        return paginate(queryset, request, StudyTypeSerializer)
+
+    # end def get
+
+# end class StudyTypeView
 
 
-class StudyObservationLevelViewSet(viewsets.ReadOnlyModelViewSet):
+class StudyObservationLevelView(APIView):
     
-    queryset = StudyObservationLevel.objects.all()
-    pagination_class = BrAPIListPagination    
-    serializer_class = StudyObservationLevelSerializer
+    def get(self, request, format=None, *args, **kwargs):
 
-# end class StudyObservationLevelViewSet
+        queryset = StudyObservationLevel.objects.all()
+
+        return paginate(queryset, request, StudyObservationLevelSerializer, BrAPIListPagination)
+
+     # end def get
+
+# end class StudyObservationLevelView
 
 
 class StudyDetailView(APIView):
-    
-    serializer_class = StudySerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
         
@@ -207,9 +181,6 @@ class StudyDetailView(APIView):
 
 
 class StudyGermplasmDetailsView(APIView):
-
-    serializer_class = StudyGermplasmSerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
 
@@ -239,9 +210,6 @@ class StudyGermplasmDetailsView(APIView):
 
 # class StudyObsUnitsTableView(APIView):
 #
-#     serializer_class = StudyObsUnitSerializer
-#
-#
 #     def get(self, request, format=None, *args, **kwargs):
 #
 #         queryset = StudyObsUnit.objects.all()
@@ -254,9 +222,6 @@ class StudyGermplasmDetailsView(APIView):
 
 
 class StudyObservationVariableView(APIView):
-
-    serializer_class = ObservationVariableSerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
 
@@ -286,7 +251,6 @@ class StudyObservationVariableView(APIView):
 class StudyPlotLayoutView(APIView):
 
     queryset = ObservationUnit.objects.all()
-    serializer_class = StudyPlotLayoutSerializer
 
     def get(self, request, format=None, *args, **kwargs):
 

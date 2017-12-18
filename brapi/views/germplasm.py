@@ -9,8 +9,6 @@ from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 class GermplasmView(APIView):
 
-    serializer_class = GermplasmSerializer
-
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = Germplasm.objects.all()
@@ -28,8 +26,6 @@ class GermplasmView(APIView):
 
 
 class GermplasmPedigreeView(APIView):
-
-    serializer_class = PedigreeSerializer
 
     def get(self, request, format=None, *args, **kwargs):
 

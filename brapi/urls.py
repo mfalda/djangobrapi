@@ -7,25 +7,25 @@ from django.conf import settings
 from brapi.views import errors
 from brapi.views.calls import CallsView
 from brapi.views.locations import LocationView, LocationDetailsView
-from brapi.views.crops import CropsViewSet
-from brapi.views.programs import ProgramViewSet, ProgramSearchView
+from brapi.views.crops import CropsView
+from brapi.views.programs import ProgramView, ProgramSearchView
 from brapi.views.maps import MapView, MapDetailView, MapLinkageView, MapLinkageViewPositions
 from brapi.views.markers import MarkerView, MarkerDetailsView
 from brapi.views.traits import TraitView, TraitDetailsView
-from brapi.views.germplasm_attributes import (GermplasmAttributesListViewSet, GermplasmAttributesAvailailableViewSet,
+from brapi.views.germplasm_attributes import (GermplasmAttributesListView, GermplasmAttributesAvailailableView,
                                                 GermplasmAttributeView)
 from brapi.views.germplasm import (GermplasmPedigreeView, GermplasmView, GermplasmSearchView)
 from brapi.views.trials import TrialView, TrialDetailsView
 from brapi.views.samples import SampleView
 from brapi.views.phenotypes import PhenotypeSearchView
-from brapi.views.markerprofiles import (AlleleMatrixViewSet, AlleleMatrixSearchView,
+from brapi.views.markerprofiles import (AlleleMatrixView, AlleleMatrixSearchView,
                                         MarkerprofileView, MarkerprofileDataView,
                                         GermplasmMarkeprofileView)
 from brapi.views.observation_variables import (ObservationVariableSearchView, ObservationVariablesListView,
-                                               ObservationVariableView, OntologiesViewSet,
-                                               ObservationVariableDatatypeViewSet)
-from brapi.views.studies import (StudySeasonViewSet, StudySearchView, StudyTypeViewSet,
-                                 StudyObservationLevelViewSet, StudyDetailView, StudyPlotLayoutView,
+                                               ObservationVariableView, OntologyView,
+                                               ObservationVariableDatatypeView)
+from brapi.views.studies import (StudySeasonView, StudySearchView, StudyTypeView,
+                                 StudyObservationLevelView, StudyDetailView, StudyPlotLayoutView,
                                  StudyObservationVariableView, StudyGermplasmDetailsView,
                                  StudyObservationUnitDetailsView, StudyObservationUnitByObservationVariableView)
 
@@ -36,28 +36,14 @@ handler404 = errors.error404
 # since we're using viewsets and routers, we can simply use the automatic schema generation.
 schema_view = get_schema_view(title='BrAPI')
 
-# Because we're using ViewSet classes rather than View classes,
-# the conventions for wiring up resources into views and urls can be handled automatically
-# using a Router class.
-# Create a router and register our viewsets with it (the URL prefix and the ViewSet)
-router = DefaultRouter()
-
-router.register(r'brapi/v1/crops', CropsViewSet, 'crops')
-router.register(r'brapi/v1/programs', ProgramViewSet, 'programs')
-router.register(r'brapi/v1/attributes/categories', GermplasmAttributesListViewSet, 'GA_list')
-router.register(r'brapi/v1/attributes', GermplasmAttributesAvailailableViewSet, 'GA_attr_avail')
-router.register(r'brapi/v1/variables/datatypes', ObservationVariableDatatypeViewSet, 'datatypes')
-router.register(r'brapi/v1/ontologies', OntologiesViewSet, 'ontologies')
-router.register(r'brapi/v1/seasons', StudySeasonViewSet, 'study_seasons')
-router.register(r'brapi/v1/observationLevels', StudyObservationLevelViewSet, 'study_obs_levels')
-router.register(r'brapi/v1/studyTypes', StudyTypeViewSet, 'study_types')
-router.register(r'brapi/v1/allelematrices', AlleleMatrixViewSet, 'allele_matrix')
-
 # The API URLs are now determined automatically by the router
 # Additionally, we include the login URLs for the browsable API
 urlpatterns = [
-    url(r'^', include(router.urls)),
-    url(r'brapi/v1/calls', CallsView.as_view()),
+#    url(r'^', include(router.urls)),
+
+    url(r'brapi/v1/crops/?', CropsView.as_view()),
+
+    url(r'brapi/v1/calls/?', CallsView.as_view()),
 
     url(r'brapi/v1/maps/?$', MapView.as_view()),
     url(r'brapi/v1/maps/(?P<mapDbId>[^/]+)/?$', MapDetailView.as_view()),
@@ -65,6 +51,8 @@ urlpatterns = [
     url(r'brapi/v1/maps/(?P<mapDbId>[^/]+)/positions/(?P<linkageGroupId>[^/]+)/?$', MapLinkageViewPositions.as_view()),
 
     url(r'brapi/v1/germplasm/(?P<germplasmDbId>[^/]+)/attributes/?$', GermplasmAttributeView.as_view()),
+    url(r'brapi/v1/attributes/categories/?', GermplasmAttributesListView.as_view()),
+    url(r'brapi/v1/attributes/?', GermplasmAttributesAvailailableView.as_view()),
 
     url(r'brapi/v1/locations/(?P<locationDbId>[^/]+)/?$', LocationDetailsView.as_view()),
     url(r'brapi/v1/locations/?$', LocationView.as_view()),
@@ -79,10 +67,10 @@ urlpatterns = [
 
     url(r'brapi/v1/phenotypes-search/?$', PhenotypeSearchView.as_view()),
 
-    url(r'brapi/v1/programs-search/?$', ProgramSearchView.as_view()), 
-    
-    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/layout/?$', StudyPlotLayoutView.as_view()),
+    url(r'brapi/v1/programs-search/?$', ProgramSearchView.as_view()),
+    url(r'brapi/v1/programs/?', ProgramView.as_view()),
 
+    url(r'brapi/v1/allelematrices/?', AlleleMatrixView.as_view()),
     url(r'brapi/v1/allelematrix-search/?', AlleleMatrixSearchView.as_view()),
 
     url(r'brapi/v1/markers/(?P<markerDbId>[^/]+)/?$', MarkerDetailsView.as_view()),
@@ -93,21 +81,27 @@ urlpatterns = [
 
     url(r'brapi/v1/trials/(?P<trialDbId>[^/]+)/?$', TrialDetailsView.as_view()),
     url(r'brapi/v1/trials', TrialView.as_view()),
-    
+
+    url(r'brapi/v1/ontologies/?$', OntologyView.as_view()),
+    url(r'brapi/v1/variables/datatypes/?$', ObservationVariableDatatypeView.as_view()),
     url(r'brapi/v1/variables/(?P<observationVariableDbId>[^/]+)/$', ObservationVariableView.as_view()),
     url(r'brapi/v1/variables/?$', ObservationVariablesListView.as_view()),
     url(r'brapi/v1/variables-search/?$', ObservationVariableSearchView.as_view()),
 
     url(r'brapi/v1/traits/(?P<traitDbId>[^/]+)/?$', TraitDetailsView.as_view()),
     url(r'brapi/v1/traits/?', TraitView.as_view()),
-    
+
+    url(r'brapi/v1/seasons/?', StudySeasonView.as_view()),
+    url(r'brapi/v1/observationLevels/?', StudyObservationLevelView.as_view()),
+    url(r'brapi/v1/studyTypes/?', StudyTypeView.as_view()),
     url(r'brapi/v1/studies-search/?$', StudySearchView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations/?$', StudyObservationUnitByObservationVariableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObservationUnitDetailsView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/table/?$', StudyObsUnitsTableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables/?$', StudyObservationVariableView.as_view()),
-    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/?$', StudyDetailView.as_view())
+    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/?$', StudyDetailView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/layout/?$', StudyPlotLayoutView.as_view())
 ]
 
 # OAuth2 provider endpoints

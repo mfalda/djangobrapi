@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
@@ -11,21 +10,30 @@ from brapi.aux_fun import paginate, search_post_params_in
 from brapi.paginators import BrAPIListPagination
 
 
-class ObservationVariableDatatypeViewSet(viewsets.ReadOnlyModelViewSet):
+class ObservationVariableDatatypeView(APIView):
     
-    serializer_class = ObservationVariableDatatypeSerializer
-    pagination_class = BrAPIListPagination
-    queryset = ObservationVariableDatatype.objects.all()
+    def get(self, request, format=None, *args, **kwargs):
 
-# end class ObservationVariableDatatypeViewSet
+        queryset = ObservationVariableDatatype.objects.all()
+
+        return paginate(queryset, request, ObservationVariableDatatypeSerializer, BrAPIListPagination)
+
+    # end def get
+
+# end class ObservationVariableDatatypeView
 
 
-class OntologiesViewSet(viewsets.ReadOnlyModelViewSet):
+class OntologyView(APIView):
 
-    queryset = Ontology.objects.all()
-    serializer_class = OntologySerializer
+    def get(self, request, format=None, *args, **kwargs):
 
-# end class OntologiesViewSet
+        queryset = Ontology.objects.all()
+
+        return paginate(queryset, request, OntologySerializer)
+
+    # end def get
+
+# end class OntologyView
     
     
 class ObservationVariableView(APIView):

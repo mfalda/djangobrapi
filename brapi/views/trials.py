@@ -7,9 +7,6 @@ from brapi.aux_fun import search_get_qparams, paginate
 
 class TrialView(APIView):
 
-    serializer_class = TrialSerializer
-
-
     def get(self, request, format=None, *args, **kwargs):
     
         queryset = Trial.objects.all()
@@ -35,8 +32,6 @@ class TrialView(APIView):
     
 
 class TrialDetailsView(APIView):
-
-    serializer_class = TrialSerializer
 
     def get(self, request, format=None, *args, **kwargs):
     

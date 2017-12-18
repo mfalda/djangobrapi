@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
@@ -7,23 +6,38 @@ from brapi.serializers import ProgramSerializer
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 
 
-class ProgramViewSet(viewsets.ReadOnlyModelViewSet):
+class ProgramView(APIView):
 
-    serializer_class = ProgramSerializer
-
-    def get_queryset(self):
+    def get(self, request, format=None, *args, **kwargs):
 
         queryset = Program.objects.all()
+        queryset = search_get_qparams(self, queryset, [('programName', 'programName'), ('abbreviation', 'abbreviation')])
 
-        return search_get_qparams(self, queryset, [('programName', 'programName'), ('abbreviation', 'abbreviation')])
+        return paginate(queryset, request, ProgramSerializer)
 
-    # end def get_queryset
+    # end def get
 
-# end class ProgramViewSet
-
+# end class ProgramView
 
 
 class ProgramSearchView(APIView):
+
+    # def get(self, request, format=None, *args, **kwargs):
+    #
+    #     queryset = Program.objects.all()
+    #
+    #     queryset = search_get_qparams(self, queryset, [
+    #         ('programDbId', 'programDbId'),
+    #         ('name', 'name'),
+    #         ('abbreviation', 'abbreviation'),
+    #         ('objective', 'objective'),
+    #         ('leadPerson', 'leadPerson')
+    #     ])
+    #
+    #     return paginate(queryset, request, ProgramSerializer)
+    #
+    # # end def get
+
 
     def post(self, request, format=None, *args, **kwargs):
 
@@ -47,7 +61,7 @@ class ProgramSearchView(APIView):
             ('name', 'name'), ('abbreviation', 'abbreviation'), 
             ('objective', 'objective'), ('leadPerson', 'leadPerson')], False)
 
-        return paginate(queryset, request, ProgramSerializer)        
+        return paginate(queryset, request, ProgramSerializer)
 
     # end def post
 

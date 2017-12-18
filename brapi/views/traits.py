@@ -7,9 +7,6 @@ from brapi.aux_fun import paginate
 
 class TraitView(APIView):
 
-    serializer_class = TraitSerializer
-
-
     def get(self, request, format=None, *args, **kwargs):
     
         queryset = Trait.objects.all()
@@ -22,8 +19,6 @@ class TraitView(APIView):
     
 
 class TraitDetailsView(APIView):
-
-    serializer_class = TraitSerializer
 
     def get(self, request, format=None, *args, **kwargs):
     

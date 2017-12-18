@@ -42,9 +42,6 @@ class MapDetailView(APIView):
     
 class MapLinkageView(generics.ListCreateAPIView):
 
-    serializer_class = MapLinkageSerializer
-    
-    
     def get(self, request, format=None, *args, **kwargs):
 
         logger = logging.getLogger(__name__)
@@ -67,9 +64,6 @@ class MapLinkageView(generics.ListCreateAPIView):
 # cannot use ViewSets nor generic views because the detail view is not standard
 class MapLinkageViewPositions(APIView):
 
-    serializer_class = MapSerializer
-    
-    
     def get(self, request, format=None, *args, **kwargs):
 
         logger = logging.getLogger(__name__)

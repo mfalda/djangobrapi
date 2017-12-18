@@ -175,7 +175,7 @@ class StudyTest(APITestCase):
                 "X": "1",
                 "germplasmName": "Name001",
                 "plotNumber": "1",
-                "plantNumber": null,
+                "plantNumber": "1",
                 "observationUnitName": "Plot 1",
                 "entryType": "test",
                 "blockNumber": "1"
@@ -357,10 +357,70 @@ class StudyTest(APITestCase):
 
         expected = """  
 {
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 3,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {
+                    "studyObjective": "Increase yield",
+                    "publications": [
+                        "pmid:24039865287545"
+                    ]
+                },
+                "seasons": [
+                    "2013 Spring",
+                    "2011 Fall"
+                ],
+                "locationName": "Location 1",
+                "studyType": "Yield study",
+                "locationDbId": "1",
+                "startDate": "2013-01-01",
+                "studyName": "Study 1",
+                "trialName": "Peru Yield Trial 1",
+                "studyDescription": "Field yield phenotyping study",
+                "license": "https://creativecommons.org/licenses/by/4.0",
+                "studyDbId": "1001",
+                "endDate": "2014-01-01",
+                "trialDbId": "101"
+            },
+            {
+                "active": true,
+                "additionalInfo": {
+                    "studyObjective": "Increase yield",
+                    "publications": [
+                        "pmid:24039865287545"
+                    ]
+                },
+                "seasons": [
+                    "2014 Spring"
+                ],
+                "locationName": "Location 1",
+                "studyType": "Yield study",
+                "locationDbId": "1",
+                "startDate": "2014-01-01",
+                "studyName": "Study 2",
+                "trialName": "Peru Yield Trial 1",
+                "studyDescription": "Field yield phenotyping study",
+                "license": "https://creativecommons.org/licenses/by/4.0",
+                "studyDbId": "1002",
+                "endDate": "2015-01-01",
+                "trialDbId": "101"
+            }
+        ]
+    }
 }"""
 
-        # test_get(self, '/brapi/v1/studies/studies-search/?pageSize=2', expected)
-        self.assertJSONEqual("{}", expected)
+        test_get(self, '/brapi/v1/studies-search/?pageSize=2', expected)
 
     # end def test_get_search
 
@@ -369,15 +429,72 @@ class StudyTest(APITestCase):
 
         expected = """  
 {
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 3,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "active": true,
+                "additionalInfo": {
+                    "studyObjective": "Increase yield",
+                    "publications": [
+                        "pmid:24039865287545"
+                    ]
+                },
+                "seasons": [
+                    "2013 Spring",
+                    "2011 Fall"
+                ],
+                "locationName": "Location 1",
+                "studyType": "Yield study",
+                "locationDbId": "1",
+                "startDate": "2013-01-01",
+                "studyName": "Study 1",
+                "trialName": "Peru Yield Trial 1",
+                "studyDescription": "Field yield phenotyping study",
+                "license": "https://creativecommons.org/licenses/by/4.0",
+                "studyDbId": "1001",
+                "endDate": "2014-01-01",
+                "trialDbId": "101"
+            },
+            {
+                "active": true,
+                "additionalInfo": {
+                    "studyObjective": "Increase yield",
+                    "publications": [
+                        "pmid:24039865287545"
+                    ]
+                },
+                "seasons": [
+                    "2014 Spring"
+                ],
+                "locationName": "Location 1",
+                "studyType": "Yield study",
+                "locationDbId": "1",
+                "startDate": "2014-01-01",
+                "studyName": "Study 2",
+                "trialName": "Peru Yield Trial 1",
+                "studyDescription": "Field yield phenotyping study",
+                "license": "https://creativecommons.org/licenses/by/4.0",
+                "studyDbId": "1002",
+                "endDate": "2015-01-01",
+                "trialDbId": "101"
+            }
+        ]
+    }
 }"""
 
-        params = {
-            "observationUnitDbIds": ["2016-Maugio-34-575-abc-123"],
-            "pageSize": 2
-        }
+        params = {}
 
-        # test_post(self, '/brapi/v1/studies-search', params, expected)
-        self.assertJSONEqual("{}", expected)
+        test_post(self, '/brapi/v1/studies-search?pageSize=2', params, expected)
 
     # end def test_post_search
 

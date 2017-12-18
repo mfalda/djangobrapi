@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
@@ -9,20 +8,30 @@ from brapi.serializers import (GermplasmAttributeCategorySerializer, GermplasmAt
 from brapi.aux_fun import paginate
 
 
-class GermplasmAttributesListViewSet(viewsets.ReadOnlyModelViewSet):
+class GermplasmAttributesListView(APIView):
 
-    serializer_class = GermplasmAttributeCategorySerializer
-    queryset = GermplasmAttributeCategory.objects.all()
+    def get(self, request, format=None, *args, **kwargs):
 
-# end class GermplasmAttributesListViewSet
+        queryset = GermplasmAttributeCategory.objects.all()
+
+        return paginate(queryset, request, GermplasmAttributeCategorySerializer)
+
+    # end def get
+
+# end class GermplasmAttributesListView
 
 
-class GermplasmAttributesAvailailableViewSet(viewsets.ReadOnlyModelViewSet):
+class GermplasmAttributesAvailailableView(APIView):
 
-    serializer_class = GermplasmAttributeSerializer
-    queryset = GermplasmAttribute.objects.all()
+    def get(self, request, format=None, *args, **kwargs):
 
-# end class GermplasmAttributesAvailailableViewSet
+        queryset = GermplasmAttribute.objects.all()
+
+        return paginate(queryset, request, GermplasmAttributeSerializer)
+
+    # end def get
+
+# end class GermplasmAttributesAvailailableView
 
 
 class GermplasmAttributeView(APIView):

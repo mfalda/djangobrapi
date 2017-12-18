@@ -10,9 +10,6 @@ from brapi.aux_fun import search_get_qparams
   
 class MarkerView(APIView):
 
-    serializer_class = MarkerSerializer
-
-
     def get(self, request, format=None, *args, **kwargs):
     
         queryset = Marker.objects.all()
@@ -66,8 +63,6 @@ class MarkerView(APIView):
     
 
 class MarkerDetailsView(APIView):
-
-    serializer_class = MarkerSerializer
 
     def get(self, request, format=None, *args, **kwargs):
     

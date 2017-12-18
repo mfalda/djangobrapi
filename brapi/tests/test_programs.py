@@ -54,9 +54,9 @@ class ProgramTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 1,
-            "pageSize": 100
+            "pageTotal": 3,
+            "totalCount": 6,
+            "pageSize": 2
         },
         "status": [],
         "datafiles": []
@@ -64,20 +64,25 @@ class ProgramTest(APITestCase):
     "result": {
         "data": [
             {
-                "programDbId": "1",
-                "name": "Wheat Resistance Program",
                 "abbreviation": "DRP1",
                 "objective": "Disease resistance",
-                "leadPerson": "Dr. Henry Beachell"
+                "name": "Wheat Resistance Program",
+                "leadPerson": "Dr. Henry Beachell",
+                "programDbId": "1"
+            },
+            {
+                "abbreviation": "DRP2",
+                "objective": "Yield improvement",
+                "name": "Wheat Improvement Program",
+                "leadPerson": "Dr. Norman Borlaug",
+                "programDbId": "2"
             }
         ]
     }
 }"""
-        params = {
-            "programDbId": 1
-        }
+        params = {}
         
-        test_post(self, '/brapi/v1/programs-search', params, expected)
+        test_post(self, '/brapi/v1/programs-search?pageSize=2', params, expected)
 
     # end def test_post_search
 

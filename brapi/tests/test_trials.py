@@ -31,13 +31,13 @@ class TrialTest(APITestCase):
                 "endDate": "2013-05-07",
                 "studies": [
                     {
-                        "studydbid": "1001",
+                        "studyDbId": "1001",
                         "locationDbId": "1",
                         "studyName": "Study 1",
                         "locationName": "Location 1"
                     },
                     {
-                        "studydbid": "1002",
+                        "studyDbId": "1002",
                         "locationDbId": "1",
                         "studyName": "Study 2",
                         "locationName": "Location 1"
@@ -75,7 +75,7 @@ class TrialTest(APITestCase):
                 "endDate": "2015-01-15",
                 "studies": [
                     {
-                        "studydbid": "1003",
+                        "studyDbId": "1003",
                         "locationDbId": "2",
                         "studyName": "Study 3",
                         "locationName": "Location 2"
@@ -137,13 +137,13 @@ class TrialTest(APITestCase):
                 "endDate": "2013-05-07",
                 "studies": [
                     {
-                        "studydbid": "1001",
+                        "studyDbId": "1001",
                         "locationDbId": "1",
                         "studyName": "Study 1",
                         "locationName": "Location 1"
                     },
                     {
-                        "studydbid": "1002",
+                        "studyDbId": "1002",
                         "locationDbId": "1",
                         "studyName": "Study 2",
                         "locationName": "Location 1"

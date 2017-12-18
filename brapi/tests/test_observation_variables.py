@@ -90,6 +90,7 @@ class ObsVariablesTest(APITestCase):
                     "classis": ""
                 },
                 "observationVariableDbId": "MO_123:100002",
+                "growthStage": "mature",
                 "institution": "",
                 "observationVariableName": "Plant height",
                 "trait": {
@@ -222,6 +223,7 @@ class ObsVariablesTest(APITestCase):
                     "classis": ""
                 },
                 "observationVariableDbId": "MO_123:100002",
+                "growthStage": "mature",
                 "institution": "",
                 "observationVariableName": "Plant height",
                 "trait": {
@@ -289,6 +291,7 @@ class ObsVariablesTest(APITestCase):
                     "classis": ""
                 },
                 "observationVariableDbId": "MO_123:100003",
+                "growthStage": "ripen",
                 "institution": "",
                 "observationVariableName": "Root weight",
                 "trait": {
@@ -365,6 +368,7 @@ class ObsVariablesTest(APITestCase):
                     ]
                 },
                 "status": "recommended",
+                "growthStage": "mature",
                 "institution": "",
                 "scientist": "",
                 "contextOfUse": [

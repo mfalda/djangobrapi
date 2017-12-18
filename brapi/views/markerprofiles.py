@@ -1,4 +1,3 @@
-from rest_framework import viewsets
 from rest_framework.views import APIView
 import logging
 
@@ -9,29 +8,23 @@ from brapi.serializers import (AlleleMatrixSerializer, AlleleMatrixSearchSeriali
                                MarkerprofileDataSerializer)
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
-
 from brapi.paginators import BrAPIListPagination, BrAPISimplePagination
 
 
-class AlleleMatrixViewSet(viewsets.ReadOnlyModelViewSet):
+class AlleleMatrixView(APIView):
 
-    serializer_class = AlleleMatrixSerializer
-
-    def get_queryset(self):
+    def get(self, request, format=None, *args, **kwargs):
 
         queryset = AlleleMatrix.objects.all()
 
-        return search_get_qparams(self, queryset, [('studyDbId', 'studyDbId')])
+        return paginate(queryset, request, AlleleMatrixSerializer)
 
-    # end def get_queryset
+    # end def get
 
-# end class AlleleMatrixViewSet
+# end class AlleleMatrixView
 
 
 class AlleleMatrixSearchView(APIView):
-
-    serializer_class = AlleleMatrixSearchSerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
 
@@ -84,9 +77,6 @@ class MarkerprofileDataView(APIView):
 
 
 class MarkerprofileView(APIView):
-
-    serializer_class = MarkerprofileSerializer
-
 
     def get(self, request, format=None, *args, **kwargs):
 
