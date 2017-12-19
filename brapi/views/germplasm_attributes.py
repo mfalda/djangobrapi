@@ -5,7 +5,7 @@ from brapi.models import GermplasmAttributeCategory, GermplasmAttribute, Germpla
 from brapi.serializers import (GermplasmAttributeCategorySerializer, GermplasmAttributeSerializer,
                                GermplasmAttributeValueSerializer)
 
-from brapi.aux_fun import paginate
+from brapi.aux_fun import search_get_qparams, paginate
 
 
 class GermplasmAttributesListView(APIView):
@@ -26,6 +26,8 @@ class GermplasmAttributesAvailailableView(APIView):
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = GermplasmAttribute.objects.all()
+
+        queryset = search_get_qparams(self, queryset, [('attributeCategoryDbId', 'attributeCategoryDbId')])
 
         return paginate(queryset, request, GermplasmAttributeSerializer)
 
@@ -48,10 +50,10 @@ class GermplasmAttributeView(APIView):
         attributeDbIds = self.request.query_params.get('attributeList', None)
 
         logger = logging.getLogger(__name__)
-        logger.warning("FILTERING: %s (IN %s)" % (germplasmDbId, attributeDbIds))
+        logger.warning("FILTERING attributes in %s" % attributeDbIds)
 
         if attributeDbIds is not None:
-            queryset = queryset.filter(attributeDbId__in=attributeDbIds)
+            queryset = queryset.filter(attributeDbId__in=attributeDbIds.split(','))
         # end if
 
         return paginate(queryset, request, GermplasmAttributeValueSerializer)

@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 import json
+import logging
 #from django.contrib.auth.models import User
 #from rest_framework.authtoken.models import Token
 from rest_framework.test import APIClient
@@ -38,14 +39,17 @@ def search_get_qparams(self, queryset, params):
 
 
 def search_post_params_in(self, queryset, params, in_=True):
-    
+
+    logger = logging.getLogger(__name__)
     #  [('paramName', 'dbField'), ('type', 'type'), ('matchMethod', 'matchMethod'), ('include', 'synonyms')]
-    for (search, param_name) in params:
+    for (param_name, search) in params:
         param_value = self.request.data.get(param_name, None)
+        logger.warning("Parameter %s = %s" % (param_name, param_value))
         if param_value is not None:
             if in_:
                 search += '__in'
             # end if
+            logger.warning("Filtering: %s = %s" % (search, param_value))
             queryset = queryset.filter(**{search: param_value})
         # end if
     # end for

@@ -1,16 +1,6 @@
 [
   {
     "model": "brapi.call",
-    "pk": "1",
-    "fields": {
-      "cropdbid": "1",
-      "call": "token",
-      "datatypes": "json; text",
-      "methods": "POST; DELETE"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "10",
     "fields": {
       "cropdbid": "1",
@@ -95,7 +85,7 @@
     "fields": {
       "cropdbid": "1",
       "call": "allelematrix-search",
-      "datatypes": "json; csv; tsv",
+      "datatypes": "json",
       "methods": "GET"
     }
   },
@@ -105,7 +95,7 @@
     "fields": {
       "cropdbid": "1",
       "call": "allelematrix-search",
-      "datatypes": "json; csv; tsv",
+      "datatypes": "json",
       "methods": "POST"
     }
   },
@@ -261,16 +251,6 @@
   },
   {
     "model": "brapi.call",
-    "pk": "33",
-    "fields": {
-      "cropdbid": "1",
-      "call": "samples",
-      "datatypes": "json",
-      "methods": "PUT"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "34",
     "fields": {
       "cropdbid": "1",
@@ -381,32 +361,12 @@
   },
   {
     "model": "brapi.call",
-    "pk": "44",
-    "fields": {
-      "cropdbid": "1",
-      "call": "studies//table",
-      "datatypes": "json; csv; tsv",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "45",
     "fields": {
       "cropdbid": "1",
       "call": "studies//layout",
       "datatypes": "json",
       "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "46",
-    "fields": {
-      "cropdbid": "1",
-      "call": "studies//table",
-      "datatypes": "json",
-      "methods": "POST"
     }
   },
   {

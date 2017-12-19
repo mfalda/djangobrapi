@@ -55,6 +55,89 @@ class MapsTest(APITestCase):
     # end def test_get_maps
 
 
+    def test_get_maps_types(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 2,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "mapDbId": 1,
+                "linkageGroupCount": 19,
+                "markerCount": 40,
+                "name": "SSR map 1",
+                "species": "Ipomoea batatas",
+                "type": "Genetic",
+                "unit": "cM",
+                "publishedDate": "2016-01-06",
+                "comments": "10"
+            },
+            {
+                "mapDbId": 2,
+                "linkageGroupCount": 21,
+                "markerCount": 40,
+                "name": "Some Map",
+                "species": "Some species",
+                "type": "Genetic",
+                "unit": "kM",
+                "publishedDate": "2008-04-16",
+                "comments": "This map contains ..."
+            }
+        ]
+    }
+}"""
+
+        test_get(self, '/brapi/v1/maps/?type=Genetic&pageSize=2', expected)
+
+    # end def test_get_maps_types
+
+
+    def test_get_maps_species(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "mapDbId": 1,
+                "linkageGroupCount": 19,
+                "markerCount": 40,
+                "name": "SSR map 1",
+                "species": "Ipomoea batatas",
+                "type": "Genetic",
+                "unit": "cM",
+                "publishedDate": "2016-01-06",
+                "comments": "10"
+            }
+        ]
+    }
+}"""
+
+        test_get(self, '/brapi/v1/maps/?species=Ipomoea batatas&pageSize=2', expected)
+
+    # end def test_get_maps_species
+
+
     def test_get_map(self):
 
         expected = """
@@ -110,6 +193,13 @@ class MapsTest(APITestCase):
         test_get(self, '/brapi/v1/maps/1/?pageSize=2', expected)
         
     # end def test_get_map
+
+# end class MapsTest
+
+
+class MapsDataTest(APITestCase):
+
+    fixtures = ['maps.json', 'map_linkages.json']
 
 
     def test_get_map_data(self):
@@ -196,4 +286,5 @@ class MapsTest(APITestCase):
        
     # end def test_get_map_data_by_range
 
-# end class MapsProgramTest
+# end class MapsDataTest
+

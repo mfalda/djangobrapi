@@ -11,7 +11,7 @@ class LocationView(APIView):
     
         queryset = Location.objects.all()
         
-        queryset = search_get_qparams(self, queryset, [('locationType', 'locationType')])
+        queryset = search_get_qparams(self, queryset, [('locationType', 'type')])
 
         return paginate(queryset, request, LocationSerializer)
 

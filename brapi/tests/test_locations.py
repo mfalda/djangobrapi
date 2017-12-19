@@ -81,6 +81,79 @@ class LocationTest(APITestCase):
     # end def test_get_locations
 
 
+    def test_get_locations_type(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 4,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "instituteName": "Plant Science Institute",
+                "type": "Storage location",
+                "latitude": -11.1275,
+                "countryName": "Peru",
+                "altitude": 828.0,
+                "abbreviation": "L1",
+                "locationDbId": "1",
+                "additionalInfo": {
+                    "altern": "SNPEDRO",
+                    "local": "NaSARRI",
+                    "cont": "Africa",
+                    "creg": "SSA",
+                    "adm3": "Coviriali",
+                    "adm2": "Kassena-Nankana",
+                    "adm1": "Serere",
+                    "annualTotalPrecipitation": "6.4",
+                    "annualMeanTemperature": "19.2"
+                },
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "name": "Location 1",
+                "countryCode": "PER",
+                "longitude": -75.356389
+            },
+            {
+                "instituteName": "Plant Science Institute",
+                "type": "Storage location",
+                "latitude": 0.529144,
+                "countryName": "Uganda",
+                "altitude": 1173.0,
+                "abbreviation": "L16",
+                "locationDbId": "16",
+                "additionalInfo": {
+                    "altern": "SNPEDRO",
+                    "local": "NaSARRI",
+                    "cont": "Africa",
+                    "creg": "SSA",
+                    "adm3": "Coviriali",
+                    "adm2": "Kassena-Nankana",
+                    "adm1": "Serere",
+                    "annualTotalPrecipitation": "6.4",
+                    "annualMeanTemperature": "19.2"
+                },
+                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+                "name": "Location 16",
+                "countryCode": "UGA",
+                "longitude": 32.61246
+            }
+        ]
+    }
+}"""
+
+        test_get(self, '/brapi/v1/locations/?locationType=Storage location&pageSize=2', expected)
+
+    # end def test_get_locations_type
+
+
     def test_get_location_details(self):
 
         expected = """

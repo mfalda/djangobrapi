@@ -87,8 +87,8 @@ class GermplasmSearchView(APIView):
         logger = logging.getLogger(__name__)
         logger.warning("Parameters: %s" % params)
 
-        queryset = search_post_params_in(self, queryset, [('germplasmNames', 'germplasmName'), 
-                ('germplasmDbId', 'germplasmDbId'), ('germplasmPUIs', 'germplasmPUI'), 
+        queryset = search_post_params_in(self, queryset, [('germplasmNames', 'germplasmName'),
+                ('germplasmDbIds', 'germplasmDbId'), ('germplasmPUIs', 'germplasmPUI'),
                 ('germplasmSpecies', 'germplasmSpecies'), ('germplasmGenus', 'germplasmGenus'),
                 ('accessionNumbers', 'accessionNumber')])
 

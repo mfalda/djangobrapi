@@ -24,5 +24,31 @@
       "attributeCode": "RHT2",
       "attributeName": "Rht-B2b"
     }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "1",
+      "attributeDbId": "2",
+      "determinedDate": "2017-12-19",
+      "value": "1",
+      "attributeCode": "RHT3",
+      "attributeName": "Rht-B3b"
+    }
+  },
+  {
+    "model": "brapi.germplasmattributevalue",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "germplasmDbId": "1",
+      "attributeDbId": "2",
+      "determinedDate": "2017-12-10",
+      "value": "3",
+      "attributeCode": "RHT4",
+      "attributeName": "Rht-B4b"
+    }
   }
 ]

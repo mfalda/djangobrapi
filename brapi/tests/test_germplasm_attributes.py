@@ -3,7 +3,7 @@ from rest_framework.test import APITestCase
 from brapi.aux_fun import test_get
 
 
-class GermplasmAttrsTest(APITestCase):
+class GermplasmAttributesTest(APITestCase):
       
     fixtures = ['crops.json', 'germplasm.json', 'germplasm_attributes.json',
                 'germplasm_attribute_values.json', 'germplasm_attribute_categories.json']
@@ -12,13 +12,12 @@ class GermplasmAttrsTest(APITestCase):
     def test_get_germplasm_attrs(self):
 
         expected = """
-
 {
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
-            "totalCount": 2,
+            "pageTotal": 2,
+            "totalCount": 4,
             "pageSize": 2
         },
         "status": [],
@@ -48,6 +47,46 @@ class GermplasmAttrsTest(APITestCase):
         test_get(self, '/brapi/v1/germplasm/1/attributes?pageSize=2', expected)
 
     # end def test_get_germplasm_attrs
+
+
+    def test_get_germplasm_attrs_IDs(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 4,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "determinedDate": "2017-12-11",
+                "value": "Present",
+                "attributeCode": "RHT",
+                "attributeName": "Rht-B1b",
+                "germplasmDbId": "1",
+                "attributeDbId": "1"
+            },
+            {
+                "determinedDate": "2017-12-11",
+                "value": "Absent",
+                "attributeCode": "RHT2",
+                "attributeName": "Rht-B2b",
+                "germplasmDbId": "1",
+                "attributeDbId": "1"
+            }
+        ]
+    }
+}"""
+        test_get(self, '/brapi/v1/germplasm/1/attributes?attributeCategoryDbId=1&pageSize=2', expected)
+
+    # end def test_get_germplasm_attrs_IDs
 
 
     def test_get_germplasm_attr_cats(self):
@@ -124,5 +163,53 @@ class GermplasmAttrsTest(APITestCase):
         test_get(self, '/brapi/v1/attributes/?pageSize=2', expected)
 
     # end def test_get_germplasm_attr_avail
-    
-# end class GermplasmAttrsTest
+
+
+    def test_get_germplasm_attr_avail_ID(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 4,
+            "pageSize": 3
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "determinedDate": "2017-12-11",
+                "value": "Present",
+                "attributeCode": "RHT",
+                "attributeName": "Rht-B1b",
+                "germplasmDbId": "1",
+                "attributeDbId": "1"
+            },
+            {
+                "determinedDate": "2017-12-11",
+                "value": "Absent",
+                "attributeCode": "RHT2",
+                "attributeName": "Rht-B2b",
+                "germplasmDbId": "1",
+                "attributeDbId": "1"
+            },
+            {
+                "determinedDate": "2017-12-19",
+                "value": "1",
+                "attributeCode": "RHT3",
+                "attributeName": "Rht-B3b",
+                "germplasmDbId": "1",
+                "attributeDbId": "2"
+            }
+        ]
+    }
+}"""
+        test_get(self, '/brapi/v1/germplasm/1/attributes?attributeList=1,2&pageSize=3', expected)
+
+    # end def test_get_germplasm_attr_avail_ID
+
+# end class GermplasmAttributesTest
