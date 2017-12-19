@@ -16,7 +16,7 @@ class MarkerView(APIView):
             if match_method is not None:
                 if match_method == 'case_insensitive':
                     if synonyms:
-                        queryset = queryset.filter(Q(defaultDisplaydefaultDisplayName__iexact=name)|Q(synonyms__iexact=name))
+                        queryset = queryset.filter(Q(defaultDisplaydefaultDisplayName__iexact=name)|Q(synonyms__icontains=name))
                     else:
                         queryset = queryset.filter(defaultDisplayName__iexact=name)
                         # end if
@@ -32,7 +32,7 @@ class MarkerView(APIView):
                         # end if
             else: # exact
                 if synonyms:
-                    queryset = queryset.filter(Q(defaultDisplayName=name)|Q(synonyms=name))
+                    queryset = queryset.filter(Q(defaultDisplayName=name)|Q(synonyms__contains=name))
                 else:
                     queryset = queryset.filter(defaultDisplayName=name)
                 # end if
@@ -98,7 +98,7 @@ class MarkerView(APIView):
         match_method = self.request.data.get('matchMethod', None)
         include = self.request.data.get('includeSynonyms', None)
 
-        synonyms = include is not None and include == 'true'
+        synonyms = include is not None and include == 'synonyms'
 
         logger = logging.getLogger(__name__)
         logger.warning("FILTERING: %s, method=%s, synonyms=%s" % (name, match_method, synonyms))

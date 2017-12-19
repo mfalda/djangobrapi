@@ -483,6 +483,7 @@ class ObservationVariableSerializer(ExtendedSerializer):
     scale = serializers.SerializerMethodField()
     trait = serializers.SerializerMethodField()
     method = serializers.SerializerMethodField()
+    datatype = serializers.SerializerMethodField()
 
 
     class Meta:
@@ -551,9 +552,20 @@ class ObservationVariableSerializer(ExtendedSerializer):
 
     def get_method(self, obj):
 
-        return MethodSerializer(Method.objects.filter(methodDbId=obj.methodDbId).first()).data
+        if obj.methodDbId is not None:
+            return MethodSerializer(Method.objects.filter(methodDbId=obj.methodDbId.methodDbId).first()).data
+        else:
+            return None
+    # end if
 
     # end def get_method
+
+
+    def get_datatype(self, obj):
+
+        return obj.scales.datatypeDbId.data
+
+    # end def get_datatype
 
 # end class ObservationVariableSerializer
 

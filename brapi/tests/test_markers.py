@@ -68,7 +68,38 @@ class MarkerTest(APITestCase):
     def test_get_markers_name(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         test_get(self, '/brapi/v1/markers/?name=a_01_10001&pageSize=2', expected)
 
@@ -78,7 +109,54 @@ class MarkerTest(APITestCase):
     def test_get_markers_type(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 3,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            },
+            {
+                "markerDbId": 2,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10002"
+                ],
+                "refAlt": [
+                    "G",
+                    "C"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "A_01_10002",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         test_get(self, '/brapi/v1/markers/?type=SNP&pageSize=2', expected)
 
@@ -88,7 +166,38 @@ class MarkerTest(APITestCase):
     def test_get_markers_caseIns(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         test_get(self, '/brapi/v1/markers/?name=A_01_10001&matchMethod=case_insensitive&pageSize=2', expected)
 
@@ -97,9 +206,56 @@ class MarkerTest(APITestCase):
     def test_get_markers_wildcard(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 2,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            },
+            {
+                "markerDbId": 2,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10002"
+                ],
+                "refAlt": [
+                    "G",
+                    "C"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "A_01_10002",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
-        test_get(self, '/brapi/v1/markers/?name=A_01*&matchMethod=case_insensitive&pageSize=2', expected)
+        test_get(self, '/brapi/v1/markers/?name=A_01*&matchMethod=wildcard&pageSize=2', expected)
 
     # end def test_get_markers_wildcard
 
@@ -107,7 +263,38 @@ class MarkerTest(APITestCase):
     def test_get_markers_synonyms(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         test_get(self, '/brapi/v1/markers/?name=popA_10001&include=synonyms&pageSize=2', expected)
 
@@ -170,13 +357,105 @@ class MarkerTest(APITestCase):
 
         test_post(self, '/brapi/v1/markers/?pageSize=2', params, expected)
 
-        # end def test_post_markers
+    # end def test_post_markers
+
+
+    def test_post_markers_markerDbIds(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 2,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            },
+            {
+                "markerDbId": 2,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10002"
+                ],
+                "refAlt": [
+                    "G",
+                    "C"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "A_01_10002",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
+
+        params = {
+            "markerDbIds": [1, 2]
+        }
+
+        test_post(self, '/brapi/v1/markers/?pageSize=2', params, expected)
+
+    # end def test_post_markers_markerDbIds
 
 
     def test_post_markers_name(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         params = {
             "name": "a_01_10001"
@@ -190,10 +469,57 @@ class MarkerTest(APITestCase):
     def test_post_markers_type(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 2,
+            "totalCount": 3,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            },
+            {
+                "markerDbId": 2,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10002"
+                ],
+                "refAlt": [
+                    "G",
+                    "C"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "A_01_10002",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         params = {
-            "type": "SNP"
+            "type": ["SNP"]
         }
 
         test_post(self, '/brapi/v1/markers/?pageSize=2', params, expected)
@@ -204,7 +530,38 @@ class MarkerTest(APITestCase):
     def test_post_markers_caseIns(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         params = {
             "name": "A_01_10001",
@@ -219,7 +576,54 @@ class MarkerTest(APITestCase):
     def test_post_markers_wildcard(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 2,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            },
+            {
+                "markerDbId": 2,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10002"
+                ],
+                "refAlt": [
+                    "G",
+                    "C"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "A_01_10002",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         params = {
             "name": "A_01*",
@@ -234,11 +638,42 @@ class MarkerTest(APITestCase):
     def test_post_markers_synonyms(self):
 
         expected = """
-"""
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "markerDbId": 1,
+                "synonyms": [
+                    "i_01_10001",
+                    "popA_10001"
+                ],
+                "refAlt": [
+                    "A",
+                    "T"
+                ],
+                "analysisMethods": [
+                    "illumina"
+                ],
+                "defaultDisplayName": "a_01_10001",
+                "type": "SNP"
+            }
+        ]
+    }
+}"""
 
         params = {
             "name": "popA_10001",
-            "include": "synonyms"
+            "includeSynonyms": "synonyms"
         }
 
         test_post(self, '/brapi/v1/markers/?pageSize=2', params, expected)

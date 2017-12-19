@@ -321,34 +321,53 @@ class Observation(models.Model):
 # end class Observation
 
 
-class ObservationVariable(models.Model):
+class Ontology(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    ontologyDbId = models.ForeignKey('Ontology', models.DO_NOTHING, db_column='ontologydbid')
-    observationVariableDbId = models.TextField(db_column='observationvariabledbid', primary_key=True, default='')
-    observationVariableName = models.TextField(db_column='observationvariablename', blank=True, null=True)
-    synonyms = models.TextField(blank=True, null=True)
-    contextOfUse = models.TextField(db_column='contextofuse', blank=True, null=True)
-    status = models.TextField(blank=True, null=True)
-    xref = models.TextField(blank=True, null=True)
-    institution = models.TextField(blank=True, null=True)
-    scientist = models.TextField(blank=True, null=True)
-    submissionTimestamp = models.DateTimeField(db_column='submissiontimestamp', blank=True, null=True)
-    language = models.TextField(blank=True, null=True)
-    growthStage = models.TextField(blank=True, null=True)
-    defaultValue = models.TextField(db_column='defaultvalue', blank=True, null=True)
-    traitDbId = models.ForeignKey('Trait', models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
-    methodDbId = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
-    scales = models.ForeignKey('Scale', models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
+    ontologyDbId = models.TextField(db_column='ontologydbid', primary_key=True, default='')
+    ontologyName = models.TextField(db_column='ontologyname', blank=True, null=True)
+    authors = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    version = models.TextField(blank=True, null=True)
+    copyright = models.TextField(blank=True, null=True)
+    license = models.TextField(blank=True, null=True)
+
 
     class Meta:
 
         managed = settings.IS_TESTING
-        db_table = 'observation_variable'
+        db_table = 'ontology'
 
-    # end class Meta
+        # end class Meta
 
-# end class ObservationVariable
+# end class Ontology
+
+
+class Trait(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    traitDbId = models.TextField(primary_key=True, db_column='traitdbid')
+    traitId = models.TextField(db_column='traitid', blank=True, null=True)
+    name = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    classis = models.TextField(blank=True, null=True)
+    synonyms = models.TextField(blank=True, null=True)
+    mainAbbreviation = models.TextField(db_column='mainabbreviation', blank=True, null=True)
+    alternativeAbbreviations = models.TextField(db_column='alternativeabbreviations', blank=True, null=True)
+    entity = models.TextField(blank=True, null=True)
+    attribute = models.TextField(blank=True, null=True)
+    status = models.TextField(blank=True, null=True)
+    xref = models.TextField(blank=True, null=True)
+    defaultValue = models.CharField(db_column='defaultvalue', max_length=100, blank=True, default='')
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'trait'
+
+        # end class Meta
+
+# end class Trait
 
 
 class ObservationVariableDatatype(models.Model):
@@ -368,26 +387,75 @@ class ObservationVariableDatatype(models.Model):
 # end class ObservationVariableDatatype
 
 
-class Ontology(models.Model):
+class ValidValue(models.Model):
 
     cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    ontologyDbId = models.TextField(db_column='ontologydbid', primary_key=True, default='')
-    ontologyName = models.TextField(db_column='ontologyname', blank=True, null=True)
-    authors = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    version = models.TextField(blank=True, null=True)
-    copyright = models.TextField(blank=True, null=True)
-    license = models.TextField(blank=True, null=True)
+    min = models.IntegerField(db_column='min')
+    max = models.IntegerField(db_column='max')
+    validValueDbId = models.TextField(db_column='validvaluedbid', primary_key=True)
+    categories = models.TextField()
 
 
     class Meta:
 
         managed = settings.IS_TESTING
-        db_table = 'ontology'
+        db_table = 'validvalue'
+
+        # end class Meta
+
+# end class ValidValue
+
+
+class Scale(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    scaleDbId = models.TextField(db_column='scaledbid', primary_key=True, default='')
+    name = models.TextField(default='')
+    datatypeDbId = models.ForeignKey(ObservationVariableDatatype, models.DO_NOTHING, db_column='data', blank=True, null=True)
+    decimalPlaces = models.IntegerField(db_column='decimalplaces', default=0)
+    xref = models.TextField(blank=True, null=True)
+    validValues = models.ForeignKey(ValidValue, models.DO_NOTHING, db_column='vvalueid', blank=True, null=True)
+    defaultValue = models.TextField(db_column='', blank=True, null=True)
+
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'scale'
+
+        # end class Meta
+
+# end class Scale
+
+
+class ObservationVariable(models.Model):
+
+    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
+    ontologyDbId = models.ForeignKey(Ontology, models.DO_NOTHING, db_column='ontologydbid')
+    observationVariableDbId = models.TextField(db_column='observationvariabledbid', primary_key=True, default='')
+    observationVariableName = models.TextField(db_column='observationvariablename', blank=True, null=True)
+    synonyms = models.TextField(blank=True, null=True)
+    contextOfUse = models.TextField(db_column='contextofuse', blank=True, null=True)
+    status = models.TextField(blank=True, null=True)
+    xref = models.TextField(blank=True, null=True)
+    institution = models.TextField(blank=True, null=True)
+    scientist = models.TextField(blank=True, null=True)
+    submissionTimestamp = models.DateTimeField(db_column='submissiontimestamp', blank=True, null=True)
+    language = models.TextField(blank=True, null=True)
+    growthStage = models.TextField(blank=True, null=True)
+    defaultValue = models.TextField(db_column='defaultvalue', blank=True, null=True)
+    traitDbId = models.ForeignKey(Trait, models.DO_NOTHING, db_column='traitdbid', related_name='observationVariables', to_field='traitDbId', blank=True, null=True)
+    methodDbId = models.ForeignKey(Method, models.DO_NOTHING, db_column='methoddbid', blank=True, null=True)
+    scales = models.ForeignKey(Scale, models.DO_NOTHING, db_column='scaledbid', blank=True, null=True)
+
+    class Meta:
+
+        managed = settings.IS_TESTING
+        db_table = 'observation_variable'
 
     # end class Meta
 
-# end class Ontology
+# end class ObservationVariable
 
 
 class Pedigree(models.Model):
@@ -494,47 +562,6 @@ class ObservationUnitXref(models.Model):
     # end class Meta
 
 # end class ObservationUnitXref
-
-
-class ValidValue(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    min = models.IntegerField(db_column='min')
-    max = models.IntegerField(db_column='max')
-    validValueDbId = models.TextField(db_column='validvaluedbid', primary_key=True)
-    categories = models.TextField()
-
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'validvalue'
-
-    # end class Meta
-
-# end class ValidValue
-
-
-class Scale(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    scaleDbId = models.TextField(db_column='scaledbid', primary_key=True, default='')
-    name = models.TextField(default='')
-    datatypeDbId = models.ForeignKey(ObservationVariableDatatype, models.DO_NOTHING, db_column='data', blank=True, null=True)
-    decimalPlaces = models.IntegerField(db_column='decimalplaces', default=0)
-    xref = models.TextField(blank=True, null=True)
-    validValues = models.ForeignKey(ValidValue, models.DO_NOTHING, db_column='vvalueid', blank=True, null=True)
-    defaultValue = models.TextField(db_column='', blank=True, null=True)
-
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'scale'
-
-    # end class Meta
-
-# end class Scale
 
 
 class Season(models.Model):
@@ -824,33 +851,6 @@ class TaxonXrefGermplasm(models.Model):
     # end class Meta
 
 # end class TaxonXrefGermplasm
-
-
-class Trait(models.Model):
-
-    cropdbid = models.ForeignKey(Crop, models.DO_NOTHING, db_column='cropdbid', blank=True, null=True)
-    traitDbId = models.TextField(primary_key=True, db_column='traitdbid')
-    traitId = models.TextField(db_column='traitid', blank=True, null=True)
-    name = models.TextField(blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
-    classis = models.TextField(blank=True, null=True)
-    synonyms = models.TextField(blank=True, null=True)
-    mainAbbreviation = models.TextField(db_column='mainabbreviation', blank=True, null=True)
-    alternativeAbbreviations = models.TextField(db_column='alternativeabbreviations', blank=True, null=True)
-    entity = models.TextField(blank=True, null=True)
-    attribute = models.TextField(blank=True, null=True)
-    status = models.TextField(blank=True, null=True)
-    xref = models.TextField(blank=True, null=True)
-    defaultValue = models.CharField(db_column='defaultvalue', max_length=100, blank=True, default='')
-
-    class Meta:
-
-        managed = settings.IS_TESTING
-        db_table = 'trait'
-
-    # end class Meta
-
-# end class Trait
 
 
 class Treatment(models.Model):

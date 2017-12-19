@@ -69,7 +69,7 @@ class ObservationVariablesListView(APIView):
         # this search is not standard since it is on a related table
         param_value = self.request.query_params.get('traitClass', None)
         if param_value is not None:
-            queryset = queryset.filter(trait__classe=param_value)
+            queryset = queryset.filter(traitDbId__classis=param_value)
         # end if
 
         return paginate(queryset, request, ObservationVariableSerializer)
@@ -107,12 +107,15 @@ class ObservationVariableSearchView(APIView):
         queryset = ObservationVariable.objects.all()
 
         # TODO: add ('datatypes'), ('traitClasses')
-        queryset = search_post_params_in(self, queryset, [('observationVariableDbId', 'observationVariableDbIds'),
-            ('ontologyXref', 'ontologyXrefs'),
-            ('ontologyDbId', 'ontologyDbIds'),
-            ('method', 'methodDbIds'),
-            ('scale', 'scaleDbIds'),
-            ('observationVariableName', 'names')])
+        queryset = search_post_params_in(self, queryset, [
+            ('observationVariableDbIds', 'observationVariableDbId'),
+            ('ontologyXrefs', 'xref'),
+            ('ontologyDbIds', 'ontologyDbId'),
+            ('methodDbIds', 'methodDbId__methodDbId'),
+            ('scaleDbIds', 'scales__scaleDbId'),
+            ('names', 'observationVariableName'),
+            ('datatypes', 'scales__datatypeDbId__data'),
+            ('traitClasses', 'traitDbId__classis')])
 
         return paginate(queryset, request, ObservationVariableSerializer)
 
