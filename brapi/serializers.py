@@ -1034,6 +1034,8 @@ class StudySearchSerializer(ExtendedSerializer):
 
     seasons = serializers.SerializerMethodField()
     locationName = serializers.SerializerMethodField()
+    programDbId = serializers.SerializerMethodField()
+    programName = serializers.SerializerMethodField()
     trialName = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
@@ -1041,7 +1043,8 @@ class StudySearchSerializer(ExtendedSerializer):
 
         model = Study
         exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion']
-        extra_fields = ['seasons', 'additionalInfo', 'locationDbId', 'locationName']
+        extra_fields = ['seasons', 'additionalInfo', 'locationDbId', 'locationName',
+                        'programDbId', 'programName']
 
     # end class Meta
 
@@ -1073,6 +1076,20 @@ class StudySearchSerializer(ExtendedSerializer):
         return Location.objects.get(pk=obj.locationDbId.locationDbId).name
 
     # end def get_locationName
+
+
+    def get_programDbId(self, obj):
+
+        return obj.trialDbId.programDbId.programDbId
+
+    # end def get_programDbId
+
+
+    def get_programName(self, obj):
+
+        return Program.objects.get(pk=obj.trialDbId.programDbId.programDbId).name
+
+    # end def get_programName
 
 
     def get_additionalInfo(self, obj):

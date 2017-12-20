@@ -47,7 +47,71 @@ class ProgramTest(APITestCase):
     # end def test_get_programs
 
 
-    def test_post_search(self):
+    def test_get_programs_name(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "objective": "Disease resistance",
+                "abbreviation": "DRP1",
+                "name": "Wheat Resistance Program",
+                "leadPerson": "Dr. Henry Beachell",
+                "programDbId": "1"
+            }
+        ]
+    }
+}"""
+
+        test_get(self, '/brapi/v1/programs/?programName=Wheat Resistance Program&pageSize=2', expected)
+
+    # end def test_get_programs_name
+
+
+    def test_get_programs_abbreviation(self):
+
+        expected = """
+{
+    "metadata": {
+        "pagination": {
+            "currentPage": 1,
+            "pageTotal": 1,
+            "totalCount": 1,
+            "pageSize": 2
+        },
+        "status": [],
+        "datafiles": []
+    },
+    "result": {
+        "data": [
+            {
+                "leadPerson": "Dr. Norman Borlaug",
+                "abbreviation": "DRP2",
+                "name": "Wheat Improvement Program",
+                "objective": "Yield improvement",
+                "programDbId": "2"
+            }
+        ]
+    }
+}"""
+
+        test_get(self, '/brapi/v1/programs/?abbreviation=DRP2&pageSize=2', expected)
+
+    # end def test_get_programs_abbreviation
+
+
+    def test_post_programs_search(self):
 
         expected = """
 {
@@ -84,6 +148,6 @@ class ProgramTest(APITestCase):
         
         test_post(self, '/brapi/v1/programs-search?pageSize=2', params, expected)
 
-    # end def test_post_search
+    # end def test_post_programs_search
 
 # end class ProgramTest

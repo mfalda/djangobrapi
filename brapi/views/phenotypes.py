@@ -33,10 +33,14 @@ class PhenotypeSearchView(APIView):
         logger = logging.getLogger(__name__)
         logger.warning("Search parameters: %s" % params)
 
-        queryset = search_post_params_in(self, queryset, [('germplasmDbIds', 'germplasmDbId'),
-            ('observationVariableDbIds', 'observationVariableDbIds'), ('studyDbIds', 'studyDbId'),
-            ('locationDbIds', 'locationDbId'), ('programDbIds', 'programDbId'),
-            ('seasonDbIds', 'seasonDbId'), ('observationLevel', 'observationLevel')])
+        queryset = search_post_params_in(self, queryset, [
+            ('germplasmDbIds', 'germplasmDbId'),
+            ('observationVariableDbIds', 'observationVariableDbIds'),
+            ('studyDbIds', 'studyDbId'),
+            ('locationDbIds', 'locationDbId'),
+            ('programDbIds', 'programDbId'),
+            ('seasonDbIds', 'seasonDbId'),
+            ('observationLevel', 'observationLevel')])
 
         observationTimeStampRange = params.get('observationTimeStampRange', None)
         if observationTimeStampRange is not None:

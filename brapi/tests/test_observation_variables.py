@@ -44,6 +44,7 @@ class ObsVariablesTest(APITestCase):
     def test_get_variable_details(self):
 
         expected = """
+
 {
     "metadata": {
         "pagination": {
@@ -58,71 +59,72 @@ class ObsVariablesTest(APITestCase):
     "result": {
         "data": [
             {
-                "language": "EN",
-                "status": "recommended",
-                "submissionTimestamp": "2016-05-17T20:22:09Z",
-                "scientist": "",
-                "ontologyName": "Wheat ontology",
-                "scale": {
-                    "defaultValue": null,
-                    "scaleDbId": "CO_334:0100528",
-                    "xref": null,
-                    "name": "ug/m",
-                    "validValues": {
-                        "min": 1,
-                        "max": 2,
-                        "categories": [
-                            "1=cold",
-                            "2=hot"
-                        ]
-                    },
-                    "datatypeDbId": 2,
-                    "decimalPlaces": 0,
-                    "datatype": "Categorical"
-                },
-                "xref": "TL_455:0003001",
-                "method": {
-                    "description": "",
-                    "reference": "",
-                    "formula": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": ""
-                },
-                "observationVariableDbId": "MO_123:100002",
-                "growthStage": "mature",
                 "institution": "",
-                "observationVariableName": "Plant height",
-                "trait": {
-                    "traitDbId": "1",
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "attribute": "carotenoid",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "name": "Carotenoid content",
-                    "traitId": "CO_334:0100620",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "entity": "root",
-                    "defaultValue": "",
-                    "classis": "physiological trait"
-                },
+                "datatype": "Categorical",
                 "synonyms": [
                     "height",
                     "tallness"
                 ],
-                "ontologyDbId": "CO_334",
+                "defaultValue": null,
                 "contextOfUse": [
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": null,
-                "crop": "grape"
+                "crop": "grape",
+                "ontologyName": "Wheat ontology",
+                "scale": {
+                    "decimalPlaces": 0,
+                    "datatype": "Categorical",
+                    "defaultValue": null,
+                    "name": "ug/m",
+                    "scaleDbId": "CO_334:0100528",
+                    "datatypeDbId": 2,
+                    "xref": null,
+                    "validValues": {
+                        "min": 1,
+                        "categories": [
+                            "1=cold",
+                            "2=hot"
+                        ],
+                        "max": 2
+                    }
+                },
+                "observationVariableName": "Plant height",
+                "xref": "TL_455:0003001",
+                "language": "EN",
+                "ontologyDbId": "CO_334",
+                "submissionTimestamp": "2016-05-17T20:22:09Z",
+                "status": "recommended",
+                "growthStage": "mature",
+                "method": {
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "reference": null,
+                    "methodDbId": "CO_334:0010320",
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "classis": "Estimation"
+                },
+                "scientist": "",
+                "trait": {
+                    "traitDbId": "1",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "defaultValue": "",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
+                },
+                "observationVariableDbId": "MO_123:100002"
             }
         ]
     }
@@ -176,7 +178,7 @@ class ObsVariablesTest(APITestCase):
     
     def test_get_variable_list(self):
 
-        expected = """   
+        expected = """
 {
     "metadata": {
         "pagination": {
@@ -191,137 +193,132 @@ class ObsVariablesTest(APITestCase):
     "result": {
         "data": [
             {
-                "language": "EN",
-                "status": "recommended",
-                "submissionTimestamp": "2016-05-17T20:22:09Z",
-                "scientist": "",
-                "ontologyName": "Wheat ontology",
-                "scale": {
-                    "defaultValue": null,
-                    "scaleDbId": "CO_334:0100528",
-                    "xref": null,
-                    "name": "ug/m",
-                    "validValues": {
-                        "min": 1,
-                        "max": 2,
-                        "categories": [
-                            "1=cold",
-                            "2=hot"
-                        ]
-                    },
-                    "datatypeDbId": 2,
-                    "decimalPlaces": 0,
-                    "datatype": "Categorical"
-                },
-                "xref": "TL_455:0003001",
-                "method": {
-                    "description": "",
-                    "reference": "",
-                    "formula": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": ""
-                },
-                "observationVariableDbId": "MO_123:100002",
-                "growthStage": "mature",
                 "institution": "",
-                "observationVariableName": "Plant height",
-                "trait": {
-                    "traitDbId": "1",
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "attribute": "carotenoid",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "name": "Carotenoid content",
-                    "traitId": "CO_334:0100620",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "entity": "root",
-                    "defaultValue": "",
-                    "classis": "physiological trait"
-                },
+                "datatype": "Categorical",
                 "synonyms": [
                     "height",
                     "tallness"
                 ],
-                "ontologyDbId": "CO_334",
+                "defaultValue": null,
                 "contextOfUse": [
                     "Trial evaluation",
                     "Nursery evaluation"
                 ],
-                "defaultValue": null,
-                "crop": "grape"
-            },
-            {
-                "language": "EN",
-                "status": "active",
-                "submissionTimestamp": "2016-05-14T20:12:09Z",
-                "scientist": "",
-                "ontologyName": "Rice ontology",
+                "crop": "grape",
+                "ontologyName": "Wheat ontology",
                 "scale": {
+                    "decimalPlaces": 0,
+                    "datatype": "Categorical",
                     "defaultValue": null,
-                    "scaleDbId": "CO_334:0100527",
-                    "xref": "0",
-                    "name": "kg/g",
+                    "name": "ug/m",
+                    "scaleDbId": "CO_334:0100528",
+                    "datatypeDbId": 2,
+                    "xref": null,
                     "validValues": {
                         "min": 1,
-                        "max": 3,
+                        "categories": [
+                            "1=cold",
+                            "2=hot"
+                        ],
+                        "max": 2
+                    }
+                },
+                "observationVariableName": "Plant height",
+                "xref": "TL_455:0003001",
+                "language": "EN",
+                "ontologyDbId": "CO_334",
+                "submissionTimestamp": "2016-05-17T20:22:09Z",
+                "status": "recommended",
+                "growthStage": "mature",
+                "method": {
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "reference": null,
+                    "methodDbId": "CO_334:0010320",
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "classis": "Estimation"
+                },
+                "scientist": "",
+                "trait": {
+                    "traitDbId": "1",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "defaultValue": "",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
+                },
+                "observationVariableDbId": "MO_123:100002"
+            },
+            {
+                "institution": "",
+                "datatype": "Numeric",
+                "synonyms": [
+                    "weight"
+                ],
+                "defaultValue": "1",
+                "contextOfUse": [
+                    ""
+                ],
+                "crop": "grape",
+                "ontologyName": "Rice ontology",
+                "scale": {
+                    "decimalPlaces": 2,
+                    "datatype": "Numeric",
+                    "defaultValue": null,
+                    "name": "kg/g",
+                    "scaleDbId": "CO_334:0100527",
+                    "datatypeDbId": 1,
+                    "xref": "0",
+                    "validValues": {
+                        "min": 1,
                         "categories": [
                             "1=low",
                             "2=medium",
                             "3=high"
-                        ]
-                    },
-                    "datatypeDbId": 1,
-                    "decimalPlaces": 2,
-                    "datatype": "Numeric"
+                        ],
+                        "max": 3
+                    }
                 },
-                "xref": "TL_455:0003005",
-                "method": {
-                    "description": "",
-                    "reference": "",
-                    "formula": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": ""
-                },
-                "observationVariableDbId": "MO_123:100003",
-                "growthStage": "ripen",
-                "institution": "",
                 "observationVariableName": "Root weight",
+                "xref": "TL_455:0003005",
+                "language": "EN",
+                "ontologyDbId": "CO_335",
+                "submissionTimestamp": "2016-05-14T20:12:09Z",
+                "status": "active",
+                "growthStage": "ripen",
+                "method": null,
+                "scientist": "",
                 "trait": {
                     "traitDbId": "1",
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "attribute": "carotenoid",
-                    "status": "recommended",
-                    "mainAbbreviation": "CC",
-                    "xref": "TL_455:0003023",
-                    "description": "Cassava storage root pulp carotenoid content",
-                    "name": "Carotenoid content",
-                    "traitId": "CO_334:0100620",
                     "synonyms": [
                         "carotenoid content measure"
                     ],
-                    "entity": "root",
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
                     "defaultValue": "",
-                    "classis": "physiological trait"
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
                 },
-                "synonyms": [
-                    "weight"
-                ],
-                "ontologyDbId": "CO_335",
-                "contextOfUse": [
-                    ""
-                ],
-                "defaultValue": "1",
-                "crop": "grape"
+                "observationVariableDbId": "MO_123:100003"
             }
         ]
     }
@@ -348,144 +345,149 @@ class ObsVariablesTest(APITestCase):
     "result": {
         "data": [
             {
-                "language": "EN",
-                "growthStage": "mature",
-                "xref": "TL_455:0003001",
-                "status": "recommended",
-                "ontologyDbId": "CO_334",
-                "contextOfUse": [
-                    "Trial evaluation",
-                    "Nursery evaluation"
-                ],
+                "institution": "",
+                "datatype": "Categorical",
                 "synonyms": [
                     "height",
                     "tallness"
                 ],
-                "trait": {
-                    "traitDbId": "1",
-                    "entity": "root",
-                    "xref": "TL_455:0003023",
-                    "status": "recommended",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "attribute": "carotenoid",
-                    "defaultValue": "",
-                    "name": "Carotenoid content",
-                    "classis": "physiological trait",
-                    "traitId": "CO_334:0100620",
-                    "mainAbbreviation": "CC",
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "description": "Cassava storage root pulp carotenoid content"
-                },
-                "crop": "grape",
-                "institution": "",
-                "submissionTimestamp": "2016-05-17T20:22:09Z",
-                "method": {
-                    "reference": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": "",
-                    "formula": "",
-                    "description": ""
-                },
                 "defaultValue": null,
-                "scientist": "",
-                "observationVariableName": "Plant height",
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "crop": "grape",
+                "ontologyName": "Wheat ontology",
                 "scale": {
-                    "xref": null,
-                    "datatype": "Categorical",
-                    "datatypeDbId": 2,
-                    "scaleDbId": "CO_334:0100528",
                     "decimalPlaces": 0,
-                    "name": "ug/m",
+                    "datatype": "Categorical",
                     "defaultValue": null,
+                    "name": "ug/m",
+                    "scaleDbId": "CO_334:0100528",
+                    "datatypeDbId": 2,
+                    "xref": null,
                     "validValues": {
+                        "min": 1,
                         "categories": [
                             "1=cold",
                             "2=hot"
                         ],
-                        "max": 2,
-                        "min": 1
+                        "max": 2
                     }
                 },
-                "observationVariableDbId": "MO_123:100002",
-                "ontologyName": "Wheat ontology"
-            },
-            {
+                "observationVariableName": "Plant height",
+                "xref": "TL_455:0003001",
                 "language": "EN",
-                "growthStage": "ripen",
-                "xref": "TL_455:0003005",
-                "status": "active",
-                "ontologyDbId": "CO_335",
-                "contextOfUse": [
-                    ""
-                ],
-                "synonyms": [
-                    "weight"
-                ],
+                "ontologyDbId": "CO_334",
+                "submissionTimestamp": "2016-05-17T20:22:09Z",
+                "status": "recommended",
+                "growthStage": "mature",
+                "method": {
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "reference": null,
+                    "methodDbId": "CO_334:0010320",
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "classis": "Estimation"
+                },
+                "scientist": "",
                 "trait": {
                     "traitDbId": "1",
-                    "entity": "root",
-                    "xref": "TL_455:0003023",
-                    "status": "recommended",
                     "synonyms": [
                         "carotenoid content measure"
                     ],
-                    "attribute": "carotenoid",
-                    "defaultValue": "",
                     "name": "Carotenoid content",
-                    "classis": "physiological trait",
-                    "traitId": "CO_334:0100620",
                     "mainAbbreviation": "CC",
+                    "defaultValue": "",
                     "alternativeAbbreviations": [
                         "CCS"
                     ],
-                    "description": "Cassava storage root pulp carotenoid content"
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
                 },
-                "crop": "grape",
+                "observationVariableDbId": "MO_123:100002"
+            },
+            {
                 "institution": "",
-                "submissionTimestamp": "2016-05-14T20:12:09Z",
-                "method": {
-                    "reference": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": "",
-                    "formula": "",
-                    "description": ""
-                },
+                "datatype": "Numeric",
+                "synonyms": [
+                    "weight"
+                ],
                 "defaultValue": "1",
-                "scientist": "",
-                "observationVariableName": "Root weight",
+                "contextOfUse": [
+                    ""
+                ],
+                "crop": "grape",
+                "ontologyName": "Rice ontology",
                 "scale": {
-                    "xref": "0",
-                    "datatype": "Numeric",
-                    "datatypeDbId": 1,
-                    "scaleDbId": "CO_334:0100527",
                     "decimalPlaces": 2,
-                    "name": "kg/g",
+                    "datatype": "Numeric",
                     "defaultValue": null,
+                    "name": "kg/g",
+                    "scaleDbId": "CO_334:0100527",
+                    "datatypeDbId": 1,
+                    "xref": "0",
                     "validValues": {
+                        "min": 1,
                         "categories": [
                             "1=low",
                             "2=medium",
                             "3=high"
                         ],
-                        "max": 3,
-                        "min": 1
+                        "max": 3
                     }
                 },
-                "observationVariableDbId": "MO_123:100003",
-                "ontologyName": "Rice ontology"
+                "observationVariableName": "Root weight",
+                "xref": "TL_455:0003005",
+                "language": "EN",
+                "ontologyDbId": "CO_335",
+                "submissionTimestamp": "2016-05-14T20:12:09Z",
+                "status": "active",
+                "growthStage": "ripen",
+                "method": null,
+                "scientist": "",
+                "trait": {
+                    "traitDbId": "1",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "defaultValue": "",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
+                },
+                "observationVariableDbId": "MO_123:100003"
             }
         ]
     }
 }"""
+
         test_get(self, '/brapi/v1/variables/?traitClass=physiological trait&pageSize=2', expected)
 
     # end def test_get_variable_list_traitClass
+
+# end class ObsVariablesTest
+
+
+class ObsVariablesSearchTest(APITestCase):
+
+    fixtures = ['crops.json', 'datatypes.json', 'ontologies.json',
+                'methods.json', 'valid_values.json', 'scales.json',
+                'traits.json', 'observation_variables.json']
 
 
     def test_post_variables_search(self):
@@ -505,137 +507,132 @@ class ObsVariablesTest(APITestCase):
     "result": {
         "data": [
             {
-                "language": "EN",
-                "growthStage": "mature",
-                "xref": "TL_455:0003001",
-                "status": "recommended",
-                "ontologyDbId": "CO_334",
-                "contextOfUse": [
-                    "Trial evaluation",
-                    "Nursery evaluation"
-                ],
+                "institution": "",
+                "datatype": "Categorical",
                 "synonyms": [
                     "height",
                     "tallness"
                 ],
-                "trait": {
-                    "traitDbId": "1",
-                    "entity": "root",
-                    "xref": "TL_455:0003023",
-                    "status": "recommended",
-                    "synonyms": [
-                        "carotenoid content measure"
-                    ],
-                    "attribute": "carotenoid",
-                    "defaultValue": "",
-                    "name": "Carotenoid content",
-                    "classis": "physiological trait",
-                    "traitId": "CO_334:0100620",
-                    "mainAbbreviation": "CC",
-                    "alternativeAbbreviations": [
-                        "CCS"
-                    ],
-                    "description": "Cassava storage root pulp carotenoid content"
-                },
-                "crop": "grape",
-                "institution": "",
-                "submissionTimestamp": "2016-05-17T20:22:09Z",
-                "method": {
-                    "reference": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": "",
-                    "formula": "",
-                    "description": ""
-                },
                 "defaultValue": null,
-                "scientist": "",
-                "observationVariableName": "Plant height",
+                "contextOfUse": [
+                    "Trial evaluation",
+                    "Nursery evaluation"
+                ],
+                "crop": "grape",
+                "ontologyName": "Wheat ontology",
                 "scale": {
-                    "xref": null,
-                    "datatype": "Categorical",
-                    "datatypeDbId": 2,
-                    "scaleDbId": "CO_334:0100528",
                     "decimalPlaces": 0,
-                    "name": "ug/m",
+                    "datatype": "Categorical",
                     "defaultValue": null,
+                    "name": "ug/m",
+                    "scaleDbId": "CO_334:0100528",
+                    "datatypeDbId": 2,
+                    "xref": null,
                     "validValues": {
+                        "min": 1,
                         "categories": [
                             "1=cold",
                             "2=hot"
                         ],
-                        "max": 2,
-                        "min": 1
+                        "max": 2
                     }
                 },
-                "observationVariableDbId": "MO_123:100002",
-                "ontologyName": "Wheat ontology"
-            },
-            {
+                "observationVariableName": "Plant height",
+                "xref": "TL_455:0003001",
                 "language": "EN",
-                "growthStage": "ripen",
-                "xref": "TL_455:0003005",
-                "status": "active",
-                "ontologyDbId": "CO_335",
-                "contextOfUse": [
-                    ""
-                ],
-                "synonyms": [
-                    "weight"
-                ],
+                "ontologyDbId": "CO_334",
+                "submissionTimestamp": "2016-05-17T20:22:09Z",
+                "status": "recommended",
+                "growthStage": "mature",
+                "method": {
+                    "formula": null,
+                    "name": "Visual Rating:total carotenoid by chart_method",
+                    "reference": null,
+                    "methodDbId": "CO_334:0010320",
+                    "description": "Assessment of the level of yellowness in cassava storage root pulp using the tc chart",
+                    "classis": "Estimation"
+                },
+                "scientist": "",
                 "trait": {
                     "traitDbId": "1",
-                    "entity": "root",
-                    "xref": "TL_455:0003023",
-                    "status": "recommended",
                     "synonyms": [
                         "carotenoid content measure"
                     ],
-                    "attribute": "carotenoid",
-                    "defaultValue": "",
                     "name": "Carotenoid content",
-                    "classis": "physiological trait",
-                    "traitId": "CO_334:0100620",
                     "mainAbbreviation": "CC",
+                    "defaultValue": "",
                     "alternativeAbbreviations": [
                         "CCS"
                     ],
-                    "description": "Cassava storage root pulp carotenoid content"
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
                 },
-                "crop": "grape",
+                "observationVariableDbId": "MO_123:100002"
+            },
+            {
                 "institution": "",
-                "submissionTimestamp": "2016-05-14T20:12:09Z",
-                "method": {
-                    "reference": "",
-                    "name": "",
-                    "methodDbId": "",
-                    "classis": "",
-                    "formula": "",
-                    "description": ""
-                },
+                "datatype": "Numeric",
+                "synonyms": [
+                    "weight"
+                ],
                 "defaultValue": "1",
-                "scientist": "",
-                "observationVariableName": "Root weight",
+                "contextOfUse": [
+                    ""
+                ],
+                "crop": "grape",
+                "ontologyName": "Rice ontology",
                 "scale": {
-                    "xref": "0",
-                    "datatype": "Numeric",
-                    "datatypeDbId": 1,
-                    "scaleDbId": "CO_334:0100527",
                     "decimalPlaces": 2,
-                    "name": "kg/g",
+                    "datatype": "Numeric",
                     "defaultValue": null,
+                    "name": "kg/g",
+                    "scaleDbId": "CO_334:0100527",
+                    "datatypeDbId": 1,
+                    "xref": "0",
                     "validValues": {
+                        "min": 1,
                         "categories": [
                             "1=low",
                             "2=medium",
                             "3=high"
                         ],
-                        "max": 3,
-                        "min": 1
+                        "max": 3
                     }
                 },
-                "observationVariableDbId": "MO_123:100003",
-                "ontologyName": "Rice ontology"
+                "observationVariableName": "Root weight",
+                "xref": "TL_455:0003005",
+                "language": "EN",
+                "ontologyDbId": "CO_335",
+                "submissionTimestamp": "2016-05-14T20:12:09Z",
+                "status": "active",
+                "growthStage": "ripen",
+                "method": null,
+                "scientist": "",
+                "trait": {
+                    "traitDbId": "1",
+                    "synonyms": [
+                        "carotenoid content measure"
+                    ],
+                    "name": "Carotenoid content",
+                    "mainAbbreviation": "CC",
+                    "defaultValue": "",
+                    "alternativeAbbreviations": [
+                        "CCS"
+                    ],
+                    "xref": "TL_455:0003023",
+                    "description": "Cassava storage root pulp carotenoid content",
+                    "traitId": "CO_334:0100620",
+                    "status": "recommended",
+                    "entity": "root",
+                    "classis": "physiological trait",
+                    "attribute": "carotenoid"
+                },
+                "observationVariableDbId": "MO_123:100003"
             }
         ]
     }
@@ -1688,4 +1685,4 @@ class ObsVariablesTest(APITestCase):
 
     # end def test_post_variables_search_traitClasses
 
-# end class ObsVariablesTest
+# end class ObsVariablesSearchTest

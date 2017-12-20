@@ -11,7 +11,7 @@ class ProgramView(APIView):
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = Program.objects.all()
-        queryset = search_get_qparams(self, queryset, [('programName', 'programName'), ('abbreviation', 'abbreviation')])
+        queryset = search_get_qparams(self, queryset, [('programName', 'name'), ('abbreviation', 'abbreviation')])
 
         return paginate(queryset, request, ProgramSerializer)
 

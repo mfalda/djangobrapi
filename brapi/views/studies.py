@@ -23,12 +23,39 @@ class StudySearchView(APIView):
 
         queryset = search_get_qparams(self, queryset, [
             ('studyType', 'studyType'),
-            ('seasonDbId', 'seasonDbId'),
+            ('seasonDbId', 'seasons__seasonDbId'),
             ('locationDbId', 'locationDbId'),
-            ('programDbId', 'programDbId'),
-            ('germplasmDbId', 'germplasmDbIds'),
-            ('observationVariableDbId', 'observationVariableDbIds'),
-            ('active', 'active')])
+            ('programDbId', 'trialDbId__programDbId'),
+            ('germplasmDbIds', 'studies__germplasmDbId'),
+            ('observationVariableDbIds', 'studies__observations__obsVariable__observationVariableDbId')])
+
+        # 'active' parameter must be managed in a non-standard way
+        active = self.request.query_params.get('active', None)
+        if active is not None:
+            if active == 'true':
+                queryset = queryset.filter(active=True)
+            elif active == 'false':
+                queryset = queryset.filter(active=False)
+                # end if
+        # end if
+
+        logger = logging.getLogger(__name__)
+
+        sortBy = self.request.query_params.get('sortBy', None)
+        sortOrder = self.request.query_params.get('sortOrder', None)
+        logger.warning("Sorting: (%s, %s)" % (sortBy, sortOrder))
+
+        if sortBy is not None:
+            if sortOrder is not None and sortOrder == 'asc':
+                logger.warning("Sorting by %s in ascending mode" % sortBy)
+                queryset = queryset.order_by(sortBy)
+            elif sortOrder is not None and sortOrder == 'desc':
+                logger.warning("Sorting by %s in descending mode" % sortBy)
+                queryset = queryset.order_by('-' + sortBy)
+            # end if
+        # end if
+
+        #queryset = queryset.distinct()
 
         return paginate(queryset, request, StudySearchSerializer)
 
@@ -55,14 +82,44 @@ class StudySearchView(APIView):
 
         queryset = Study.objects.all()
 
+        # TODO: studyType should be an exact search
         queryset = search_post_params_in(self, queryset, [
             ('studyType', 'studyType'),
-            ('seasonDbId', 'seasonDbId'),
-            ('locationDbId', 'locationDbId'),
-            ('programDbId', 'programDbId'),
-            ('germplasmDbId', 'germplasmDbIds'),
-            ('observationVariableDbId', 'observationVariableDbIds'),
-            ('active', 'active')])
+            ('studyNames', 'studyName'),
+            ('studyLocations', 'locationDbId__name'),
+            ('programNames', 'trialDbId__programDbId__name'),
+            ('germplasmDbIds', 'studies__germplasmDbId'),
+            ('trialDbIds', 'trialDbId__trialDbId'),
+            ('observationVariableDbIds', 'studies__observations__obsVariable__observationVariableDbId')])
+
+        # 'active' parameter must be managed in a non-standard way
+        active = self.request.data.get('active', None)
+        if active is not None:
+            if active == 'true':
+                queryset = queryset.filter(active=True)
+            elif active == 'true':
+                queryset = queryset.filter(active=False)
+                # end if
+        # end if
+
+        logger = logging.getLogger(__name__)
+
+        sortBy = self.request.data.get('sortBy', None)
+        sortOrder = self.request.data.get('sortOrder', None)
+        logger.warning("Sorting: (%s, %s)" % (sortBy, sortOrder))
+
+        if sortBy is not None:
+            if sortOrder is not None and sortOrder == 'asc':
+                logger.warning("Sorting by %s in ascending mode" % sortBy)
+                queryset = queryset.order_by(sortBy)
+            elif sortOrder is not None and sortOrder == 'desc':
+                logger.warning("Sorting by %s in descending mode" % sortBy)
+                queryset = queryset.order_by('-' + sortBy)
+                # end if
+        # end if
+
+        # WHY is it necessary?
+        queryset = queryset.distinct()
 
         return paginate(queryset, request, StudySearchSerializer)
 
@@ -125,6 +182,8 @@ class StudySeasonView(APIView):
     def get(self, request, format=None, *args, **kwargs):
 
         queryset = Season.objects.all()
+
+        queryset = search_get_qparams(self, queryset, [('year', 'year')])
 
         return paginate(queryset, request, SeasonSerializer)
 
