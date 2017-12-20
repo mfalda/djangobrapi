@@ -360,8 +360,8 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 5,
-            "totalCount": 9,
+            "pageTotal": 4,
+            "totalCount": 7,
             "pageSize": 2
         },
         "status": [],
@@ -370,6 +370,23 @@ class TrialTest(APITestCase):
     "result": {
         "data": [
             {
+                "programDbId": "1",
+                "startDate": "2013-01-01",
+                "contacts": [
+                    {
+                        "contactDbId": "1",
+                        "orcid": "0000-0002-0607-8728",
+                        "type": "Breeder",
+                        "name": "A. Breeder",
+                        "instituteName": "Plant Science Institute",
+                        "email": "a.breeder@brapi.org"
+                    }
+                ],
+                "datasetAuthorship": {
+                    "license": "https://creativecommons.org/licenses/by/4.0",
+                    "datasetPUI": "doi:10.15454/312953986E3"
+                },
+                "programName": "Wheat Resistance Program",
                 "studies": [
                     {
                         "studyDbId": "1001",
@@ -384,23 +401,7 @@ class TrialTest(APITestCase):
                         "locationName": "Location 1"
                     }
                 ],
-                "programName": "Wheat Resistance Program",
-                "datasetAuthorship": {
-                    "license": "https://creativecommons.org/licenses/by/4.0",
-                    "datasetPUI": "doi:10.15454/312953986E3"
-                },
-                "contacts": [
-                    {
-                        "instituteName": "Plant Science Institute",
-                        "orcid": "0000-0002-0607-8728",
-                        "contactDbId": "1",
-                        "email": "a.breeder@brapi.org",
-                        "name": "A. Breeder",
-                        "type": "Breeder"
-                    }
-                ],
                 "trialDbId": "101",
-                "startDate": "2013-01-01",
                 "endDate": "2013-05-07",
                 "active": false,
                 "additionalInfo": {
@@ -410,10 +411,26 @@ class TrialTest(APITestCase):
                     "collaborator": "NationalPartner1",
                     "fundingUSD": "500000"
                 },
-                "trialName": "Peru Yield Trial 1",
-                "programDbId": "1"
+                "trialName": "Peru Yield Trial 1"
             },
             {
+                "programDbId": "1",
+                "startDate": "2014-01-06",
+                "contacts": [
+                    {
+                        "contactDbId": "3",
+                        "orcid": "0000-0002-0607-8731",
+                        "type": "Technician",
+                        "name": "A. Technician",
+                        "instituteName": "Plant Science Institute",
+                        "email": "a.technician@brapi.org"
+                    }
+                ],
+                "datasetAuthorship": {
+                    "license": "https://creativecommons.org/licenses/by/4.0",
+                    "datasetPUI": "doi:10.15454/1234992349"
+                },
+                "programName": "Wheat Resistance Program",
                 "studies": [
                     {
                         "studyDbId": "1003",
@@ -422,23 +439,7 @@ class TrialTest(APITestCase):
                         "locationName": "Location 2"
                     }
                 ],
-                "programName": "Wheat Resistance Program",
-                "datasetAuthorship": {
-                    "license": "https://creativecommons.org/licenses/by/4.0",
-                    "datasetPUI": "doi:10.15454/1234992349"
-                },
-                "contacts": [
-                    {
-                        "instituteName": "Plant Science Institute",
-                        "orcid": "0000-0002-0607-8731",
-                        "contactDbId": "3",
-                        "email": "a.technician@brapi.org",
-                        "name": "A. Technician",
-                        "type": "Technician"
-                    }
-                ],
                 "trialDbId": "102",
-                "startDate": "2014-01-06",
                 "endDate": "2015-01-15",
                 "active": false,
                 "additionalInfo": {
@@ -448,8 +449,7 @@ class TrialTest(APITestCase):
                     "collaborator": "NationalPartner1",
                     "fundingUSD": "500000"
                 },
-                "trialName": "Peru Yield Trial 2",
-                "programDbId": "1"
+                "trialName": "Peru Yield Trial 2"
             }
         ]
     }
