@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.RunSQL("""CREATE VIEW phenotype AS
-                SELECT 
+                SELECT DISTINCT
                     ou.cropdbid,
                     ou.observationunitdbid,
                     ou.name AS observationunitname,
@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                     ou.entrytype,
                     s.studydbid,
                     s.locationdbid,
-                    s.studyname AS studyname,		    
+                    s.studyname AS studyname,
                     l.name AS locationname,
                     ou.observationlevel,
                     ou.observationlevels,
@@ -31,27 +31,17 @@ class Migration(migrations.Migration):
                     ou.plantnumber,
                     ou.blocknumber,
                     ou.replicate,
+                    p.programdbid,
                     p.name AS programname,
                     ou.germplasmdbid,
                     g.germplasmname,
                     ou.x,
-                    ou.y,
-                    t.treatmentdbid,
-                    x.observationunitxrefdbid,
-                    o.observationvariabledbid,
-                    se.seasondbid,
-                    se.season,
-                    o.observationdbid,
-                    o.observationtimestamp
-            FROM observation_unit ou
-                INNER JOIN study s ON ou.studydbid = s.studydbid
-                INNER JOIN location l ON s.locationdbid = l.locationdbid
-                INNER JOIN observation_unit_xref x ON ou.observationunitdbid = x.observationunitdbid
-                INNER JOIN treatment t ON t.observationunitdbid = ou.observationunitdbid
-                INNER JOIN observation o ON o.observationunitdbid = ou.observationunitdbid
-                INNER JOIN program p ON p.programdbid = ou.programdbid
-                INNER JOIN germplasm g ON ou.germplasmdbid = g.germplasmdbid
-                INNER JOIN season se ON o.seasondbid = se.seasondbid;"""),
+                    ou.y
+                FROM observation_unit ou
+                    INNER JOIN study s ON ou.studydbid = s.studydbid
+                    INNER JOIN location l ON s.locationdbid = l.locationdbid
+                    INNER JOIN program p ON p.programdbid = ou.programdbid
+                    INNER JOIN germplasm g ON ou.germplasmdbid = g.germplasmdbid;"""),
         migrations.CreateModel(
             name='AlleleMatrix',
             fields=[

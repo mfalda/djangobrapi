@@ -2,8 +2,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.db.models import Q
 import logging
+import datetime
 
-from brapi.models import Phenotype
+from brapi.models import Phenotype, Observation
 from brapi.serializers import PhenotypeSerializer
 from brapi.aux_fun import search_post_params_in, paginate
 
@@ -35,17 +36,33 @@ class PhenotypeSearchView(APIView):
 
         queryset = search_post_params_in(self, queryset, [
             ('germplasmDbIds', 'germplasmDbId'),
-            ('observationVariableDbIds', 'observationVariableDbIds'),
             ('studyDbIds', 'studyDbId'),
             ('locationDbIds', 'locationDbId'),
             ('programDbIds', 'programDbId'),
-            ('seasonDbIds', 'seasonDbId'),
-            ('observationLevel', 'observationLevel')])
+            ('observationLevels', 'observationLevel')])
+
+        observationVariableDbIds = params.get('observationVariableDbIds', None)
+        if observationVariableDbIds is not None:
+            obs = Observation.objects.filter(obsVariable__observationVariableDbId__in=observationVariableDbIds).all()
+            queryset = queryset.filter(pk=obs)
+        # end if
+
+        seasonDbIds = params.get('seasonDbIds', None)
+        if seasonDbIds is not None:
+            obs = Observation.objects.filter(seasonDbId__in=seasonDbIds).all()
+            queryset = queryset.filter(pk=obs)
+        # end if
 
         observationTimeStampRange = params.get('observationTimeStampRange', None)
         if observationTimeStampRange is not None:
-            queryset = queryset.filter(Q(observationTimeStampRange__gte=observationTimeStampRange[0])
-                                        &Q(observationTimeStampRange__lte=observationTimeStampRange[1]))
+
+            print_date = lambda iso_date: datetime.datetime.strptime(iso_date, "%Y-%m-%dT%H:%M:%SZ").strftime('%d %b %Y - %T - %Z')
+
+            logger.warning("Restricting dates to (%s, %s)" % (print_date(observationTimeStampRange[0]), print_date(observationTimeStampRange[1])))
+
+            obs = Observation.objects.filter(Q(observationTimestamp__gte=observationTimeStampRange[0])
+                                        &Q(observationTimestamp__lte=observationTimeStampRange[1]))
+            queryset = queryset.filter(pk__in=[int(o.observationDbId) for o in obs])
         # end if 
 
         return paginate(queryset, request, PhenotypeSerializer)        

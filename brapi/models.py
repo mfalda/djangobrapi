@@ -303,7 +303,7 @@ class Observation(models.Model):
     observationUnit = models.ForeignKey('ObservationUnit', models.DO_NOTHING, db_column='observationunitdbid', related_name='observations', blank=True, null=True)
     obsVariable = models.ForeignKey('ObservationVariable', models.DO_NOTHING, db_column='observationvariabledbid', related_name='obsVariable', blank=True, null=True)
     observationDbId = models.TextField(db_column='observationdbid', primary_key=True, default='')
-    observationTimestamp = models.TextField(db_column='observationtimestamp', blank=True, null=True)
+    observationTimestamp = models.DateTimeField(db_column='observationtimestamp', blank=True, null=True)
     seasonDbId = models.ForeignKey('Season', models.DO_NOTHING, db_column='seasondbid', blank=True, null=True)
     collector = models.TextField(blank=True, null=True)
     uploadedBy = models.TextField(db_column='uploadedby', blank=True, null=True)
@@ -965,18 +965,12 @@ class Phenotype(models.Model):
     plantNumber = models.TextField(db_column='plantnumber')
     blockNumber = models.TextField(db_column='blocknumber')
     replicate = models.TextField()
+    programDbId = models.TextField(db_column='programdbid')
     programName = models.TextField(db_column='programname')
     germplasmDbId = models.TextField(db_column='germplasmdbid')
     germplasmName = models.TextField(db_column='germplasmname')
     X = models.TextField(db_column='x')
     Y = models.TextField(db_column='y')
-    treatmentDbId = models.TextField(db_column='treatmentdbid')
-    observationUnitXref = models.TextField(db_column='observationunitxrefdbid')
-    observationVariableDbId = models.TextField(db_column='observationvariabledbid')
-    seasonDbId = models.TextField(db_column='seasondbid')
-    season = models.TextField()
-    observationDbId = models.TextField(db_column='observationdbid')
-    observationTimestamp = models.TextField(db_column='observationtimestamp')
 
 
     class Meta:
