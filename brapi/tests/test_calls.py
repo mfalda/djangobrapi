@@ -15,8 +15,8 @@ class CallsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 25,
-            "totalCount": 50,
+            "pageTotal": 23,
+            "totalCount": 46,
             "pageSize": 2
         },
         "status": [],
@@ -24,25 +24,23 @@ class CallsTest(APITestCase):
     },
     "result": {
         "data": [
-                {
-                    "call": "token",
-                    "datatypes": [
-                        "json",
-                        "text"
-                    ],
-                    "methods": [
-                        "POST",
-                        "DELETE"
-                    ]
-                },
-                {
-                    "call": "germplasm//markerprofiles",
-                    "datatypes": [
-                        "json"
-                    ],
-                    "methods": [
-                        "GET"
-                    ]
+            {
+                "datatypes": [
+                    "json"
+                ],
+                "methods": [
+                    "GET"
+                ],
+                "call": "germplasm//markerprofiles"
+            },
+            {
+                "datatypes": [
+                    "json"
+                ],
+                "methods": [
+                    "GET"
+                ],
+                "call": "germplasm//pedigree"
             }
         ]
     }
