@@ -3,8 +3,8 @@ import logging
 
 from brapi.models import Germplasm, Pedigree
 from brapi.serializers import GermplasmSerializer, PedigreeSerializer
-
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
+from brapi.paginators import BrAPISimplePagination
 
 
 class GermplasmView(APIView):
@@ -18,7 +18,7 @@ class GermplasmView(APIView):
             queryset = queryset.filter(germplasmDbId=germplasmDbId)
         # end if
 
-        return paginate(queryset, request, GermplasmSerializer)
+        return paginate(queryset, request, GermplasmSerializer, BrAPISimplePagination)
 
     # end def get
 
@@ -42,7 +42,7 @@ class GermplasmPedigreeView(APIView):
             raise Exception('Deal with "notation" parameter')
         # end if
 
-        return paginate(queryset, request, PedigreeSerializer)
+        return paginate(queryset, request, PedigreeSerializer, BrAPISimplePagination)
 
     # end def get
 

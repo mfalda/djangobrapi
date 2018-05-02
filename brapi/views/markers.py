@@ -7,6 +7,8 @@ from brapi.models import Marker
 from brapi.serializers import MarkerSerializer
 from brapi.aux_fun import search_get_qparams, search_post_params_in
 
+from brapi.paginators import BrAPISimplePagination
+
   
 class MarkerView(APIView):
 
@@ -125,7 +127,7 @@ class MarkerDetailsView(APIView):
             queryset = queryset.filter(markerDbId=markerDbId)
         # end if
 
-        return paginate(queryset, request, MarkerSerializer)
+        return paginate(queryset, request, MarkerSerializer, BrAPISimplePagination)
 
     # end def get
 

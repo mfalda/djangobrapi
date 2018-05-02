@@ -84,7 +84,7 @@ urlpatterns = [
 
     url(r'brapi/v1/ontologies/?$', OntologyView.as_view()),
     url(r'brapi/v1/variables/datatypes/?$', ObservationVariableDatatypeView.as_view()),
-    url(r'brapi/v1/variables/(?P<observationVariableDbId>[^/]+)/$', ObservationVariableView.as_view()),
+    url(r'brapi/v1/variables/(?P<observationVariableDbId>[^/]+)/?$', ObservationVariableView.as_view()),
     url(r'brapi/v1/variables/?$', ObservationVariablesListView.as_view()),
     url(r'brapi/v1/variables-search/?$', ObservationVariableSearchView.as_view()),
 
@@ -92,14 +92,14 @@ urlpatterns = [
     url(r'brapi/v1/traits/?', TraitView.as_view()),
 
     url(r'brapi/v1/seasons/?', StudySeasonView.as_view()),
-    url(r'brapi/v1/observationLevels/?', StudyObservationLevelView.as_view()),
-    url(r'brapi/v1/studyTypes/?', StudyTypeView.as_view()),
+    url(r'brapi/v1/observationlevels/?', StudyObservationLevelView.as_view()),
+    url(r'brapi/v1/studytypes/?', StudyTypeView.as_view()),
     url(r'brapi/v1/studies-search/?$', StudySearchView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observations/?$', StudyObservationUnitByObservationVariableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationunits/?$', StudyObservationUnitDetailsView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>.+)/germplasm/?$', StudyGermplasmDetailsView.as_view()),
 #    url(r'brapi/v1/studies/(?P<studyDbId>.+)/table/?$', StudyObsUnitsTableView.as_view()),
-    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationVariables/?$', StudyObservationVariableView.as_view()),
+    url(r'brapi/v1/studies/(?P<studyDbId>.+)/observationvariables/?$', StudyObservationVariableView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/?$', StudyDetailView.as_view()),
     url(r'brapi/v1/studies/(?P<studyDbId>[^/]+)/layout/?$', StudyPlotLayoutView.as_view())
 ]

@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from brapi.models import Location
 from brapi.serializers import LocationSerializer
 from brapi.aux_fun import search_get_qparams, paginate
+from brapi.paginators import BrAPISimplePagination
 
 
 class LocationView(APIView):
@@ -31,7 +32,7 @@ class LocationDetailsView(APIView):
             queryset = queryset.filter(locationDbId=locationDbId)
         # end if
 
-        return paginate(queryset, request, LocationSerializer)
+        return paginate(queryset, request, LocationSerializer, BrAPISimplePagination)
 
     # end def get
 

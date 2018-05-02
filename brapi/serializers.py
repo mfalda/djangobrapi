@@ -88,7 +88,7 @@ class DonorSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Donor
-        exclude = ['cropdbid', 'donordbid', 'germplasmDbId']
+        exclude = ['cropdbid', 'donordbid', 'germplasmDbId', 'donorGermplasmPUI']
 
     # end class Meta
 
@@ -122,14 +122,38 @@ class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
 class GermplasmAttributeSerializer(ExtendedSerializer):
 
     attributes = GermplasmAttributeValueSerializer(many=True, read_only=True)
+    values = StringListField()
+
 
     class Meta:
 
         model = GermplasmAttribute
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'attributeDbId']
         extra_fields = ['attributes']
 
-        # end class Meta
+    # end class Meta
+
+
+    def to_representation(self, instance: Call):
+
+        instance.values = [str(s) for s in instance.values.split('; ')]
+
+        return super(GermplasmAttributeSerializer, self).to_representation(instance)
+
+    # end def to_representation
+
+
+    def to_internal_value(self, data):
+
+        ret = super(GermplasmAttributeSerializer, self).to_internal_value(data)
+
+        if ret['values']:
+            ret['values'] = '; '.join(str(s) for s in ret['values'])
+        # end if
+
+        return ret
+
+    # end def to_internal_value
 
 # end class GermplasmAttributeSerializer
 
@@ -291,7 +315,7 @@ class GermplasmMarkerprofileSerializer(ExtendedSerializer):
 
     def get_markerprofileDbIds(self, obj):
 
-        return [ mp.markerprofileDbId for mp in Markerprofile.objects.filter(germplasmDbId=obj.germplasmDbId) ]
+        return [ str(mp.markerprofileDbId) for mp in Markerprofile.objects.filter(germplasmDbId=obj.germplasmDbId) ]
 
     # end def get_markerprofileDbIds
 
@@ -331,7 +355,7 @@ class ObservationSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Observation
-        exclude = ['cropdbid', 'observationUnit', 'obsVariable']
+        exclude = ['cropdbid', 'observationUnit', 'obsVariable', 'observationTimestamp', 'seasonDbId', 'uploadedBy']
 
     # end class Meta
 
@@ -354,12 +378,22 @@ class ObservationSerializer(serializers.ModelSerializer):
 
 class ObservationUnitXrefSerializer(serializers.ModelSerializer):
 
-     class Meta:
+    id = serializers.SerializerMethodField('get_identifier')
+
+
+    class Meta:
 
         model = ObservationUnitXref
-        exclude = ['cropdbid', 'observationunitdbid', 'observationunitxrefdbid']
+        fields = ('id', 'source')
 
     # end class Meta
+
+
+    def get_identifier(self, obj):
+
+        return obj.identifier
+
+    # end def get_identifier
 
 # end class ObservationUnitXrefSerializer
 
@@ -476,6 +510,7 @@ class StudyObservationUnitByObservationVariableSerializer(ExtendedSerializer):
 
 class ObservationVariableSerializer(ExtendedSerializer):
 
+    name = serializers.SerializerMethodField()
     synonyms = StringListField()
     ontologyName = serializers.SerializerMethodField()
     contextOfUse = StringListField()
@@ -483,16 +518,22 @@ class ObservationVariableSerializer(ExtendedSerializer):
     scale = serializers.SerializerMethodField()
     trait = serializers.SerializerMethodField()
     method = serializers.SerializerMethodField()
-    datatype = serializers.SerializerMethodField()
 
 
     class Meta:
 
         model = ObservationVariable
-        exclude = ['cropdbid', 'traitDbId', 'methodDbId', 'scales']
+        exclude = ['cropdbid', 'traitDbId', 'methodDbId', 'scales', 'observationVariableName']
         extra_fields = ['crop', 'trait', 'method']
 
     # end class Meta
+
+
+    def get_name(self, obj):
+
+        return obj.observationVariableName
+
+    # end def get_name
 
 
     def to_representation(self, instance: ObservationVariable):
@@ -586,13 +627,32 @@ class MethodSerializer(ExtendedSerializer):
 
     observationVariables = ObservationVariableSerializer(many=True, read_only=True)
 
+
     class Meta:
 
         model = Method
         exclude = ['cropdbid']
         extra_fields = ['observationVariables']
 
-        # end class Meta
+    # end class Meta
+
+
+    def to_representation(self, instance: Method):
+
+        data = super(MethodSerializer, self).to_representation(instance)
+
+        # generate a list of the keys and replace the key 'classis'
+        keys = list(data.keys())
+        keys.insert(keys.index('classis'), 'class')
+        keys.remove('classis')
+
+        # remove 'classis' and assign its value to a new key 'class'
+        classis = data.pop('classis')
+        data.update({'class': classis})
+
+        return data
+
+    # end def to_representation
 
 # end class MethodSerializer
 
@@ -610,18 +670,6 @@ class OntologySerializer(ExtendedSerializer):
     # end class Meta
 
 # end class OntologySerializer
-
-
-class PedigreeSerializer(serializers.ModelSerializer):
-
-    class Meta:
-
-        model = Pedigree
-        exclude = ['cropdbid']
-
-    # end class Meta
-
-# end class PedigreeSerializer
 
 
 class ValidValueSerializer(ExtendedSerializer):
@@ -671,7 +719,7 @@ class ScaleSerializer(ExtendedSerializer):
     class Meta:
 
         model = Scale
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'datatypeDbId', 'defaultValue']
         extra_fields = ['datatype', 'validValues']
 
     # end class Meta
@@ -860,13 +908,13 @@ class OVTraitSerializer(ExtendedSerializer):
     synonyms = StringListField()
     alternativeAbbreviations = StringListField()
 
+
     class Meta:
 
         model = Trait
-        exclude = ['cropdbid']
-        extra_fields = ['traitDbId', 'defaultValue']
+        exclude = ['cropdbid', 'traitId', 'defaultValue']
 
-        # end class Meta
+    # end class Meta
 
 
     def to_representation(self, instance: Trait):
@@ -874,7 +922,18 @@ class OVTraitSerializer(ExtendedSerializer):
         instance.synonyms = [str(s) for s in instance.synonyms.split('; ')]
         instance.alternativeAbbreviations = [str(s) for s in instance.alternativeAbbreviations.split('; ')]
 
-        return super(OVTraitSerializer, self).to_representation(instance)
+        data = super(OVTraitSerializer, self).to_representation(instance)
+
+        # generate a list of the keys and replace the key 'classis'
+        keys = list(data.keys())
+        keys.insert(keys.index('classis'), 'class')
+        keys.remove('classis')
+
+        # remove 'classis' and assign its value to a new key 'class'
+        classis = data.pop('classis')
+        data.update({'class': classis})
+
+        return data
 
     # end def to_representation
 
@@ -1032,6 +1091,8 @@ class StudySerializer(ExtendedSerializer):
 
 class StudySearchSerializer(ExtendedSerializer):
 
+    name = serializers.SerializerMethodField()
+    active = serializers.SerializerMethodField()
     seasons = serializers.SerializerMethodField()
     locationName = serializers.SerializerMethodField()
     programDbId = serializers.SerializerMethodField()
@@ -1039,14 +1100,30 @@ class StudySearchSerializer(ExtendedSerializer):
     trialName = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
+
     class Meta:
 
         model = Study
-        exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion']
+        exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion', 'licence',
+                   'studyDescription', 'studyName']
         extra_fields = ['seasons', 'additionalInfo', 'locationDbId', 'locationName',
                         'programDbId', 'programName']
 
     # end class Meta
+
+
+    def get_name(self, obj):
+
+        return obj.studyName
+
+    # end def get_name
+
+
+    def get_active(self, obj):
+
+        return str(obj.active).lower()
+
+    # end def get_active
 
 
     def get_seasons(self, obj):
@@ -1127,7 +1204,7 @@ class LocationSerializer(ExtendedSerializer):
     class Meta:
 
         model = Location
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'type']
         extra_fields = ['studies', 'additionalInfo']
 
     # end class Meta
@@ -1147,7 +1224,7 @@ class LocationSerializer(ExtendedSerializer):
 class GermplasmSerializer(ExtendedSerializer):
 
     synonyms = StringListField()
-    typeOfGermplasmStorageCode = IntListField()
+    typeOfGermplasmStorageCode = StringListField()
     donors = DonorSerializer(many=True, read_only=True)
     taxonIds = serializers.SerializerMethodField()
     donors = DonorSerializer(many=True, read_only=True)
@@ -1174,7 +1251,7 @@ class GermplasmSerializer(ExtendedSerializer):
         #logger.warning("Filtering taxa:")
         #[pprint(t.__dict__) for t in t2]
 
-        return [ { t.source: t.rank } for t in t2 ]
+        return [ { 'sourceName': t.source, 'taxonId': t.rank } for t in t2 ]
 
     # end def get_taxonIds
 
@@ -1319,8 +1396,6 @@ class TrialStudySerializer(ExtendedSerializer):
 class TrialSerializer(ExtendedSerializer):
 
     studies = TrialStudySerializer(many=True, read_only=True)
-    datasetAuthorship = serializers.SerializerMethodField()
-    contacts = serializers.SerializerMethodField()
     programName = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
@@ -1329,7 +1404,7 @@ class TrialSerializer(ExtendedSerializer):
 
         model = Trial
         exclude = ['cropdbid', 'datasetAuthorshipLicence', 'datasetAuthorshipDatasetPUI']
-        extra_fields = ['studies', 'contacts', 'additionalInfo', 'datasetAuthorship']
+        extra_fields = ['studies', 'additionalInfo']
 
     # end class Meta
 
@@ -1337,7 +1412,7 @@ class TrialSerializer(ExtendedSerializer):
     def get_datasetAuthorship(self, obj):
 
         return {
-            'license': obj.datasetAuthorshipLicence,
+            'licence': obj.datasetAuthorshipLicence,
             'datasetPUI': obj.datasetAuthorshipDatasetPUI
         }
 
@@ -1416,6 +1491,7 @@ class MapLinkageSerializer(serializers.ModelSerializer):
 
 class MapSerializer(serializers.ModelSerializer):
 
+    mapDbId = serializers.SerializerMethodField()
     linkageGroupCount = serializers.SerializerMethodField()
     markerCount = serializers.SerializerMethodField()
 
@@ -1426,6 +1502,13 @@ class MapSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     # end class Meta
+
+
+    def get_mapDbId(self, obj):
+
+        return str(obj.mapDbId)
+
+    # end def get_mapDbId
 
 
     def get_linkageGroupCount(self, obj):
@@ -1478,12 +1561,28 @@ class PhenotypeSerializer(serializers.ModelSerializer):
     observationUnitXref = serializers.SerializerMethodField()
     observations = serializers.SerializerMethodField()
     treatments = serializers.SerializerMethodField()
+    studyLocationDbId = serializers.SerializerMethodField('get_study_location')
 
 
     class Meta:
 
         model = Phenotype
-        exclude = ['cropdbid', 'programDbId']
+        exclude = ['cropdbid', 'programDbId', 'locationName']
+
+    # end class Meta
+
+    
+    def get_study_location(self, obj):
+
+        return obj.locationDbId
+
+    # end def get_study_location
+
+
+    class Meta:
+
+        model = Phenotype
+        exclude = ['cropdbid', 'programDbId', 'locationDbId', 'locationName']
 
     # end class Meta
 

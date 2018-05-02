@@ -330,7 +330,7 @@ class Ontology(models.Model):
     description = models.TextField(blank=True, null=True)
     version = models.TextField(blank=True, null=True)
     copyright = models.TextField(blank=True, null=True)
-    license = models.TextField(blank=True, null=True)
+    licence = models.TextField(blank=True, null=True)
 
 
     class Meta:
@@ -350,7 +350,7 @@ class Trait(models.Model):
     traitId = models.TextField(db_column='traitid', blank=True, null=True)
     name = models.TextField(blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    classis = models.TextField(blank=True, null=True)
+    classis = models.TextField(db_column='class', blank=True, null=True)
     synonyms = models.TextField(blank=True, null=True)
     mainAbbreviation = models.TextField(db_column='mainabbreviation', blank=True, null=True)
     alternativeAbbreviations = models.TextField(db_column='alternativeabbreviations', blank=True, null=True)
@@ -635,7 +635,7 @@ class Study(models.Model):
     startDate = models.DateField(db_column='startdate', blank=True, null=True)
     endDate = models.DateField(db_column='enddate', blank=True, null=True)
     active = models.NullBooleanField()
-    license = models.TextField(blank=True, null=True)
+    licence = models.TextField(blank=True, null=True)
     lastUpdateVersion = models.TextField(db_column='lastupdateversion', blank=True, null=True)
     lastUpdateTimestamp = models.DateTimeField(db_column='lastupdatetimestamp', blank=True, null=True)
 

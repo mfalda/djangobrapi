@@ -4,6 +4,7 @@ import logging
 from brapi.models import Trial
 from brapi.serializers import TrialSerializer
 from brapi.aux_fun import search_get_qparams, paginate
+from brapi.paginators import BrAPISimplePagination
 
 
 class TrialView(APIView):
@@ -59,7 +60,7 @@ class TrialDetailsView(APIView):
             queryset = queryset.filter(trialDbId=trialDbId)
         # end if
 
-        return paginate(queryset, request, TrialSerializer)
+        return paginate(queryset, request, TrialSerializer, BrAPISimplePagination)
 
     # end def get
 

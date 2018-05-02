@@ -7,7 +7,7 @@ from brapi.serializers import (ObservationVariableSerializer, OntologySerializer
 
 from brapi.aux_fun import paginate, search_post_params_in
 
-from brapi.paginators import BrAPIListPagination
+from brapi.paginators import BrAPIListPagination, BrAPISimplePagination
 
 
 class ObservationVariableDatatypeView(APIView):
@@ -50,7 +50,7 @@ class ObservationVariableView(APIView):
             queryset = queryset.filter(observationVariableDbId=observationVariableDbId)
         # end if
 
-        return paginate(queryset, request, ObservationVariableSerializer)
+        return paginate(queryset, request, ObservationVariableSerializer, BrAPISimplePagination)
 
     # end def get_queryset
 

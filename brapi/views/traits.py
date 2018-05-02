@@ -3,6 +3,7 @@ from rest_framework.views import APIView
 from brapi.models import Trait
 from brapi.serializers import TraitSerializer
 from brapi.aux_fun import paginate
+from brapi.paginators import BrAPISimplePagination
 
 
 class TraitView(APIView):
@@ -29,7 +30,7 @@ class TraitDetailsView(APIView):
             queryset = queryset.filter(traitDbId=traitDbId)
         # end if
 
-        return paginate(queryset, request, TraitSerializer)
+        return paginate(queryset, request, TraitSerializer, BrAPISimplePagination)
 
     # end def get
 

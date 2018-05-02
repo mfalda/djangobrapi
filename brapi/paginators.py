@@ -55,7 +55,7 @@ class BrAPIResultsSetPagination(PageNumberPagination):
             "metadata": {
                 "pagination": {
                     "currentPage": self.page.number,
-                    "pageTotal": self.page.paginator.num_pages,
+                    "totalPages": self.page.paginator.num_pages,
                     "totalCount": self.page.paginator.count,
                     "pageSize": self.get_page_size(self.request)
                 },
@@ -92,7 +92,7 @@ class BrAPIListPagination(PageNumberPagination):
             "metadata": {
                 "pagination": {
                     "currentPage": self.page.number,
-                    "pageTotal": self.page.paginator.num_pages,
+                    "totalPages": self.page.paginator.num_pages,
                     "totalCount": self.page.paginator.count,
                     "pageSize": self.get_page_size(self.request)
                 },
@@ -129,14 +129,14 @@ class BrAPISimplePagination(PageNumberPagination):
             "metadata": {
                 "pagination": {
                     "currentPage": self.page.number,
-                    "pageTotal": self.page.paginator.num_pages,
+                    "totalPages": self.page.paginator.num_pages,
                     "totalCount": self.page.paginator.count,
                     "pageSize": self.get_page_size(self.request)
                 },
                 "status": [],
                 "datafiles": []
             },
-            "result": data
+            "result": data[0]
         })
 
     # end def get_paginated_response

@@ -9,7 +9,7 @@
       "version": "v1.2",
       "description": "developped for European genetic studies projects",
       "copyright": "© 2016, INRA",
-      "license": "CC BY-SA 4.0"
+      "licence": "CC BY-SA 4.0"
     }
   },
   {
@@ -21,8 +21,8 @@
       "authors": "J. Doe",
       "description": "developped for IRRI and amended with partners needs",
       "version": "v2",
-      "copyright": null,
-      "license": null
+      "copyright": "© 2018, INRA",
+      "licence": "CC BY-SA 5.0"
     }
   }
 ]

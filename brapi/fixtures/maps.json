@@ -6,7 +6,7 @@
       "name": "SSR map 1",
       "species": "Ipomoea batatas",
       "type": "Genetic",
-      "unit": "cM",
+      "unit": "Mb",
       "publishedDate": "2016-01-06",
       "comments": "10"
     }
@@ -18,7 +18,7 @@
       "name": "Some Map",
       "species": "Some species",
       "type": "Genetic",
-      "unit": "kM",
+      "unit": "cM",
       "publishedDate": "2008-04-16",
       "comments": "This map contains ..."
     }

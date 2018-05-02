@@ -12,8 +12,7 @@ from brapi.serializers import (StudySerializer, StudySearchSerializer,
                                 ObservationUnitSerializer, StudyObservationUnitByObservationVariableSerializer)
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
-from brapi.paginators import BrAPIListPagination
-
+from brapi.paginators import BrAPIListPagination, BrAPISimplePagination
 
 class StudySearchView(APIView):
 
@@ -232,7 +231,7 @@ class StudyDetailView(APIView):
             queryset = queryset.filter(studyDbId=studyDbId)
         # end if
         
-        return paginate(queryset, request, StudySerializer)
+        return paginate(queryset, request, StudySerializer, BrAPISimplePagination)
 
     # end def get
     

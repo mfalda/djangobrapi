@@ -149,7 +149,7 @@ class GermplasmMarkeprofileView(APIView):
             queryset = queryset.filter(germplasmDbId=germplasmDbId)[:1]
         # end if
 
-        return paginate(queryset, request, GermplasmMarkerprofileSerializer)
+        return paginate(queryset, request, GermplasmMarkerprofileSerializer, BrAPISimplePagination)
 
     # end def get
 

@@ -1,27 +1,87 @@
 [
   {
     "model": "brapi.call",
-    "pk": "10",
+    "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm//markerprofiles",
+      "call": "calls",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "11",
+    "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm//pedigree",
+      "call": "crops",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "12",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/{mapDbId}/positions",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/{mapDbId}/positions/{linkageGroupName}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/{germplasmDbId}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/{germplasmDbId}/markerprofiles",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/{germplasmDbId}/pedigree",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "9",
     "fields": {
       "cropdbid": "1",
       "call": "germplasm-search",
@@ -31,7 +91,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "13",
+    "pk": "10",
     "fields": {
       "cropdbid": "1",
       "call": "germplasm-search",
@@ -41,17 +101,17 @@
   },
   {
     "model": "brapi.call",
-    "pk": "14",
+    "pk": "11",
     "fields": {
       "cropdbid": "1",
-      "call": "attributes",
+      "call": "germplasm/{germplasmDbId}/attributes",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "15",
+    "pk": "12",
     "fields": {
       "cropdbid": "1",
       "call": "attributes/categories",
@@ -61,10 +121,40 @@
   },
   {
     "model": "brapi.call",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "call": "attributes",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "call": "locations",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "call": "locations/{locationDbId}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
     "pk": "16",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm//attributes/",
+      "call": "allelematrices",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -74,7 +164,7 @@
     "pk": "17",
     "fields": {
       "cropdbid": "1",
-      "call": "locations",
+      "call": "allelematrix-search",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -86,7 +176,7 @@
       "cropdbid": "1",
       "call": "allelematrix-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST"
     }
   },
   {
@@ -94,17 +184,7 @@
     "pk": "19",
     "fields": {
       "cropdbid": "1",
-      "call": "allelematrix-search",
-      "datatypes": "json",
-      "methods": "POST"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "call": "calls",
+      "call": "markerprofiles/{markerprofileDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -114,7 +194,7 @@
     "pk": "20",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles/",
+      "call": "markerprofiles",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -124,7 +204,7 @@
     "pk": "21",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles-search",
+      "call": "markerprofiles",
       "datatypes": "json",
       "methods": "POST"
     }
@@ -134,7 +214,7 @@
     "pk": "22",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles",
+      "call": "markers/{markerDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -144,7 +224,7 @@
     "pk": "23",
     "fields": {
       "cropdbid": "1",
-      "call": "markers/",
+      "call": "markers",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -154,7 +234,7 @@
     "pk": "24",
     "fields": {
       "cropdbid": "1",
-      "call": "markers",
+      "call": "variables/datatypes",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -164,7 +244,7 @@
     "pk": "25",
     "fields": {
       "cropdbid": "1",
-      "call": "variables",
+      "call": "variables/{observationVariableDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -174,7 +254,7 @@
     "pk": "26",
     "fields": {
       "cropdbid": "1",
-      "call": "variables/datatypes",
+      "call": "variables",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -184,7 +264,7 @@
     "pk": "27",
     "fields": {
       "cropdbid": "1",
-      "call": "variables/",
+      "call": "ontologies",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -194,7 +274,7 @@
     "pk": "28",
     "fields": {
       "cropdbid": "1",
-      "call": "ontologies",
+      "call": "variables-search",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -211,22 +291,12 @@
   },
   {
     "model": "brapi.call",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "call": "crops",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "30",
     "fields": {
       "cropdbid": "1",
       "call": "phenotypes-search",
       "datatypes": "json",
-      "methods": "GET; POST"
+      "methods": "POST"
     }
   },
   {
@@ -246,6 +316,16 @@
       "cropdbid": "1",
       "call": "programs-search",
       "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "33",
+    "fields": {
+      "cropdbid": "1",
+      "call": "programs-search",
+      "datatypes": "json",
       "methods": "POST"
     }
   },
@@ -254,7 +334,7 @@
     "pk": "34",
     "fields": {
       "cropdbid": "1",
-      "call": "samples/",
+      "call": "samples/{sampleDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -264,7 +344,7 @@
     "pk": "35",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/",
+      "call": "studies/{studyDbId}/observations",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -274,7 +354,7 @@
     "pk": "36",
     "fields": {
       "cropdbid": "1",
-      "call": "observationLevels",
+      "call": "observationlevels",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -284,7 +364,7 @@
     "pk": "37",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//observations",
+      "call": "seasons",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -294,7 +374,7 @@
     "pk": "38",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//observationunits",
+      "call": "studies-search",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -304,19 +384,9 @@
     "pk": "39",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//observationVariables",
+      "call": "studies-search",
       "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "call": "maps",
-      "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST"
     }
   },
   {
@@ -324,7 +394,7 @@
     "pk": "40",
     "fields": {
       "cropdbid": "1",
-      "call": "studies-search",
+      "call": "studytypes",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -334,9 +404,9 @@
     "pk": "41",
     "fields": {
       "cropdbid": "1",
-      "call": "studies-search",
+      "call": "studies/{studyDbId}/observationunits",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET"
     }
   },
   {
@@ -344,7 +414,7 @@
     "pk": "42",
     "fields": {
       "cropdbid": "1",
-      "call": "seasons",
+      "call": "studies/{studyDbId}/layout",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -354,7 +424,17 @@
     "pk": "43",
     "fields": {
       "cropdbid": "1",
-      "call": "studyTypes",
+      "call": "studies/{studyDbId}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "44",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies/{studyDbId}/germplasm",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -364,7 +444,17 @@
     "pk": "45",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//layout",
+      "call": "studies/{studyDbId}/table",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "46",
+    "fields": {
+      "cropdbid": "1",
+      "call": "studies/{studyDbId}/observationvariables",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -384,7 +474,7 @@
     "pk": "48",
     "fields": {
       "cropdbid": "1",
-      "call": "traits/",
+      "call": "traits/{traitDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -394,17 +484,7 @@
     "pk": "49",
     "fields": {
       "cropdbid": "1",
-      "call": "trials",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "5",
-    "fields": {
-      "cropdbid": "1",
-      "call": "maps//positions",
+      "call": "trials/{trialDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -414,47 +494,17 @@
     "pk": "50",
     "fields": {
       "cropdbid": "1",
-      "call": "trials/",
+      "call": "trials",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "6",
+    "pk": "51",
     "fields": {
       "cropdbid": "1",
-      "call": "maps//positions/",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "7",
-    "fields": {
-      "cropdbid": "1",
-      "call": "maps/",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "8",
-    "fields": {
-      "cropdbid": "1",
-      "call": "germplasm/",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "9",
-    "fields": {
-      "cropdbid": "1",
-      "call": "studies//germplasm",
+      "call": "maps/{mapDbId}",
       "datatypes": "json",
       "methods": "GET"
     }

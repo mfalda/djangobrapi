@@ -40,7 +40,7 @@ class MapDetailView(APIView):
 # end class MapDetailView
     
     
-class MapLinkageView(generics.ListCreateAPIView):
+class MapLinkageView(APIView):
 
     def get(self, request, format=None, *args, **kwargs):
 

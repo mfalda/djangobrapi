@@ -4,34 +4,84 @@
     "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "call": "token",
-      "datatypes": "json; text",
-      "methods": "POST; DELETE"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "10",
-    "fields": {
-      "cropdbid": "1",
-      "call": "germplasm//markerprofiles",
+      "call": "calls",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "11",
+    "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm//pedigree",
+      "call": "crops",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "12",
+    "pk": "3",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "4",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/{mapDbId}/positions",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "5",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/{mapDbId}/positions/{linkageGroupName}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "6",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/{germplasmDbId}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "7",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/{germplasmDbId}/markerprofiles",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "8",
+    "fields": {
+      "cropdbid": "1",
+      "call": "germplasm/{germplasmDbId}/pedigree",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "9",
     "fields": {
       "cropdbid": "1",
       "call": "germplasm-search",
@@ -41,7 +91,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "13",
+    "pk": "10",
     "fields": {
       "cropdbid": "1",
       "call": "germplasm-search",
@@ -51,17 +101,17 @@
   },
   {
     "model": "brapi.call",
-    "pk": "14",
+    "pk": "11",
     "fields": {
       "cropdbid": "1",
-      "call": "attributes",
+      "call": "germplasm/{germplasmDbId}/attributes",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "15",
+    "pk": "12",
     "fields": {
       "cropdbid": "1",
       "call": "attributes/categories",
@@ -71,10 +121,40 @@
   },
   {
     "model": "brapi.call",
+    "pk": "13",
+    "fields": {
+      "cropdbid": "1",
+      "call": "attributes",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "14",
+    "fields": {
+      "cropdbid": "1",
+      "call": "locations",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "15",
+    "fields": {
+      "cropdbid": "1",
+      "call": "locations/{locationDbId}",
+      "datatypes": "json",
+      "methods": "GET"
+    }
+  },
+  {
+    "model": "brapi.call",
     "pk": "16",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm//attributes/",
+      "call": "allelematrices",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -84,7 +164,7 @@
     "pk": "17",
     "fields": {
       "cropdbid": "1",
-      "call": "locations",
+      "call": "allelematrix-search",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -95,8 +175,8 @@
     "fields": {
       "cropdbid": "1",
       "call": "allelematrix-search",
-      "datatypes": "json; csv; tsv",
-      "methods": "GET"
+      "datatypes": "json",
+      "methods": "POST"
     }
   },
   {
@@ -104,17 +184,7 @@
     "pk": "19",
     "fields": {
       "cropdbid": "1",
-      "call": "allelematrix-search",
-      "datatypes": "json; csv; tsv",
-      "methods": "POST"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "2",
-    "fields": {
-      "cropdbid": "1",
-      "call": "calls",
+      "call": "markerprofiles/{markerprofileDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -124,7 +194,7 @@
     "pk": "20",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles/",
+      "call": "markerprofiles",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -134,7 +204,7 @@
     "pk": "21",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles-search",
+      "call": "markerprofiles",
       "datatypes": "json",
       "methods": "POST"
     }
@@ -144,7 +214,7 @@
     "pk": "22",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles",
+      "call": "markers/{markerDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -154,7 +224,7 @@
     "pk": "23",
     "fields": {
       "cropdbid": "1",
-      "call": "markers/",
+      "call": "markers",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -164,7 +234,7 @@
     "pk": "24",
     "fields": {
       "cropdbid": "1",
-      "call": "markers",
+      "call": "variables/datatypes",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -174,7 +244,7 @@
     "pk": "25",
     "fields": {
       "cropdbid": "1",
-      "call": "variables",
+      "call": "variables/{observationVariableDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -184,7 +254,7 @@
     "pk": "26",
     "fields": {
       "cropdbid": "1",
-      "call": "variables/datatypes",
+      "call": "variables",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -194,7 +264,7 @@
     "pk": "27",
     "fields": {
       "cropdbid": "1",
-      "call": "variables/",
+      "call": "ontologies",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -204,7 +274,7 @@
     "pk": "28",
     "fields": {
       "cropdbid": "1",
-      "call": "ontologies",
+      "call": "variables-search",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -221,22 +291,12 @@
   },
   {
     "model": "brapi.call",
-    "pk": "3",
-    "fields": {
-      "cropdbid": "1",
-      "call": "crops",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "30",
     "fields": {
       "cropdbid": "1",
       "call": "phenotypes-search",
       "datatypes": "json",
-      "methods": "GET; POST"
+      "methods": "POST"
     }
   },
   {
@@ -256,7 +316,7 @@
       "cropdbid": "1",
       "call": "programs-search",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET"
     }
   },
   {
@@ -264,9 +324,9 @@
     "pk": "33",
     "fields": {
       "cropdbid": "1",
-      "call": "samples",
+      "call": "programs-search",
       "datatypes": "json",
-      "methods": "PUT"
+      "methods": "POST"
     }
   },
   {
@@ -274,7 +334,7 @@
     "pk": "34",
     "fields": {
       "cropdbid": "1",
-      "call": "samples/",
+      "call": "samples/{sampleDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -284,7 +344,7 @@
     "pk": "35",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/",
+      "call": "studies/{studyDbId}/observations",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -294,7 +354,7 @@
     "pk": "36",
     "fields": {
       "cropdbid": "1",
-      "call": "observationLevels",
+      "call": "observationlevels",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -304,7 +364,7 @@
     "pk": "37",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//observations",
+      "call": "seasons",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -314,7 +374,7 @@
     "pk": "38",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//observationunits",
+      "call": "studies-search",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -324,19 +384,9 @@
     "pk": "39",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//observationVariables",
+      "call": "studies-search",
       "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "4",
-    "fields": {
-      "cropdbid": "1",
-      "call": "maps",
-      "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST"
     }
   },
   {
@@ -344,7 +394,7 @@
     "pk": "40",
     "fields": {
       "cropdbid": "1",
-      "call": "studies-search",
+      "call": "studytypes",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -354,9 +404,9 @@
     "pk": "41",
     "fields": {
       "cropdbid": "1",
-      "call": "studies-search",
+      "call": "studies/{studyDbId}/observationunits",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET"
     }
   },
   {
@@ -364,7 +414,7 @@
     "pk": "42",
     "fields": {
       "cropdbid": "1",
-      "call": "seasons",
+      "call": "studies/{studyDbId}/layout",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -374,7 +424,7 @@
     "pk": "43",
     "fields": {
       "cropdbid": "1",
-      "call": "studyTypes",
+      "call": "studies/{studyDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -384,8 +434,8 @@
     "pk": "44",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//table",
-      "datatypes": "json; csv; tsv",
+      "call": "studies/{studyDbId}/germplasm",
+      "datatypes": "json",
       "methods": "GET"
     }
   },
@@ -394,7 +444,7 @@
     "pk": "45",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//layout",
+      "call": "studies/{studyDbId}/table",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -404,9 +454,9 @@
     "pk": "46",
     "fields": {
       "cropdbid": "1",
-      "call": "studies//table",
+      "call": "studies/{studyDbId}/observationvariables",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET"
     }
   },
   {
@@ -424,7 +474,7 @@
     "pk": "48",
     "fields": {
       "cropdbid": "1",
-      "call": "traits/",
+      "call": "traits/{traitDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -434,17 +484,7 @@
     "pk": "49",
     "fields": {
       "cropdbid": "1",
-      "call": "trials",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "5",
-    "fields": {
-      "cropdbid": "1",
-      "call": "maps//positions",
+      "call": "trials/{trialDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -454,47 +494,17 @@
     "pk": "50",
     "fields": {
       "cropdbid": "1",
-      "call": "trials/",
+      "call": "trials",
       "datatypes": "json",
       "methods": "GET"
     }
   },
   {
     "model": "brapi.call",
-    "pk": "6",
+    "pk": "51",
     "fields": {
       "cropdbid": "1",
-      "call": "maps//positions/",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "7",
-    "fields": {
-      "cropdbid": "1",
-      "call": "maps/",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "8",
-    "fields": {
-      "cropdbid": "1",
-      "call": "germplasm/",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "9",
-    "fields": {
-      "cropdbid": "1",
-      "call": "studies//germplasm",
+      "call": "maps/{mapDbId}",
       "datatypes": "json",
       "methods": "GET"
     }
@@ -569,7 +579,7 @@
       "germplasmDbId": "1",
       "donorAccessionNumber": "BRA001001",
       "donorInstituteCode": "BRA001",
-      "donorGermplasmPUI": "http://bra/accession/BRA001001"
+      "donorGermplasmPUI": "http:/bra/accession/BRA001001"
     }
   },
   {
@@ -580,7 +590,7 @@
       "germplasmDbId": "2",
       "donorAccessionNumber": "ECU001001",
       "donorInstituteCode": "ECU001",
-      "donorGermplasmPUI": "http://ecu/accession/ECU001001"
+      "donorGermplasmPUI": "http:/ecu/accession/ECU001001"
     }
   },
   {
@@ -591,7 +601,7 @@
       "germplasmDbId": "3",
       "donorAccessionNumber": "A000003",
       "donorInstituteCode": "PER001",
-      "donorGermplasmPUI": "http://data.cipotato.org/accession/A000003"
+      "donorGermplasmPUI": "http:/data.cipotato.org/accession/A000003"
     }
   },
   {
@@ -602,7 +612,7 @@
       "germplasmDbId": "4",
       "donorAccessionNumber": "A000004",
       "donorInstituteCode": "PER001",
-      "donorGermplasmPUI": "http://data.cipotato.org/accession/A000004"
+      "donorGermplasmPUI": "http:/data.cipotato.org/accession/A000004"
     }
   },
   {
@@ -613,7 +623,7 @@
       "germplasmDbId": "5",
       "donorAccessionNumber": "ECU001002",
       "donorInstituteCode": "ECU002",
-      "donorGermplasmPUI": "http://ecu/accession/ECU001002"
+      "donorGermplasmPUI": "http:/ecu/accession/ECU001002"
     }
   },
   {
@@ -624,7 +634,7 @@
       "germplasmDbId": "5",
       "donorAccessionNumber": "PER002001",
       "donorInstituteCode": "PER002",
-      "donorGermplasmPUI": "http://per/accession/PER002001"
+      "donorGermplasmPUI": "http:/per/accession/PER002001"
     }
   },
   {
@@ -632,7 +642,7 @@
     "pk": "1",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000001",
+      "germplasmPUI": "http:/pui.per/accession/A000001",
       "germplasmName": "Name001",
       "defaultDisplayName": "G000001",
       "accessionNumber": "A000001",
@@ -658,7 +668,7 @@
     "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000002",
+      "germplasmPUI": "http:/pui.per/accession/A000002",
       "germplasmName": "Name002",
       "defaultDisplayName": "G000002",
       "accessionNumber": "A000002",
@@ -684,7 +694,7 @@
     "pk": "3",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000003",
+      "germplasmPUI": "http:/pui.per/accession/A000003",
       "germplasmName": "Name003",
       "defaultDisplayName": "G000003",
       "accessionNumber": "A000003",
@@ -710,7 +720,7 @@
     "pk": "4",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000004",
+      "germplasmPUI": "http:/pui.per/accession/A000004",
       "germplasmName": "Name004",
       "defaultDisplayName": "G000004",
       "accessionNumber": "A000004",
@@ -736,7 +746,7 @@
     "pk": "5",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000005",
+      "germplasmPUI": "http:/pui.per/accession/A000005",
       "germplasmName": "Name005",
       "defaultDisplayName": "G000005",
       "accessionNumber": "A000005",
@@ -762,7 +772,7 @@
     "pk": "6",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000006",
+      "germplasmPUI": "http:/pui.per/accession/A000006",
       "germplasmName": "Name006",
       "defaultDisplayName": "G000006",
       "accessionNumber": "A000006",
@@ -788,7 +798,7 @@
     "pk": "7",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000007",
+      "germplasmPUI": "http:/pui.per/accession/A000007",
       "germplasmName": "Name007",
       "defaultDisplayName": "G000007",
       "accessionNumber": "A000007",
@@ -814,7 +824,7 @@
     "pk": "8",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000008",
+      "germplasmPUI": "http:/pui.per/accession/A000008",
       "germplasmName": "Name008",
       "defaultDisplayName": "G000008",
       "accessionNumber": "A000008",
@@ -840,7 +850,7 @@
     "pk": "9",
     "fields": {
       "cropdbid": "1",
-      "germplasmPUI": "http://pui.per/accession/A000009",
+      "germplasmPUI": "http:/pui.per/accession/A000009",
       "germplasmName": "Local_variety",
       "defaultDisplayName": "Local_variety",
       "accessionNumber": "A000009",
@@ -868,11 +878,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "2",
       "code": "RHT",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000001",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000001",
       "name": "Rht-B1b",
       "description": "Allele of marker 11_4769",
       "datatype": "Categorical",
-      "values": "['Present', 'Absent', 'Heterozygous']"
+      "values": "Present; Absent; Heterozygous"
     }
   },
   {
@@ -882,11 +892,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "4",
       "code": "RAL6",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000010",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000010",
       "name": "R allele 6",
       "description": "Resistance allele",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4']"
+      "values": "1; 2; 3; 4"
     }
   },
   {
@@ -896,11 +906,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "3",
       "code": "WEV",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000002",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000002",
       "name": "Weevil Resistance",
       "description": "Resistance allele",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+      "values": "1; 2; 3; 4; 5; 6; 7; 8; 9"
     }
   },
   {
@@ -910,11 +920,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "1",
       "code": "FLSHORG",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000003",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000003",
       "name": "Flesh Color Orange allele",
       "description": "Allelele for orange flesh",
       "datatype": "Categorical",
-      "values": "['1', '3', '5', '7', '9']"
+      "values": "1; 3; 5; 7; 9"
     }
   },
   {
@@ -924,11 +934,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "1",
       "code": "FLWCOL",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000004",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000004",
       "name": "Flower color white allele",
       "description": "Allele for white flower color",
       "datatype": "Categorical",
-      "values": "['Present', 'Absent', 'Heterozygous']"
+      "values": "Present; Absent; Heterozygous"
     }
   },
   {
@@ -938,11 +948,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "3",
       "code": "RAL1",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000005",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000005",
       "name": "R allele 1",
       "description": "Resistance allele 1",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+      "values": "1; 2; 3; 4; 5; 6; 7; 8; 9"
     }
   },
   {
@@ -952,11 +962,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "3",
       "code": "RAL2",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000006",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000006",
       "name": "R allele 2",
       "description": "Resistance allele 2",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+      "values": "1; 2; 3; 4; 5; 6; 7; 8; 9"
     }
   },
   {
@@ -966,11 +976,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "3",
       "code": "RAL3",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000007",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000007",
       "name": "R allele 3",
       "description": "Resistance allele 3",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+      "values": "1; 2; 3; 4; 5; 6; 7; 8; 9"
     }
   },
   {
@@ -980,11 +990,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "4",
       "code": "RAL4",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000008",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000008",
       "name": "R allele 4",
       "description": "Resistance allele 4",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+      "values": "1; 2; 3; 4; 5; 6; 7; 8; 9"
     }
   },
   {
@@ -994,11 +1004,11 @@
       "cropdbid": "1",
       "attributeCategoryDbId": "4",
       "code": "RAL5",
-      "uri": "http://www.brapi.org/ontology/MO_123:1000009",
+      "uri": "http:/www.brapi.org/ontology/MO_123:1000009",
       "name": "R allele 5",
       "description": "Resistance allele 5",
       "datatype": "Categorical",
-      "values": "['1', '2', '3', '4', '5', '6', '7', '8', '9']"
+      "values": "1; 2; 3; 4; 5; 6; 7; 8; 9"
     }
   },
   {
@@ -4580,7 +4590,7 @@
       "growthStage": "ripen",
       "defaultValue": "1",
       "traitDbId": "1",
-      "methodDbId": null,
+      "methodDbId": "CO_334:0010320",
       "scales": "CO_334:0100527"
     }
   },
@@ -4624,7 +4634,7 @@
       "growthStage": "mature",
       "defaultValue": "0",
       "traitDbId": "2",
-      "methodDbId": null,
+      "methodDbId": "CO_334:0010320",
       "scales": "CO_334:0100527"
     }
   },
@@ -4708,7 +4718,7 @@
       "description": "developped for European genetic studies projects",
       "version": "v1.2",
       "copyright": "\u00a9 2016, INRA",
-      "license": "CC BY-SA 4.0"
+      "licence": "CC BY-SA 4.0"
     }
   },
   {
@@ -4720,8 +4730,8 @@
       "authors": "J. Doe",
       "description": "developped for IRRI and amended with partners needs",
       "version": "v2",
-      "copyright": null,
-      "license": null
+      "copyright": "\u00a9 2016, INRA",
+      "licence": "CC BY-SA 5.0"
     }
   },
   {
@@ -5277,7 +5287,7 @@
       "startDate": "2013-01-01",
       "endDate": "2013-05-07",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/312953986E3"
     }
   },
@@ -5291,7 +5301,7 @@
       "startDate": "2014-01-06",
       "endDate": "2015-01-15",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/1234992349"
     }
   },
@@ -5305,7 +5315,7 @@
       "startDate": "2011-01-05",
       "endDate": "2011-12-15",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/134591245"
     }
   },
@@ -5319,7 +5329,7 @@
       "startDate": "2012-01-07",
       "endDate": "2013-01-02",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/1235919"
     }
   },
@@ -5333,7 +5343,7 @@
       "startDate": "2013-08-15",
       "endDate": "2014-02-28",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/13425915"
     }
   },
@@ -5347,7 +5357,7 @@
       "startDate": "2014-09-22",
       "endDate": "2015-03-31",
       "active": true,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/125512251"
     }
   },
@@ -5361,7 +5371,7 @@
       "startDate": "2011-12-05",
       "endDate": "2011-11-30",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/34576437"
     }
   },
@@ -5375,7 +5385,7 @@
       "startDate": "2012-02-17",
       "endDate": "2012-08-21",
       "active": false,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/34734756"
     }
   },
@@ -5389,7 +5399,7 @@
       "startDate": "2016-03-24",
       "endDate": "2016-10-21",
       "active": true,
-      "datasetAuthorshipLicence": "https://creativecommons.org/licenses/by/4.0",
+      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
       "datasetAuthorshipDatasetPUI": "doi:10.15454/35673236"
     }
   },
@@ -5430,7 +5440,7 @@
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
       "active": true,
-      "license": "https://creativecommons.org/licenses/by/4.0",
+      "licence": "https:/creativecommons.org/licenses/by/4.0",
       "lastUpdateVersion": "1.1",
       "lastUpdateTimestamp": "2015-01-01T07:54:00Z"
     }
@@ -5448,7 +5458,7 @@
       "startDate": "2014-01-01",
       "endDate": "2015-01-01",
       "active": true,
-      "license": "https://creativecommons.org/licenses/by/4.0",
+      "licence": "https:/creativecommons.org/licenses/by/4.0",
       "lastUpdateVersion": "2.3",
       "lastUpdateTimestamp": "2016-01-01T08:54:00Z"
     }
@@ -5466,7 +5476,7 @@
       "startDate": "2011-01-01",
       "endDate": "2012-01-01",
       "active": false,
-      "license": "https://creativecommons.org/licenses/by/4.0",
+      "licence": "https:/creativecommons.org/licenses/by/4.0",
       "lastUpdateVersion": "0.1",
       "lastUpdateTimestamp": "2014-01-01T18:54:00Z"
     }
@@ -5858,7 +5868,7 @@
       "studydbid": "1001",
       "name": "image-archive12.zip",
       "type": "Image archive",
-      "url": "http://data.inra.fr/archive/multi-spect-flowering.zip"
+      "url": "http:/data.inra.fr/archive/multi-spect-flowering.zip"
     }
   },
   {
@@ -5910,7 +5920,7 @@
     "fields": {
       "cropdbid": "1",
       "source": "ncbiTaxon",
-      "rank": "http://purl.obolibrary.org/obo/NCBITaxon_4641"
+      "rank": "http:/purl.obolibrary.org/obo/NCBITaxon_4641"
     }
   },
   {
@@ -6617,7 +6627,7 @@
       "name": "SSR map 1",
       "species": "Ipomoea batatas",
       "type": "Genetic",
-      "unit": "cM",
+      "unit": "Mb",
       "publishedDate": "2016-01-06",
       "comments": "10"
     }
@@ -6629,7 +6639,7 @@
       "name": "Some Map",
       "species": "Some species",
       "type": "Genetic",
-      "unit": "kM",
+      "unit": "cM",
       "publishedDate": "2008-04-16",
       "comments": "This map contains ..."
     }
