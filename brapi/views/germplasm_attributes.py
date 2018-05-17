@@ -6,6 +6,7 @@ from brapi.serializers import (GermplasmAttributeCategorySerializer, GermplasmAt
                                GermplasmAttributeValueSerializer)
 
 from brapi.aux_fun import search_get_qparams, paginate
+from brapi.paginators import BrAPISimplePagination
 
 
 class GermplasmAttributesListView(APIView):
@@ -56,7 +57,7 @@ class GermplasmAttributeView(APIView):
             queryset = queryset.filter(attributeDbId__in=attributeDbIds.split(','))
         # end if
 
-        return paginate(queryset, request, GermplasmAttributeValueSerializer)
+        return paginate(queryset, request, GermplasmAttributeValueSerializer, BrAPISimplePagination)
          
     # end def get
 

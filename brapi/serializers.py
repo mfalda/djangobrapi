@@ -109,12 +109,34 @@ class PedigreeSerializer(serializers.ModelSerializer):
 
 class GermplasmAttributeValueSerializer(serializers.ModelSerializer):
 
+    germplasmDbId = serializers.SerializerMethodField()
+    data = serializers.SerializerMethodField()
+
+
     class Meta:
 
         model = GermplasmAttributeValue
-        exclude = ['cropdbid', 'germplasmattributevaluedbid']
+        fields = ['germplasmDbId', 'data']
 
     # end class Meta
+
+
+    def get_germplasmDbId(self, obj):
+
+        return obj.germplasmDbId_id
+
+    # end def get_germplasmDbId
+
+
+    def get_data(self, obj):
+
+        return GermplasmAttributeValue.objects.values('attributeDbId',
+                                                      'attributeName',
+                                                      'attributeCode',
+                                                      'value',
+                                                      'determinedDate')
+
+    # end def get_data
 
 # end class GermplasmAttributeValueSerializer
 
@@ -817,7 +839,7 @@ class SampleSerializer(ExtendedSerializer):
 
     season = serializers.SerializerMethodField()
     locationName = serializers.SerializerMethodField()
-    studyName = serializers.SerializerMethodField()
+    #studyName = serializers.SerializerMethodField()
     plotNumber = serializers.SerializerMethodField()
     entryNumber = serializers.SerializerMethodField()
 
@@ -1479,12 +1501,38 @@ class ContactSerializer(ExtendedSerializer):
 
 class MapLinkageSerializer(serializers.ModelSerializer):
 
+    markerDbId = serializers.SerializerMethodField()
+    linkageGroupName = serializers.SerializerMethodField()
+    location = serializers.SerializerMethodField()
+
+
     class Meta:
 
         model = MapLinkage
-        exclude = ['id', 'mapDbId']
+        exclude = ['id', 'mapDbId', 'linkageGroupId']
 
     # end class Meta
+
+
+    def get_markerDbId(self, obj):
+
+        return str(obj.markerDbId)
+
+    # end def get_markerDbId
+
+
+    def get_linkageGroupName(self, obj):
+
+        return str(obj.linkageGroupId)
+
+    # end def get_linkageGroupName
+
+
+    def get_location(self, obj):
+
+        return str(obj.location)
+
+    # end def get_location
 
 # end class MapLinkageSerializer
 
@@ -1531,29 +1579,73 @@ class MapSerializer(serializers.ModelSerializer):
 
 class MapDetailSerializer(serializers.ModelSerializer):
 
-    linkageGroups = serializers.SerializerMethodField()
+    mapDbId = serializers.SerializerMethodField()
+    data = serializers.SerializerMethodField()
 
 
     class Meta:
 
         model = Map
-        fields = ['mapDbId', 'name', 'type', 'unit', 'linkageGroups']
+        fields = ['mapDbId', 'name', 'type', 'unit', 'data']
 
     # end class Meta
 
 
-    def get_linkageGroups(self, obj):
+    def get_mapDbId(self, obj):
 
-        return (Map.objects
+        return str(obj.mapDbId)
+
+    # end def get_mapDbId
+
+
+    def get_data(self, obj):
+
+        value = (Map.objects
                 .annotate(linkageGroupId=models.F('linkageGroups__linkageGroupId'))
                 .values('linkageGroupId')
+                .annotate(linkageGroupName=models.F('linkageGroups__linkageGroupId'))
                 .annotate(markerCount=models.Count('linkageGroups__markerDbId'))
                 .annotate(maxPosition=models.Max('linkageGroups__location'))
-                .values('linkageGroupId', 'markerCount', 'maxPosition'))
+                .values('linkageGroupName', 'markerCount', 'maxPosition'))
+
+        return [{ 'linkageGroupName': str(v['linkageGroupName']),
+                  'markerCount': v['markerCount'],
+                  'maxPosition': v['maxPosition'] } for v in value
+               ]
 
     # end def get_linkageGroups
 
 # end class MapDetailSerializer
+
+
+class MapLinkagePositionsSerializer(serializers.ModelSerializer):
+
+    markerDbId = serializers.SerializerMethodField()
+    location = serializers.SerializerMethodField()
+
+
+    class Meta:
+
+        model = MapLinkage
+        exclude = ['id', 'mapDbId', 'linkageGroupId']
+
+    # end class Meta
+
+
+    def get_markerDbId(self, obj):
+
+        return str(obj.markerDbId)
+
+    # end def get_markerDbId
+
+
+    def get_location(self, obj):
+
+        return str(obj.location)
+
+    # end def get_location
+
+# end class MapLinkagePositionsSerializer
 
 
 class PhenotypeSerializer(serializers.ModelSerializer):

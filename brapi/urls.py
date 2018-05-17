@@ -16,7 +16,7 @@ from brapi.views.germplasm_attributes import (GermplasmAttributesListView, Germp
                                                 GermplasmAttributeView)
 from brapi.views.germplasm import (GermplasmPedigreeView, GermplasmView, GermplasmSearchView)
 from brapi.views.trials import TrialView, TrialDetailsView
-from brapi.views.samples import SampleView
+from brapi.views.samples import SampleView, SampleSearchView
 from brapi.views.phenotypes import PhenotypeSearchView
 from brapi.views.markerprofiles import (AlleleMatrixView, AlleleMatrixSearchView,
                                         MarkerprofileView, MarkerprofileDataView,
@@ -64,6 +64,7 @@ urlpatterns = [
 
     # written as a view to block 'brapi/v1/samples'
     url(r'brapi/v1/samples/(?P<sampleId>[^/]+)/?$', SampleView.as_view()),
+    url(r'brapi/v1/samples-search/?$', SampleSearchView.as_view()),
 
     url(r'brapi/v1/phenotypes-search/?$', PhenotypeSearchView.as_view()),
 

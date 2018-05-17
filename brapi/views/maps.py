@@ -6,8 +6,9 @@ import logging
 from brapi.models import Map, MapLinkage
 
 from brapi.serializers import (MapSerializer, MapDetailSerializer,
-                               MapLinkageSerializer)
+                               MapLinkageSerializer, MapLinkagePositionsSerializer)
 from brapi.aux_fun import search_get_qparams, paginate
+from brapi.paginators import BrAPISimplePagination
 
 
 class MapView(APIView):
@@ -33,7 +34,7 @@ class MapDetailView(APIView):
         queryset = Map.objects.all()
         queryset = queryset.filter(mapDbId=mapDbId)
 
-        return paginate(queryset, request, MapDetailSerializer)
+        return paginate(queryset, request, MapDetailSerializer, BrAPISimplePagination)
     
     # end def get
     
@@ -50,7 +51,7 @@ class MapLinkageView(APIView):
         queryset = MapLinkage.objects.all()
 
         linkageGroupId = self.request.query_params.get('linkageGroupId', None)
-        logger.warn("Linkages: (%s, %s)" % (mapDbId, linkageGroupId))
+        logger.warning("Linkages: (%s, %s)" % (mapDbId, linkageGroupId))
 
         queryset = search_get_qparams(self, queryset, [('mapDbId', 'mapDbId'), ('linkageGroupId', 'linkageGroupId')])
 
@@ -72,7 +73,7 @@ class MapLinkageViewPositions(APIView):
         queryset = MapLinkage.objects.all()
 
         linkageGroupId = self.kwargs['linkageGroupId']
-        logger.warn("Positions: (%s, %s)" % (mapDbId, linkageGroupId))
+        logger.warning("Positions: (%s, %s)" % (mapDbId, linkageGroupId))
 
         queryset = queryset.filter(Q(mapDbId=mapDbId)&Q(linkageGroupId=linkageGroupId))
 
@@ -87,7 +88,7 @@ class MapLinkageViewPositions(APIView):
             queryset = queryset.filter(location__lte=max_pos)
         # end if
 
-        return paginate(queryset, request, MapLinkageSerializer)
+        return paginate(queryset, request, MapLinkagePositionsSerializer)
       
     # end def get
 
