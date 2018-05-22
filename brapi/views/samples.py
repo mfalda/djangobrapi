@@ -4,6 +4,7 @@ import logging
 from brapi.models import Sample
 from brapi.serializers import SampleSerializer
 from brapi.aux_fun import paginate, search_get_qparams, search_post_params_in
+from brapi.paginators import BrAPISimplePagination
 
 
 class SampleView(APIView):
@@ -17,10 +18,10 @@ class SampleView(APIView):
         logger.warning("Sample id '%s'" % sampleId)
         
         if sampleId is not None:
-            queryset = queryset.filter(sampleId=sampleId)
+            queryset = queryset.filter(sampleDbId=sampleId)
         # end if        
 
-        return paginate(queryset, request, SampleSerializer)
+        return paginate(queryset, request, SampleSerializer, BrAPISimplePagination)
 
     # end def get
 

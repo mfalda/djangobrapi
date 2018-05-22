@@ -14,8 +14,8 @@
       "plotNumber": "1",
       "blockNumber": "1",
       "plantNumber": 1,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": 1
     }
@@ -35,8 +35,8 @@
       "plotNumber": "5",
       "blockNumber": "101",
       "plantNumber": "5",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "1",
       "programDbId": 1
     }
@@ -56,8 +56,8 @@
       "plotNumber": "6",
       "blockNumber": "101",
       "plantNumber": null,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "1",
       "programDbId": 2
     }
@@ -77,8 +77,8 @@
       "plotNumber": "1",
       "blockNumber": "1",
       "plantNumber": "1",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": 2
     }
@@ -98,8 +98,8 @@
       "plotNumber": "2",
       "blockNumber": "1",
       "plantNumber": null,
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": 3
     }
@@ -119,8 +119,8 @@
       "plotNumber": "2",
       "blockNumber": "1",
       "plantNumber": "2",
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": 4
     }
@@ -140,8 +140,8 @@
       "plotNumber": "3",
       "blockNumber": "1",
       "plantNumber": null,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": 4
     }
@@ -161,8 +161,8 @@
       "plotNumber": "3",
       "blockNumber": "1",
       "plantNumber": "3",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": 5
     }
@@ -182,8 +182,8 @@
       "plotNumber": "4",
       "blockNumber": "1",
       "plantNumber": null,
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": 6
     }
@@ -203,8 +203,8 @@
       "plotNumber": "4",
       "blockNumber": "1",
       "plantNumber": "4",
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": 6
     }
@@ -224,8 +224,8 @@
       "plotNumber": "5",
       "blockNumber": "101",
       "plantNumber": null,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "1",
       "programDbId": 6
     }

@@ -441,16 +441,6 @@
   },
   {
     "model": "brapi.call",
-    "pk": "45",
-    "fields": {
-      "cropdbid": "1",
-      "call": "studies/{studyDbId}/table",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "46",
     "fields": {
       "cropdbid": "1",

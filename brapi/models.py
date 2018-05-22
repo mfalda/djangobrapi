@@ -512,8 +512,8 @@ class ObservationUnit(models.Model):
     plotNumber = models.TextField(db_column='plotnumber', blank=True, null=True)
     blockNumber = models.TextField(db_column='blocknumber', blank=True, null=True)
     plantNumber = models.TextField(db_column='plantnumber', blank=True, null=True)
-    X = models.TextField(db_column='x', blank=True, null=True)
-    Y = models.TextField(db_column='y', blank=True, null=True)
+    X = models.IntegerField(db_column='x', blank=True, null=True)
+    Y = models.IntegerField(db_column='y', blank=True, null=True)
     replicate = models.TextField(blank=True, null=True)
     programDbId = models.ForeignKey(Program, models.DO_NOTHING, db_column='programdbid')
 
@@ -635,7 +635,7 @@ class Study(models.Model):
     startDate = models.DateField(db_column='startdate', blank=True, null=True)
     endDate = models.DateField(db_column='enddate', blank=True, null=True)
     active = models.NullBooleanField()
-    licence = models.TextField(blank=True, null=True)
+    license = models.TextField(blank=True, null=True)
     lastUpdateVersion = models.TextField(db_column='lastupdateversion', blank=True, null=True)
     lastUpdateTimestamp = models.DateTimeField(db_column='lastupdatetimestamp', blank=True, null=True)
 

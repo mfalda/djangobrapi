@@ -49,9 +49,9 @@ class BrAPIResultsSetPagination(PageNumberPagination):
     # end def paginate_queryset
     
     
-    def get_paginated_response(self, data):
+    def get_paginated_response(self, data, extra=None):
 
-        return Response({
+        res = Response({
             "metadata": {
                 "pagination": {
                     "currentPage": self.page.number,
@@ -66,6 +66,12 @@ class BrAPIResultsSetPagination(PageNumberPagination):
                 "data": data
             }
         })
+        if extra is not None:
+            #print('RESULT:' + str(res.__dict__))
+            res.data['result'].update(extra)
+        # end if
+
+        return res
 
     # end def get_paginated_response
 

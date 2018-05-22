@@ -2,7 +2,7 @@ from rest_framework.views import APIView
 import logging
 from pprint import pformat
 
-from brapi.models import (StudyType, Season, StudyObservationLevel, Observation,
+from brapi.models import (StudyType, Season, StudyObservationLevel, Observation, Trial,
                                 Study, ObservationUnit, ObservationVariable, Germplasm)
 
 from brapi.serializers import (StudySerializer, StudySearchSerializer,
@@ -13,6 +13,8 @@ from brapi.serializers import (StudySerializer, StudySearchSerializer,
 
 from brapi.aux_fun import search_get_qparams, search_post_params_in, paginate
 from brapi.paginators import BrAPIListPagination, BrAPISimplePagination
+from rest_framework.settings import api_settings
+
 
 class StudySearchView(APIView):
 
@@ -259,7 +261,14 @@ class StudyGermplasmDetailsView(APIView):
             logger.warning("Obs. variables: %s" % str([pformat(g.__dict__) for g in g]))
         # end if
 
-        return paginate(queryset, request, StudyGermplasmSerializer)
+        pagination_class = api_settings.DEFAULT_PAGINATION_CLASS
+        paginator = pagination_class()
+
+        page = paginator.paginate_queryset(queryset, request)
+
+        serializer = StudyGermplasmSerializer(page, many=True)
+
+        return paginator.get_paginated_response(serializer.data, {'studyDbId': studyDbId})
 
     # end def get
 
@@ -298,7 +307,16 @@ class StudyObservationVariableView(APIView):
             logger.warning("Obs. variables: %s" % str([pformat(queryset.__dict__) for ov in ov]))
         # end if
 
-        return paginate(queryset, request, ObservationVariableSerializer)
+        pagination_class = api_settings.DEFAULT_PAGINATION_CLASS
+        paginator = pagination_class()
+
+        page = paginator.paginate_queryset(queryset, request)
+
+        serializer = ObservationVariableSerializer(page, many=True)
+
+        trialName = Study.objects.get(pk=studyDbId).trialDbId.trialName
+
+        return paginator.get_paginated_response(serializer.data, {'studyDbId': studyDbId, 'trialName': trialName})
 
     # end def get
 

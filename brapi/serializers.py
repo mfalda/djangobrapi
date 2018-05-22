@@ -291,7 +291,7 @@ class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
     def get_data(self, obj):
 
         return [
-            ( mpd.markerDbId.markerDbId, mpd.markerprofileDbId.markerprofileDbId, mpd.alleleCall )
+            ( str(mpd.markerDbId.markerDbId), str(mpd.markerprofileDbId.markerprofileDbId), mpd.alleleCall )
             for mpd in MarkerprofileData.objects.filter(markerprofileDbId=obj.markerprofileDbId)
         ]
 
@@ -302,6 +302,9 @@ class AlleleMatrixSearchSerializer(serializers.ModelSerializer):
 
 class MarkerprofileSerializer(ExtendedSerializer):
 
+    markerprofileDbId = serializers.SerializerMethodField()
+    extractDbId = serializers.SerializerMethodField()
+    sampleDbId = serializers.SerializerMethodField()
     resultCount = serializers.SerializerMethodField()
 
 
@@ -311,6 +314,27 @@ class MarkerprofileSerializer(ExtendedSerializer):
         exclude = ['cropdbid', 'studyDbId']
 
     # end class Meta
+
+
+    def get_markerprofileDbId(self, obj):
+
+        return str(obj.markerprofileDbId)
+
+    # end def get_markerprofileDbId
+
+
+    def get_sampleDbId(self, obj):
+
+        return str(obj.sampleDbId)
+
+    # end def get_sampleDbId
+
+
+    def get_extractDbId(self, obj):
+
+        return str(obj.extractDbId)
+
+    # end def get_extractDbId
 
 
     def get_resultCount(self, obj):
@@ -346,15 +370,38 @@ class GermplasmMarkerprofileSerializer(ExtendedSerializer):
 
 class MarkerprofileDataSerializer(serializers.ModelSerializer):
 
+    markerprofileDbId = serializers.SerializerMethodField()
+    extractDbId = serializers.SerializerMethodField()
     data = serializers.SerializerMethodField()
 
 
     class Meta:
 
         model = Markerprofile
-        exclude = ['cropdbid', 'sampleDbId', 'studyDbId']
+        exclude = ['cropdbid', 'studyDbId', 'sampleDbId']
 
     # end class Meta
+
+
+    def get_markerprofileDbId(self, obj):
+
+        return str(obj.markerprofileDbId)
+
+    # end def get_markerprofileDbId
+
+
+    def get_sampleDbId(self, obj):
+
+        return str(obj.sampleDbId)
+
+    # end def get_sampleDbId
+
+
+    def get_extractDbId(self, obj):
+
+        return str(obj.extractDbId)
+
+    # end def get_extractDbId
 
 
     def get_data(self, obj):
@@ -430,7 +477,7 @@ class ObservationUnitSerializer(ExtendedSerializer):
     class Meta:
 
         model = ObservationUnit
-        exclude = ['cropdbid', 'observationLevels', 'programDbId', 'studyDbId']
+        exclude = ['cropdbid', 'observationLevels', 'programDbId', 'studyDbId', 'observationLevel']
         extra_fields = ['germplasmName', 'observations', 'observationUnitXref']
 
     # end class Meta
@@ -460,7 +507,7 @@ class StudyObservationUnitByObservationVariableSerializer(ExtendedSerializer):
     class Meta:
 
         model = Observation
-        exclude = ['cropdbid', 'obsVariable', 'observationUnit']
+        exclude = ['cropdbid', 'obsVariable', 'observationUnit', 'collector', 'seasonDbId']
 
     # end class Meta
 
@@ -545,7 +592,7 @@ class ObservationVariableSerializer(ExtendedSerializer):
     class Meta:
 
         model = ObservationVariable
-        exclude = ['cropdbid', 'traitDbId', 'methodDbId', 'scales', 'observationVariableName']
+        exclude = ['cropdbid', 'traitDbId', 'methodDbId', 'scales', 'submissionTimestamp', 'observationVariableName']
         extra_fields = ['crop', 'trait', 'method']
 
     # end class Meta
@@ -619,7 +666,7 @@ class ObservationVariableSerializer(ExtendedSerializer):
             return MethodSerializer(Method.objects.filter(methodDbId=obj.methodDbId.methodDbId).first()).data
         else:
             return None
-    # end if
+        # end if
 
     # end def get_method
 
@@ -629,6 +676,13 @@ class ObservationVariableSerializer(ExtendedSerializer):
         return obj.scales.datatypeDbId.data
 
     # end def get_datatype
+
+
+    def get_defaultValue(self, obj):
+
+        return str(obj.defaultValue)
+
+    # end def get_defaultValue
 
 # end class ObservationVariableSerializer
 
@@ -847,8 +901,9 @@ class SampleSerializer(ExtendedSerializer):
     class Meta:
 
         model = Sample
-        exclude = ['cropDbId', 'seasonDbId']
-        extra_fields = ['season']
+        exclude = ['cropDbId', 'seasonDbId', 'entryNumber', 'harvestTimestamp',
+                   'locationDbId', 'locationName', 'plantId', 'plantingTimestamp',
+                   'plotId', 'plotNumber', 'sampleId', 'season']
 
     # end class Meta
 
@@ -1016,10 +1071,11 @@ class StudyPlotLayoutSerializer(ExtendedSerializer):
 
     def get_additionalInfo(self, obj):
 
-        return {
-            info.key: info.value
-            for info in ObservationUnitAdditionalInfo.objects.all()
-        }
+        #return {
+        #    info.key: info.value
+        #    for info in ObservationUnitAdditionalInfo.objects.all()
+        #}
+        return {}
 
     # end def get_addInfo
 
@@ -1034,12 +1090,13 @@ class StudySerializer(ExtendedSerializer):
     trialName = serializers.SerializerMethodField()
     lastUpdate = serializers.SerializerMethodField()
     contacts = serializers.SerializerMethodField()
+    active = serializers.SerializerMethodField()
     additionalInfo = serializers.SerializerMethodField()
 
     class Meta:
 
         model = Study
-        exclude = ['cropdbid']
+        exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion', 'locationDbId']
         extra_fields = ['contacts', 'dataLinks', 'seasons', 'additionalInfo', 'location']
 
     # end class Meta
@@ -1099,6 +1156,13 @@ class StudySerializer(ExtendedSerializer):
     # end def get_contacts
 
 
+    def get_active(self, obj):
+
+        return str(obj.active)
+
+    # end def get_active
+
+
     def get_additionalInfo(self, obj):
 
         return {
@@ -1126,7 +1190,7 @@ class StudySearchSerializer(ExtendedSerializer):
     class Meta:
 
         model = Study
-        exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion', 'licence',
+        exclude = ['cropdbid', 'lastUpdateTimestamp', 'lastUpdateVersion', 'license',
                    'studyDescription', 'studyName']
         extra_fields = ['seasons', 'additionalInfo', 'locationDbId', 'locationName',
                         'programDbId', 'programName']
@@ -1434,7 +1498,7 @@ class TrialSerializer(ExtendedSerializer):
     def get_datasetAuthorship(self, obj):
 
         return {
-            'licence': obj.datasetAuthorshipLicence,
+            'license': obj.datasetAuthorshipLicence,
             'datasetPUI': obj.datasetAuthorshipDatasetPUI
         }
 

@@ -38,7 +38,7 @@ class AlleleMatrixSearchView(APIView):
         queryset = search_get_qparams(self, queryset, [('markerprofileDbId', 'markerprofileDbId'),
                                                        ('markerDbId', 'markerDbId')]) #, ('matrixDbId', 'matrixDbId')])
 
-        return paginate(queryset, request, AlleleMatrixSearchSerializer, BrAPIListPagination)
+        return paginate(queryset, request, AlleleMatrixSearchSerializer, BrAPISimplePagination)
 
     # end def get
 
@@ -67,7 +67,7 @@ class AlleleMatrixSearchView(APIView):
         queryset = search_post_params_in(self, queryset, [('markerprofileDbId', 'markerprofileDbId'),
                                                           ('markerDbId', 'markerDbId')]) #, ('matrixDbId', 'matrixDbId')])
 
-        return paginate(queryset, request, AlleleMatrixSearchSerializer, BrAPIListPagination)
+        return paginate(queryset, request, AlleleMatrixSearchSerializer, BrAPISimplePagination)
 
     # end def post
 

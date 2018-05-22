@@ -441,16 +441,6 @@
   },
   {
     "model": "brapi.call",
-    "pk": "45",
-    "fields": {
-      "cropdbid": "1",
-      "call": "studies/{studyDbId}/table",
-      "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
     "pk": "46",
     "fields": {
       "cropdbid": "1",
@@ -4566,7 +4556,7 @@
       "submissionTimestamp": "2016-05-17T20:22:09Z",
       "language": "EN",
       "growthStage": "mature",
-      "defaultValue": null,
+      "defaultValue": "",
       "traitDbId": "1",
       "methodDbId": "CO_334:0010320",
       "scales": "CO_334:0100528"
@@ -4610,7 +4600,7 @@
       "submissionTimestamp": "2016-05-13T20:06:09Z",
       "language": "FR",
       "growthStage": "embryon",
-      "defaultValue": null,
+      "defaultValue": "",
       "traitDbId": "2",
       "methodDbId": "CO_334:0010320",
       "scales": "CO_334:0100526"
@@ -4654,7 +4644,7 @@
       "submissionTimestamp": "2015-05-13T20:02:09Z",
       "language": "ES",
       "growthStage": "old",
-      "defaultValue": null,
+      "defaultValue": "",
       "traitDbId": "3",
       "methodDbId": "CO_334:0010320",
       "scales": "CO_334:0100526"
@@ -4827,8 +4817,8 @@
       "plotNumber": "1",
       "blockNumber": "1",
       "plantNumber": "1",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": "1"
     }
@@ -4848,8 +4838,8 @@
       "plotNumber": "5",
       "blockNumber": "101",
       "plantNumber": "5",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "1",
       "programDbId": "1"
     }
@@ -4869,8 +4859,8 @@
       "plotNumber": "6",
       "blockNumber": "101",
       "plantNumber": null,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "1",
       "programDbId": "2"
     }
@@ -4890,8 +4880,8 @@
       "plotNumber": "1",
       "blockNumber": "1",
       "plantNumber": "1",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": "2"
     }
@@ -4911,8 +4901,8 @@
       "plotNumber": "2",
       "blockNumber": "1",
       "plantNumber": null,
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": "3"
     }
@@ -4932,8 +4922,8 @@
       "plotNumber": "2",
       "blockNumber": "1",
       "plantNumber": "2",
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": "4"
     }
@@ -4953,8 +4943,8 @@
       "plotNumber": "3",
       "blockNumber": "1",
       "plantNumber": null,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": "4"
     }
@@ -4974,8 +4964,8 @@
       "plotNumber": "3",
       "blockNumber": "1",
       "plantNumber": "3",
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "0",
       "programDbId": "5"
     }
@@ -4995,8 +4985,8 @@
       "plotNumber": "4",
       "blockNumber": "1",
       "plantNumber": null,
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": "6"
     }
@@ -5016,8 +5006,8 @@
       "plotNumber": "4",
       "blockNumber": "1",
       "plantNumber": "4",
-      "X": "1",
-      "Y": "2",
+      "X": 1,
+      "Y": 2,
       "replicate": "0",
       "programDbId": "6"
     }
@@ -5037,8 +5027,8 @@
       "plotNumber": "5",
       "blockNumber": "101",
       "plantNumber": null,
-      "X": "1",
-      "Y": "1",
+      "X": 1,
+      "Y": 1,
       "replicate": "1",
       "programDbId": "6"
     }
@@ -5216,7 +5206,7 @@
       "decimalPlaces": 2,
       "xref": "0",
       "validValues": "1",
-      "defaultValue": null
+      "defaultValue": ""
     }
   },
   {
@@ -5229,7 +5219,7 @@
       "decimalPlaces": 0,
       "xref": null,
       "validValues": "2",
-      "defaultValue": null
+      "defaultValue": ""
     }
   },
   {
@@ -5306,104 +5296,6 @@
     }
   },
   {
-    "model": "brapi.trial",
-    "pk": "103",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "2",
-      "trialName": "Ghana Genotype Trial 1",
-      "startDate": "2011-01-05",
-      "endDate": "2011-12-15",
-      "active": false,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/134591245"
-    }
-  },
-  {
-    "model": "brapi.trial",
-    "pk": "104",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "3",
-      "trialName": "Ghana Yield Trial 1",
-      "startDate": "2012-01-07",
-      "endDate": "2013-01-02",
-      "active": false,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/1235919"
-    }
-  },
-  {
-    "model": "brapi.trial",
-    "pk": "105",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "3",
-      "trialName": "Ghana Yield Trial 2",
-      "startDate": "2013-08-15",
-      "endDate": "2014-02-28",
-      "active": false,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/13425915"
-    }
-  },
-  {
-    "model": "brapi.trial",
-    "pk": "106",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "3",
-      "trialName": "Ghana Yield Trial 3",
-      "startDate": "2014-09-22",
-      "endDate": "2015-03-31",
-      "active": true,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/125512251"
-    }
-  },
-  {
-    "model": "brapi.trial",
-    "pk": "107",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "4",
-      "trialName": "Mozambique Yield Trial",
-      "startDate": "2011-12-05",
-      "endDate": "2011-11-30",
-      "active": false,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/34576437"
-    }
-  },
-  {
-    "model": "brapi.trial",
-    "pk": "108",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "4",
-      "trialName": "Mozambique Genotype Trial",
-      "startDate": "2012-02-17",
-      "endDate": "2012-08-21",
-      "active": false,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/34734756"
-    }
-  },
-  {
-    "model": "brapi.trial",
-    "pk": "109",
-    "fields": {
-      "cropdbid": "1",
-      "programDbId": "6",
-      "trialName": "Demo Yield Trial",
-      "startDate": "2016-03-24",
-      "endDate": "2016-10-21",
-      "active": true,
-      "datasetAuthorshipLicence": "https:/creativecommons.org/licenses/by/4.0",
-      "datasetAuthorshipDatasetPUI": "doi:10.15454/35673236"
-    }
-  },
-  {
     "model": "brapi.studytype",
     "pk": "Crossing Nursery",
     "fields": {
@@ -5440,7 +5332,7 @@
       "startDate": "2013-01-01",
       "endDate": "2014-01-01",
       "active": true,
-      "licence": "https:/creativecommons.org/licenses/by/4.0",
+      "license": "https:/creativecommons.org/licenses/by/4.0",
       "lastUpdateVersion": "1.1",
       "lastUpdateTimestamp": "2015-01-01T07:54:00Z"
     }
@@ -5458,7 +5350,7 @@
       "startDate": "2014-01-01",
       "endDate": "2015-01-01",
       "active": true,
-      "licence": "https:/creativecommons.org/licenses/by/4.0",
+      "license": "https:/creativecommons.org/licenses/by/4.0",
       "lastUpdateVersion": "2.3",
       "lastUpdateTimestamp": "2016-01-01T08:54:00Z"
     }
@@ -5476,7 +5368,7 @@
       "startDate": "2011-01-01",
       "endDate": "2012-01-01",
       "active": false,
-      "licence": "https:/creativecommons.org/licenses/by/4.0",
+      "license": "https:/creativecommons.org/licenses/by/4.0",
       "lastUpdateVersion": "0.1",
       "lastUpdateTimestamp": "2014-01-01T18:54:00Z"
     }
@@ -6110,7 +6002,7 @@
     "pk": 8,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "key": "donorName",
       "value": "Donor2"
     }
@@ -6120,7 +6012,7 @@
     "pk": 9,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "101",
       "key": "collaborator",
       "value": "NationalPartner1"
     }
@@ -6130,7 +6022,7 @@
     "pk": 10,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "key": "fundingUSD",
       "value": "300000"
     }
@@ -6140,7 +6032,7 @@
     "pk": 11,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "104",
+      "trialdbid": "101",
       "key": "donorName",
       "value": "Donor1"
     }
@@ -6150,7 +6042,7 @@
     "pk": 12,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "104",
+      "trialdbid": "101",
       "key": "specialProject",
       "value": "Project2"
     }
@@ -6160,7 +6052,7 @@
     "pk": 13,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "107",
+      "trialdbid": "102",
       "key": "specialProject",
       "value": "Project2"
     }
@@ -6170,7 +6062,7 @@
     "pk": 14,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "107",
+      "trialdbid": "101",
       "key": "fundingUSD",
       "value": "1000000"
     }
@@ -6180,7 +6072,7 @@
     "pk": 15,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "108",
+      "trialdbid": "101",
       "key": "donorName",
       "value": "Donor1"
     }
@@ -6190,7 +6082,7 @@
     "pk": 16,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "108",
+      "trialdbid": "102",
       "key": "collaborator",
       "value": "NationalPartner1"
     }
@@ -6200,7 +6092,7 @@
     "pk": 17,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "109",
+      "trialdbid": "102",
       "key": "fundingUSD",
       "value": "500000"
     }
@@ -6210,7 +6102,7 @@
     "pk": 18,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "109",
+      "trialdbid": "102",
       "key": "specialProject",
       "value": "Project1"
     }
@@ -6290,7 +6182,7 @@
     "pk": 26,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "key": "donorName",
       "value": "Donor2"
     }
@@ -6300,7 +6192,7 @@
     "pk": 27,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "101",
       "key": "collaborator",
       "value": "NationalPartner1"
     }
@@ -6310,7 +6202,7 @@
     "pk": 28,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "key": "fundingUSD",
       "value": "300000"
     }
@@ -6320,7 +6212,7 @@
     "pk": 29,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "104",
+      "trialdbid": "101",
       "key": "donorName",
       "value": "Donor1"
     }
@@ -6330,7 +6222,7 @@
     "pk": 30,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "104",
+      "trialdbid": "102",
       "key": "specialProject",
       "value": "Project2"
     }
@@ -6340,7 +6232,7 @@
     "pk": 31,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "107",
+      "trialdbid": "101",
       "key": "specialProject",
       "value": "Project2"
     }
@@ -6350,7 +6242,7 @@
     "pk": 32,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "107",
+      "trialdbid": "102",
       "key": "fundingUSD",
       "value": "1000000"
     }
@@ -6360,7 +6252,7 @@
     "pk": 33,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "108",
+      "trialdbid": "102",
       "key": "donorName",
       "value": "Donor1"
     }
@@ -6370,7 +6262,7 @@
     "pk": 34,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "108",
+      "trialdbid": "102",
       "key": "collaborator",
       "value": "NationalPartner1"
     }
@@ -6380,7 +6272,7 @@
     "pk": 35,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "109",
+      "trialdbid": "101",
       "key": "fundingUSD",
       "value": "500000"
     }
@@ -6390,7 +6282,7 @@
     "pk": 36,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "109",
+      "trialdbid": "101",
       "key": "specialProject",
       "value": "Project1"
     }
@@ -6470,7 +6362,7 @@
     "pk": 44,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "key": "donorName",
       "value": "Donor2"
     }
@@ -6480,7 +6372,7 @@
     "pk": 45,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "101",
       "key": "collaborator",
       "value": "NationalPartner1"
     }
@@ -6490,7 +6382,7 @@
     "pk": 46,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "key": "fundingUSD",
       "value": "300000"
     }
@@ -6500,7 +6392,7 @@
     "pk": 47,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "104",
+      "trialdbid": "101",
       "key": "donorName",
       "value": "Donor1"
     }
@@ -6510,7 +6402,7 @@
     "pk": 48,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "104",
+      "trialdbid": "102",
       "key": "specialProject",
       "value": "Project2"
     }
@@ -6520,7 +6412,7 @@
     "pk": 49,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "107",
+      "trialdbid": "101",
       "key": "specialProject",
       "value": "Project2"
     }
@@ -6530,7 +6422,7 @@
     "pk": 50,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "107",
+      "trialdbid": "102",
       "key": "fundingUSD",
       "value": "1000000"
     }
@@ -6540,7 +6432,7 @@
     "pk": 51,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "108",
+      "trialdbid": "101",
       "key": "donorName",
       "value": "Donor1"
     }
@@ -6550,7 +6442,7 @@
     "pk": 52,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "108",
+      "trialdbid": "101",
       "key": "collaborator",
       "value": "NationalPartner1"
     }
@@ -6560,7 +6452,7 @@
     "pk": 53,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "109",
+      "trialdbid": "101",
       "key": "fundingUSD",
       "value": "500000"
     }
@@ -6570,7 +6462,7 @@
     "pk": 54,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "109",
+      "trialdbid": "101",
       "key": "specialProject",
       "value": "Project1"
     }
@@ -6607,7 +6499,7 @@
     "pk": 4,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "contactdbid": "1"
     }
   },
@@ -6616,7 +6508,7 @@
     "pk": 5,
     "fields": {
       "cropdbid": "1",
-      "trialdbid": "103",
+      "trialdbid": "102",
       "contactdbid": "2"
     }
   },
