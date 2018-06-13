@@ -160,8 +160,29 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_URL = '/brapiDTS/v1/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "../static")
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "brapi/static/")
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.static',
+                'django.contrib.messages.context_processors.messages'
+            ],
+            'loaders': [
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+                # 'jinja2_for_django.Loader',
+                'django.template.loaders.eggs.Loader'
+            ],
+            'debug': DEBUG
+        },
+    },
+]
 
 APPEND_SLASH = False
 

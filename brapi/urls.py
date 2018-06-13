@@ -4,6 +4,7 @@ from rest_framework.schemas import get_schema_view
 import oauth2_provider.views as oauth2_views
 from django.conf import settings
 
+from brapi.views import index
 from brapi.views import errors
 from brapi.views.calls import CallsView
 from brapi.views.locations import LocationView, LocationDetailsView
@@ -40,6 +41,8 @@ schema_view = get_schema_view(title='BrAPI')
 # Additionally, we include the login URLs for the browsable API
 urlpatterns = [
 #    url(r'^', include(router.urls)),
+
+    url(r'brapi/v1/?$', index.index, name='index'),
 
     url(r'brapi/v1/crops/?', CropsView.as_view()),
 
