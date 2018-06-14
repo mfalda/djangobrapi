@@ -15,7 +15,7 @@ class CropTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },

@@ -17,7 +17,7 @@ class ObsVariablesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 6,
             "pageSize": 100
         },
@@ -49,7 +49,7 @@ class ObsVariablesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -141,7 +141,7 @@ class ObsVariablesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -183,7 +183,7 @@ class ObsVariablesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 5,
             "pageSize": 2
         },
@@ -335,7 +335,7 @@ class ObsVariablesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 5,
             "pageSize": 2
         },
@@ -497,7 +497,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 5,
             "pageSize": 2
         },
@@ -653,7 +653,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -751,7 +751,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -917,7 +917,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1083,7 +1083,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -1249,7 +1249,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -1347,7 +1347,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -1437,7 +1437,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -1535,7 +1535,7 @@ class ObsVariablesSearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 5,
             "pageSize": 2
         },

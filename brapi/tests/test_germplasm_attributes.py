@@ -16,7 +16,7 @@ class GermplasmAttributesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -56,7 +56,7 @@ class GermplasmAttributesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -96,7 +96,7 @@ class GermplasmAttributesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -128,7 +128,7 @@ class GermplasmAttributesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 5,
+            "totalPages": 5,
             "totalCount": 10,
             "pageSize": 2
         },
@@ -172,7 +172,7 @@ class GermplasmAttributesTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 3
         },

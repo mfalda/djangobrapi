@@ -18,7 +18,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 5,
+            "totalPages": 5,
             "totalCount": 9,
             "pageSize": 2
         },
@@ -124,7 +124,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -230,7 +230,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -292,7 +292,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -360,7 +360,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 4,
+            "totalPages": 4,
             "totalCount": 7,
             "pageSize": 2
         },
@@ -466,7 +466,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 5,
+            "totalPages": 5,
             "totalCount": 9,
             "pageSize": 2
         },
@@ -544,7 +544,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 5,
+            "totalPages": 5,
             "totalCount": 9,
             "pageSize": 2
         },
@@ -651,7 +651,7 @@ class TrialTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },

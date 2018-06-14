@@ -21,7 +21,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -48,7 +48,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 5,
             "pageSize": 2
         },
@@ -83,7 +83,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -120,7 +120,7 @@ class StudyTest(APITestCase):
             "currentPage": 1,
             "pageSize": 100,
             "totalCount": 3,
-            "pageTotal": 1
+            "totalPages": 1
         },
         "datafiles": [],
         "status": []
@@ -155,7 +155,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -281,7 +281,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -407,7 +407,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -464,7 +464,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -521,7 +521,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -624,7 +624,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -673,7 +673,7 @@ class StudyTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 5,
             "pageSize": 2
         },
@@ -851,7 +851,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -927,7 +927,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1003,7 +1003,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -1054,7 +1054,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1130,7 +1130,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -1206,7 +1206,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -1283,7 +1283,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 6,
             "pageSize": 2
         },
@@ -1360,7 +1360,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1436,7 +1436,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -1484,7 +1484,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -1560,7 +1560,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -1633,7 +1633,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -1712,7 +1712,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1792,7 +1792,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1870,7 +1870,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -1950,7 +1950,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -2030,7 +2030,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -2110,7 +2110,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -2190,7 +2190,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -2272,7 +2272,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -2352,7 +2352,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -2432,7 +2432,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },
@@ -2513,7 +2513,7 @@ class StudySearchTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 3,
             "pageSize": 2
         },

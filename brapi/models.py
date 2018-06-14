@@ -9,6 +9,10 @@ class Call(models.Model):
     call = models.TextField(blank=True, null=True)
     datatypes = models.TextField(blank=True, null=True)
     methods = models.TextField(blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    doc_url = models.TextField(blank=True, null=True)
+    example = models.TextField(blank=True, null=True)
+    group = models.TextField(blank=True, null=True)
 
 
     class Meta:

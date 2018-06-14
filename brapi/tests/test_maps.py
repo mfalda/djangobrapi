@@ -15,7 +15,7 @@ class MapsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -62,7 +62,7 @@ class MapsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 2,
             "pageSize": 2
         },
@@ -109,7 +109,7 @@ class MapsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -145,7 +145,7 @@ class MapsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -209,7 +209,7 @@ class MapsDataTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 6,
+            "totalPages": 6,
             "totalCount": 11,
             "pageSize": 2
         },
@@ -245,7 +245,7 @@ class MapsDataTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 4,
             "pageSize": 100
         },

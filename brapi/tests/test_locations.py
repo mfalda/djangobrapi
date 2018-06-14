@@ -15,7 +15,7 @@ class LocationTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 9,
+            "totalPages": 9,
             "totalCount": 17,
             "pageSize": 2
         },
@@ -88,7 +88,7 @@ class LocationTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 2,
+            "totalPages": 2,
             "totalCount": 4,
             "pageSize": 2
         },
@@ -161,7 +161,7 @@ class LocationTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 100
         },
@@ -169,32 +169,28 @@ class LocationTest(APITestCase):
         "datafiles": []
     },
     "result": {
-        "data": [
-            {
-                "longitude": -75.356389,
-                "additionalInfo": {
-                    "altern": "SNPEDRO",
-                    "local": "NaSARRI",
-                    "cont": "Africa",
-                    "creg": "SSA",
-                    "adm3": "Coviriali",
-                    "adm2": "Kassena-Nankana",
-                    "adm1": "Serere",
-                    "annualTotalPrecipitation": "6.4",
-                    "annualMeanTemperature": "19.2"
-                },
-                "latitude": -11.1275,
-                "countryName": "Peru",
-                "type": "Storage location",
-                "locationDbId": "1",
-                "name": "Location 1",
-                "abbreviation": "L1",
-                "countryCode": "PER",
-                "altitude": 828.0,
-                "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
-                "instituteName": "Plant Science Institute"
-            }
-        ]
+        "longitude": -75.356389,
+        "additionalInfo": {
+            "altern": "SNPEDRO",
+            "local": "NaSARRI",
+            "cont": "Africa",
+            "creg": "SSA",
+            "adm3": "Coviriali",
+            "adm2": "Kassena-Nankana",
+            "adm1": "Serere",
+            "annualTotalPrecipitation": "6.4",
+            "annualMeanTemperature": "19.2"
+        },
+        "latitude": -11.1275,
+        "countryName": "Peru",
+        "type": "Storage location",
+        "locationDbId": "1",
+        "name": "Location 1",
+        "abbreviation": "L1",
+        "countryCode": "PER",
+        "altitude": 828.0,
+        "instituteAddress": "71 Pilgrim Avenue Chevy Chase MD 20815",
+        "instituteName": "Plant Science Institute"
     }
 }"""
         

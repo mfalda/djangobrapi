@@ -15,7 +15,7 @@ class ProgramTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 6,
             "pageSize": 2
         },
@@ -54,7 +54,7 @@ class ProgramTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -86,7 +86,7 @@ class ProgramTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 1,
+            "totalPages": 1,
             "totalCount": 1,
             "pageSize": 2
         },
@@ -118,7 +118,7 @@ class ProgramTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 3,
+            "totalPages": 3,
             "totalCount": 6,
             "pageSize": 2
         },

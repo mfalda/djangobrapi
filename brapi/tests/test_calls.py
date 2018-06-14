@@ -15,8 +15,8 @@ class CallsTest(APITestCase):
     "metadata": {
         "pagination": {
             "currentPage": 1,
-            "pageTotal": 23,
-            "totalCount": 46,
+            "totalPages": 25,
+            "totalCount": 50,
             "pageSize": 2
         },
         "status": [],

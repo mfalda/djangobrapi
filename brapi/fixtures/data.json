@@ -6,7 +6,11 @@
       "cropdbid": "1",
       "call": "calls",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "List available calls",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/calls/call-search/list-supported-crops",
+      "example": "calls",
+      "group": "Calls"
     }
   },
   {
@@ -14,9 +18,13 @@
     "pk": "2",
     "fields": {
       "cropdbid": "1",
-      "call": "crops",
+      "call": "germplasm-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Search germplasm",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm/germplasm-search/list-supported-crops",
+      "example": "germplasm-search",
+      "group": "Germplasm"
     }
   },
   {
@@ -24,9 +32,13 @@
     "pk": "3",
     "fields": {
       "cropdbid": "1",
-      "call": "maps",
+      "call": "germplasm-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "Search germplasm",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm/germplasm-search/list-supported-crops",
+      "example": "germplasm-search",
+      "group": "Germplasm"
     }
   },
   {
@@ -34,9 +46,13 @@
     "pk": "4",
     "fields": {
       "cropdbid": "1",
-      "call": "maps/{mapDbId}/positions",
+      "call": "germplasm/{germplasmDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Germplasm details by germplasmDbId",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm/germplasm-details-by-germplasmdbid/germplasm-search-by-germplasmdbid",
+      "example": "germplasm/1",
+      "group": "Germplasm"
     }
   },
   {
@@ -44,9 +60,13 @@
     "pk": "5",
     "fields": {
       "cropdbid": "1",
-      "call": "maps/{mapDbId}/positions/{linkageGroupName}",
+      "call": "germplasm/{germplasmDbId}/pedigree",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Germplasm Pedigree",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm/germplasm-pedigree/germplasm-pedigree-by-id",
+      "example": "germplasm/1/pedigree",
+      "group": "Germplasm"
     }
   },
   {
@@ -54,9 +74,13 @@
     "pk": "6",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm/{germplasmDbId}",
+      "call": "germplasm/{germplasmDbId}/markerprofiles",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Germplasm markerprofiles",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm/germplasm-markerprofiles/germplasm-pedigree-by-id",
+      "example": "germplasm/1/markerprofiles",
+      "group": "Germplasm"
     }
   },
   {
@@ -64,9 +88,13 @@
     "pk": "7",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm/{germplasmDbId}/markerprofiles",
+      "call": "attributes",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "List attributes available",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm-attributes/list-attributes-available/markerprofiles-by-germplasmdbid",
+      "example": "attributes",
+      "group": "Germplasm attributes"
     }
   },
   {
@@ -74,19 +102,13 @@
     "pk": "8",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm/{germplasmDbId}/pedigree",
+      "call": "attributes/categories",
       "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "9",
-    "fields": {
-      "cropdbid": "1",
-      "call": "germplasm-search",
-      "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "List all available attribute categories",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm-attributes/list-attribute-categories/germplasm-attribute-categories",
+      "example": "attributes/categories",
+      "group": "Germplasm attributes"
     }
   },
   {
@@ -94,9 +116,13 @@
     "pk": "10",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm-search",
+      "call": "germplasm/{germplasmDbId}/attributes",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET",
+      "description": "Values for all attributes by default",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/germplasm-attributes/germplasm-attribute-values-by-germplasmdbid/germplasm-attribute-values",
+      "example": "germplasm/1/attributes",
+      "group": "Germplasm attributes"
     }
   },
   {
@@ -104,9 +130,13 @@
     "pk": "11",
     "fields": {
       "cropdbid": "1",
-      "call": "germplasm/{germplasmDbId}/attributes",
+      "call": "markers-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "This service returns marker records that provide the markerDbId",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markers/markers-search",
+      "example": "markers-search",
+      "group": "Markers"
     }
   },
   {
@@ -114,9 +144,13 @@
     "pk": "12",
     "fields": {
       "cropdbid": "1",
-      "call": "attributes/categories",
+      "call": "markers-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "This service returns marker records that provide the markerDbId",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markers/markers-search",
+      "example": "markers-search",
+      "group": "Markers"
     }
   },
   {
@@ -124,9 +158,13 @@
     "pk": "13",
     "fields": {
       "cropdbid": "1",
-      "call": "attributes",
+      "call": "markers/{markerDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Marker details by markerDbId",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markers/marker-details-by-markerdbid/marker-details-by-id",
+      "example": "markers/1",
+      "group": "Markers"
     }
   },
   {
@@ -134,9 +172,13 @@
     "pk": "14",
     "fields": {
       "cropdbid": "1",
-      "call": "locations",
+      "call": "markerprofiles-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs)",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markerprofiles/markerprofile-search/marker-details-by-id",
+      "example": "markerprofiles",
+      "group": "Markerprofiles"
     }
   },
   {
@@ -144,9 +186,13 @@
     "pk": "15",
     "fields": {
       "cropdbid": "1",
-      "call": "locations/{locationDbId}",
+      "call": "markerprofiles-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "For the requested Germplasm Id and/or Extract Id, returns the Markerprofile Id and number of non-missing allele calls (marker/allele pairs)",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markerprofiles/markerprofile-search/marker-details-by-id",
+      "example": "markerprofiles",
+      "group": "Markerprofiles"
     }
   },
   {
@@ -154,9 +200,13 @@
     "pk": "16",
     "fields": {
       "cropdbid": "1",
-      "call": "allelematrices",
+      "call": "markerprofiles/{studyDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "For the requested markerprofile ID, returns the allele call for each marker",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markerprofiles/markerprofile-data/alleles-by-markerprofile-id",
+      "example": "markerprofiles/1",
+      "group": "Markerprofiles"
     }
   },
   {
@@ -166,7 +216,11 @@
       "cropdbid": "1",
       "call": "allelematrix-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Markerprofile allele matrix",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markerprofiles/markerprofile-allele-matrix/scores-through-get",
+      "example": "allelematrix-search",
+      "group": "Markerprofiles"
     }
   },
   {
@@ -176,7 +230,11 @@
       "cropdbid": "1",
       "call": "allelematrix-search",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "POST",
+      "description": "Markerprofile allele matrix",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markerprofiles/markerprofile-allele-matrix/scores-through-post",
+      "example": "allelematrix-search",
+      "group": "Markerprofiles"
     }
   },
   {
@@ -184,9 +242,13 @@
     "pk": "19",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles/{markerprofileDbId}",
+      "call": "programs",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrieve a list of programs",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/programs/program-list/search-programs",
+      "example": "programs",
+      "group": "Programs"
     }
   },
   {
@@ -194,9 +256,13 @@
     "pk": "20",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles",
+      "call": "programs-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "Advanced searching for the programs resource",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/programs/program-search/search-programs",
+      "example": "programs-search",
+      "group": "Programs"
     }
   },
   {
@@ -204,9 +270,13 @@
     "pk": "21",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles",
+      "call": "crops",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET",
+      "description": "List supported crops",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/crops/list-supported-crops",
+      "example": "crops",
+      "group": "Crops"
     }
   },
   {
@@ -214,9 +284,13 @@
     "pk": "22",
     "fields": {
       "cropdbid": "1",
-      "call": "markers/{markerDbId}",
+      "call": "trials",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get list of trials summaries",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/trials/get-list-of-trial-summaries/get-trial-by-id",
+      "example": "trials",
+      "group": "Trials"
     }
   },
   {
@@ -224,9 +298,13 @@
     "pk": "23",
     "fields": {
       "cropdbid": "1",
-      "call": "markers",
+      "call": "trials/{trialsDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get trial by Id",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/trials/get-trial-by-id/get-trial-by-id",
+      "example": "trials/101",
+      "group": "Trials"
     }
   },
   {
@@ -234,9 +312,13 @@
     "pk": "24",
     "fields": {
       "cropdbid": "1",
-      "call": "variables/datatypes",
+      "call": "seasons",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrive all seasons (or years) in the database",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/list-seasons/list-seasons-or-years",
+      "example": "seasons",
+      "group": "Study"
     }
   },
   {
@@ -244,9 +326,13 @@
     "pk": "25",
     "fields": {
       "cropdbid": "1",
-      "call": "variables/{observationVariableDbId}",
+      "call": "studytypes",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrieve the list of study types",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/list-study-types/list-study-types",
+      "example": "studytypes",
+      "group": "Study"
     }
   },
   {
@@ -254,9 +340,13 @@
     "pk": "26",
     "fields": {
       "cropdbid": "1",
-      "call": "variables",
+      "call": "studies/{studyDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Retrieve the information of the study required for field data collection",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/study-details/retrieve-study-details",
+      "example": "studies/1001",
+      "group": "Study"
     }
   },
   {
@@ -264,9 +354,13 @@
     "pk": "27",
     "fields": {
       "cropdbid": "1",
-      "call": "ontologies",
+      "call": "studies-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get list of studies",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/search-studies/search-studies-(get)",
+      "example": "studies-search",
+      "group": "Study"
     }
   },
   {
@@ -274,9 +368,13 @@
     "pk": "28",
     "fields": {
       "cropdbid": "1",
-      "call": "variables-search",
+      "call": "studies-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "Get list of studies",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/search-studies/search-studies-(post)",
+      "example": "studies-search",
+      "group": "Study"
     }
   },
   {
@@ -284,9 +382,13 @@
     "pk": "29",
     "fields": {
       "cropdbid": "1",
-      "call": "variables-search",
+      "call": "studies/{studyDbId}/observationvariables",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET",
+      "description": "List all the observation variables measured in the study",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/study-observation-variables/get-observation-variables-by-study",
+      "example": "studies/1001/observationvariables",
+      "group": "Study"
     }
   },
   {
@@ -294,9 +396,13 @@
     "pk": "30",
     "fields": {
       "cropdbid": "1",
-      "call": "phenotypes-search",
+      "call": "studies/{studyDbId}/germplasm",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET",
+      "description": "Study Germplasm details",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/study/study-germplasm-details/study-germplasm-details",
+      "example": "studies/1001/germplasm",
+      "group": "Study"
     }
   },
   {
@@ -304,9 +410,13 @@
     "pk": "31",
     "fields": {
       "cropdbid": "1",
-      "call": "programs",
+      "call": "observationlevels",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrieve the list of supported observation levels. Observation levels indicate the granularity level at which the measurements are taken.",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/study/list-observation-levels/get-observation-levels",
+      "example": "observationlevels",
+      "group": "Study"
     }
   },
   {
@@ -314,19 +424,13 @@
     "pk": "32",
     "fields": {
       "cropdbid": "1",
-      "call": "programs-search",
+      "call": "studies/{studyDbId}/observationunits",
       "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "33",
-    "fields": {
-      "cropdbid": "1",
-      "call": "programs-search",
-      "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET",
+      "description": "The main API call for field data collection, to retrieve all the observation units within a study",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/study/observation-unit-details/get-all-observation-units",
+      "example": "studies/1001/observationunits",
+      "group": "Study"
     }
   },
   {
@@ -334,9 +438,13 @@
     "pk": "34",
     "fields": {
       "cropdbid": "1",
-      "call": "samples/{sampleDbId}",
+      "call": "studies/{studyDbId}/layout",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Retrieve the plot layout of the study with a given Id",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/study/plot-layout-details/get-observation-units-by-observation-variable-ids",
+      "example": "Studies/1001/layout",
+      "group": "Study"
     }
   },
   {
@@ -346,7 +454,11 @@
       "cropdbid": "1",
       "call": "studies/{studyDbId}/observations",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get Observation Units by observation variable ids",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/study/get-observation-units-by-observation-variable-ids/get-observation-units-by-observation-variable-ids",
+      "example": "Studies/1001/observations",
+      "group": "Study"
     }
   },
   {
@@ -354,9 +466,13 @@
     "pk": "36",
     "fields": {
       "cropdbid": "1",
-      "call": "observationlevels",
+      "call": "phenotypes-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "Returns a list of observationUnit with the observed Phenotypes",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/phenotypes/phenotype-search/phenotype-search",
+      "example": "phenotypes-search",
+      "group": "Phenotypes"
     }
   },
   {
@@ -364,9 +480,13 @@
     "pk": "37",
     "fields": {
       "cropdbid": "1",
-      "call": "seasons",
+      "call": "traits",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrieve a list of traits available in the system and their associated variables",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/traits/list-all-traits/list-all-traits",
+      "example": "traits",
+      "group": "Traits"
     }
   },
   {
@@ -374,9 +494,13 @@
     "pk": "38",
     "fields": {
       "cropdbid": "1",
-      "call": "studies-search",
+      "call": "traits/{traitDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Retrieve the variables associated to a trait",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/traits/list-all-traits/list-all-traits",
+      "example": "traits/1",
+      "group": "Traits"
     }
   },
   {
@@ -384,9 +508,13 @@
     "pk": "39",
     "fields": {
       "cropdbid": "1",
-      "call": "studies-search",
+      "call": "variables/datatypes",
       "datatypes": "json",
-      "methods": "POST"
+      "methods": "GET",
+      "description": "Call to retrieve a list of observationVariables available in the system",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/observation-variables/variable-data-type-list/variable-data-type-list",
+      "example": "variables/datatypes",
+      "group": "Observation Variables"
     }
   },
   {
@@ -394,9 +522,13 @@
     "pk": "40",
     "fields": {
       "cropdbid": "1",
-      "call": "studytypes",
+      "call": "variables",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrieve a list of observationVariables available in the system",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/observation-variables/variable-list/variable-list",
+      "example": "variables",
+      "group": "Observation Variables"
     }
   },
   {
@@ -404,9 +536,13 @@
     "pk": "41",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/{studyDbId}/observationunits",
+      "call": "variables/{observationVariableDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Retrieve variable details",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/observation-variables/variable-details/variable-details-by-id",
+      "example": "variables/MO_123:100003",
+      "group": "Observation Variables"
     }
   },
   {
@@ -414,9 +550,13 @@
     "pk": "42",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/{studyDbId}/layout",
+      "call": "variables-search",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "POST",
+      "description": "Search observation variables",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/observation-variables/variable-search/variable-search",
+      "example": "variables-search",
+      "group": "Observation Variables"
     }
   },
   {
@@ -424,9 +564,13 @@
     "pk": "43",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/{studyDbId}",
+      "call": "ontologies",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Call to retrieve a list of observation variable ontologies available in the system",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/observation-variables/variable-ontology-list/variable-ontology-list",
+      "example": "ontologies",
+      "group": "Observation Variables"
     }
   },
   {
@@ -434,9 +578,27 @@
     "pk": "44",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/{studyDbId}/germplasm",
+      "call": "maps",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get list of maps",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/genome-maps/genome-map/get-list-of-maps",
+      "example": "maps",
+      "group": "Genome Maps"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "45",
+    "fields": {
+      "cropdbid": "1",
+      "call": "maps/{mapDbId}",
+      "datatypes": "json",
+      "methods": "GET",
+      "description": "Provides the number of markers on each linkageGroup and the max position on the linkageGroup",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/genome-maps/genome-map-details/get-map-details",
+      "example": "maps/1",
+      "group": "Genome Maps"
     }
   },
   {
@@ -444,9 +606,13 @@
     "pk": "46",
     "fields": {
       "cropdbid": "1",
-      "call": "studies/{studyDbId}/observationvariables",
+      "call": "maps/{mapDbId}/positions",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Markers ordered by linkageGroup and position",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/genome-maps/genome-map-data/get-map-data",
+      "example": "maps/1/positions",
+      "group": "Genome Maps"
     }
   },
   {
@@ -454,9 +620,13 @@
     "pk": "47",
     "fields": {
       "cropdbid": "1",
-      "call": "traits",
+      "call": "maps/{mapDbId}/positions/{linkageGroupName}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Markers ordered by linkageGroup and position",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/genome-maps/genome-map-data-by-range-on-linkagegroup/get-map-data-by-range-on-linkagegroup",
+      "example": "maps/1/positions/1",
+      "group": "Genome Maps"
     }
   },
   {
@@ -464,9 +634,13 @@
     "pk": "48",
     "fields": {
       "cropdbid": "1",
-      "call": "traits/{traitDbId}",
+      "call": "locations",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get a list of locations",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/locations/list-locations/list-locations",
+      "example": "locations",
+      "group": "Locations"
     }
   },
   {
@@ -474,19 +648,13 @@
     "pk": "49",
     "fields": {
       "cropdbid": "1",
-      "call": "trials/{trialDbId}",
+      "call": "locations/{locationDbId}",
       "datatypes": "json",
-      "methods": "GET"
-    }
-  },
-  {
-    "model": "brapi.call",
-    "pk": "50",
-    "fields": {
-      "cropdbid": "1",
-      "call": "trials",
-      "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Get details for a location",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/locations/location-details/retrieve-locations-details",
+      "example": "locations/1",
+      "group": "Locations"
     }
   },
   {
@@ -494,9 +662,41 @@
     "pk": "51",
     "fields": {
       "cropdbid": "1",
-      "call": "maps/{mapDbId}",
+      "call": "samples/{sampleDbId}",
       "datatypes": "json",
-      "methods": "GET"
+      "methods": "GET",
+      "description": "Used to retrieve the details of a single Sample from a Sample Tracking system",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/samples/get-a-sample/get-sample",
+      "example": "samples/1",
+      "group": "Samples"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "52",
+    "fields": {
+      "cropdbid": "1",
+      "call": "samples-search",
+      "datatypes": "json",
+      "methods": "GET",
+      "description": "Used to retrieve list of Samples from a Sample Tracking system based on some search criteria",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/samples/sample-search/get-sample-search",
+      "example": "samples-search",
+      "group": "Samples"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "53",
+    "fields": {
+      "cropdbid": "1",
+      "call": "samples-search",
+      "datatypes": "json",
+      "methods": "POST",
+      "description": "Used to retrieve list of Samples from a Sample Tracking system based on some search criteria",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/reference/samples/sample-search/post-sample-search",
+      "example": "samples-search",
+      "group": "Samples"
     }
   },
   {

@@ -37,7 +37,7 @@ class CallSerializer(serializers.ModelSerializer):
     class Meta:
 
         model = Call
-        exclude = ['cropdbid', 'calldbid']
+        exclude = ['cropdbid', 'calldbid', 'description', 'doc_url', 'example', 'group']
 
     # end class Meta
 
