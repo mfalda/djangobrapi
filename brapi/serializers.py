@@ -216,6 +216,7 @@ class MapSerializer(serializers.ModelSerializer):
 
 class MarkerSerializer(serializers.ModelSerializer):
 
+    markerDbId = serializers.SerializerMethodField()
     synonyms = StringListField()
     refAlt = StringListField()
     analysisMethods = StringListField()
@@ -227,6 +228,13 @@ class MarkerSerializer(serializers.ModelSerializer):
         exclude = ['cropdbid']
 
     # end class Meta
+
+
+    def get_markerDbId(self, obj):
+
+        return str(obj.markerDbId)
+
+    # end def get_markerDbId
 
 
     def to_representation(self, instance: Marker):
@@ -788,7 +796,6 @@ class ValidValueSerializer(ExtendedSerializer):
 
 class ScaleSerializer(ExtendedSerializer):
 
-    datatype = serializers.SerializerMethodField()
     validValues = serializers.SerializerMethodField()
 
 
@@ -796,16 +803,9 @@ class ScaleSerializer(ExtendedSerializer):
 
         model = Scale
         exclude = ['cropdbid', 'datatypeDbId', 'defaultValue']
-        extra_fields = ['datatype', 'validValues']
+        extra_fields = ['validValues']
 
     # end class Meta
-
-
-    def get_datatype(self, obj):
-
-        return obj.datatypeDbId.data
-
-    # end def get_datatype
 
 
     def get_validValues(self, obj):

@@ -200,7 +200,21 @@
     "pk": "16",
     "fields": {
       "cropdbid": "1",
-      "call": "markerprofiles/{studyDbId}",
+      "call": "markerprofiles",
+      "datatypes": "json",
+      "methods": "GET",
+      "description": "For the requested markerprofile ID, returns the allele call for each marker",
+      "doc_url": "https://brapiarchive11.docs.apiary.io/#reference/markerprofiles/markerprofile-data/alleles-by-markerprofile-id",
+      "example": "markerprofiles",
+      "group": "Markerprofiles"
+    }
+  },
+  {
+    "model": "brapi.call",
+    "pk": "17",
+    "fields": {
+      "cropdbid": "1",
+      "call": "markerprofiles/{markerprofileDbId}",
       "datatypes": "json",
       "methods": "GET",
       "description": "For the requested markerprofile ID, returns the allele call for each marker",
@@ -211,7 +225,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "17",
+    "pk": "18",
     "fields": {
       "cropdbid": "1",
       "call": "allelematrix-search",
@@ -225,7 +239,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "18",
+    "pk": "19",
     "fields": {
       "cropdbid": "1",
       "call": "allelematrix-search",
@@ -239,7 +253,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "19",
+    "pk": "20",
     "fields": {
       "cropdbid": "1",
       "call": "programs",
@@ -253,7 +267,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "20",
+    "pk": "21",
     "fields": {
       "cropdbid": "1",
       "call": "programs-search",
@@ -267,7 +281,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "21",
+    "pk": "22",
     "fields": {
       "cropdbid": "1",
       "call": "crops",
@@ -281,7 +295,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "22",
+    "pk": "23",
     "fields": {
       "cropdbid": "1",
       "call": "trials",
@@ -295,10 +309,10 @@
   },
   {
     "model": "brapi.call",
-    "pk": "23",
+    "pk": "24",
     "fields": {
       "cropdbid": "1",
-      "call": "trials/{trialsDbId}",
+      "call": "trials/{trialDbId}",
       "datatypes": "json",
       "methods": "GET",
       "description": "Get trial by Id",
@@ -309,7 +323,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "24",
+    "pk": "25",
     "fields": {
       "cropdbid": "1",
       "call": "seasons",
@@ -323,7 +337,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "25",
+    "pk": "26",
     "fields": {
       "cropdbid": "1",
       "call": "studytypes",
@@ -337,7 +351,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "26",
+    "pk": "27",
     "fields": {
       "cropdbid": "1",
       "call": "studies/{studyDbId}",
@@ -351,7 +365,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "27",
+    "pk": "28",
     "fields": {
       "cropdbid": "1",
       "call": "studies-search",
@@ -365,7 +379,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "28",
+    "pk": "29",
     "fields": {
       "cropdbid": "1",
       "call": "studies-search",
@@ -379,7 +393,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "29",
+    "pk": "30",
     "fields": {
       "cropdbid": "1",
       "call": "studies/{studyDbId}/observationvariables",
@@ -393,7 +407,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "30",
+    "pk": "31",
     "fields": {
       "cropdbid": "1",
       "call": "studies/{studyDbId}/germplasm",
@@ -407,7 +421,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "31",
+    "pk": "32",
     "fields": {
       "cropdbid": "1",
       "call": "observationlevels",
@@ -421,7 +435,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "32",
+    "pk": "33",
     "fields": {
       "cropdbid": "1",
       "call": "studies/{studyDbId}/observationunits",
@@ -435,7 +449,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "34",
+    "pk": "35",
     "fields": {
       "cropdbid": "1",
       "call": "studies/{studyDbId}/layout",
@@ -449,7 +463,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "35",
+    "pk": "36",
     "fields": {
       "cropdbid": "1",
       "call": "studies/{studyDbId}/observations",
@@ -463,7 +477,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "36",
+    "pk": "37",
     "fields": {
       "cropdbid": "1",
       "call": "phenotypes-search",
@@ -477,7 +491,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "37",
+    "pk": "38",
     "fields": {
       "cropdbid": "1",
       "call": "traits",
@@ -491,7 +505,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "38",
+    "pk": "39",
     "fields": {
       "cropdbid": "1",
       "call": "traits/{traitDbId}",
@@ -505,7 +519,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "39",
+    "pk": "40",
     "fields": {
       "cropdbid": "1",
       "call": "variables/datatypes",
@@ -519,7 +533,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "40",
+    "pk": "41",
     "fields": {
       "cropdbid": "1",
       "call": "variables",
@@ -533,7 +547,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "41",
+    "pk": "42",
     "fields": {
       "cropdbid": "1",
       "call": "variables/{observationVariableDbId}",
@@ -547,7 +561,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "42",
+    "pk": "43",
     "fields": {
       "cropdbid": "1",
       "call": "variables-search",
@@ -561,7 +575,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "43",
+    "pk": "44",
     "fields": {
       "cropdbid": "1",
       "call": "ontologies",
@@ -575,7 +589,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "44",
+    "pk": "45",
     "fields": {
       "cropdbid": "1",
       "call": "maps",
@@ -589,7 +603,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "45",
+    "pk": "46",
     "fields": {
       "cropdbid": "1",
       "call": "maps/{mapDbId}",
@@ -603,7 +617,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "46",
+    "pk": "47",
     "fields": {
       "cropdbid": "1",
       "call": "maps/{mapDbId}/positions",
@@ -617,7 +631,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "47",
+    "pk": "48",
     "fields": {
       "cropdbid": "1",
       "call": "maps/{mapDbId}/positions/{linkageGroupName}",
@@ -631,7 +645,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "48",
+    "pk": "49",
     "fields": {
       "cropdbid": "1",
       "call": "locations",
@@ -645,7 +659,7 @@
   },
   {
     "model": "brapi.call",
-    "pk": "49",
+    "pk": "50",
     "fields": {
       "cropdbid": "1",
       "call": "locations/{locationDbId}",

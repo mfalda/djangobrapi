@@ -24,12 +24,12 @@ SECRET_KEY = 'k^zf_)bym^a-c+0oi1#(o!h^a@u_-+u(i^oqkw9dm__obv3zqp'
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.getenv('DJANGO_ENV') == 'prod':
     DEBUG = False
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'bioinformatics.cribi.unipd.it', 'fuzzyge.cribi.unipd.it']
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'bioinformatics.cribi.unipd.it']
     IS_TESTING = False
     # ...
 else:
     DEBUG = True
-    ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'bioinformatics.cribi.unipd.it']
     IS_TESTING = True
 
     LOGGING = {
@@ -160,7 +160,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_URL = '/static/'
+STATIC_URL = '/brapi/v1/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "brapi/static/")
 
 TEMPLATES = [

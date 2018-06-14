@@ -78,7 +78,7 @@ urlpatterns = [
     url(r'brapi/v1/allelematrix-search/?', AlleleMatrixSearchView.as_view()),
 
     url(r'brapi/v1/markers/(?P<markerDbId>[^/]+)/?$', MarkerDetailsView.as_view()),
-    url(r'brapi/v1/markers/?$', MarkerView.as_view()),
+    url(r'brapi/v1/markers-search/?$', MarkerView.as_view()),
     
     url(r'brapi/v1/markerprofiles/(?P<markerprofileDbId>[^/]+)/?$', MarkerprofileDataView.as_view()),
     url(r'brapi/v1/markerprofiles/?$', MarkerprofileView.as_view()),
